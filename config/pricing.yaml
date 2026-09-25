@@ -1,0 +1,38 @@
+# All prices in USD. Refresh in Phase 0 and Phase 9 (Plan Section 11).
+openai:
+  gpt-6-luna:
+    input_per_1m: 0.10
+    cached_input_per_1m: 0.01
+    cache_write_per_1m: 0.125
+    output_per_1m: 0.50
+    long_context:                 # higher tier for very long prompts; receipts stay in short context
+      input_per_1m: 0.20
+      cached_input_per_1m: 0.02
+      cache_write_per_1m: 0.25
+      output_per_1m: 0.75
+    confirmed_in_dashboard_on: 2026-09-25
+    source_url: https://developers.openai.com/api/docs/models/gpt-6-luna
+    checked_on: 2026-09-25
+modal:
+  gpu_per_hour:
+    L4: 0.799
+    A10: 1.102
+    L40S: 1.951
+  free_credit_per_month_starter: 30
+  source_url: https://modal.com/pricing
+  checked_on: 2026-09-25
+azure_document_intelligence:
+  model: prebuilt-read
+  tier: S0
+  per_1000_pages_0_to_1m: 1.50
+  per_1000_pages_over_1m: 0.60
+  free_tier_F0_pages_per_month: 500
+  region: australiaeast
+  source_url: https://prices.azure.com/api/retail/prices
+  checked_on: 2026-09-25
+
+# Owner spend controls (set 2026-09-25)
+spend_controls:
+  openai_project_docduel: {hard_limit_usd_per_month: 20, alert_usd: 10}
+  modal_workspace: {usage_limit_usd: 30, spend_limit_usd: 0, note: "stops when free $30 credit is used; volume storage still accrues"}
+  azure_document_intelligence: {tier: F0, note: "free 500 pages/month; switch to S0 at Gate 2A if needed"}

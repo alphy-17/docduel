@@ -1,0 +1,32 @@
+# Model keys -> provider, model ID, base URL env var, API key env var.
+# Model IDs live ONLY here (Plan Section 14).
+models:
+  openai:
+    provider: openai
+    model_id: gpt-6-luna
+    base_url_env: null            # default OpenAI endpoint
+    api_key_env: OPENAI_API_KEY
+    notes: "D9. Supports Structured Outputs; reasoning_effort none..max. Setting decided in Phase 3."
+    source_url: https://developers.openai.com/api/docs/models/gpt-6-luna
+    checked_on: 2026-09-25
+  small-base:
+    provider: vllm
+    model_id: Qwen/Qwen3.5-4B
+    base_url_env: MODAL_VLLM_BASE_URL
+    api_key_env: MODAL_VLLM_API_KEY
+    status: not_deployed          # deployed in Phase 6
+    notes: "D5. Apache-2.0. Has vision encoder: serve with --language-model-only. Thinking on by default. Needs vLLM >= 0.17."
+    source_url: https://huggingface.co/Qwen/Qwen3.5-4B
+    checked_on: 2026-09-25
+  small-ft-r1:
+    provider: vllm
+    model_id: null                # LoRA adapter name, set in Phase 7
+    base_url_env: MODAL_VLLM_BASE_URL
+    api_key_env: MODAL_VLLM_API_KEY
+    status: not_trained
+  small-ft-r2:
+    provider: vllm
+    model_id: null                # set in Phase 8
+    base_url_env: MODAL_VLLM_BASE_URL
+    api_key_env: MODAL_VLLM_API_KEY
+    status: not_trained

@@ -1,0 +1,2857 @@
+{
+ "dataset_version": "test-v1",
+ "frozen_at": "2026-09-26T04:29:09+00:00",
+ "counts": {
+  "cord:extract": 40,
+  "synthetic_invoice:extract": 15,
+  "synthetic_transactions:categorise": 5,
+  "owner:extract": 8
+ },
+ "notes": "Raw files are not committed. CORD fields vendor_name, document_date and document_number are null (not labelled in CORD) and are not scored.",
+ "documents": [
+  {
+   "id": "cord_test_0000",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0000.png",
+   "sha256": "8612d04b70f430f3aef07fbbd5200e382dcc4152b344cc2eff9f735f05a257c8",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "-TICKET CP",
+      "quantity": 2.0,
+      "unit_price": null,
+      "amount": 60000.0
+     }
+    ],
+    "subtotal": 60000.0,
+    "tax": 5455.0,
+    "service_charge": null,
+    "discount": 60000.0,
+    "total": 60000.0,
+    "payment_method": "card"
+   }
+  },
+  {
+   "id": "cord_test_0001",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0001.png",
+   "sha256": "5852cbe48df03646524e717e987eb3d0ac329a52fd192070b5fda1222a053789",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "J.STB PROMO",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 17500.0
+     },
+     {
+      "description": "Y.B.BAT",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 46000.0
+     },
+     {
+      "description": "Y.BASO PROM",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 27500.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 91000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0009",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0009.png",
+   "sha256": "0411c4d9beb9be65165fdb70c2b60f8bbf9035cc9661be2b8d4c73bbfcff7972",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Bumbu Kaldu Ayam 1",
+      "quantity": null,
+      "unit_price": 36000.0,
+      "amount": 36000.0
+     }
+    ],
+    "subtotal": 36000.0,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": null,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0010",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0010.png",
+   "sha256": "2a5d18c199bdbb75010a54430429cf694b35bdca8bf560d1d0db1fbb090dedb8",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "CINNAMON SUGAR",
+      "quantity": 1.0,
+      "unit_price": 17000.0,
+      "amount": 17000.0
+     }
+    ],
+    "subtotal": 17000.0,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 17000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0011",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0011.png",
+   "sha256": "d92479ab212713e7a65e56aacc5e68c0713597476608cbc394d997971043010b",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "BANABERRY FRESH CREAM CAK",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 230000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 230000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0012",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0012.png",
+   "sha256": "b5f8a3a9a5431b8e38a8e5a16011d6a5a457f7ae4c4ef31da77e589c0b1ad882",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "BLUS WANITA",
+      "quantity": 1.0,
+      "unit_price": 120000.0,
+      "amount": null
+     },
+     {
+      "description": "SHOPPING BAG",
+      "quantity": 1.0,
+      "unit_price": 880.0,
+      "amount": null
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 120000.0,
+    "payment_method": "card"
+   }
+  },
+  {
+   "id": "cord_test_0013",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0013.png",
+   "sha256": "ca4bf89562b3f55c2c91968ca221a629e48386744a5322596d9c7345648ada13",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "BASO KUAH",
+      "quantity": 1.0,
+      "unit_price": 43636.0,
+      "amount": 43636.0
+     },
+     {
+      "description": "A.MINERAL GELAS",
+      "quantity": 1.0,
+      "unit_price": 3000.0,
+      "amount": 3000.0
+     }
+    ],
+    "subtotal": 46636.0,
+    "tax": 4664.0,
+    "service_charge": null,
+    "discount": null,
+    "total": 51300.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0014",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0014.png",
+   "sha256": "9dcf1f9f86c909b762767cb07d1cc0db30773d556154ce42e0210f65270ee39d",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "RedVelvet Cheese Slc",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 38000.0
+     },
+     {
+      "description": "Chicken Baked Rice",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 55000.0
+     },
+     {
+      "description": "Fish n Chips",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 65000.0
+     },
+     {
+      "description": "Mushroom Soup",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 35000.0
+     },
+     {
+      "description": "Chamomile",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 25000.0
+     },
+     {
+      "description": "Iced Tea",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 20000.0
+     }
+    ],
+    "subtotal": 238000.0,
+    "tax": 25585.0,
+    "service_charge": 17850.0,
+    "discount": null,
+    "total": 281435.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0015",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0015.png",
+   "sha256": "f1cd67a7d67d04ba8d5b685553b1b5addbf2039d5954ab08c92139c0ad88a796",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Lemon Tea (L)",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 25000.0
+     },
+     {
+      "description": "Caramel Small",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 38000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 63000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0018",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0018.png",
+   "sha256": "88c35bbd2e2a634e89f2c5bfd30f7b530b1082c1f4e6e7cb3cb913f0b46c3868",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Propolis Cair",
+      "quantity": 1.0,
+      "unit_price": 156000.0,
+      "amount": 156000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 156000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0026",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0026.png",
+   "sha256": "ca18f6b8a3b43f3d5b916d382fe2f8e482e318c023884dca8dca3ecc1ab5d562",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Nasi Cap Cay Porsi B esar",
+      "quantity": 1.0,
+      "unit_price": 65000.0,
+      "amount": 65000.0
+     },
+     {
+      "description": "Teh Tawar",
+      "quantity": 2.0,
+      "unit_price": 4000.0,
+      "amount": null
+     },
+     {
+      "description": "Fu Yung Hai",
+      "quantity": 1.0,
+      "unit_price": 65000.0,
+      "amount": 65000.0
+     }
+    ],
+    "subtotal": 138000.0,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 138000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0028",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0028.png",
+   "sha256": "d94cc999dbef6b8384afd158cf4757b4df2bd8fadfc8ba4f077b618dc9c32dc0",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "SAMGYOPSAL",
+      "quantity": 2.0,
+      "unit_price": null,
+      "amount": 194000.0
+     },
+     {
+      "description": "SUL LUNG TANG",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 75000.0
+     },
+     {
+      "description": "MAKOLI",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 100000.0
+     }
+    ],
+    "subtotal": 369000.0,
+    "tax": 38745.0,
+    "service_charge": 18450.0,
+    "discount": 0.0,
+    "total": 426195.0,
+    "payment_method": null
+   }
+  },
+  {
+   "id": "cord_test_0030",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0030.png",
+   "sha256": "52879816c28ebc3a7bc777c31685fb71f36bc4d1f7d7dc9c0b743fc5aced84de",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Kupon 3",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 28636.0
+     }
+    ],
+    "subtotal": 28636.0,
+    "tax": 2864.0,
+    "service_charge": null,
+    "discount": null,
+    "total": 31500.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0032",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0032.jpg",
+   "sha256": "440c9c510b4960489de67cb18660aab6ae3e716b4c89f19e95318bc6e86e9f2a",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "THAI ICED GREEN TEA",
+      "quantity": 1.0,
+      "unit_price": 24000.0,
+      "amount": 24000.0
+     }
+    ],
+    "subtotal": 24000.0,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 24000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0034",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0034.png",
+   "sha256": "09ad2a1a4d2275e69ba57b605ca2139679523303595f313f28a86566931a0b8b",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Ash Chick Sambal Matah",
+      "quantity": 5.0,
+      "unit_price": null,
+      "amount": 75000.0
+     },
+     {
+      "description": "Jamur Goreng",
+      "quantity": 2.0,
+      "unit_price": null,
+      "amount": 10000.0
+     }
+    ],
+    "subtotal": 85000.0,
+    "tax": 8500.0,
+    "service_charge": null,
+    "discount": null,
+    "total": 93500.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0035",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0035.png",
+   "sha256": "453a4ad5aadf63b2a7efdfa0915d45fd72c426254ab8f7c84d5621d56445794c",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "TWIST DONUT",
+      "quantity": 2.0,
+      "unit_price": null,
+      "amount": 18000.0
+     },
+     {
+      "description": "BANANA DONUT",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 11000.0
+     },
+     {
+      "description": "CREAMCHEESE BREAD",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 13000.0
+     },
+     {
+      "description": "FRANKFRUT SAUSAGE ROLL",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 12000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 54000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0036",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0036.jpg",
+   "sha256": "c1e57e61dfa4c4d4d46b57f9a9f9edaca1f2c1754a6c73c3af81a631e53afd05",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "XXL Crispy Chicken",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 40000.0
+     },
+     {
+      "description": "- Sedang",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 0.0
+     }
+    ],
+    "subtotal": 40000.0,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 40000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0040",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0040.png",
+   "sha256": "58a6ddce5023e3ce90f9b2fd094ff9db3c31a89f9524bd57374f86610227a7f5",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Snack Lestari All",
+      "quantity": 2.0,
+      "unit_price": 27000.0,
+      "amount": 54000.0
+     },
+     {
+      "description": "Bakery Aneka Sisir Banana,Pizza,yoko,Mar mer,Daging,abon,keju,cokelat,dll",
+      "quantity": 2.0,
+      "unit_price": 7000.0,
+      "amount": 14000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 68000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0043",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0043.jpg",
+   "sha256": "6f975b075a7c1f7f6109a68a9dcef1f8c81d5edc4de9c60a6de169b28e21b058",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Cheese Tart",
+      "quantity": 6.0,
+      "unit_price": null,
+      "amount": 165000.0
+     }
+    ],
+    "subtotal": 165000.0,
+    "tax": 15000.0,
+    "service_charge": null,
+    "discount": null,
+    "total": 165000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0044",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0044.png",
+   "sha256": "a5063e010cce24d1b1b91592706533c9741f44391c016b7f4c06f8552328f437",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Combo 1",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 30000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 30000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0045",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0045.png",
+   "sha256": "67503d672ef23dc9805f78218172feece7f6138716651bf2a5cb3100cec5fe54",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Lemon Tea (L).",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 25000.0
+     },
+     {
+      "description": "Mike & Ike Original",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 28000.0
+     },
+     {
+      "description": "Mike & Berry",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 28000.0
+     },
+     {
+      "description": "Roti Keju Manis.",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 7000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 88000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0048",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0048.png",
+   "sha256": "d686ae743789cf4c8366f064c078527f814e50b7447d85442829aef9f3943708",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "S-Hazelnut KOI Cafe",
+      "quantity": 1.0,
+      "unit_price": 25000.0,
+      "amount": 25000.0
+     }
+    ],
+    "subtotal": 22728.0,
+    "tax": 2272.0,
+    "service_charge": null,
+    "discount": null,
+    "total": 25000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0050",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0050.png",
+   "sha256": "2fbca7b3f73887475bb8c178eac690ff7af83ee90cac3d6e2a2e983d4aa38e85",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Superice Cauburry",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 17727.0
+     }
+    ],
+    "subtotal": 17727.0,
+    "tax": 1773.0,
+    "service_charge": null,
+    "discount": null,
+    "total": 19500.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0053",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0053.png",
+   "sha256": "def32b0764325a94ef34f733308bbc477d15bda95928eec41bcf541fef346c5d",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Pecel Komplit + Nasi",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 42000.0
+     },
+     {
+      "description": "SOTO KUDUS",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 47000.0
+     },
+     {
+      "description": "Mineral Water",
+      "quantity": 2.0,
+      "unit_price": null,
+      "amount": 18000.0
+     }
+    ],
+    "subtotal": 107000.0,
+    "tax": 11235.0,
+    "service_charge": 5350.0,
+    "discount": null,
+    "total": 123585.0,
+    "payment_method": null
+   }
+  },
+  {
+   "id": "cord_test_0056",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0056.png",
+   "sha256": "bd0f59b52e491495518284f614d567f839b31c27c6067e53c79557cd1cf8c387",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "AIR MINERAL",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 8181.0
+     }
+    ],
+    "subtotal": 8181.0,
+    "tax": 818.0,
+    "service_charge": null,
+    "discount": null,
+    "total": 8999.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0057",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0057.png",
+   "sha256": "5247f1a4f69149e499d849654335da75cb4a534539cd375b8606f96d2c8a983d",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "ICED TT",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 20000.0
+     },
+     {
+      "description": "ICED GT",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 22000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": null,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0062",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0062.png",
+   "sha256": "bd0c6740660e5ca298761938570aed67136866eee672d92ca8e77a11d632ec36",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "XXI Java Tea (M)",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 18000.0
+     },
+     {
+      "description": "Combo 2",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 30000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 48000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0064",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0064.png",
+   "sha256": "ab257a9dfc56f9c33a30274351a42cfc82700f81ff1b80aef07e511b15570cc0",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "SINGLE SCOOP",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 16000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 16000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0065",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0065.png",
+   "sha256": "dda62a3fee5393ff52b18d3ea0dedd847ffcc711ae2543f7d38b9a51b70a1698",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Bubur Polos + Telur",
+      "quantity": 1.0,
+      "unit_price": 13000.0,
+      "amount": 13000.0
+     }
+    ],
+    "subtotal": 13000.0,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 13000.0,
+    "payment_method": null
+   }
+  },
+  {
+   "id": "cord_test_0070",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0070.png",
+   "sha256": "ca0698c4e0e39499e2b5f2ac1ecac60498fc7554a03f5f298d2eeace5af34fe2",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "UDANG RE",
+      "quantity": 2.0,
+      "unit_price": 216000.0,
+      "amount": 432000.0
+     },
+     {
+      "description": "=*LARGE*==",
+      "quantity": 2.0,
+      "unit_price": null,
+      "amount": null
+     },
+     {
+      "description": "AYM GR JUN NJAN",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 108000.0
+     },
+     {
+      "description": "SAPO TH SEAFOOD",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 172000.0
+     },
+     {
+      "description": "POCAI 3",
+      "quantity": 2.0,
+      "unit_price": 111000.0,
+      "amount": 222000.0
+     },
+     {
+      "description": "=*MEDIUM*=",
+      "quantity": 2.0,
+      "unit_price": null,
+      "amount": null
+     },
+     {
+      "description": "GURAME FILLET M",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 163000.0
+     },
+     {
+      "description": "BIHUN GORENG JJ",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 116000.0
+     },
+     {
+      "description": "ICED TEA",
+      "quantity": 5.0,
+      "unit_price": 12000.0,
+      "amount": 60000.0
+     },
+     {
+      "description": "NASI PUTIH",
+      "quantity": 7.0,
+      "unit_price": 10000.0,
+      "amount": 70000.0
+     }
+    ],
+    "subtotal": 1343000.0,
+    "tax": 142358.0,
+    "service_charge": 80580.0,
+    "discount": null,
+    "total": 1565938.0,
+    "payment_method": null
+   }
+  },
+  {
+   "id": "cord_test_0071",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0071.png",
+   "sha256": "2c73d02e1528bd76ecdfeae8e3e56fa2eaee5997f0473be80a56738e59350dff",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Cuka Apel Tetes",
+      "quantity": 1.0,
+      "unit_price": 198000.0,
+      "amount": 198000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 198000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0073",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0073.png",
+   "sha256": "f7d3da827f59c0623be946b217e9f551c7fb792cabb11b06241595bfad37faf0",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "1001-Choco Bun",
+      "quantity": 1.0,
+      "unit_price": 22000.0,
+      "amount": 22000.0
+     },
+     {
+      "description": "6001-Plastic Bag Small",
+      "quantity": 1.0,
+      "unit_price": 0.0,
+      "amount": 0.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 22000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0075",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0075.png",
+   "sha256": "30005de028db6cf9f6bee01d7dcfbf07360186636f840c511ba40659b4b83184",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "CHOCO PUFF",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 29091.0
+     },
+     {
+      "description": "CREAMY BEEF CLS FTC",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 42727.0
+     },
+     {
+      "description": "NEW ORIENTAL CHK RICE",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 34545.0
+     },
+     {
+      "description": "LIPTON PITCHER",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 54545.0
+     },
+     {
+      "description": "SC/P SUPER SUPREME",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 47273.0
+     },
+     {
+      "description": "CB/P BLACK PEPP BEEF",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 48182.0
+     }
+    ],
+    "subtotal": 256363.0,
+    "tax": 25637.0,
+    "service_charge": null,
+    "discount": null,
+    "total": 282000.0,
+    "payment_method": null
+   }
+  },
+  {
+   "id": "cord_test_0076",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0076.png",
+   "sha256": "bebf2e07acd27c26005e459e6cb5f0dc8af8eb5f202808ef0f82e803c7f2f8d5",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "BASO TAHU",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 46000.0
+     },
+     {
+      "description": "NASI PUTIH",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 6000.0
+     },
+     {
+      "description": "BASO TAHU",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 46000.0
+     },
+     {
+      "description": "NASI PUTIH",
+      "quantity": 2.0,
+      "unit_price": 6000.0,
+      "amount": 12000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": null,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0078",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0078.jpg",
+   "sha256": "2be5ac180bb236185584f83e4d1f3303942ac5bae7622e9d3793d5d6a0ca9f96",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Lemon Tea (L)",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 25000.0
+     },
+     {
+      "description": "Extra Jelly Lychee",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 5000.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 30000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0079",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0079.png",
+   "sha256": "027f8ee65ccc34bad7908f1b5624b5128014e3a799499053fbf0d7f95fdfae16",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "1001-Choco Bun",
+      "quantity": 1.0,
+      "unit_price": 22000.0,
+      "amount": 22000.0
+     },
+     {
+      "description": "6001-Plastic Bag Small",
+      "quantity": 1.0,
+      "unit_price": 0.0,
+      "amount": 0.0
+     }
+    ],
+    "subtotal": null,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 22000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0082",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0082.png",
+   "sha256": "5f93bc30f680281efbdf8f6fdc173df91130d18129cda84de83bef34a15c3a6b",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Chocolate Log Cake",
+      "quantity": 1.0,
+      "unit_price": 115000.0,
+      "amount": 115000.0
+     },
+     {
+      "description": "Snowman Cake Chocolate",
+      "quantity": 1.0,
+      "unit_price": 60000.0,
+      "amount": 60000.0
+     },
+     {
+      "description": "Strawberry Log Cake",
+      "quantity": 2.0,
+      "unit_price": 105000.0,
+      "amount": 210000.0
+     }
+    ],
+    "subtotal": 385000.0,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 385000.0,
+    "payment_method": "card"
+   }
+  },
+  {
+   "id": "cord_test_0086",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0086.png",
+   "sha256": "90cfa5080f92be13fef22693172ca6c775d4f75758136d00e1a3a0ceb2cb7d12",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "Cheezemania",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 9500.0
+     },
+     {
+      "description": "Mamamia",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 12500.0
+     }
+    ],
+    "subtotal": 22000.0,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 22000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0096",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0096.png",
+   "sha256": "ecf08ab2350db2a2861495846cb761ee07307591b708c8042cf8967763e81dc7",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "BBQ Chicken",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 41000.0
+     },
+     {
+      "description": "- Tidak Pedas",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 0.0
+     }
+    ],
+    "subtotal": 41000.0,
+    "tax": null,
+    "service_charge": null,
+    "discount": null,
+    "total": 41000.0,
+    "payment_method": "cash"
+   }
+  },
+  {
+   "id": "cord_test_0098",
+   "source": "cord",
+   "task": "extract",
+   "path": "raw/cord/test/0098.jpg",
+   "sha256": "1bd0166d4fb1a567de3d980bb1905ebe67980c4bcc26b56af81ac7c9a0c985f8",
+   "label": {
+    "vendor_name": null,
+    "document_date": null,
+    "document_number": null,
+    "currency": "IDR",
+    "line_items": [
+     {
+      "description": "BLACK PAPPER MEATBALL PAS",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 79000.0
+     },
+     {
+      "description": "TRUFFLE CREAM",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 77000.0
+     },
+     {
+      "description": "EARL GREY MILK TEA",
+      "quantity": 1.0,
+      "unit_price": null,
+      "amount": 59000.0
+     }
+    ],
+    "subtotal": 215000.0,
+    "tax": 22790.0,
+    "service_charge": 12900.0,
+    "discount": null,
+    "total": 250690.0,
+    "payment_method": null
+   }
+  },
+  {
+   "id": "inv_F_20000",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20000.pdf",
+   "sha256": "cf2c433c6164fe55ef42e7ca4903decd5ed48009cc7ff96ba1012e4d64bc876e",
+   "label": {
+    "vendor_name": "Granite Catering",
+    "document_date": "2026-03-14",
+    "document_number": "A22002",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Power drill 18V",
+      "quantity": 3.0,
+      "unit_price": 220.63,
+      "amount": 661.89
+     },
+     {
+      "description": "Software licence (annual)",
+      "quantity": 10.0,
+      "unit_price": 513.36,
+      "amount": 5133.6
+     }
+    ],
+    "subtotal": 5795.49,
+    "tax": 526.86,
+    "service_charge": null,
+    "discount": null,
+    "total": 5795.49,
+    "payment_method": null
+   },
+   "template": "F",
+   "rendered_as": "text_pdf"
+  },
+  {
+   "id": "inv_F_20001",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20001.pdf",
+   "sha256": "35d7ed6e4e050c141eba07cd58db0b9bcac56e3f44db70991b733dcfddc33af9",
+   "label": {
+    "vendor_name": "Bluegum Landscaping Pty Ltd",
+    "document_date": "2026-06-04",
+    "document_number": "A59571",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "LED downlight fitting",
+      "quantity": 1.0,
+      "unit_price": 31.76,
+      "amount": 31.76
+     },
+     {
+      "description": "Wholesale pastries (tray)",
+      "quantity": 1.0,
+      "unit_price": 66.1,
+      "amount": 66.1
+     },
+     {
+      "description": "Sourdough loaves (dozen)",
+      "quantity": 10.0,
+      "unit_price": 56.14,
+      "amount": 561.4
+     }
+    ],
+    "subtotal": 659.26,
+    "tax": 65.93,
+    "service_charge": null,
+    "discount": null,
+    "total": 725.19,
+    "payment_method": "direct debit"
+   },
+   "template": "F",
+   "rendered_as": "scan"
+  },
+  {
+   "id": "inv_F_20002",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20002.pdf",
+   "sha256": "433f5adeb3c4c4ae2cd9fcddfbe121ba71d6a80a48efc71b9080adaa4be4a927",
+   "label": {
+    "vendor_name": "Summit Joinery Pty Ltd",
+    "document_date": "2026-02-27",
+    "document_number": "INV-44207",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Photo prints A3",
+      "quantity": 5.0,
+      "unit_price": 29.12,
+      "amount": 145.6
+     },
+     {
+      "description": "LED downlight fitting",
+      "quantity": 10.0,
+      "unit_price": 40.24,
+      "amount": 402.4
+     }
+    ],
+    "subtotal": 548.0,
+    "tax": 52.06,
+    "service_charge": null,
+    "discount": 27.4,
+    "total": 572.66,
+    "payment_method": "bank transfer"
+   },
+   "template": "F",
+   "rendered_as": "text_pdf"
+  },
+  {
+   "id": "inv_F_20003",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20003.pdf",
+   "sha256": "bf7f8aa872c1d9528b182abc44cc056b0f96f20709f4bd1253e5156f232433c1",
+   "label": {
+    "vendor_name": "Coastal Hardware",
+    "document_date": "2026-03-22",
+    "document_number": "78059",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Lawn mowing & edging",
+      "quantity": 1.0,
+      "unit_price": 68.65,
+      "amount": 68.65
+     },
+     {
+      "description": "A4 copy paper (5 reams)",
+      "quantity": 1.0,
+      "unit_price": 35.06,
+      "amount": 35.06
+     },
+     {
+      "description": "Venue hire (half day)",
+      "quantity": 2.0,
+      "unit_price": 264.46,
+      "amount": 528.92
+     },
+     {
+      "description": "Monthly IT support plan",
+      "quantity": 1.0,
+      "unit_price": 188.96,
+      "amount": 188.96
+     },
+     {
+      "description": "Coffee & tea service",
+      "quantity": 1.0,
+      "unit_price": 88.71,
+      "amount": 88.71
+     },
+     {
+      "description": "Timber - pine 90x45 (per m)",
+      "quantity": 1.0,
+      "unit_price": 10.03,
+      "amount": 10.03
+     }
+    ],
+    "subtotal": 920.33,
+    "tax": 92.03,
+    "service_charge": null,
+    "discount": null,
+    "total": 1012.36,
+    "payment_method": "paypal"
+   },
+   "template": "F",
+   "rendered_as": "scan"
+  },
+  {
+   "id": "inv_F_20004",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20004.pdf",
+   "sha256": "fdf5ad787775ebdccbaaa6c8c493f64363d58384cd5a169bde25d09fa1418d0b",
+   "label": {
+    "vendor_name": "Coastal Bakery Pty Ltd",
+    "document_date": "2025-11-13",
+    "document_number": "S83043",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Photo prints A3",
+      "quantity": 5.0,
+      "unit_price": 18.96,
+      "amount": 94.8
+     },
+     {
+      "description": "Carpet steam clean",
+      "quantity": 2.0,
+      "unit_price": 357.61,
+      "amount": 715.22
+     },
+     {
+      "description": "Brake pads (front)",
+      "quantity": 2.0,
+      "unit_price": 147.28,
+      "amount": 294.56
+     },
+     {
+      "description": "Logo design package",
+      "quantity": 3.0,
+      "unit_price": 477.33,
+      "amount": 1431.99
+     }
+    ],
+    "subtotal": 2536.57,
+    "tax": 253.66,
+    "service_charge": null,
+    "discount": null,
+    "total": 2790.23,
+    "payment_method": "bank transfer"
+   },
+   "template": "F",
+   "rendered_as": "text_pdf"
+  },
+  {
+   "id": "inv_F_20005",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20005.pdf",
+   "sha256": "82d07adabf5b4b58c06724f8af6d7ca137bc65ddde4b7eead345b722e3a92912",
+   "label": {
+    "vendor_name": "Orchard Photography Pty Ltd",
+    "document_date": "2025-03-19",
+    "document_number": "A59357",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Site visit / call-out fee",
+      "quantity": 2.0,
+      "unit_price": 88.43,
+      "amount": 176.86
+     },
+     {
+      "description": "Screws assorted (box)",
+      "quantity": 4.0,
+      "unit_price": 17.62,
+      "amount": 70.48
+     }
+    ],
+    "subtotal": 247.34,
+    "tax": 22.49,
+    "service_charge": null,
+    "discount": null,
+    "total": 247.34,
+    "payment_method": null
+   },
+   "template": "F",
+   "rendered_as": "scan"
+  },
+  {
+   "id": "inv_F_20006",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20006.pdf",
+   "sha256": "71fae6e25944e3d14b898900cb6e3c8af7d944be0826b8d77f3fdf57cf93515d",
+   "label": {
+    "vendor_name": "Granite Print Co",
+    "document_date": "2025-10-10",
+    "document_number": "S47161",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Garden waste removal",
+      "quantity": 2.0,
+      "unit_price": 74.05,
+      "amount": 148.1
+     },
+     {
+      "description": "A4 copy paper (5 reams)",
+      "quantity": 10.0,
+      "unit_price": 27.21,
+      "amount": 272.1
+     }
+    ],
+    "subtotal": 420.2,
+    "tax": 38.2,
+    "service_charge": null,
+    "discount": null,
+    "total": 420.2,
+    "payment_method": "bank transfer"
+   },
+   "template": "F",
+   "rendered_as": "text_pdf"
+  },
+  {
+   "id": "inv_F_20007",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20007.pdf",
+   "sha256": "913f18dbe94435f21608ebe9659c6740f8810d7c666165f210e6e46e5b189acf",
+   "label": {
+    "vendor_name": "Copperleaf Logistics LLC",
+    "document_date": "2026-06-15",
+    "document_number": "A4212",
+    "currency": "USD",
+    "line_items": [
+     {
+      "description": "Laptop setup & configuration",
+      "quantity": 1.0,
+      "unit_price": 154.75,
+      "amount": 154.75
+     },
+     {
+      "description": "Wholesale pastries (tray)",
+      "quantity": 2.0,
+      "unit_price": 37.48,
+      "amount": 74.96
+     },
+     {
+      "description": "Event photography (2 hrs)",
+      "quantity": 1.0,
+      "unit_price": 336.79,
+      "amount": 336.79
+     },
+     {
+      "description": "Website hosting (12 months)",
+      "quantity": 3.0,
+      "unit_price": 207.04,
+      "amount": 621.12
+     },
+     {
+      "description": "LED downlight fitting",
+      "quantity": 1.0,
+      "unit_price": 44.66,
+      "amount": 44.66
+     }
+    ],
+    "subtotal": 1232.28,
+    "tax": 98.58,
+    "service_charge": null,
+    "discount": null,
+    "total": 1330.86,
+    "payment_method": null
+   },
+   "template": "F",
+   "rendered_as": "scan"
+  },
+  {
+   "id": "inv_F_20008",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20008.pdf",
+   "sha256": "d433086cb616b9095b187cb237ed26f5bbac1e7ddcebb4fac752cb6a8a214f6d",
+   "label": {
+    "vendor_name": "Silver Fern Cleaning Services Pty Ltd",
+    "document_date": "2026-01-17",
+    "document_number": "13563",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Timber - pine 90x45 (per m)",
+      "quantity": 4.0,
+      "unit_price": 11.01,
+      "amount": 44.04
+     },
+     {
+      "description": "Office cleaning (per visit)",
+      "quantity": 5.0,
+      "unit_price": 206.68,
+      "amount": 1033.4
+     },
+     {
+      "description": "Power drill 18V",
+      "quantity": 4.0,
+      "unit_price": 237.89,
+      "amount": 951.56
+     },
+     {
+      "description": "Event photography (2 hrs)",
+      "quantity": 4.0,
+      "unit_price": 379.24,
+      "amount": 1516.96
+     },
+     {
+      "description": "Site visit / call-out fee",
+      "quantity": 2.0,
+      "unit_price": 140.91,
+      "amount": 281.82
+     },
+     {
+      "description": "Logo design package",
+      "quantity": 1.0,
+      "unit_price": 755.65,
+      "amount": 755.65
+     }
+    ],
+    "subtotal": 4583.43,
+    "tax": 458.34,
+    "service_charge": null,
+    "discount": null,
+    "total": 5041.77,
+    "payment_method": "cash"
+   },
+   "template": "F",
+   "rendered_as": "text_pdf"
+  },
+  {
+   "id": "inv_F_20009",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20009.pdf",
+   "sha256": "b00e1b4ebee2529cba63e977eaa51fa80e303e44a59cd6d63bacb162eeb342bf",
+   "label": {
+    "vendor_name": "Northside Office Supplies Pty Ltd",
+    "document_date": "2025-07-25",
+    "document_number": "16357",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Photo prints A3",
+      "quantity": 10.0,
+      "unit_price": 36.94,
+      "amount": 369.4
+     }
+    ],
+    "subtotal": 369.4,
+    "tax": 36.94,
+    "service_charge": null,
+    "discount": null,
+    "total": 406.34,
+    "payment_method": null
+   },
+   "template": "F",
+   "rendered_as": "scan"
+  },
+  {
+   "id": "inv_F_20010",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20010.pdf",
+   "sha256": "763509e8adb03e7481e91df7c6d6acd8923170f69d6daa5ea01377d149fd7b97",
+   "label": {
+    "vendor_name": "Ironbark Logistics",
+    "document_date": "2025-03-09",
+    "document_number": "TI-57430",
+    "currency": "GBP",
+    "line_items": [
+     {
+      "description": "Copper pipe 15mm x 3m",
+      "quantity": 1.0,
+      "unit_price": 54.83,
+      "amount": 54.83
+     },
+     {
+      "description": "Website hosting (12 months)",
+      "quantity": 3.0,
+      "unit_price": 139.4,
+      "amount": 418.2
+     },
+     {
+      "description": "Vinyl banner 2m x 1m",
+      "quantity": 1.0,
+      "unit_price": 143.58,
+      "amount": 143.58
+     },
+     {
+      "description": "Sourdough loaves (dozen)",
+      "quantity": 1.0,
+      "unit_price": 63.81,
+      "amount": 63.81
+     },
+     {
+      "description": "Printer toner cartridge",
+      "quantity": 2.0,
+      "unit_price": 77.34,
+      "amount": 154.68
+     },
+     {
+      "description": "Power drill 18V",
+      "quantity": 2.0,
+      "unit_price": 216.74,
+      "amount": 433.48
+     }
+    ],
+    "subtotal": 1268.58,
+    "tax": 253.72,
+    "service_charge": null,
+    "discount": null,
+    "total": 1522.3,
+    "payment_method": "card"
+   },
+   "template": "F",
+   "rendered_as": "text_pdf"
+  },
+  {
+   "id": "inv_F_20011",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20011.pdf",
+   "sha256": "db8293e0e6dde5d50fd831a2c8565a8a179631d9af269bfbefa20f87454bfdea",
+   "label": {
+    "vendor_name": "Wattle Signage",
+    "document_date": "2025-12-23",
+    "document_number": "INV-20209",
+    "currency": "GBP",
+    "line_items": [
+     {
+      "description": "Car service - standard",
+      "quantity": 2.0,
+      "unit_price": 338.37,
+      "amount": 676.74
+     }
+    ],
+    "subtotal": 676.74,
+    "tax": 135.35,
+    "service_charge": null,
+    "discount": null,
+    "total": 812.09,
+    "payment_method": "cash"
+   },
+   "template": "F",
+   "rendered_as": "scan"
+  },
+  {
+   "id": "inv_F_20012",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20012.pdf",
+   "sha256": "cc4044c28d055d81e88c50f332ca0838b317cd01bc718d560fe0aaa4db62f82f",
+   "label": {
+    "vendor_name": "Parkside Plumbing Pty Ltd",
+    "document_date": "2025-01-10",
+    "document_number": "S59206",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Garden waste removal",
+      "quantity": 3.0,
+      "unit_price": 106.03,
+      "amount": 318.09
+     },
+     {
+      "description": "Carpet steam clean",
+      "quantity": 2.0,
+      "unit_price": 198.12,
+      "amount": 396.24
+     },
+     {
+      "description": "Brake pads (front)",
+      "quantity": 2.0,
+      "unit_price": 144.38,
+      "amount": 288.76
+     },
+     {
+      "description": "Power drill 18V",
+      "quantity": 5.0,
+      "unit_price": 237.43,
+      "amount": 1187.15
+     }
+    ],
+    "subtotal": 2190.24,
+    "tax": 197.12,
+    "service_charge": null,
+    "discount": 219.02,
+    "total": 2168.34,
+    "payment_method": null
+   },
+   "template": "F",
+   "rendered_as": "text_pdf"
+  },
+  {
+   "id": "inv_F_20013",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20013.pdf",
+   "sha256": "2b61ce398a404d640123acb82ecc19871d476016138cdac02a2f1224f686360c",
+   "label": {
+    "vendor_name": "Northside Office Supplies Pty Ltd",
+    "document_date": "2025-10-07",
+    "document_number": "A94592",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Copper pipe 15mm x 3m",
+      "quantity": 4.0,
+      "unit_price": 35.8,
+      "amount": 143.2
+     },
+     {
+      "description": "Pallet freight",
+      "quantity": 2.0,
+      "unit_price": 234.14,
+      "amount": 468.28
+     },
+     {
+      "description": "LED downlight fitting",
+      "quantity": 10.0,
+      "unit_price": 52.0,
+      "amount": 520.0
+     },
+     {
+      "description": "Photo prints A3",
+      "quantity": 3.0,
+      "unit_price": 19.83,
+      "amount": 59.49
+     }
+    ],
+    "subtotal": 1190.97,
+    "tax": 108.27,
+    "service_charge": null,
+    "discount": null,
+    "total": 1190.97,
+    "payment_method": null
+   },
+   "template": "F",
+   "rendered_as": "scan"
+  },
+  {
+   "id": "inv_F_20014",
+   "source": "synthetic_invoice",
+   "task": "extract",
+   "path": "synthetic/output/invoices/test/inv_F_20014.pdf",
+   "sha256": "59f35c0e0df6beec2b0b38c88b7b5c33f0a50f3abda3abeeea16ae7b00791c63",
+   "label": {
+    "vendor_name": "Copperleaf Photography",
+    "document_date": "2025-08-17",
+    "document_number": "59401",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Timber - pine 90x45 (per m)",
+      "quantity": 4.0,
+      "unit_price": 7.45,
+      "amount": 29.8
+     },
+     {
+      "description": "Courier delivery - metro",
+      "quantity": 2.0,
+      "unit_price": 17.52,
+      "amount": 35.04
+     }
+    ],
+    "subtotal": 64.84,
+    "tax": 5.89,
+    "service_charge": null,
+    "discount": null,
+    "total": 64.84,
+    "payment_method": null
+   },
+   "template": "F",
+   "rendered_as": "text_pdf"
+  },
+  {
+   "id": "owner_37d275e1",
+   "source": "owner",
+   "task": "extract",
+   "path": "owner_receipts_redacted/Perfume.pdf",
+   "sha256": "192c239f6ff1e6f63bc913361f5ea210f5eda92a42ba4f6cdd26948daaf38b06",
+   "label": {
+    "vendor_name": "Palermo Perfumes",
+    "document_date": "2026-06-13",
+    "document_number": "52-30101",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Inspired By Sauvage - Christian Dior (100ml Mens 248)",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 50.0
+     },
+     {
+      "description": "Inspired By Good Girl Blush - Carolina Herrera (100ml Womens 789)",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 50.0
+     },
+     {
+      "description": "Inspired By Born in Roma Extradose Donna - Valentino (women's 819)",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 35.0
+     }
+    ],
+    "subtotal": 135.0,
+    "tax": 12.28,
+    "service_charge": null,
+    "discount": null,
+    "total": 135.0,
+    "payment_method": "card"
+   }
+  },
+  {
+   "id": "owner_6e9cd376",
+   "source": "owner",
+   "task": "extract",
+   "path": "owner_receipts_redacted/Badminton Tickets 1.pdf",
+   "sha256": "57991509ed7bcfc7c6a873556786e3c74b55f26917ed8997022cead63240ad8b",
+   "label": {
+    "vendor_name": "La Trobe Sport",
+    "document_date": "2026-08-14",
+    "document_number": "553242",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "SC - Badminton Court 1 (17:00-18:00)",
+      "quantity": 1.0,
+      "unit_price": 25.0,
+      "amount": 25.0
+     }
+    ],
+    "subtotal": null,
+    "tax": 2.27,
+    "service_charge": null,
+    "discount": null,
+    "total": 25.0,
+    "payment_method": null
+   }
+  },
+  {
+   "id": "owner_b498201b",
+   "source": "owner",
+   "task": "extract",
+   "path": "owner_receipts_redacted/Officeworks.pdf",
+   "sha256": "6f4fc6386265e608a153f82693811b6d193a207bd8e6b0a5af1a029562fedce9",
+   "label": {
+    "vendor_name": "Officeworks",
+    "document_date": "2026-06-02",
+    "document_number": "9417315001131728",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "JACKSON 6 WAY SWITCH SURGE PB",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 33.0
+     },
+     {
+      "description": "LENOVO 25 FHD 320HZ L25-10",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 198.0
+     },
+     {
+      "description": "LENOVO 25 FHD 320HZ L25-10",
+      "quantity": null,
+      "unit_price": null,
+      "amount": 198.0
+     }
+    ],
+    "subtotal": null,
+    "tax": 39.0,
+    "service_charge": null,
+    "discount": null,
+    "total": 429.0,
+    "payment_method": "card"
+   }
+  },
+  {
+   "id": "owner_c0398287",
+   "source": "owner",
+   "task": "extract",
+   "path": "owner_receipts_redacted/Nike Shoes.PDF",
+   "sha256": "4b53008c47bb3697460424e74fe785958f24ad5c5b9d6408e74c4041621144b5",
+   "label": {
+    "vendor_name": "Rebel Sport",
+    "document_date": "2026-08-01",
+    "document_number": "1607702714",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Standard Freight",
+      "quantity": 1.0,
+      "unit_price": 0.0,
+      "amount": 0.0
+     },
+     {
+      "description": "VOMERO PLUS, Red/gold, 9.5",
+      "quantity": 1.0,
+      "unit_price": 179.99,
+      "amount": 179.99
+     }
+    ],
+    "subtotal": 179.99,
+    "tax": 15.7,
+    "service_charge": null,
+    "discount": 7.3,
+    "total": 172.69,
+    "payment_method": "afterpay"
+   }
+  },
+  {
+   "id": "owner_c07760cb",
+   "source": "owner",
+   "task": "extract",
+   "path": "owner_receipts_redacted/Headphones.pdf",
+   "sha256": "ce6dfb73f0330101e8148fb9fbb1c0f1bc0736c49ebb2486f1d8a7d43be29d39",
+   "label": {
+    "vendor_name": "99 Bikes",
+    "document_date": "2026-06-27",
+    "document_number": "SO2234977",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Headphones Shokz OpenSwim Pro Red",
+      "quantity": 1.0,
+      "unit_price": 219.0,
+      "amount": 219.0
+     }
+    ],
+    "subtotal": 199.09,
+    "tax": 19.91,
+    "service_charge": null,
+    "discount": null,
+    "total": 219.0,
+    "payment_method": null
+   }
+  },
+  {
+   "id": "owner_c750c369",
+   "source": "owner",
+   "task": "extract",
+   "path": "owner_receipts_redacted/Adidas Shoes.pdf",
+   "sha256": "36387d6a37a644ce15829a7ba1331752d9a1346b104ed8a6f5eb93bec004723f",
+   "label": {
+    "vendor_name": "Platypus",
+    "document_date": "2026-07-31",
+    "document_number": "D04600313969",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "ADIZERO PACER N Ftwr White/Core Black/Crystal White 8",
+      "quantity": 1.0,
+      "unit_price": 159.99,
+      "amount": 159.99
+     },
+     {
+      "description": "PLAT SNEAKER PROTECTOR SPRAY No Colour OS",
+      "quantity": 1.0,
+      "unit_price": 19.99,
+      "amount": 19.99
+     },
+     {
+      "description": "Platypus Reusable Bag Standard No Colour OS",
+      "quantity": 1.0,
+      "unit_price": 0.5,
+      "amount": 0.5
+     }
+    ],
+    "subtotal": null,
+    "tax": 16.41,
+    "service_charge": null,
+    "discount": null,
+    "total": 180.48,
+    "payment_method": "card"
+   }
+  },
+  {
+   "id": "owner_cecc6be6",
+   "source": "owner",
+   "task": "extract",
+   "path": "owner_receipts_redacted/Hair Straightener.pdf",
+   "sha256": "d30515275134d0b2ae98861bd63c341617c3694944187c7074bbf61492874770",
+   "label": {
+    "vendor_name": "Amazon",
+    "document_date": "2026-07-13",
+    "document_number": "AU61ACI3AACSI",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Remington Advanced Coconut Therapy Straightener, S8648AU",
+      "quantity": 1.0,
+      "unit_price": 56.0,
+      "amount": 56.0
+     },
+     {
+      "description": "Shipping Charges",
+      "quantity": null,
+      "unit_price": 9.99,
+      "amount": 9.99
+     }
+    ],
+    "subtotal": null,
+    "tax": 5.09,
+    "service_charge": null,
+    "discount": 9.99,
+    "total": 56.0,
+    "payment_method": null
+   }
+  },
+  {
+   "id": "owner_cf140962",
+   "source": "owner",
+   "task": "extract",
+   "path": "owner_receipts_redacted/Adidas Jersey.pdf",
+   "sha256": "3c9c41dcfc5ada95a3b363484f87b6cac0907fca755296cd0132b7da13c63f58",
+   "label": {
+    "vendor_name": "adidas",
+    "document_date": "2026-08-27",
+    "document_number": "0002330442",
+    "currency": "AUD",
+    "line_items": [
+     {
+      "description": "Inter Miami CF 2026 Third Jersey Messi",
+      "quantity": 1.0,
+      "unit_price": 180.0,
+      "amount": 180.0
+     }
+    ],
+    "subtotal": 180.0,
+    "tax": 16.36,
+    "service_charge": null,
+    "discount": null,
+    "total": 180.0,
+    "payment_method": null
+   }
+  },
+  {
+   "id": "tx_test_000",
+   "source": "synthetic_transactions",
+   "task": "categorise",
+   "path": "synthetic/output/transactions/test/tx_test_000.csv",
+   "sha256": "3127ac72d3483119b6088154cbc0f03d6e773d79e0270731bf172024839e6fd1",
+   "label": {
+    "items": [
+     {
+      "row_id": 1,
+      "category": "Dining"
+     },
+     {
+      "row_id": 2,
+      "category": "Dining"
+     },
+     {
+      "row_id": 3,
+      "category": "Dining"
+     },
+     {
+      "row_id": 4,
+      "category": "Groceries"
+     },
+     {
+      "row_id": 5,
+      "category": "Utilities"
+     },
+     {
+      "row_id": 6,
+      "category": "Entertainment"
+     },
+     {
+      "row_id": 7,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 8,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 9,
+      "category": "Utilities"
+     },
+     {
+      "row_id": 10,
+      "category": "Other"
+     },
+     {
+      "row_id": 11,
+      "category": "Utilities"
+     },
+     {
+      "row_id": 12,
+      "category": "Other"
+     },
+     {
+      "row_id": 13,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 14,
+      "category": "Dining"
+     },
+     {
+      "row_id": 15,
+      "category": "Health"
+     },
+     {
+      "row_id": 16,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 17,
+      "category": "Groceries"
+     },
+     {
+      "row_id": 18,
+      "category": "Health"
+     },
+     {
+      "row_id": 19,
+      "category": "Other"
+     },
+     {
+      "row_id": 20,
+      "category": "Dining"
+     }
+    ]
+   },
+   "merchants": [
+    "AUSSIE BROADBAND",
+    "BOOST JUICE",
+    "BPAY PAYMENT",
+    "COSTCO WHOLESALE",
+    "ENERGYAUSTRALIA",
+    "HUNGRY JACKS",
+    "IKEA",
+    "INTL TXN FEE",
+    "MENULOG",
+    "MYER",
+    "NANDOS",
+    "PHYSIO PLUS CLINIC",
+    "RENT TRANSFER",
+    "TERRYWHITE CHEMMART",
+    "VILLAGE CINEMAS"
+   ]
+  },
+  {
+   "id": "tx_test_001",
+   "source": "synthetic_transactions",
+   "task": "categorise",
+   "path": "synthetic/output/transactions/test/tx_test_001.csv",
+   "sha256": "06fe5bc4c53dab3432c6ee93d7864965f7818d680997fdc6064626f9060e598a",
+   "label": {
+    "items": [
+     {
+      "row_id": 1,
+      "category": "Health"
+     },
+     {
+      "row_id": 2,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 3,
+      "category": "Other"
+     },
+     {
+      "row_id": 4,
+      "category": "Dining"
+     },
+     {
+      "row_id": 5,
+      "category": "Health"
+     },
+     {
+      "row_id": 6,
+      "category": "Groceries"
+     },
+     {
+      "row_id": 7,
+      "category": "Dining"
+     },
+     {
+      "row_id": 8,
+      "category": "Transport"
+     },
+     {
+      "row_id": 9,
+      "category": "Entertainment"
+     },
+     {
+      "row_id": 10,
+      "category": "Entertainment"
+     },
+     {
+      "row_id": 11,
+      "category": "Other"
+     },
+     {
+      "row_id": 12,
+      "category": "Entertainment"
+     },
+     {
+      "row_id": 13,
+      "category": "Utilities"
+     },
+     {
+      "row_id": 14,
+      "category": "Other"
+     },
+     {
+      "row_id": 15,
+      "category": "Groceries"
+     },
+     {
+      "row_id": 16,
+      "category": "Dining"
+     },
+     {
+      "row_id": 17,
+      "category": "Dining"
+     },
+     {
+      "row_id": 18,
+      "category": "Other"
+     },
+     {
+      "row_id": 19,
+      "category": "Other"
+     },
+     {
+      "row_id": 20,
+      "category": "Entertainment"
+     }
+    ]
+   },
+   "merchants": [
+    "BOOST JUICE",
+    "BP CONNECT",
+    "BPAY PAYMENT",
+    "COSTCO WHOLESALE",
+    "DISNEY PLUS",
+    "DRAKES SUPERMARKET",
+    "HUNGRY JACKS",
+    "MENULOG",
+    "PHYSIO PLUS CLINIC",
+    "RED ENERGY",
+    "RENT TRANSFER",
+    "TERRYWHITE CHEMMART",
+    "THE GOOD GUYS",
+    "TIMEZONE",
+    "VILLAGE CINEMAS"
+   ]
+  },
+  {
+   "id": "tx_test_002",
+   "source": "synthetic_transactions",
+   "task": "categorise",
+   "path": "synthetic/output/transactions/test/tx_test_002.csv",
+   "sha256": "a1dff5e3310a86ede3698b2d73c8512b1cae00dc80298545198fcc62589b6ff3",
+   "label": {
+    "items": [
+     {
+      "row_id": 1,
+      "category": "Utilities"
+     },
+     {
+      "row_id": 2,
+      "category": "Utilities"
+     },
+     {
+      "row_id": 3,
+      "category": "Transport"
+     },
+     {
+      "row_id": 4,
+      "category": "Health"
+     },
+     {
+      "row_id": 5,
+      "category": "Entertainment"
+     },
+     {
+      "row_id": 6,
+      "category": "Health"
+     },
+     {
+      "row_id": 7,
+      "category": "Other"
+     },
+     {
+      "row_id": 8,
+      "category": "Other"
+     },
+     {
+      "row_id": 9,
+      "category": "Transport"
+     },
+     {
+      "row_id": 10,
+      "category": "Health"
+     },
+     {
+      "row_id": 11,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 12,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 13,
+      "category": "Entertainment"
+     },
+     {
+      "row_id": 14,
+      "category": "Utilities"
+     },
+     {
+      "row_id": 15,
+      "category": "Utilities"
+     },
+     {
+      "row_id": 16,
+      "category": "Transport"
+     },
+     {
+      "row_id": 17,
+      "category": "Entertainment"
+     },
+     {
+      "row_id": 18,
+      "category": "Dining"
+     },
+     {
+      "row_id": 19,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 20,
+      "category": "Health"
+     }
+    ]
+   },
+   "merchants": [
+    "AUSSIE BROADBAND",
+    "BIG W",
+    "BPAY PAYMENT",
+    "DISNEY PLUS",
+    "ENERGYAUSTRALIA",
+    "IKEA",
+    "MEDIBANK",
+    "NANDOS",
+    "OPAL TRAVEL",
+    "PHYSIO PLUS CLINIC",
+    "RED ENERGY",
+    "RENT TRANSFER",
+    "VILLAGE CINEMAS"
+   ]
+  },
+  {
+   "id": "tx_test_003",
+   "source": "synthetic_transactions",
+   "task": "categorise",
+   "path": "synthetic/output/transactions/test/tx_test_003.csv",
+   "sha256": "572c47a501a9d81145c81846fa333b804beb0522e5142b075dddd75aba21444b",
+   "label": {
+    "items": [
+     {
+      "row_id": 1,
+      "category": "Health"
+     },
+     {
+      "row_id": 2,
+      "category": "Transport"
+     },
+     {
+      "row_id": 3,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 4,
+      "category": "Health"
+     },
+     {
+      "row_id": 5,
+      "category": "Other"
+     },
+     {
+      "row_id": 6,
+      "category": "Transport"
+     },
+     {
+      "row_id": 7,
+      "category": "Health"
+     },
+     {
+      "row_id": 8,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 9,
+      "category": "Other"
+     },
+     {
+      "row_id": 10,
+      "category": "Transport"
+     },
+     {
+      "row_id": 11,
+      "category": "Utilities"
+     },
+     {
+      "row_id": 12,
+      "category": "Transport"
+     },
+     {
+      "row_id": 13,
+      "category": "Health"
+     },
+     {
+      "row_id": 14,
+      "category": "Groceries"
+     },
+     {
+      "row_id": 15,
+      "category": "Groceries"
+     },
+     {
+      "row_id": 16,
+      "category": "Dining"
+     },
+     {
+      "row_id": 17,
+      "category": "Other"
+     },
+     {
+      "row_id": 18,
+      "category": "Entertainment"
+     },
+     {
+      "row_id": 19,
+      "category": "Utilities"
+     },
+     {
+      "row_id": 20,
+      "category": "Health"
+     }
+    ]
+   },
+   "merchants": [
+    "BP CONNECT",
+    "BPAY PAYMENT",
+    "DIDI MOBILITY",
+    "DRAKES SUPERMARKET",
+    "HUNGRY JACKS",
+    "MEDIBANK",
+    "MYER",
+    "OPAL TRAVEL",
+    "PHYSIO PLUS CLINIC",
+    "RED ENERGY",
+    "RENT TRANSFER",
+    "SPUDSHED",
+    "TERRYWHITE CHEMMART",
+    "THE GOOD GUYS",
+    "TIMEZONE"
+   ]
+  },
+  {
+   "id": "tx_test_004",
+   "source": "synthetic_transactions",
+   "task": "categorise",
+   "path": "synthetic/output/transactions/test/tx_test_004.csv",
+   "sha256": "83a1f3519c6bdb13dbe51b341cabf97ed927afc8a8fe8234e3e189e96941c23f",
+   "label": {
+    "items": [
+     {
+      "row_id": 1,
+      "category": "Transport"
+     },
+     {
+      "row_id": 2,
+      "category": "Dining"
+     },
+     {
+      "row_id": 3,
+      "category": "Groceries"
+     },
+     {
+      "row_id": 4,
+      "category": "Health"
+     },
+     {
+      "row_id": 5,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 6,
+      "category": "Transport"
+     },
+     {
+      "row_id": 7,
+      "category": "Transport"
+     },
+     {
+      "row_id": 8,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 9,
+      "category": "Health"
+     },
+     {
+      "row_id": 10,
+      "category": "Dining"
+     },
+     {
+      "row_id": 11,
+      "category": "Health"
+     },
+     {
+      "row_id": 12,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 13,
+      "category": "Dining"
+     },
+     {
+      "row_id": 14,
+      "category": "Shopping"
+     },
+     {
+      "row_id": 15,
+      "category": "Other"
+     },
+     {
+      "row_id": 16,
+      "category": "Health"
+     },
+     {
+      "row_id": 17,
+      "category": "Groceries"
+     },
+     {
+      "row_id": 18,
+      "category": "Other"
+     },
+     {
+      "row_id": 19,
+      "category": "Dining"
+     },
+     {
+      "row_id": 20,
+      "category": "Groceries"
+     }
+    ]
+   },
+   "merchants": [
+    "BIG W",
+    "BP CONNECT",
+    "BPAY PAYMENT",
+    "DRAKES SUPERMARKET",
+    "HUNGRY JACKS",
+    "IKEA",
+    "MEDIBANK",
+    "MYER",
+    "NANDOS",
+    "OPAL TRAVEL",
+    "PHYSIO PLUS CLINIC",
+    "RENT TRANSFER",
+    "SPUDSHED",
+    "WILSON PARKING"
+   ]
+  }
+ ]
+}

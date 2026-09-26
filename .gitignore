@@ -20,6 +20,8 @@ frontend/dist/
 data/raw/
 data/cache/
 data/uploads/
+data/owner_receipts*/
+data/splits/
 data/synthetic/output/
 data/train/*.jsonl
 

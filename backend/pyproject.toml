@@ -40,6 +40,10 @@ testpaths = ["tests"]
 markers = ["live: calls real external services (opt-in)"]
 
 [dependency-groups]
+data = [
+    "huggingface-hub>=2.0.0",
+    "pyarrow>=25.0.1",
+]
 dev = [
     "fpdf2>=2.8.8",
     "pytest>=9.1.1",

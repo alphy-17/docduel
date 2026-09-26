@@ -59,10 +59,12 @@ def render_page_png(data: bytes, index: int, scale: float = RENDER_SCALE) -> byt
     pdf = _open(data)
     try:
         page = pdf[index]
-        image = page.render(scale=scale).to_pil()
+        bitmap = page.render(scale=scale)
+        image = bitmap.to_pil().copy()  # copy before pdfium frees the bitmap memory
+        bitmap.close()
+        page.close()
         buf = io.BytesIO()
         image.save(buf, format="PNG", optimize=True)
-        page.close()
         return buf.getvalue()
     finally:
         pdf.close()

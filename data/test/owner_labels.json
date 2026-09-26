@@ -1,0 +1,220 @@
+{
+  "note": "Hand-labelled by Claude from the redacted files; verified by the Owner at Gate 2B. Keyed by file name; the manifest records each file's SHA-256.",
+  "conventions": {
+    "vendor_name": "brand/store name as printed at the top",
+    "document_number": "invoice/receipt/docket/transaction number",
+    "subtotal": "only when a subtotal line is printed",
+    "discount": "promotions, loyalty credits and discounts as a positive number",
+    "payment_method": "card for any credit/debit/EFTPOS payment; null when mixed or not printed"
+  },
+  "labels": {
+    "Adidas Jersey.pdf": {
+      "vendor_name": "adidas",
+      "document_date": "2026-08-27",
+      "document_number": "0002330442",
+      "currency": "AUD",
+      "line_items": [
+        {
+          "description": "Inter Miami CF 2026 Third Jersey Messi",
+          "quantity": 1.0,
+          "unit_price": 180.0,
+          "amount": 180.0
+        }
+      ],
+      "subtotal": 180.0,
+      "tax": 16.36,
+      "service_charge": null,
+      "discount": null,
+      "total": 180.0,
+      "payment_method": null
+    },
+    "Adidas Shoes.pdf": {
+      "vendor_name": "Platypus",
+      "document_date": "2026-07-31",
+      "document_number": "D04600313969",
+      "currency": "AUD",
+      "line_items": [
+        {
+          "description": "ADIZERO PACER N Ftwr White/Core Black/Crystal White 8",
+          "quantity": 1.0,
+          "unit_price": 159.99,
+          "amount": 159.99
+        },
+        {
+          "description": "PLAT SNEAKER PROTECTOR SPRAY No Colour OS",
+          "quantity": 1.0,
+          "unit_price": 19.99,
+          "amount": 19.99
+        },
+        {
+          "description": "Platypus Reusable Bag Standard No Colour OS",
+          "quantity": 1.0,
+          "unit_price": 0.5,
+          "amount": 0.5
+        }
+      ],
+      "subtotal": null,
+      "tax": 16.41,
+      "service_charge": null,
+      "discount": null,
+      "total": 180.48,
+      "payment_method": "card"
+    },
+    "Badminton Tickets 1.pdf": {
+      "vendor_name": "La Trobe Sport",
+      "document_date": "2026-08-14",
+      "document_number": "553242",
+      "currency": "AUD",
+      "line_items": [
+        {
+          "description": "SC - Badminton Court 1 (17:00-18:00)",
+          "quantity": 1.0,
+          "unit_price": 25.0,
+          "amount": 25.0
+        }
+      ],
+      "subtotal": null,
+      "tax": 2.27,
+      "service_charge": null,
+      "discount": null,
+      "total": 25.0,
+      "payment_method": null
+    },
+    "Hair Straightener.pdf": {
+      "vendor_name": "Amazon",
+      "document_date": "2026-07-13",
+      "document_number": "AU61ACI3AACSI",
+      "currency": "AUD",
+      "line_items": [
+        {
+          "description": "Remington Advanced Coconut Therapy Straightener, S8648AU",
+          "quantity": 1.0,
+          "unit_price": 56.0,
+          "amount": 56.0
+        },
+        {
+          "description": "Shipping Charges",
+          "quantity": null,
+          "unit_price": 9.99,
+          "amount": 9.99
+        }
+      ],
+      "subtotal": null,
+      "tax": 5.09,
+      "service_charge": null,
+      "discount": 9.99,
+      "total": 56.0,
+      "payment_method": null
+    },
+    "Headphones.pdf": {
+      "vendor_name": "99 Bikes",
+      "document_date": "2026-06-27",
+      "document_number": "SO2234977",
+      "currency": "AUD",
+      "line_items": [
+        {
+          "description": "Headphones Shokz OpenSwim Pro Red",
+          "quantity": 1.0,
+          "unit_price": 219.0,
+          "amount": 219.0
+        }
+      ],
+      "subtotal": 199.09,
+      "tax": 19.91,
+      "service_charge": null,
+      "discount": null,
+      "total": 219.0,
+      "payment_method": null
+    },
+    "Nike Shoes.PDF": {
+      "vendor_name": "Rebel Sport",
+      "document_date": "2026-08-01",
+      "document_number": "1607702714",
+      "currency": "AUD",
+      "line_items": [
+        {
+          "description": "Standard Freight",
+          "quantity": 1.0,
+          "unit_price": 0.0,
+          "amount": 0.0
+        },
+        {
+          "description": "VOMERO PLUS, Red/gold, 9.5",
+          "quantity": 1.0,
+          "unit_price": 179.99,
+          "amount": 179.99
+        }
+      ],
+      "subtotal": 179.99,
+      "tax": 15.7,
+      "service_charge": null,
+      "discount": 7.3,
+      "total": 172.69,
+      "payment_method": "afterpay"
+    },
+    "Officeworks.pdf": {
+      "vendor_name": "Officeworks",
+      "document_date": "2026-06-02",
+      "document_number": "9417315001131728",
+      "currency": "AUD",
+      "line_items": [
+        {
+          "description": "JACKSON 6 WAY SWITCH SURGE PB",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 33.0
+        },
+        {
+          "description": "LENOVO 25 FHD 320HZ L25-10",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 198.0
+        },
+        {
+          "description": "LENOVO 25 FHD 320HZ L25-10",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 198.0
+        }
+      ],
+      "subtotal": null,
+      "tax": 39.0,
+      "service_charge": null,
+      "discount": null,
+      "total": 429.0,
+      "payment_method": "card"
+    },
+    "Perfume.pdf": {
+      "vendor_name": "Palermo Perfumes",
+      "document_date": "2026-06-13",
+      "document_number": "52-30101",
+      "currency": "AUD",
+      "line_items": [
+        {
+          "description": "Inspired By Sauvage - Christian Dior (100ml Mens 248)",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 50.0
+        },
+        {
+          "description": "Inspired By Good Girl Blush - Carolina Herrera (100ml Womens 789)",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 50.0
+        },
+        {
+          "description": "Inspired By Born in Roma Extradose Donna - Valentino (women's 819)",
+          "quantity": null,
+          "unit_price": null,
+          "amount": 35.0
+        }
+      ],
+      "subtotal": 135.0,
+      "tax": 12.28,
+      "service_charge": null,
+      "discount": null,
+      "total": 135.0,
+      "payment_method": "card"
+    }
+  }
+}

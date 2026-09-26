@@ -6,16 +6,28 @@ models:
     model_id: gpt-6-luna
     base_url_env: null            # default OpenAI endpoint
     api_key_env: OPENAI_API_KEY
-    notes: "D9. Supports Structured Outputs; reasoning_effort none..max. Setting decided in Phase 3."
+    reasoning_effort: medium      # chosen in 3.7 on dev (reports/dev/reasoning_extract_v1.json)
+    notes: "D9. Chat Completions + Structured Outputs + image input. reasoning_effort none..max (API default medium)."
     source_url: https://developers.openai.com/api/docs/models/gpt-6-luna
-    checked_on: 2026-09-25
+    checked_on: 2026-09-26
+  placeholder:
+    # TEMPORARY left panel until Phase 6 serves Qwen (Plan 3.6). Same model, thinking off.
+    provider: openai
+    model_id: gpt-6-luna
+    base_url_env: null
+    api_key_env: OPENAI_API_KEY
+    reasoning_effort: none
+    status: placeholder
+    notes: "Placeholder for small-* until Phase 6. Shown with a PLACEHOLDER label in the UI."
   small-base:
     provider: vllm
     model_id: Qwen/Qwen3.5-4B
     base_url_env: MODAL_VLLM_BASE_URL
     api_key_env: MODAL_VLLM_API_KEY
+    gpu: null                     # Modal GPU type (e.g. L4), set in Phase 6; used for cost
     status: not_deployed          # deployed in Phase 6
-    notes: "D5. Apache-2.0. Has vision encoder: serve with --language-model-only. Thinking on by default. Needs vLLM >= 0.17."
+    extra_body: {chat_template_kwargs: {enable_thinking: false}}   # confirm in Phase 6
+    notes: "D5. Apache-2.0. Has vision encoder; the describe task (3.9) needs it, so do NOT use --language-model-only (check in Phase 6). Thinking on by default. Needs vLLM >= 0.17."
     source_url: https://huggingface.co/Qwen/Qwen3.5-4B
     checked_on: 2026-09-25
   small-ft-r1:
@@ -23,10 +35,17 @@ models:
     model_id: null                # LoRA adapter name, set in Phase 7
     base_url_env: MODAL_VLLM_BASE_URL
     api_key_env: MODAL_VLLM_API_KEY
+    gpu: null                     # Modal GPU type (e.g. L4), set in Phase 6; used for cost
     status: not_trained
   small-ft-r2:
     provider: vllm
     model_id: null                # set in Phase 8
     base_url_env: MODAL_VLLM_BASE_URL
     api_key_env: MODAL_VLLM_API_KEY
+    gpu: null                     # Modal GPU type (e.g. L4), set in Phase 6; used for cost
     status: not_trained
+
+# Which keys fill the two Duel panels. Left moves to the best small-* model from Phase 6.
+duel:
+  left: placeholder
+  right: openai

@@ -1,0 +1,153 @@
+{
+  "source_split": "train",
+  "seed": 2026,
+  "examples": [
+    {
+      "id": "cord_train_0442",
+      "sha256": "9efae910801ca1c476ecc449742e50475f40228f11a4c2a34007e54eb6d10029",
+      "text": "1 SHISAMO MENTAIKO\n33,000\n1 SALMON BACON\n49,000\n1 DYNAMITE SCALLOP\n55,000\n1 TOBIKO TOFU\n29,000\n*\nSUBTTL\n166,000\nSVC\n10,790\nPB1\n17,679\nTOTAL\n194,469",
+      "output": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "SHISAMO MENTAIKO",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 33000.0
+          },
+          {
+            "description": "SALMON BACON",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 49000.0
+          },
+          {
+            "description": "DYNAMITE SCALLOP",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 55000.0
+          },
+          {
+            "description": "TOBIKO TOFU",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 29000.0
+          }
+        ],
+        "subtotal": 166000.0,
+        "tax": 17679.0,
+        "service_charge": 10790.0,
+        "discount": null,
+        "total": 194469.0,
+        "payment_method": null
+      }
+    },
+    {
+      "id": "cord_train_0782",
+      "sha256": "bc65981cfa8daa99009c8f563f6f1f688e776b38795100ec7e2ba1043bced4d4",
+      "text": "R\n1 YIFUMI\n41.818\n1 Yi Fu Mies Small\n31.818\n1 Bakmi Ayam\n28.182\n1 1/2 Baso Sapi\n15.454\n1 Es Teh\n5.454\nPembulatan +\n1\nSubtotal\n122.726\nPB 1\n12.273\n5 Total\n135.000",
+      "output": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "YIFUMI",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 41818.0
+          },
+          {
+            "description": "Yi Fu Mies Small",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 31818.0
+          },
+          {
+            "description": "Bakmi Ayam",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 28182.0
+          },
+          {
+            "description": "1/2 Baso Sapi",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 15454.0
+          },
+          {
+            "description": "Es Teh",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 5454.0
+          }
+        ],
+        "subtotal": 122726.0,
+        "tax": 12273.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 135000.0,
+        "payment_method": null
+      }
+    },
+    {
+      "id": "inv_A_0440",
+      "sha256": "60ea5a1298ae216779eee8c2bb2e16ceb41ce265e2bcdc0f15fa23795c38d9a7",
+      "text": "Harbour Events Pty Ltd TAX INVOICE\n31 Victoria Pde\nMelbourne VIC 3000\nABN 54 55 434 620 839\nBill to:\nParkside Studio\n155 Church St\nBrisbane QLD 4000\nInvoice No: S95981\nDate: 24/02/2025\nDue date: 10/03/2025\nDescription Qty Unit Price Amount\nVenue hire (half day) 5 $510.08 $2,550.40\nConsulting - hourly rate 2 $193.18 $386.36\nWholesale pastries (tray) 4 $74.62 $298.48\nPower drill 18V 2 $144.03 $288.06\nSite visit / call-out fee 2 $111.62 $223.24\nCarpet steam clean 10 $121.96 $1,219.60\nSubtotal $4,966.14\nDiscount -$496.61\nGST included (10%) $406.32\nTOTAL $4,469.53\nPayment method: Bank transfer",
+      "output": {
+        "vendor_name": "Harbour Events Pty Ltd",
+        "document_date": "2025-02-24",
+        "document_number": "S95981",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Venue hire (half day)",
+            "quantity": 5.0,
+            "unit_price": 510.08,
+            "amount": 2550.4
+          },
+          {
+            "description": "Consulting - hourly rate",
+            "quantity": 2.0,
+            "unit_price": 193.18,
+            "amount": 386.36
+          },
+          {
+            "description": "Wholesale pastries (tray)",
+            "quantity": 4.0,
+            "unit_price": 74.62,
+            "amount": 298.48
+          },
+          {
+            "description": "Power drill 18V",
+            "quantity": 2.0,
+            "unit_price": 144.03,
+            "amount": 288.06
+          },
+          {
+            "description": "Site visit / call-out fee",
+            "quantity": 2.0,
+            "unit_price": 111.62,
+            "amount": 223.24
+          },
+          {
+            "description": "Carpet steam clean",
+            "quantity": 10.0,
+            "unit_price": 121.96,
+            "amount": 1219.6
+          }
+        ],
+        "subtotal": 4966.14,
+        "tax": 406.32,
+        "service_charge": null,
+        "discount": 496.61,
+        "total": 4469.53,
+        "payment_method": "bank transfer"
+      }
+    }
+  ]
+}

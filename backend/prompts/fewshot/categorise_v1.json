@@ -1,0 +1,129 @@
+{
+  "source_split": "train",
+  "seed": 2026,
+  "examples": [
+    {
+      "id": "tx_train_016",
+      "sha256": "2762d50c2047eafc1441b2119140ba3ed990571027831b086536ddaf9192eb31",
+      "text": "row_id | date | description | amount\n1 | 2026-08-18 | SHELL COLES EXPRESS | -102.44\n2 | 2026-08-19 | POS CHARITY DONATION #617 CARLTON | -80.00\n3 | 2026-08-19 | PAYPAL *STEAMGAMES 13/07 | -75.60\n4 | 2026-08-20 | EFTPOS CITYLINK MELBOURNE AU | -9.36\n5 | 2026-08-20 | CARD HARRIS FARM MARKETS 4900 MELBOURNE 02/08 | -67.13\n6 | 2026-08-21 | VISA PURCHASE HARRIS FARM MARKETS 3064 | -48.21\n7 | 2026-08-22 | EFTPOS KMART #217 AUS TAP | -91.23\n8 | 2026-08-22 | ORIGIN ENERGY #915 AUS | -258.09",
+      "output": {
+        "items": [
+          {
+            "row_id": 1,
+            "category": "Transport"
+          },
+          {
+            "row_id": 2,
+            "category": "Other"
+          },
+          {
+            "row_id": 3,
+            "category": "Entertainment"
+          },
+          {
+            "row_id": 4,
+            "category": "Transport"
+          },
+          {
+            "row_id": 5,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 6,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 7,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 8,
+            "category": "Utilities"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tx_train_029",
+      "sha256": "bb2812878bcbbb0400512724fbad728aebf0487e339abe2fa204ed8255bda6e0",
+      "text": "row_id | date | description | amount\n1 | 2027-12-11 | SQ *SHELLCOLESEXPRESS #96 | -99.65\n2 | 2027-12-11 | CHARITY DONATION 7256 AUS | -17.15\n3 | 2027-12-11 | CITYLINK #665 GEELONG AU CARD 8217 | -10.88\n4 | 2027-12-11 | POS BLUE FIG CAFE 4239 AUS TAP | -12.10\n5 | 2027-12-11 | GRILLD 8712 | -45.65\n6 | 2027-12-11 | SQ *SPECSAVERS 7757 DOCKLANDS AU CARD 3605 | -139.38\n7 | 2027-12-11 | PAYPAL *MCDONALDS #115 TAP | -18.20\n8 | 2027-12-13 | SECURE PARKING AUS TAP | -10.67",
+      "output": {
+        "items": [
+          {
+            "row_id": 1,
+            "category": "Transport"
+          },
+          {
+            "row_id": 2,
+            "category": "Other"
+          },
+          {
+            "row_id": 3,
+            "category": "Transport"
+          },
+          {
+            "row_id": 4,
+            "category": "Dining"
+          },
+          {
+            "row_id": 5,
+            "category": "Dining"
+          },
+          {
+            "row_id": 6,
+            "category": "Health"
+          },
+          {
+            "row_id": 7,
+            "category": "Dining"
+          },
+          {
+            "row_id": 8,
+            "category": "Transport"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tx_train_031",
+      "sha256": "aa234b8cfeda31acc381dbd4c3947ef638db2ba656b423623fef1c7d8b81130a",
+      "text": "row_id | date | description | amount\n1 | 2028-02-24 | PAYPAL *GUZMANYGOMEZ #459 TORQUAY AU TAP | -33.22\n2 | 2028-02-24 | POS BLUE FIG CAFE 9503 | -21.81\n3 | 2028-02-25 | PAYPAL *COLES 3090 AUS | -16.45\n4 | 2028-02-25 | PAYPAL *AMAZONAU #745 AUS 05/01 | -181.36\n5 | 2028-02-27 | VISA PURCHASE BUPA 8458 AUS CARD 4263 | -193.59\n6 | 2028-02-28 | SPOTIFY BALLARAT AU | -16.07\n7 | 2028-02-28 | PAYPAL *SPOTIFY AUS | -12.19\n8 | 2028-02-28 | SQ *CITYLINK GEELONG 22/04 | -26.86",
+      "output": {
+        "items": [
+          {
+            "row_id": 1,
+            "category": "Dining"
+          },
+          {
+            "row_id": 2,
+            "category": "Dining"
+          },
+          {
+            "row_id": 3,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 4,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 5,
+            "category": "Health"
+          },
+          {
+            "row_id": 6,
+            "category": "Entertainment"
+          },
+          {
+            "row_id": 7,
+            "category": "Entertainment"
+          },
+          {
+            "row_id": 8,
+            "category": "Transport"
+          }
+        ]
+      }
+    }
+  ]
+}

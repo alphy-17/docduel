@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     data_dir: Path = REPO_DIR / "data"
     database_url: str = f"sqlite:///{(BACKEND_DIR / 'docduel.db').as_posix()}"
     live_mode_enabled: bool = False
+    access_code: SecretStr = SecretStr("")  # required on POST /api/runs in live mode
     cors_origins: str = "http://localhost:5173"
 
     # Document ingestion

@@ -8,8 +8,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from docduel.db import init_db
+from docduel.errors import ApiError
 from docduel.ingest.errors import IngestError
-from docduel.routes import documents
+from docduel.routes import documents, runs
 from docduel.settings import BACKEND_DIR, get_settings
 
 load_dotenv(BACKEND_DIR / ".env")
@@ -30,10 +31,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(documents.router)
+app.include_router(runs.router)
 
 
 @app.exception_handler(IngestError)
-async def ingest_error_handler(_: Request, exc: IngestError) -> JSONResponse:
+@app.exception_handler(ApiError)
+async def ingest_error_handler(_: Request, exc: IngestError | ApiError) -> JSONResponse:
     return JSONResponse(
         status_code=exc.status, content={"error_code": exc.error_code, "message": exc.message}
     )

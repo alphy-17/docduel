@@ -1,0 +1,413 @@
+{
+  "created_at": "2026-09-26T05:45:21+00:00",
+  "split": "dev",
+  "prompt_version": "extract_v1",
+  "model_id": "gpt-6-luna",
+  "doc_ids": [
+    "cord_validation_0015",
+    "cord_validation_0040",
+    "cord_validation_0064",
+    "cord_validation_0065",
+    "cord_validation_0082",
+    "cord_validation_0013",
+    "cord_validation_0028",
+    "cord_validation_0076",
+    "cord_validation_0079",
+    "cord_validation_0071",
+    "cord_validation_0053",
+    "cord_validation_0073",
+    "cord_validation_0070",
+    "cord_validation_0093",
+    "cord_validation_0099",
+    "inv_E_10049",
+    "inv_D_10008",
+    "inv_E_10044",
+    "inv_D_10038",
+    "inv_C_10042"
+  ],
+  "note": "Quick dev check for task 3.7; not the Phase 5 benchmark.",
+  "runs": [
+    {
+      "reasoning_effort": "none",
+      "docs": 20,
+      "schema_valid": 20,
+      "field_accuracy": 0.9897,
+      "per_field": {
+        "subtotal": "15/15",
+        "tax": "11/11",
+        "service_charge": "2/2",
+        "discount": "2/2",
+        "total": "20/20",
+        "vendor_name": "5/5",
+        "document_date": "5/5",
+        "document_number": "5/5",
+        "currency": "19/20",
+        "payment_method": "12/12"
+      },
+      "line_item_f1_rough": 0.813,
+      "latency_ms_p50": 1573,
+      "latency_ms_max": 2840,
+      "reasoning_tokens_mean": 0,
+      "cost_usd_total": 0.005339,
+      "cost_per_1000_docs_usd": 0.2669,
+      "errors": {},
+      "per_doc": [
+        {
+          "id": "cord_validation_0015",
+          "fields": "5/5",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0040",
+          "fields": "6/6",
+          "items": "3/3"
+        },
+        {
+          "id": "cord_validation_0064",
+          "fields": "2/3",
+          "items": "1/1"
+        },
+        {
+          "id": "cord_validation_0065",
+          "fields": "5/5",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0082",
+          "fields": "4/4",
+          "items": "3/4"
+        },
+        {
+          "id": "cord_validation_0013",
+          "fields": "5/5",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0028",
+          "fields": "3/3",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0076",
+          "fields": "3/3",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0079",
+          "fields": "4/4",
+          "items": "5/7"
+        },
+        {
+          "id": "cord_validation_0071",
+          "fields": "4/4",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0053",
+          "fields": "3/3",
+          "items": "2/4"
+        },
+        {
+          "id": "cord_validation_0073",
+          "fields": "3/3",
+          "items": "1/1"
+        },
+        {
+          "id": "cord_validation_0070",
+          "fields": "5/5",
+          "items": "3/3"
+        },
+        {
+          "id": "cord_validation_0093",
+          "fields": "4/4",
+          "items": "1/2"
+        },
+        {
+          "id": "cord_validation_0099",
+          "fields": "4/4",
+          "items": "1/4"
+        },
+        {
+          "id": "inv_E_10049",
+          "fields": "7/7",
+          "items": "5/5"
+        },
+        {
+          "id": "inv_D_10008",
+          "fields": "7/7",
+          "items": "2/2"
+        },
+        {
+          "id": "inv_E_10044",
+          "fields": "7/7",
+          "items": "4/4"
+        },
+        {
+          "id": "inv_D_10038",
+          "fields": "7/7",
+          "items": "6/6"
+        },
+        {
+          "id": "inv_C_10042",
+          "fields": "8/8",
+          "items": "1/1"
+        }
+      ]
+    },
+    {
+      "reasoning_effort": "low",
+      "docs": 20,
+      "schema_valid": 20,
+      "field_accuracy": 0.9794,
+      "per_field": {
+        "subtotal": "15/15",
+        "tax": "11/11",
+        "service_charge": "2/2",
+        "discount": "2/2",
+        "total": "20/20",
+        "vendor_name": "5/5",
+        "document_date": "5/5",
+        "document_number": "5/5",
+        "currency": "18/20",
+        "payment_method": "12/12"
+      },
+      "line_item_f1_rough": 0.8264,
+      "latency_ms_p50": 2174,
+      "latency_ms_max": 7601,
+      "reasoning_tokens_mean": 123,
+      "cost_usd_total": 0.006528,
+      "cost_per_1000_docs_usd": 0.3264,
+      "errors": {},
+      "per_doc": [
+        {
+          "id": "cord_validation_0015",
+          "fields": "5/5",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0040",
+          "fields": "6/6",
+          "items": "3/3"
+        },
+        {
+          "id": "cord_validation_0064",
+          "fields": "2/3",
+          "items": "1/1"
+        },
+        {
+          "id": "cord_validation_0065",
+          "fields": "5/5",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0082",
+          "fields": "4/4",
+          "items": "3/4"
+        },
+        {
+          "id": "cord_validation_0013",
+          "fields": "4/5",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0028",
+          "fields": "3/3",
+          "items": "1/2"
+        },
+        {
+          "id": "cord_validation_0076",
+          "fields": "3/3",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0079",
+          "fields": "4/4",
+          "items": "6/7"
+        },
+        {
+          "id": "cord_validation_0071",
+          "fields": "4/4",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0053",
+          "fields": "3/3",
+          "items": "2/4"
+        },
+        {
+          "id": "cord_validation_0073",
+          "fields": "3/3",
+          "items": "1/1"
+        },
+        {
+          "id": "cord_validation_0070",
+          "fields": "5/5",
+          "items": "3/3"
+        },
+        {
+          "id": "cord_validation_0093",
+          "fields": "4/4",
+          "items": "1/2"
+        },
+        {
+          "id": "cord_validation_0099",
+          "fields": "4/4",
+          "items": "1/4"
+        },
+        {
+          "id": "inv_E_10049",
+          "fields": "7/7",
+          "items": "5/5"
+        },
+        {
+          "id": "inv_D_10008",
+          "fields": "7/7",
+          "items": "2/2"
+        },
+        {
+          "id": "inv_E_10044",
+          "fields": "7/7",
+          "items": "4/4"
+        },
+        {
+          "id": "inv_D_10038",
+          "fields": "7/7",
+          "items": "6/6"
+        },
+        {
+          "id": "inv_C_10042",
+          "fields": "8/8",
+          "items": "1/1"
+        }
+      ]
+    },
+    {
+      "reasoning_effort": "medium",
+      "docs": 20,
+      "schema_valid": 20,
+      "field_accuracy": 0.9897,
+      "per_field": {
+        "subtotal": "15/15",
+        "tax": "11/11",
+        "service_charge": "2/2",
+        "discount": "2/2",
+        "total": "20/20",
+        "vendor_name": "5/5",
+        "document_date": "5/5",
+        "document_number": "5/5",
+        "currency": "20/20",
+        "payment_method": "11/12"
+      },
+      "line_item_f1_rough": 0.9123,
+      "latency_ms_p50": 2494,
+      "latency_ms_max": 12221,
+      "reasoning_tokens_mean": 244,
+      "cost_usd_total": 0.007667,
+      "cost_per_1000_docs_usd": 0.3834,
+      "errors": {},
+      "per_doc": [
+        {
+          "id": "cord_validation_0015",
+          "fields": "5/5",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0040",
+          "fields": "6/6",
+          "items": "3/3"
+        },
+        {
+          "id": "cord_validation_0064",
+          "fields": "3/3",
+          "items": "1/1"
+        },
+        {
+          "id": "cord_validation_0065",
+          "fields": "5/5",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0082",
+          "fields": "4/4",
+          "items": "3/4"
+        },
+        {
+          "id": "cord_validation_0013",
+          "fields": "5/5",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0028",
+          "fields": "3/3",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0076",
+          "fields": "3/3",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0079",
+          "fields": "3/4",
+          "items": "7/7"
+        },
+        {
+          "id": "cord_validation_0071",
+          "fields": "4/4",
+          "items": "2/2"
+        },
+        {
+          "id": "cord_validation_0053",
+          "fields": "3/3",
+          "items": "2/4"
+        },
+        {
+          "id": "cord_validation_0073",
+          "fields": "3/3",
+          "items": "1/1"
+        },
+        {
+          "id": "cord_validation_0070",
+          "fields": "5/5",
+          "items": "3/3"
+        },
+        {
+          "id": "cord_validation_0093",
+          "fields": "4/4",
+          "items": "1/2"
+        },
+        {
+          "id": "cord_validation_0099",
+          "fields": "4/4",
+          "items": "1/4"
+        },
+        {
+          "id": "inv_E_10049",
+          "fields": "7/7",
+          "items": "5/5"
+        },
+        {
+          "id": "inv_D_10008",
+          "fields": "7/7",
+          "items": "2/2"
+        },
+        {
+          "id": "inv_E_10044",
+          "fields": "7/7",
+          "items": "4/4"
+        },
+        {
+          "id": "inv_D_10038",
+          "fields": "7/7",
+          "items": "6/6"
+        },
+        {
+          "id": "inv_C_10042",
+          "fields": "8/8",
+          "items": "1/1"
+        }
+      ]
+    }
+  ],
+  "total_spent_usd": 0.019533
+}

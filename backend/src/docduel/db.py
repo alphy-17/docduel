@@ -30,6 +30,39 @@ class Document(SQLModel, table=True):
     created_at: datetime = Field(default_factory=_now)
 
 
+class Run(SQLModel, table=True):
+    __tablename__ = "runs"
+
+    id: str = Field(default_factory=lambda: uuid4().hex, primary_key=True)
+    document_id: str = Field(foreign_key="documents.id", index=True)
+    task: str
+    instructions: str | None = None
+    prompt_version: str
+    created_at: datetime = Field(default_factory=_now)
+
+
+class ModelResult(SQLModel, table=True):
+    __tablename__ = "model_results"
+
+    id: str = Field(default_factory=lambda: uuid4().hex, primary_key=True)
+    run_id: str = Field(foreign_key="runs.id", index=True)
+    model_key: str
+    model_id: str | None = None
+    raw_output: str = ""
+    parsed_json: str | None = None  # JSON text, only when schema-valid
+    schema_valid: bool | None = None  # None = task has no schema (custom, describe)
+    ttft_ms: float | None = None
+    latency_ms: float | None = None
+    input_tokens: int = 0
+    cached_input_tokens: int = 0
+    output_tokens: int = 0
+    reasoning_tokens: int = 0
+    cost_usd: float | None = None
+    cold_start: bool = False
+    error_code: str | None = None
+    error: str | None = None
+
+
 @lru_cache
 def get_engine() -> Engine:
     url = get_settings().database_url

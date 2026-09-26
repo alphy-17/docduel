@@ -1,8 +1,8 @@
 """Output contracts (Plan Section 9). Missing values are null, never omitted."""
 
-from typing import Literal
+from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class LineItem(BaseModel):
@@ -56,3 +56,11 @@ class TransactionCategories(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     items: list[TransactionCategory]
+
+
+class SummaryOutput(BaseModel):
+    """summarise task (Plan 9.3): exactly three bullets."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    bullets: Annotated[list[str], Field(min_length=3, max_length=3)]

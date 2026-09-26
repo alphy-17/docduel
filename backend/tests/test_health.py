@@ -10,7 +10,13 @@ def test_health_ok() -> None:
     assert r.status_code == 200
     body = r.json()
     assert body["status"] == "ok"
-    assert set(body["models"]) == {"openai", "small-base", "small-ft-r1", "small-ft-r2"}
+    assert set(body["models"]) == {
+        "openai",
+        "placeholder",
+        "small-base",
+        "small-ft-r1",
+        "small-ft-r2",
+    }
 
 
 def test_health_never_leaks_keys(monkeypatch) -> None:

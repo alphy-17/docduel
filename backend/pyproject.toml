@@ -5,12 +5,17 @@ description = "DocDuel backend: fine-tuned small model vs OpenAI on documents"
 requires-python = ">=3.12,<3.13"
 license = "MIT"
 dependencies = [
+    "azure-ai-documentintelligence>=1.0.2",
     "fastapi>=0.141.1",
     "httpx>=0.28.1",
     "openai>=3.19.2",
+    "pandas>=3.0.6",
+    "pillow>=12.3.0",
     "pydantic>=2.13.5",
     "pydantic-settings>=2.15.0",
+    "pypdfium2>=5.13.0",
     "python-dotenv>=1.2.3",
+    "python-multipart>=0.0.32",
     "pyyaml>=6.0.3",
     "sqlmodel>=0.0.47",
     "uvicorn[standard]>=0.54.0",
@@ -32,9 +37,11 @@ select = ["E", "F", "I", "B", "UP"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["live: calls real external services (opt-in)"]
 
 [dependency-groups]
 dev = [
+    "fpdf2>=2.8.8",
     "pytest>=9.1.1",
     "ruff>=0.16.9",
 ]

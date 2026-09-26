@@ -19,6 +19,7 @@ frontend/dist/
 # Data (rebuilt by scripts)
 data/raw/
 data/cache/
+data/uploads/
 data/synthetic/output/
 data/train/*.jsonl
 

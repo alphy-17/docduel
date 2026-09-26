@@ -9,6 +9,7 @@ class DocumentOut(BaseModel):
     ocr_ms: int
     is_test_document: bool
     already_ingested: bool = False
+    can_describe: bool = False  # image kept in memory for ~15 min after upload
 
 
 class ErrorOut(BaseModel):

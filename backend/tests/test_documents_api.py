@@ -55,6 +55,15 @@ def test_upload_errors_are_json(client, fixture_bytes):
     r = _post(client, fixture_bytes, "fake.pdf")
     assert r.status_code == 415
     assert r.json()["error_code"] == "file_type_mismatch"
-    r = _post(client, fixture_bytes, "transactions_bad.csv")
-    assert r.status_code == 422
-    assert r.json()["error_code"] == "csv_missing_columns"
+    r = _post(client, fixture_bytes, "transactions_bad.csv")  # any CSV is accepted now
+    assert r.status_code == 200 and r.json()["kind"] == "csv"
+
+
+def test_photo_upload_is_ready_for_describe(client, fixture_bytes):
+    from docduel.runs import image_store
+
+    image_store.clear()
+    body = _post(client, fixture_bytes, "receipt_photo.jpg").json()
+    assert body["kind"] == "image" and body["can_describe"] is True
+    assert _post(client, fixture_bytes, "receipt_text.pdf").json()["can_describe"] is False
+    image_store.clear()

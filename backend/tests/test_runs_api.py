@@ -46,10 +46,17 @@ def setup():
     app.dependency_overrides[get_client_factory] = lambda: lambda spec: clients[spec.key]
     with Session(engine) as s:
         pdf = Document(sha256="a", kind="pdf_text", text="Invoice 1 total 10", pages=1)
-        csv = Document(sha256="b", kind="csv", text="row_id | ...", pages=1)
-        s.add_all([pdf, csv])
+        csv = Document(
+            sha256="b",
+            kind="csv",
+            text="row_id | date | description | amount\n1 | x | y | 1",
+            pages=1,
+        )
+        table = Document(sha256="c", kind="csv", text="name | score\nA | 1", pages=1)
+        photo = Document(sha256="d", kind="image", text="OCR text", pages=1)
+        s.add_all([pdf, csv, table, photo])
         s.commit()
-        ids = {"pdf": pdf.id, "csv": csv.id}
+        ids = {"pdf": pdf.id, "csv": csv.id, "table": table.id, "photo": photo.id}
     yield TestClient(app), clients, ids
     app.dependency_overrides.clear()
 
@@ -104,6 +111,9 @@ def test_broken_left_key_right_still_completes(setup) -> None:
         ("pdf", "categorise", {}, "wrong_task"),
         ("csv", "extract", {}, "wrong_task"),
         ("pdf", "custom", {}, "instructions_required"),
+        ("table", "categorise", {}, "wrong_task"),
+        ("pdf", "describe", {}, "wrong_task"),
+        ("photo", "describe", {}, "image_expired"),
         ("missing", "extract", {}, "document_not_found"),
     ],
 )
@@ -131,3 +141,33 @@ def test_stream_unknown_run_is_json_404(setup) -> None:
     client, _, _ = setup
     r = client.get("/api/runs/nope/stream")
     assert r.status_code == 404 and r.json()["error_code"] == "run_not_found"
+
+
+def test_any_csv_can_be_summarised(setup) -> None:
+    client, _, ids = setup
+    r = client.post("/api/runs", json={"document_id": ids["table"], "task": "summarise"})
+    assert r.status_code == 200
+
+
+def test_describe_sends_the_image_to_both_models(setup) -> None:
+    from docduel.runs import image_store
+
+    client, clients, ids = setup
+    seen = []
+
+    class PlainClient(FakeClient):
+        async def stream(self, messages, response_format=None):
+            seen.append(messages[-1]["content"][1]["image_url"]["url"][:23])
+            yield Delta("A red square.")
+            yield Finished("A red square.", 900, 0, 5, 0, 5.0, 9.0)
+
+    clients["placeholder"], clients["openai"] = PlainClient(), PlainClient()
+    image_store.put(ids["photo"], b"\xff\xd8fakejpeg")
+    run_id = client.post(
+        "/api/runs", json={"document_id": ids["photo"], "task": "describe"}
+    ).json()["run_id"]
+    events = _events(client.get(f"/api/runs/{run_id}/stream").text)
+    done = [d for n, d in events if n == "model.completed"]
+    assert len(done) == 2 and all(d["output"] == "A red square." for d in done)
+    assert seen == ["data:image/jpeg;base64,"] * 2
+    image_store.clear()

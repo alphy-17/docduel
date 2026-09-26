@@ -51,8 +51,15 @@ def ingest_bytes(
     )
 
     if ftype == "csv":
-        df = csv_ingest.parse_transactions(data)
-        doc.kind, doc.text, doc.csv_rows = "csv", csv_ingest.render_for_prompt(df), len(df)
+        try:
+            df = csv_ingest.parse_transactions(data)
+            text = csv_ingest.render_for_prompt(df)
+        except IngestError as exc:
+            if exc.error_code != "csv_missing_columns":
+                raise
+            df = csv_ingest.parse_table(data)  # any CSV: fine for summarise/custom
+            text = csv_ingest.render_table(df)
+        doc.kind, doc.text, doc.csv_rows = "csv", text, len(df)
 
     elif ftype == "pdf":
         pages = pdf.read_text_layer(data)

@@ -5,10 +5,12 @@ from fastapi import APIRouter, Depends, UploadFile
 from sqlmodel import Session, select
 
 from docduel.db import Document, get_session
-from docduel.ingest import IngestError, ingest_bytes
+from docduel.ingest import IngestError, filetype, ingest_bytes
 from docduel.ingest.factory import build_ocr
 from docduel.ingest.limits import MAX_FILE_BYTES
 from docduel.ingest.ocr_azure import CachedOcr
+from docduel.ingest.vision import DESCRIBE_KINDS, prepare_for_model
+from docduel.runs import image_store
 from docduel.schemas.api import DocumentOut
 from docduel.settings import Settings, get_settings
 from docduel.testset import is_test_document
@@ -31,7 +33,15 @@ def _out(doc: Document, already: bool) -> DocumentOut:
         ocr_ms=doc.ocr_ms,
         is_test_document=is_test_document(doc.sha256),
         already_ingested=already,
+        can_describe=image_store.get(doc.id) is not None,
     )
+
+
+async def _remember_image(doc: Document, data: bytes, filename: str | None) -> None:
+    """Keep the resized image in memory for the describe task (never on disk)."""
+    if doc.kind in DESCRIBE_KINDS:
+        jpeg = await asyncio.to_thread(prepare_for_model, data, filetype.detect(data, filename))
+        image_store.put(doc.id, jpeg)
 
 
 @router.post("/documents", response_model=DocumentOut)
@@ -50,6 +60,7 @@ async def upload_document(
 
     existing = session.exec(select(Document).where(Document.sha256 == sha256_hex(data))).first()
     if existing:
+        await _remember_image(existing, data, file.filename)
         return _out(existing, already=True)
 
     doc = await asyncio.to_thread(ingest_bytes, data, file.filename, ocr)
@@ -69,4 +80,5 @@ async def upload_document(
     session.add(row)
     session.commit()
     session.refresh(row)
+    await _remember_image(row, data, file.filename)
     return _out(row, already=False)

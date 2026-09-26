@@ -18,9 +18,13 @@ from sqlmodel import Session, select
 
 from docduel.db import Document, ModelResult, Run, get_engine, get_session
 from docduel.errors import ApiError
+from docduel.ingest.csv import is_transactions_text
+from docduel.ingest.vision import DESCRIBE_KINDS
 from docduel.models.client import client_for
 from docduel.models.registry import duel_keys, load_models
+from docduel.runs import image_store
 from docduel.runs.orchestrator import ClientFactory, run_duel
+from docduel.runs.prompting import VERSION as PROMPT_VERSION
 from docduel.runs.prompting import build_prompt
 from docduel.runs.store import create_run, save_outcomes
 from docduel.settings import Settings, get_settings
@@ -41,15 +45,25 @@ class RunCreated(BaseModel):
     run_id: str
 
 
+IMAGE_GONE = "image_expired"
+
+
 def get_client_factory() -> ClientFactory:
     return client_for
 
 
 def _check_task(doc: Document, body: RunIn) -> None:
     if body.task == "describe":
-        raise ApiError("not_implemented", "The describe task is added in step 3.9.", 501)
-    if body.task == "categorise" and doc.kind != "csv":
-        raise ApiError("wrong_task", "Categorise needs a CSV of transactions.", 422)
+        if doc.kind not in DESCRIBE_KINDS:
+            raise ApiError("wrong_task", "Describe needs a photo, image or scanned PDF.", 422)
+        if image_store.get(doc.id) is None:
+            raise ApiError(IMAGE_GONE, "The image is no longer in memory; upload it again.", 410)
+    if body.task == "categorise" and not (doc.kind == "csv" and is_transactions_text(doc.text)):
+        raise ApiError(
+            "wrong_task",
+            "Categorise needs a CSV with date, description and amount columns.",
+            422,
+        )
     if body.task == "extract" and doc.kind == "csv":
         raise ApiError("wrong_task", "Extract needs a receipt or invoice, not a CSV.", 422)
     if body.task == "custom" and not (body.instructions or "").strip():
@@ -71,7 +85,7 @@ def start_run(
     if doc is None:
         raise ApiError("document_not_found", "No document with that id.", 404)
     _check_task(doc, body)
-    version = build_prompt(body.task, text="", instructions=body.instructions or "x").version
+    version = f"{body.task}_{PROMPT_VERSION}"
     run = create_run(session, doc.id, body.task, version, body.instructions)
     return RunCreated(run_id=run.id)
 
@@ -123,6 +137,8 @@ def _run_for_stream(
         stored = list(session.exec(select(ModelResult).where(ModelResult.run_id == run_id)))
     if not stored and run_id in _active:
         raise ApiError("run_in_progress", "This run is already streaming.", 409)
+    if not stored and run.task == "describe" and image_store.get(run.document_id) is None:
+        raise ApiError(IMAGE_GONE, "The image is no longer in memory; upload it again.", 410)
     return run, stored
 
 
@@ -141,7 +157,13 @@ async def stream_run(
     # Own session: the stream outlives the request's normal dependency lifetime.
     with Session(engine) as session:
         doc = session.get(Document, run.document_id)
-        prompt = build_prompt(run.task, text=doc.text, instructions=run.instructions)
+        image = image_store.get(run.document_id)
+        prompt = build_prompt(
+            run.task,
+            text=doc.text,
+            instructions=run.instructions,
+            image=(image, "image/jpeg") if run.task == "describe" and image else None,
+        )
         models = load_models()
         specs = [models[k] for k in duel_keys()]
 

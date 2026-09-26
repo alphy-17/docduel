@@ -41,9 +41,23 @@ def test_good_csv(fixture_bytes):
     assert lines[1] == "1 | 2026-08-01 | SQ *BLUE FIG CAFE 4411 GEELONG | -10.40"
 
 
-def test_bad_csv_is_rejected(fixture_bytes):
+def test_any_csv_is_accepted_as_a_table(fixture_bytes):
+    # Plan 3.9: CSVs without date/description/amount still work for summarise/custom.
+    from docduel.ingest.csv import is_transactions_text
+
+    doc = ingest_bytes(fixture_bytes("transactions_bad.csv"), "transactions_bad.csv")
+    assert doc.kind == "csv" and doc.csv_rows == 2
+    assert doc.text.splitlines()[0] == "when | what"
+    assert not is_transactions_text(doc.text)
+    good = ingest_bytes(fixture_bytes("transactions_good.csv"), "transactions_good.csv")
+    assert is_transactions_text(good.text)
+
+
+def test_strict_parser_still_names_missing_columns(fixture_bytes):
+    from docduel.ingest.csv import parse_transactions
+
     with pytest.raises(IngestError) as err:
-        ingest_bytes(fixture_bytes("transactions_bad.csv"), "transactions_bad.csv")
+        parse_transactions(fixture_bytes("transactions_bad.csv"))
     assert err.value.error_code == "csv_missing_columns"
     assert "amount" in err.value.message
 

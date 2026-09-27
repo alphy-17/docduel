@@ -17,3 +17,17 @@ def _test_hashes() -> frozenset[str]:
 
 def is_test_document(sha256: str) -> bool:
     return sha256 in _test_hashes()
+
+
+@lru_cache
+def _test_docs() -> dict[str, dict]:
+    manifest = get_settings().data_dir / "test" / "manifest.json"
+    if not manifest.exists():
+        return {}
+    data = json.loads(manifest.read_text(encoding="utf-8"))
+    return {item["sha256"]: item for item in data.get("documents", [])}
+
+
+def frozen_entry(sha256: str) -> dict | None:
+    """The frozen test entry (id, task, label) for this file hash, or None."""
+    return _test_docs().get(sha256)

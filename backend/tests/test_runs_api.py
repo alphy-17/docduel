@@ -171,3 +171,59 @@ def test_describe_sends_the_image_to_both_models(setup) -> None:
     assert len(done) == 2 and all(d["output"] == "A red square." for d in done)
     assert seen == ["data:image/jpeg;base64,"] * 2
     image_store.clear()
+
+
+class FixedClient:
+    def __init__(self, text: str) -> None:
+        self.text = text
+
+    async def stream(self, messages, response_format=None):
+        yield Delta(self.text)
+        yield Finished(self.text, 100, 0, 20, 0, 5.0, 9.0)
+
+
+LABEL = {
+    "vendor_name": None,
+    "document_date": None,
+    "document_number": None,
+    "currency": "AUD",
+    "line_items": [{"description": "Coffee", "quantity": 1, "unit_price": None, "amount": 5.0}],
+    "subtotal": None,
+    "tax": None,
+    "service_charge": None,
+    "discount": None,
+    "total": 5.0,
+    "payment_method": None,
+}
+
+
+def test_test_document_gets_ground_truth_scores(setup, monkeypatch) -> None:
+    """Plan 5.5: a frozen test document is scored right/wrong, also on replay."""
+    from docduel.routes import runs as runs_route
+
+    client, clients, ids = setup
+    entry = {"id": "cord_test_9999", "task": "extract", "label": LABEL}
+    monkeypatch.setattr(runs_route, "frozen_entry", lambda sha: entry if sha == "a" else None)
+    clients["openai"] = FixedClient(json.dumps(LABEL))
+    clients["placeholder"] = FixedClient(json.dumps(LABEL | {"total": 6.0, "line_items": []}))
+    run_id = client.post("/api/runs", json={"document_id": ids["pdf"], "task": "extract"}).json()[
+        "run_id"
+    ]
+    for _ in range(2):  # live, then replay
+        events = dict(_events(client.get(f"/api/runs/{run_id}/stream").text))
+        score = events["score.completed"]
+        assert score["mode"] == "ground_truth" and score["test_document_id"] == "cord_test_9999"
+        right, left = score["results"]["openai"], score["results"]["placeholder"]
+        assert right["perfect"] and right["correct_items"] == [0]
+        assert right["fields"] == {"currency": True, "total": True}
+        assert left["fields"]["total"] is False and left["expected"]["total"] == 5.0
+        assert left["items"] == {"tp": 0, "pred": 0, "gold": 1}
+
+
+def test_other_documents_get_no_ground_truth(setup) -> None:
+    client, _, ids = setup
+    run_id = client.post("/api/runs", json={"document_id": ids["pdf"], "task": "summarise"}).json()[
+        "run_id"
+    ]
+    names = [n for n, _ in _events(client.get(f"/api/runs/{run_id}/stream").text)]
+    assert "score.completed" not in names

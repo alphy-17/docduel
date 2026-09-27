@@ -1,24 +1,58 @@
 import { EXTRACT_FIELDS, markField, type Mark } from "@/lib/compare"
 import { money } from "@/lib/format"
-import type { ReceiptExtraction, SummaryOutput, TransactionCategories } from "@/lib/types"
+import type {
+  CategoriseTruth,
+  ExtractTruth,
+  ReceiptExtraction,
+  SummaryOutput,
+  TransactionCategories,
+} from "@/lib/types"
 import { cn } from "@/lib/utils"
 
 const rowTone: Record<Mark, string> = {
   agree: "[&>td:last-child]:font-semibold [&>td:last-child]:text-sage",
   differ: "bg-amber-bg [&>td:last-child]:font-semibold [&>td:last-child]:text-amber",
+  right: "[&>td:last-child]:font-semibold [&>td:last-child]:text-sage",
+  wrong: "bg-rust-bg [&>td:last-child]:font-semibold [&>td:last-child]:text-rust",
   none: "",
 }
 
-export function ExtractView({ out, other }: { out: ReceiptExtraction; other?: ReceiptExtraction }) {
-  const rows = EXTRACT_FIELDS.filter((f) => out[f.key] !== null || (other && other[f.key] !== null))
+function shownValue(v: unknown, kind: "money" | "text", currency: string | null): string | null {
+  if (v === null || v === undefined) return null
+  return kind === "money" ? money(v as number, currency) : String(v)
+}
+
+export function ExtractView({
+  out,
+  other,
+  truth,
+}: {
+  out: ReceiptExtraction
+  other?: ReceiptExtraction
+  truth?: ExtractTruth
+}) {
+  const rows = EXTRACT_FIELDS.filter(
+    (f) => out[f.key] !== null || (other && other[f.key] !== null) || (truth && f.key in truth.fields),
+  )
+  const correct = new Set(truth?.correct_items ?? [])
   return (
     <>
       <table className="w-full border-separate border-spacing-0">
         <tbody>
           {rows.map((f) => {
             const v = out[f.key]
-            const mark = other ? markField(v, other[f.key]) : "none"
-            const shown = v === null ? null : f.kind === "money" ? money(v as number, out.currency) : String(v)
+            const scored = truth && f.key in truth.fields
+            const mark: Mark = truth
+              ? scored
+                ? truth.fields[f.key]
+                  ? "right"
+                  : "wrong"
+                : "none"
+              : other
+                ? markField(v, other[f.key])
+                : "none"
+            const shown = shownValue(v, f.kind, out.currency)
+            const expected = mark === "wrong" ? shownValue(truth!.expected[f.key], f.kind, out.currency) : null
             return (
               <tr key={f.key} className={cn(rowTone[mark], "[&>td]:border-t [&>td]:border-line")}>
                 <td className="w-[42%] rounded-l-md py-2.5 pl-2.5 text-ink-2">{f.label}</td>
@@ -30,6 +64,9 @@ export function ExtractView({ out, other }: { out: ReceiptExtraction; other?: Re
                   )}
                 >
                   {shown ?? "not found"}
+                  {expected !== null && (
+                    <span className="block text-xs font-normal text-ink-2">should be {expected}</span>
+                  )}
                 </td>
               </tr>
             )
@@ -40,10 +77,22 @@ export function ExtractView({ out, other }: { out: ReceiptExtraction; other?: Re
         <div className="mt-3 rounded-md bg-wash p-3 text-[13px]">
           <p className="eyebrow mb-1.5">
             {out.line_items.length} item{out.line_items.length > 1 ? "s" : ""}
+            {truth && (
+              <span className="normal-case tracking-normal">
+                {" "}
+                · {truth.items.tp} of {truth.items.gold} priced items right
+              </span>
+            )}
           </p>
           <ul className="space-y-1">
             {out.line_items.map((it, i) => (
-              <li key={i} className="flex gap-3">
+              <li
+                key={i}
+                className={cn(
+                  "flex gap-3",
+                  truth && (correct.has(i) ? "[&>span:last-child]:font-semibold [&>span:last-child]:text-sage" : "text-rust"),
+                )}
+              >
                 <span className="min-w-0 flex-1 truncate" title={it.description}>
                   {it.quantity && it.quantity !== 1 ? <span className="text-ink-3">{it.quantity} x </span> : null}
                   {it.description}
@@ -65,11 +114,13 @@ export function CategoriesView({
   other,
   labels = [],
   page = 0,
+  truth,
 }: {
   out: TransactionCategories
   other?: TransactionCategories
   labels?: string[]
   page?: number
+  truth?: CategoriseTruth
 }) {
   const theirs = new Map(other?.items.map((i) => [i.row_id, i.category]))
   const rows = out.items.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE)
@@ -84,7 +135,16 @@ export function CategoriesView({
       </thead>
       <tbody>
         {rows.map((i) => {
-          const mark = !other ? "none" : theirs.get(i.row_id) === i.category ? "agree" : "differ"
+          const key = String(i.row_id)
+          const mark: Mark = truth
+            ? truth.rows[key]
+              ? "right"
+              : "wrong"
+            : !other
+              ? "none"
+              : theirs.get(i.row_id) === i.category
+                ? "agree"
+                : "differ"
           return (
             <tr key={i.row_id} className={cn("[&>td]:border-t [&>td]:border-line", rowTone[mark])}>
               <td className="num rounded-l-md py-2 pl-2.5 text-ink-3">{i.row_id}</td>
@@ -93,7 +153,12 @@ export function CategoriesView({
                   {labels[i.row_id - 1]}
                 </td>
               )}
-              <td className="rounded-r-md py-2 pr-2.5">{i.category}</td>
+              <td className="rounded-r-md py-2 pr-2.5">
+                {i.category}
+                {mark === "wrong" && truth?.expected[key] && (
+                  <span className="block text-xs font-normal text-ink-2">should be {truth.expected[key]}</span>
+                )}
+              </td>
             </tr>
           )
         })}

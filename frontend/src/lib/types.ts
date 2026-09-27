@@ -81,3 +81,86 @@ export interface ApiErrorBody {
   error_code: string
   message: string
 }
+
+// score.completed (Plan 5.5): only sent when the uploaded file is a frozen test document.
+export interface ExtractTruth {
+  fields: Record<string, boolean>
+  expected: Record<string, unknown>
+  correct_items: number[]
+  items: { tp: number; pred: number; gold: number }
+  field_accuracy: number | null
+  line_item_f1: number
+  perfect: boolean
+}
+
+export interface CategoriseTruth {
+  rows: Record<string, boolean>
+  expected: Record<string, string>
+  accuracy: number | null
+}
+
+export interface ScoreCompleted {
+  mode: "ground_truth"
+  test_document_id: string
+  results: Record<string, ExtractTruth | CategoriseTruth>
+}
+
+// GET /api/benchmark (Plan 5.6). Every number comes from reports/*.json (rule R5).
+export interface Metric {
+  value: number
+  ci95: [number, number]
+  display: string
+}
+
+export interface SpeedCost {
+  latency_ms_p50: number | null
+  latency_ms_p95: number | null
+  cost_per_1000_docs_usd: number | null
+  cost_usd_total: number
+}
+
+export interface Failure {
+  id: string
+  source: string
+  valid: boolean
+  fields: string
+  wrong_fields: Record<string, { predicted: unknown; expected: unknown }>
+  items: { tp: number; pred: number; gold: number }
+  line_items: { predicted: LineItem[] | null; expected: LineItem[] } | null
+}
+
+export interface ExtractReport {
+  created_at: string
+  docs: number
+  headline: Record<string, Metric | number>
+  per_field: Record<string, { scored: number; accuracy: number; accuracy_exact: number }>
+  worst_failures: Failure[]
+  speed_cost: SpeedCost
+  notes: string[]
+}
+
+export interface CategoriseReport {
+  created_at: string
+  docs: number
+  rows: number
+  headline: Record<string, Metric>
+  confusion_matrix: Record<string, Record<string, number>>
+  speed_cost: SpeedCost
+}
+
+export interface BenchmarkModel {
+  model_id: string | null
+  reasoning_effort: string | null
+  status: string
+  extract: ExtractReport | null
+  categorise: CategoriseReport | null
+}
+
+export interface Benchmark {
+  dataset_version: string
+  prompt_version: string
+  ours: string | null
+  baseline: string
+  relative_score: number | null
+  models: Record<string, BenchmarkModel>
+}

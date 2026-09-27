@@ -1,6 +1,8 @@
 import { Moon, Sun } from "lucide-react"
 import { useEffect, useState } from "react"
 
+import { cn } from "@/lib/utils"
+
 function initialDark(): boolean {
   try {
     const saved = localStorage.getItem("docduel-theme")
@@ -11,7 +13,12 @@ function initialDark(): boolean {
   return window.matchMedia("(prefers-color-scheme: dark)").matches
 }
 
-export function TopBar() {
+const PAGES = [
+  { path: "/", label: "Duel" },
+  { path: "/benchmark", label: "Benchmark" },
+]
+
+export function TopBar({ path, onNavigate }: { path: string; onNavigate: (to: string) => void }) {
   const [dark, setDark] = useState(initialDark)
 
   useEffect(() => {
@@ -26,16 +33,34 @@ export function TopBar() {
   return (
     <header className="drop relative z-10 mx-auto mt-5 max-w-[1240px] px-4 sm:px-5">
       <div className="surface flex h-14 items-center gap-6 rounded-full pr-2 pl-5">
-        <a href="/" className="font-serif text-[21px] font-bold tracking-tight">
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault()
+            onNavigate("/")
+          }}
+          className="font-serif text-[21px] font-bold tracking-tight">
           Doc<span className="text-brand transition-colors duration-500">Duel</span>
         </a>
         <nav aria-label="Main" className="flex gap-1">
-          <a href="/" aria-current="page" className="rounded-full bg-wash px-3.5 py-1.5 font-medium">
-            Duel
-          </a>
-          <span className="hidden px-3.5 py-1.5 font-medium text-ink-3 sm:inline" title="Arrives in Phase 5">
-            Benchmark
-          </span>
+          {PAGES.map((p) => (
+            <a
+              key={p.path}
+              href={p.path}
+              aria-current={path === p.path ? "page" : undefined}
+              onClick={(e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
+                e.preventDefault()
+                onNavigate(p.path)
+              }}
+              className={cn(
+                "rounded-full px-3.5 py-1.5 font-medium transition-colors",
+                path === p.path ? "bg-wash" : "text-ink-2 hover:text-foreground",
+              )}
+            >
+              {p.label}
+            </a>
+          ))}
         </nav>
         <button
           type="button"

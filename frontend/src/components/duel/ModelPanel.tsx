@@ -4,7 +4,14 @@ import { BulletsView, CategoriesView, ExtractView, Pager, TextView } from "@/com
 import type { PanelState } from "@/hooks/useDuel"
 import { count, seconds } from "@/lib/format"
 import { modelTitle } from "@/lib/models"
-import type { ReceiptExtraction, SummaryOutput, Task, TransactionCategories } from "@/lib/types"
+import type {
+  CategoriseTruth,
+  ExtractTruth,
+  ReceiptExtraction,
+  SummaryOutput,
+  Task,
+  TransactionCategories,
+} from "@/lib/types"
 import { cn } from "@/lib/utils"
 
 const ERRORS: Record<string, string> = {
@@ -26,9 +33,10 @@ interface Props {
   rowLabels?: string[]
   page?: number
   onPage?: (p: number) => void
+  truth?: ExtractTruth | CategoriseTruth
 }
 
-export function ModelPanel({ delay, panel, other, task, placeholder, modelId, rowLabels, page = 0, onPage }: Props) {
+export function ModelPanel({ delay, panel, other, task, placeholder, modelId, rowLabels, page = 0, onPage, truth }: Props) {
   const c = panel.completed
   const otherOut = other?.completed?.schema_valid ? other.completed.output : undefined
 
@@ -77,10 +85,20 @@ export function ModelPanel({ delay, panel, other, task, placeholder, modelId, ro
               <pre className="num max-h-56 overflow-auto text-xs whitespace-pre-wrap text-ink-2">{panel.text || String(c.output)}</pre>
             </div>
           ) : task === "extract" ? (
-            <ExtractView out={c.output as ReceiptExtraction} other={otherOut as ReceiptExtraction | undefined} />
+            <ExtractView
+              out={c.output as ReceiptExtraction}
+              other={otherOut as ReceiptExtraction | undefined}
+              truth={truth as ExtractTruth | undefined}
+            />
           ) : task === "categorise" ? (
             <>
-              <CategoriesView out={c.output as TransactionCategories} other={otherOut as TransactionCategories | undefined} labels={rowLabels} page={page} />
+              <CategoriesView
+                out={c.output as TransactionCategories}
+                other={otherOut as TransactionCategories | undefined}
+                labels={rowLabels}
+                page={page}
+                truth={truth as CategoriseTruth | undefined}
+              />
               {onPage && <Pager page={page} total={(c.output as TransactionCategories).items.length} onPage={onPage} />}
             </>
           ) : task === "summarise" ? (

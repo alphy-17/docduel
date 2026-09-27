@@ -1,0 +1,209 @@
+{
+  "created_at": "2026-09-27T00:35:07+00:00",
+  "model_key": "openai",
+  "model_id": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "split": "dev",
+  "prompt": "extract_v1",
+  "task": "extract",
+  "docs_total": 5,
+  "docs_scored": 5,
+  "skipped_budget": [],
+  "scores": {
+    "headline": {
+      "field_accuracy": {
+        "value": 0.85,
+        "ci95": [
+          0.7083,
+          1.0
+        ],
+        "display": "85.0% (70.8-100.0)"
+      },
+      "line_item_f1": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "display": "100.0% (100.0-100.0)"
+      },
+      "perfect_document_rate": {
+        "value": 0.6,
+        "ci95": [
+          0.2,
+          1.0
+        ],
+        "display": "60.0% (20.0-100.0)"
+      },
+      "schema_validity": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "display": "100.0% (100.0-100.0)"
+      },
+      "field_accuracy_exact": 0.85,
+      "line_item_precision": 1.0,
+      "line_item_recall": 1.0
+    },
+    "per_field": {
+      "currency": {
+        "scored": 5,
+        "accuracy": 1.0,
+        "accuracy_exact": 1.0
+      },
+      "subtotal": {
+        "scored": 3,
+        "accuracy": 0.3333333333333333,
+        "accuracy_exact": 0.3333333333333333
+      },
+      "tax": {
+        "scored": 2,
+        "accuracy": 1.0,
+        "accuracy_exact": 1.0
+      },
+      "total": {
+        "scored": 5,
+        "accuracy": 0.8,
+        "accuracy_exact": 0.8
+      },
+      "payment_method": {
+        "scored": 5,
+        "accuracy": 1.0,
+        "accuracy_exact": 1.0
+      }
+    },
+    "by_source": {
+      "cord": {
+        "docs": 5,
+        "field_accuracy": 0.85,
+        "field_accuracy_exact": 0.85,
+        "line_item_precision": 1.0,
+        "line_item_recall": 1.0,
+        "line_item_f1": 1.0,
+        "perfect_document_rate": 0.6,
+        "schema_validity": 1.0
+      }
+    },
+    "worst_failures": [
+      "cord_validation_0002",
+      "cord_validation_0004"
+    ],
+    "per_doc": [
+      {
+        "id": "cord_validation_0000",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": true,
+        "latency_ms": 3105.7694000191987,
+        "cost_usd": 0.0002876
+      },
+      {
+        "id": "cord_validation_0001",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "latency_ms": 3206.016999989515,
+        "cost_usd": 0.0002804
+      },
+      {
+        "id": "cord_validation_0002",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/5",
+        "wrong_fields": {
+          "subtotal": {
+            "predicted": 20000.0,
+            "expected": 18181.0
+          },
+          "total": {
+            "predicted": 100000.0,
+            "expected": 20000.0
+          }
+        },
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": false,
+        "latency_ms": 7216.522700007772,
+        "cost_usd": 0.0006617
+      },
+      {
+        "id": "cord_validation_0003",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/5",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "latency_ms": 3247.743299987633,
+        "cost_usd": 0.000291
+      },
+      {
+        "id": "cord_validation_0004",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/4",
+        "wrong_fields": {
+          "subtotal": {
+            "predicted": null,
+            "expected": 41000.0
+          }
+        },
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": false,
+        "latency_ms": 2584.7648000053596,
+        "cost_usd": 0.0003349
+      }
+    ],
+    "scoring_notes": [
+      "Only fields with non-null ground truth are scored (CORD has no vendor or date).",
+      "Short strings: headline uses fuzzy match (token_set_ratio >= 90); exact also given.",
+      "Zero-priced line items (modifiers, free extras) are ignored on both sides.",
+      "Perfect document = every scored field and every priced line item right.",
+      "95% intervals: 1,000 bootstrap resamples of documents, seed 2026."
+    ]
+  },
+  "speed_cost": {
+    "latency_ms_p50": 3206,
+    "latency_ms_p95": 6423,
+    "ttft_ms_p50": 2827,
+    "cold_starts": 0,
+    "input_tokens_mean": 1874,
+    "output_tokens_mean": 367,
+    "reasoning_tokens_mean": 268,
+    "cost_usd_total": 0.001856,
+    "cost_per_1000_docs_usd": 0.3711,
+    "errors": {}
+  }
+}

@@ -1,9 +1,10 @@
 import type { ReceiptExtraction, TransactionCategories } from "./types"
 
 // Agreement between the two models (Plan 10.5). This is NOT accuracy: for documents outside
-// the test set we do not know the right answer. Ground-truth scoring arrives in Phase 5.
+// the test set we do not know the right answer. Frozen test documents get "right" / "wrong"
+// from the backend's ground-truth scoring instead (Plan 5.5).
 
-export type Mark = "agree" | "differ" | "none"
+export type Mark = "agree" | "differ" | "right" | "wrong" | "none"
 
 export const EXTRACT_FIELDS: { key: keyof ReceiptExtraction; label: string; kind: "money" | "text" }[] = [
   { key: "vendor_name", label: "Vendor", kind: "text" },

@@ -1,7 +1,15 @@
 import { categoryAgreement, extractAgreement } from "@/lib/compare"
 import { count, seconds, usd } from "@/lib/format"
 import type { PanelState } from "@/hooks/useDuel"
-import type { Completed, ReceiptExtraction, Task, TransactionCategories } from "@/lib/types"
+import type {
+  CategoriseTruth,
+  Completed,
+  ExtractTruth,
+  ReceiptExtraction,
+  ScoreCompleted,
+  Task,
+  TransactionCategories,
+} from "@/lib/types"
 import { modelTitle } from "@/lib/models"
 import { cn } from "@/lib/utils"
 
@@ -75,13 +83,38 @@ export function StatsTable({ panels }: { panels: PanelState[] }) {
   )
 }
 
-export function Verdict({ task, panels }: { task: Task | null; panels: PanelState[] }) {
+function truthLine(key: string, r: ExtractTruth | CategoriseTruth | undefined, task: Task): string {
+  if (!r) return `${modelTitle(key)}: no usable answer`
+  if (task === "extract") {
+    const x = r as ExtractTruth
+    const right = Object.values(x.fields).filter(Boolean).length
+    return `${modelTitle(key)}: ${right} of ${Object.keys(x.fields).length} fields and ${x.items.tp} of ${x.items.gold} priced items right`
+  }
+  const c = r as CategoriseTruth
+  const right = Object.values(c.rows).filter(Boolean).length
+  return `${modelTitle(key)}: ${right} of ${Object.keys(c.rows).length} rows right`
+}
+
+export function Verdict({
+  task,
+  panels,
+  truth = null,
+}: {
+  task: Task | null
+  panels: PanelState[]
+  truth?: ScoreCompleted | null
+}) {
   const finished = panels.length >= 2 && panels.every((p) => p.status === "done" || p.status === "error")
   const [a, b] = panels.map((p) => (p.completed?.schema_valid ? p.completed.output : null))
 
   let big: string | null = null
   let text = "Run a duel to see how the two answers compare."
-  if (finished && task) {
+  let lines: string[] = []
+  const graded = finished && !!truth && (task === "extract" || task === "categorise")
+  if (graded && task) {
+    text = `This file is in our frozen test set (${truth.test_document_id}), so both answers are checked against the true answer. Green is right, red is wrong.`
+    lines = panels.map((p) => truthLine(p.key, truth.results[p.key], task))
+  } else if (finished && task) {
     if ((task === "extract" || task === "categorise") && a && b) {
       const r =
         task === "extract"
@@ -106,7 +139,28 @@ export function Verdict({ task, panels }: { task: Task | null; panels: PanelStat
         {big && <div className="num text-[28px] leading-none whitespace-nowrap">{big}</div>}
         <p className="text-ink-2" aria-live="polite">{text}</p>
       </div>
-      {showLegend && finished && (
+      {lines.length > 0 && (
+        <ul className="mt-3 space-y-1">
+          {lines.map((l) => (
+            <li key={l} className="num text-[13px]">
+              {l}
+            </li>
+          ))}
+        </ul>
+      )}
+      {showLegend && finished && graded && (
+        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink-2">
+          <span className="inline-flex items-center gap-1.5">
+            <span className="size-3 rounded-[3px] border border-sage bg-sage-bg" />
+            Right
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="size-3 rounded-[3px] border border-rust bg-rust-bg" />
+            Wrong (the true value is shown under it)
+          </span>
+        </div>
+      )}
+      {showLegend && finished && !graded && (
         <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink-2">
           <span className="inline-flex items-center gap-1.5">
             <span className="size-3 rounded-[3px] border border-sage bg-sage-bg" />

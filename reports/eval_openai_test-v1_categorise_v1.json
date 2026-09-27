@@ -1,0 +1,188 @@
+{
+  "created_at": "2026-09-27T00:36:15+00:00",
+  "model_key": "openai",
+  "model_id": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "split": "test-v1",
+  "prompt": "categorise_v1",
+  "task": "categorise",
+  "docs_total": 5,
+  "docs_scored": 5,
+  "skipped_budget": [],
+  "scores": {
+    "headline": {
+      "accuracy": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "display": "100.0% (100.0-100.0)"
+      },
+      "macro_f1": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "display": "100.0% (100.0-100.0)"
+      },
+      "schema_validity": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "display": "100.0% (100.0-100.0)"
+      }
+    },
+    "confusion_matrix": {
+      "Groceries": {
+        "Groceries": 9,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 0,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Dining": {
+        "Groceries": 0,
+        "Dining": 15,
+        "Transport": 0,
+        "Utilities": 0,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Transport": {
+        "Groceries": 0,
+        "Dining": 0,
+        "Transport": 11,
+        "Utilities": 0,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Utilities": {
+        "Groceries": 0,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 10,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Shopping": {
+        "Groceries": 0,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 0,
+        "Shopping": 14,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Health": {
+        "Groceries": 0,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 0,
+        "Shopping": 0,
+        "Health": 17,
+        "Entertainment": 0,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Entertainment": {
+        "Groceries": 0,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 0,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 9,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Other": {
+        "Groceries": 0,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 0,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 15,
+        "(missing)": 0
+      }
+    },
+    "per_doc": [
+      {
+        "id": "tx_test_000",
+        "valid": true,
+        "correct": 20,
+        "rows": 20,
+        "extra_rows": 0,
+        "error_code": null
+      },
+      {
+        "id": "tx_test_001",
+        "valid": true,
+        "correct": 20,
+        "rows": 20,
+        "extra_rows": 0,
+        "error_code": null
+      },
+      {
+        "id": "tx_test_002",
+        "valid": true,
+        "correct": 20,
+        "rows": 20,
+        "extra_rows": 0,
+        "error_code": null
+      },
+      {
+        "id": "tx_test_003",
+        "valid": true,
+        "correct": 20,
+        "rows": 20,
+        "extra_rows": 0,
+        "error_code": null
+      },
+      {
+        "id": "tx_test_004",
+        "valid": true,
+        "correct": 20,
+        "rows": 20,
+        "extra_rows": 0,
+        "error_code": null
+      }
+    ],
+    "scoring_notes": [
+      "A missing or extra row_id counts as wrong for that row.",
+      "95% intervals: 1,000 bootstrap resamples of documents, seed 2026."
+    ]
+  },
+  "speed_cost": {
+    "latency_ms_p50": 1946,
+    "latency_ms_p95": 2394,
+    "ttft_ms_p50": 1269,
+    "cold_starts": 0,
+    "input_tokens_mean": 1836,
+    "output_tokens_mean": 266,
+    "reasoning_tokens_mean": 66,
+    "cost_usd_total": 0.001584,
+    "cost_per_1000_docs_usd": 0.3167,
+    "errors": {}
+  }
+}

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 
 import { ApiError, openRunStream, startRun, uploadDocument } from "@/lib/api"
 import { parseCsv } from "@/lib/csv"
-import type { Completed, DocumentOut, ModelError, Task } from "@/lib/types"
+import type { Completed, DocumentOut, ModelError, ScoreCompleted, Task } from "@/lib/types"
 
 export const MAX_BYTES = 10 * 1024 * 1024
 export const ACCEPT = ".pdf,.png,.jpg,.jpeg,.webp,.csv"
@@ -50,6 +50,8 @@ export function useDuel() {
   const [rowLabels, setRowLabels] = useState<string[]>([])
   // One page number for both panels, so the same rows line up side by side.
   const [page, setPage] = useState(0)
+  // Ground-truth scores, only for frozen test documents (Plan 5.5). Null means agreement mode.
+  const [truth, setTruth] = useState<ScoreCompleted | null>(null)
   const closeStream = useRef<(() => void) | null>(null)
 
   useEffect(() => () => closeStream.current?.(), [])
@@ -81,6 +83,7 @@ export function useDuel() {
       })
     }
     setPanels([])
+    setTruth(null)
     setPhase("uploading")
     try {
       const d = await uploadDocument(f)
@@ -100,6 +103,7 @@ export function useDuel() {
     setFile(null)
     setDoc(null)
     setPanels([])
+    setTruth(null)
     setNotice(null)
     setPhase("empty")
   }, [])
@@ -109,6 +113,7 @@ export function useDuel() {
     setNotice(null)
     setPanels([])
     setPage(0)
+    setTruth(null)
     setPhase("running")
     setRunTask(task)
     let runId: string
@@ -143,6 +148,7 @@ export function useDuel() {
             : [...all, { key: err.model_key, status: "error", text: "", startedAt: Date.now(), error: err }],
         )
       },
+      onScore: setTruth,
       onDone: () => setPhase("done"),
       onConnectionLost: () => {
         setPhase("done")
@@ -166,6 +172,7 @@ export function useDuel() {
     rowLabels,
     page,
     setPage,
+    truth,
     selectFile,
     clear,
     run,

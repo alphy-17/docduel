@@ -27,7 +27,9 @@ from docduel.runs.orchestrator import ClientFactory, run_duel
 from docduel.runs.prompting import VERSION as PROMPT_VERSION
 from docduel.runs.prompting import build_prompt
 from docduel.runs.store import create_run, save_outcomes
+from docduel.scoring.live import ground_truth_event
 from docduel.settings import Settings, get_settings
+from docduel.testset import frozen_entry
 
 router = APIRouter(prefix="/api")
 
@@ -94,8 +96,21 @@ def _sse(event: str, data: dict[str, Any]) -> ServerSentEvent:
     return ServerSentEvent(event=event, data=data)
 
 
-def _replay(run: Run, rows: list[ModelResult]) -> list[ServerSentEvent]:
+def _score_event(run: Run, entry: dict | None, answers: dict) -> list[ServerSentEvent]:
+    """score.completed for a frozen test document; nothing for other documents."""
+    if entry is None:
+        return []
+    payload = ground_truth_event(run.task, entry, answers)
+    return [_sse("score.completed", payload)] if payload else []
+
+
+def _replay(run: Run, rows: list[ModelResult], entry: dict | None) -> list[ServerSentEvent]:
     events = [_sse("run.started", {"run_id": run.id, "task": run.task, "replayed": True})]
+    answers = {
+        r.model_key: (r.schema_valid, json.loads(r.parsed_json) if r.parsed_json else None)
+        for r in rows
+        if not r.error_code
+    }
     for r in rows:
         if r.error_code:
             events.append(
@@ -122,36 +137,39 @@ def _replay(run: Run, rows: list[ModelResult]) -> list[ServerSentEvent]:
                 },
             )
         )
+    events += _score_event(run, entry, answers)
     events.append(_sse("run.completed", {"run_id": run.id}))
     return events
 
 
 def _run_for_stream(
     run_id: str, engine: Annotated[Engine, Depends(get_engine)]
-) -> tuple[Run, list[ModelResult]]:
+) -> tuple[Run, list[ModelResult], dict | None]:
     """Checks run before the stream starts, so errors are normal JSON responses, not SSE."""
     with Session(engine) as session:
         run = session.get(Run, run_id)
         if run is None:
             raise ApiError("run_not_found", "No run with that id.", 404)
         stored = list(session.exec(select(ModelResult).where(ModelResult.run_id == run_id)))
+        doc = session.get(Document, run.document_id)
+        entry = frozen_entry(doc.sha256) if doc else None
     if not stored and run_id in _active:
         raise ApiError("run_in_progress", "This run is already streaming.", 409)
     if not stored and run.task == "describe" and image_store.get(run.document_id) is None:
         raise ApiError(IMAGE_GONE, "The image is no longer in memory; upload it again.", 410)
-    return run, stored
+    return run, stored, entry
 
 
 @router.get("/runs/{run_id}/stream", response_class=EventSourceResponse)
 async def stream_run(
-    checked: Annotated[tuple[Run, list[ModelResult]], Depends(_run_for_stream)],
+    checked: Annotated[tuple[Run, list[ModelResult], dict | None], Depends(_run_for_stream)],
     engine: Annotated[Engine, Depends(get_engine)],
     factory: Annotated[ClientFactory, Depends(get_client_factory)],
 ) -> AsyncIterator[ServerSentEvent]:
-    run, stored = checked
+    run, stored, entry = checked
     run_id = run.id
     if stored:
-        for ev in _replay(run, stored):
+        for ev in _replay(run, stored, entry):
             yield ev
         return
     # Own session: the stream outlives the request's normal dependency lifetime.
@@ -191,7 +209,13 @@ async def stream_run(
                 except TimeoutError:
                     continue
                 yield _sse(name, data)
-            save_outcomes(session, run_id, task.result())
+            outcomes = task.result()
+            save_outcomes(session, run_id, outcomes)
+            answers = {
+                o.model_key: (o.schema_valid, o.parsed) for o in outcomes if not o.error_code
+            }
+            for ev in _score_event(run, entry, answers):
+                yield ev
             yield _sse("run.completed", {"run_id": run_id})
         finally:
             _active.discard(run_id)

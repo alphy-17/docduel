@@ -1,4 +1,14 @@
-import type { ApiErrorBody, Completed, DocumentOut, HealthModel, ModelError, RunStarted, Task } from "./types"
+import type {
+  ApiErrorBody,
+  Benchmark,
+  Completed,
+  DocumentOut,
+  HealthModel,
+  ModelError,
+  RunStarted,
+  ScoreCompleted,
+  Task,
+} from "./types"
 
 export class ApiError extends Error {
   code: string
@@ -23,6 +33,10 @@ export async function getHealth(): Promise<Record<string, HealthModel>> {
   return body.models
 }
 
+export async function getBenchmark(): Promise<Benchmark> {
+  return readJson<Benchmark>(await fetch("/api/benchmark"))
+}
+
 export async function uploadDocument(file: File): Promise<DocumentOut> {
   const form = new FormData()
   form.append("file", file)
@@ -43,6 +57,7 @@ export interface StreamHandlers {
   onDelta: (modelKey: string, text: string) => void
   onCompleted: (e: Completed) => void
   onError: (e: ModelError) => void
+  onScore: (e: ScoreCompleted) => void
   onDone: () => void
   onConnectionLost: () => void
 }
@@ -63,6 +78,7 @@ export function openRunStream(runId: string, h: StreamHandlers): () => void {
   })
   es.addEventListener("model.completed", (e) => h.onCompleted(parse(e)))
   es.addEventListener("model.error", (e) => h.onError(parse(e)))
+  es.addEventListener("score.completed", (e) => h.onScore(parse(e)))
   es.addEventListener("run.completed", () => {
     finished = true
     es.close()

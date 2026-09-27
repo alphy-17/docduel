@@ -10,7 +10,7 @@ from fastapi.responses import JSONResponse
 from docduel.db import init_db
 from docduel.errors import ApiError
 from docduel.ingest.errors import IngestError
-from docduel.routes import documents, runs
+from docduel.routes import benchmark, documents, runs
 from docduel.settings import BACKEND_DIR, get_settings
 
 load_dotenv(BACKEND_DIR / ".env")
@@ -32,6 +32,7 @@ app.add_middleware(
 )
 app.include_router(documents.router)
 app.include_router(runs.router)
+app.include_router(benchmark.router)
 
 
 @app.exception_handler(IngestError)

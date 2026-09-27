@@ -1,0 +1,698 @@
+{
+  "created_at": "2026-09-27T11:47:13+00:00",
+  "scored_at": "2026-09-27T11:47:37+00:00",
+  "model_key": "small-base",
+  "model_id": "small-base",
+  "reasoning_effort": null,
+  "split": "test-v1",
+  "prompt": "categorise_v1",
+  "task": "categorise",
+  "docs_total": 5,
+  "docs_scored": 5,
+  "skipped_budget": [],
+  "scores": {
+    "headline": {
+      "accuracy": {
+        "value": 0.88,
+        "ci95": [
+          0.81,
+          0.95
+        ],
+        "display": "88.0% (81.0-95.0)"
+      },
+      "macro_f1": {
+        "value": 0.8742,
+        "ci95": [
+          0.7763,
+          0.9513
+        ],
+        "display": "87.4% (77.6-95.1)"
+      },
+      "schema_validity": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "display": "100.0% (100.0-100.0)"
+      }
+    },
+    "confusion_matrix": {
+      "Groceries": {
+        "Groceries": 8,
+        "Dining": 1,
+        "Transport": 0,
+        "Utilities": 0,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Dining": {
+        "Groceries": 2,
+        "Dining": 12,
+        "Transport": 1,
+        "Utilities": 0,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Transport": {
+        "Groceries": 0,
+        "Dining": 0,
+        "Transport": 8,
+        "Utilities": 2,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 1,
+        "(missing)": 0
+      },
+      "Utilities": {
+        "Groceries": 0,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 10,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Shopping": {
+        "Groceries": 1,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 0,
+        "Shopping": 12,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 1,
+        "(missing)": 0
+      },
+      "Health": {
+        "Groceries": 1,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 0,
+        "Shopping": 1,
+        "Health": 15,
+        "Entertainment": 0,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Entertainment": {
+        "Groceries": 0,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 1,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 8,
+        "Other": 0,
+        "(missing)": 0
+      },
+      "Other": {
+        "Groceries": 0,
+        "Dining": 0,
+        "Transport": 0,
+        "Utilities": 0,
+        "Shopping": 0,
+        "Health": 0,
+        "Entertainment": 0,
+        "Other": 15,
+        "(missing)": 0
+      }
+    },
+    "per_doc": [
+      {
+        "id": "tx_test_000",
+        "valid": true,
+        "correct": 17,
+        "rows": 20,
+        "extra_rows": 0,
+        "error_code": null
+      },
+      {
+        "id": "tx_test_001",
+        "valid": true,
+        "correct": 17,
+        "rows": 20,
+        "extra_rows": 0,
+        "error_code": null
+      },
+      {
+        "id": "tx_test_002",
+        "valid": true,
+        "correct": 19,
+        "rows": 20,
+        "extra_rows": 0,
+        "error_code": null
+      },
+      {
+        "id": "tx_test_003",
+        "valid": true,
+        "correct": 15,
+        "rows": 20,
+        "extra_rows": 0,
+        "error_code": null
+      },
+      {
+        "id": "tx_test_004",
+        "valid": true,
+        "correct": 20,
+        "rows": 20,
+        "extra_rows": 0,
+        "error_code": null
+      }
+    ],
+    "scoring_notes": [
+      "A missing or extra row_id counts as wrong for that row.",
+      "95% intervals: 1,000 bootstrap resamples of documents, seed 2026."
+    ]
+  },
+  "speed_cost": {
+    "latency_ms_p50": 8669,
+    "latency_ms_p95": 10584,
+    "ttft_ms_p50": 1918,
+    "cold_starts": 0,
+    "input_tokens_mean": 2270,
+    "output_tokens_mean": 300,
+    "reasoning_tokens_mean": 0,
+    "cost_usd_total": 0.009846,
+    "cost_per_1000_docs_usd": 1.9692,
+    "cold_start_ttft_ms": [],
+    "errors": {},
+    "steady_load": {
+      "concurrency": 4,
+      "wall_seconds": 16.0,
+      "docs": 5,
+      "cost_per_1000_docs_usd": 0.7082
+    }
+  },
+  "outputs": [
+    {
+      "id": "tx_test_000",
+      "model_key": "small-base",
+      "model_id": "small-base",
+      "parsed": {
+        "items": [
+          {
+            "row_id": 1,
+            "category": "Dining"
+          },
+          {
+            "row_id": 2,
+            "category": "Dining"
+          },
+          {
+            "row_id": 3,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 4,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 5,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 6,
+            "category": "Entertainment"
+          },
+          {
+            "row_id": 7,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 8,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 9,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 10,
+            "category": "Other"
+          },
+          {
+            "row_id": 11,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 12,
+            "category": "Other"
+          },
+          {
+            "row_id": 13,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 14,
+            "category": "Dining"
+          },
+          {
+            "row_id": 15,
+            "category": "Health"
+          },
+          {
+            "row_id": 16,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 17,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 18,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 19,
+            "category": "Other"
+          },
+          {
+            "row_id": 20,
+            "category": "Groceries"
+          }
+        ]
+      },
+      "schema_valid": true,
+      "ttft_ms": 1937.5469000078738,
+      "latency_ms": 8739.46650000289,
+      "input_tokens": 2245,
+      "cached_input_tokens": 0,
+      "output_tokens": 284,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0019396760370839748,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "tx_test_001",
+      "model_key": "small-base",
+      "model_id": "small-base",
+      "parsed": {
+        "items": [
+          {
+            "row_id": 1,
+            "category": "Health"
+          },
+          {
+            "row_id": 2,
+            "category": "Other"
+          },
+          {
+            "row_id": 3,
+            "category": "Other"
+          },
+          {
+            "row_id": 4,
+            "category": "Dining"
+          },
+          {
+            "row_id": 5,
+            "category": "Health"
+          },
+          {
+            "row_id": 6,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 7,
+            "category": "Dining"
+          },
+          {
+            "row_id": 8,
+            "category": "Other"
+          },
+          {
+            "row_id": 9,
+            "category": "Entertainment"
+          },
+          {
+            "row_id": 10,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 11,
+            "category": "Other"
+          },
+          {
+            "row_id": 12,
+            "category": "Entertainment"
+          },
+          {
+            "row_id": 13,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 14,
+            "category": "Other"
+          },
+          {
+            "row_id": 15,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 16,
+            "category": "Dining"
+          },
+          {
+            "row_id": 17,
+            "category": "Dining"
+          },
+          {
+            "row_id": 18,
+            "category": "Other"
+          },
+          {
+            "row_id": 19,
+            "category": "Other"
+          },
+          {
+            "row_id": 20,
+            "category": "Entertainment"
+          }
+        ]
+      },
+      "schema_valid": true,
+      "ttft_ms": 2023.4275999828242,
+      "latency_ms": 11044.912899989868,
+      "input_tokens": 2265,
+      "cached_input_tokens": 0,
+      "output_tokens": 373,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.002451357057525529,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "tx_test_002",
+      "model_key": "small-base",
+      "model_id": "small-base",
+      "parsed": {
+        "items": [
+          {
+            "row_id": 1,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 2,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 3,
+            "category": "Transport"
+          },
+          {
+            "row_id": 4,
+            "category": "Health"
+          },
+          {
+            "row_id": 5,
+            "category": "Entertainment"
+          },
+          {
+            "row_id": 6,
+            "category": "Health"
+          },
+          {
+            "row_id": 7,
+            "category": "Other"
+          },
+          {
+            "row_id": 8,
+            "category": "Other"
+          },
+          {
+            "row_id": 9,
+            "category": "Transport"
+          },
+          {
+            "row_id": 10,
+            "category": "Health"
+          },
+          {
+            "row_id": 11,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 12,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 13,
+            "category": "Entertainment"
+          },
+          {
+            "row_id": 14,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 15,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 16,
+            "category": "Transport"
+          },
+          {
+            "row_id": 17,
+            "category": "Entertainment"
+          },
+          {
+            "row_id": 18,
+            "category": "Dining"
+          },
+          {
+            "row_id": 19,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 20,
+            "category": "Health"
+          }
+        ]
+      },
+      "schema_valid": true,
+      "ttft_ms": 1917.823199997656,
+      "latency_ms": 8669.12659999798,
+      "input_tokens": 2283,
+      "cached_input_tokens": 0,
+      "output_tokens": 281,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0019240644870551073,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "tx_test_003",
+      "model_key": "small-base",
+      "model_id": "small-base",
+      "parsed": {
+        "items": [
+          {
+            "row_id": 1,
+            "category": "Health"
+          },
+          {
+            "row_id": 2,
+            "category": "Transport"
+          },
+          {
+            "row_id": 3,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 4,
+            "category": "Health"
+          },
+          {
+            "row_id": 5,
+            "category": "Other"
+          },
+          {
+            "row_id": 6,
+            "category": "Transport"
+          },
+          {
+            "row_id": 7,
+            "category": "Health"
+          },
+          {
+            "row_id": 8,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 9,
+            "category": "Other"
+          },
+          {
+            "row_id": 10,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 11,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 12,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 13,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 14,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 15,
+            "category": "Dining"
+          },
+          {
+            "row_id": 16,
+            "category": "Transport"
+          },
+          {
+            "row_id": 17,
+            "category": "Other"
+          },
+          {
+            "row_id": 18,
+            "category": "Entertainment"
+          },
+          {
+            "row_id": 19,
+            "category": "Utilities"
+          },
+          {
+            "row_id": 20,
+            "category": "Health"
+          }
+        ]
+      },
+      "schema_valid": true,
+      "ttft_ms": 1534.8751999845263,
+      "latency_ms": 8563.981399987824,
+      "input_tokens": 2270,
+      "cached_input_tokens": 0,
+      "output_tokens": 280,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0019007280940528531,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "tx_test_004",
+      "model_key": "small-base",
+      "model_id": "small-base",
+      "parsed": {
+        "items": [
+          {
+            "row_id": 1,
+            "category": "Transport"
+          },
+          {
+            "row_id": 2,
+            "category": "Dining"
+          },
+          {
+            "row_id": 3,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 4,
+            "category": "Health"
+          },
+          {
+            "row_id": 5,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 6,
+            "category": "Transport"
+          },
+          {
+            "row_id": 7,
+            "category": "Transport"
+          },
+          {
+            "row_id": 8,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 9,
+            "category": "Health"
+          },
+          {
+            "row_id": 10,
+            "category": "Dining"
+          },
+          {
+            "row_id": 11,
+            "category": "Health"
+          },
+          {
+            "row_id": 12,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 13,
+            "category": "Dining"
+          },
+          {
+            "row_id": 14,
+            "category": "Shopping"
+          },
+          {
+            "row_id": 15,
+            "category": "Other"
+          },
+          {
+            "row_id": 16,
+            "category": "Health"
+          },
+          {
+            "row_id": 17,
+            "category": "Groceries"
+          },
+          {
+            "row_id": 18,
+            "category": "Other"
+          },
+          {
+            "row_id": 19,
+            "category": "Dining"
+          },
+          {
+            "row_id": 20,
+            "category": "Groceries"
+          }
+        ]
+      },
+      "schema_valid": true,
+      "ttft_ms": 1155.6404000148177,
+      "latency_ms": 7344.590900000185,
+      "input_tokens": 2288,
+      "cached_input_tokens": 0,
+      "output_tokens": 283,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0016300911469722633,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    }
+  ]
+}

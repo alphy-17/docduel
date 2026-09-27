@@ -117,6 +117,8 @@ export interface SpeedCost {
   latency_ms_p95: number | null
   cost_per_1000_docs_usd: number | null
   cost_usd_total: number
+  // Our GPU model only: GPU busy time / documents with several requests in flight (Plan 11).
+  steady_load?: { concurrency: number; wall_seconds: number; docs: number; cost_per_1000_docs_usd: number }
 }
 
 export interface Failure {

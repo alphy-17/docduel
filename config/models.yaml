@@ -21,13 +21,13 @@ models:
     notes: "Placeholder for small-* until Phase 6. Shown with a PLACEHOLDER label in the UI."
   small-base:
     provider: vllm
-    model_id: Qwen/Qwen3.5-4B
-    base_url_env: MODAL_VLLM_BASE_URL
-    api_key_env: MODAL_VLLM_API_KEY
-    gpu: null                     # Modal GPU type (e.g. L4), set in Phase 6; used for cost
-    status: not_deployed          # deployed in Phase 6
-    extra_body: {chat_template_kwargs: {enable_thinking: false}}   # confirm in Phase 6
-    notes: "D5. Apache-2.0. Has vision encoder; the describe task (3.9) needs it, so do NOT use --language-model-only (check in Phase 6). Thinking on by default. Needs vLLM >= 0.17."
+    model_id: small-base          # served name on Modal (training/modal_serve.py); weights Qwen/Qwen3.5-4B rev 851bf6e
+    base_url_env: MODAL_VLLM_BASE_URL   # the Modal server URL + /v1
+    api_key_env: MODAL_VLLM_API_KEY     # Modal proxy auth token "ID.SECRET"
+    gpu: L4                       # Owner choice 2026-09-27; used for cost
+    status: active
+    extra_body: {chat_template_kwargs: {enable_thinking: false}}   # also the server default
+    notes: "D5. Apache-2.0. Vision encoder kept (describe). vLLM 0.30.0 on Modal L4, scale to zero after 5 min."
     source_url: https://huggingface.co/Qwen/Qwen3.5-4B
     checked_on: 2026-09-25
   small-ft-r1:
@@ -47,5 +47,5 @@ models:
 
 # Which keys fill the two Duel panels. Left moves to the best small-* model from Phase 6.
 duel:
-  left: placeholder
+  left: small-base
   right: openai

@@ -36,7 +36,18 @@ interface Props {
   truth?: ExtractTruth | CategoriseTruth
 }
 
-export function ModelPanel({ delay, panel, other, task, placeholder, modelId, rowLabels, page = 0, onPage, truth }: Props) {
+export function ModelPanel({
+  delay,
+  panel,
+  other,
+  task,
+  placeholder,
+  modelId,
+  rowLabels,
+  page = 0,
+  onPage,
+  truth,
+}: Props) {
   const c = panel.completed
   const otherOut = other?.completed?.schema_valid ? other.completed.output : undefined
 
@@ -76,13 +87,16 @@ export function ModelPanel({ delay, panel, other, task, placeholder, modelId, ro
             {ERRORS[panel.error?.error_code ?? ""] ?? panel.error?.message ?? "Something went wrong."}
           </p>
         )}
-        {panel.status === "done" && c && (
-          c.schema_valid === false ? (
+        {panel.status === "done" &&
+          c &&
+          (c.schema_valid === false ? (
             <div>
               <p className="mb-2 rounded-md bg-rust-bg px-3 py-2.5 text-rust">
                 The answer did not match the required format, so it scores zero.
               </p>
-              <pre className="num max-h-56 overflow-auto text-xs whitespace-pre-wrap text-ink-2">{panel.text || String(c.output)}</pre>
+              <pre className="num max-h-56 overflow-auto text-xs whitespace-pre-wrap text-ink-2">
+                {panel.text || String(c.output)}
+              </pre>
             </div>
           ) : task === "extract" ? (
             <ExtractView
@@ -105,8 +119,7 @@ export function ModelPanel({ delay, panel, other, task, placeholder, modelId, ro
             <BulletsView out={c.output as SummaryOutput} />
           ) : (
             <TextView text={String(c.output)} />
-          )
-        )}
+          ))}
       </div>
     </article>
   )
@@ -153,7 +166,9 @@ function Waiting({ panel }: { panel: PanelState }) {
       </div>
       {waited > 10 && (
         <p className="mt-4 text-[13px] text-ink-2">
-          {gpu ? "Waking up the GPU. The first run after a quiet spell can take a minute." : "Still thinking. Longer documents take a little more time."}
+          {gpu
+            ? "Waking up the GPU. After a quiet spell this can take about 5 minutes; the answer appears here as soon as it is ready."
+            : "Still thinking. Longer documents take a little more time."}
         </p>
       )}
     </div>

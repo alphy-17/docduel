@@ -111,3 +111,25 @@ def test_results_are_stored(tmp_path) -> None:
 
 def _errfields(o) -> dict:
     return {"error_code": o.error_code, "message": o.error}
+
+
+def test_vllm_gets_longer_timeout_for_cold_start() -> None:
+    """A sleeping GPU can take minutes to wake; vLLM models are not cut off at 60 s."""
+    from docduel.runs.orchestrator import run_model
+
+    spec = ModelSpec("small-base", "vllm", "small-base", None, "K", gpu="L4")
+
+    async def noop(*_):
+        return None
+
+    out = asyncio.run(
+        run_model(
+            spec,
+            build_prompt("summarise", text="doc"),
+            noop,
+            lambda s: FakeClient(delay=0.05),
+            timeout_s=0.01,
+        )
+    )
+    assert out.error_code is None and out.schema_valid is True
+    assert out.cost_usd is not None  # L4 price from pricing.yaml

@@ -22,6 +22,9 @@ Emit = Callable[[str, dict[str, Any]], Awaitable[None]]
 ClientFactory = Callable[[ModelSpec], ModelClient]
 
 TIMEOUT_S = 60.0
+# Our GPU sleeps when idle; waking it (loading the model) can take a few minutes, so vLLM
+# models get a longer limit. The page shows "Waking up the GPU" meanwhile (Plan 4.7).
+VLLM_TIMEOUT_S = 600.0  # measured cold starts: about 5 to 8 minutes on an L4
 COLD_START_TTFT_MS = 10_000  # Plan 11: our model's TTFT above 10 s = cold start
 
 
@@ -96,6 +99,8 @@ async def run_model(
     out = ModelOutcome(model_key=spec.key, model_id=spec.model_id)
     pricing = pricing if pricing is not None else load_pricing()
     done: Finished | None = None
+    if spec.provider == "vllm":
+        timeout_s = max(timeout_s, VLLM_TIMEOUT_S)
     try:
         client = client_factory(spec)
         async with asyncio.timeout(timeout_s):

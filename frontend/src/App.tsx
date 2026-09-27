@@ -13,7 +13,7 @@ import type { HealthModel } from "@/lib/types"
 
 // Before a run, show the two panels empty so the layout never jumps (Owner wireframe).
 const IDLE: PanelState[] = [
-  { key: "placeholder", status: "idle", text: "", startedAt: 0 },
+  { key: "small-base", status: "idle", text: "", startedAt: 0 },
   { key: "openai", status: "idle", text: "", startedAt: 0 },
 ]
 
@@ -31,7 +31,7 @@ export default function App() {
 
   const running = duel.panels.length > 0
   const panels = running ? duel.panels : IDLE
-  const placeholders = running ? duel.placeholders : ["placeholder"]
+  const placeholders = running ? duel.placeholders : []
   const task = duel.runTask ?? duel.task
   const [left, right] = panels
 

@@ -154,12 +154,11 @@ type Row = { label: string; hint?: string; cell: (m: BenchmarkModel) => React.Re
 function metricCell(m: Metric | number | undefined) {
   if (m === undefined) return <span className="text-ink-3">n/a</span>
   if (typeof m === "number") return <span className="num">{pct(m)}</span>
+  // Show the report's own formatted text so the page matches reports/*.json exactly (rule R5).
+  const [value, range] = m.display.split(" ")
   return (
     <span className="num">
-      <span className="text-[15px] font-medium">{pct(m.value)}</span>{" "}
-      <span className="text-xs text-ink-3">
-        ({(m.ci95[0] * 100).toFixed(1)}-{(m.ci95[1] * 100).toFixed(1)})
-      </span>
+      <span className="text-[15px] font-medium">{value}</span> <span className="text-xs text-ink-3">{range}</span>
     </span>
   )
 }
@@ -202,8 +201,21 @@ const ROWS: Row[] = [
   },
   {
     label: "Cost per 1,000 docs",
-    hint: "From real token counts and list prices",
-    cell: (m) => (m.extract ? <span className="num">{usd(m.extract.speed_cost.cost_per_1000_docs_usd)}</span> : null),
+    hint: "OpenAI: tokens x list price. Our GPU: one at a time, and at steady load",
+    cell: (m) => {
+      if (!m.extract) return null
+      const sc = m.extract.speed_cost
+      return (
+        <span className="num">
+          {usd(sc.cost_per_1000_docs_usd)}
+          {sc.steady_load && (
+            <span className="block text-xs text-ink-3">
+              {usd(sc.steady_load.cost_per_1000_docs_usd)} at steady load ({sc.steady_load.concurrency} in flight)
+            </span>
+          )}
+        </span>
+      )
+    },
   },
 ]
 
@@ -222,6 +234,11 @@ function Headline({ data, base, ours }: { data: Benchmark; base: BenchmarkModel;
               <span className="inline-flex items-center gap-1.5">
                 <span className="size-2.5 rounded-[3px] bg-series-ours" aria-hidden="true" />
                 Our model
+                {data.ours && (
+                  <span className="text-ink-3">
+                    ({data.ours}, {data.ours === "small-base" ? "not fine-tuned yet" : "fine-tuned"})
+                  </span>
+                )}
               </span>
             </th>
             <th scope="col" className="w-[30%] px-3.5 py-2.5 font-normal">

@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-09-27T10:28:37+00:00",
+  "model": "small-base",
+  "gpu": "L4",
+  "auth": {
+    "without_token_status": 401,
+    "with_token_status": 200,
+    "models": [
+      "small-base",
+      "Qwen/Qwen3.5-4B"
+    ],
+    "wake_seconds": 313.6,
+    "pass": true
+  },
+  "extract_first": {
+    "schema_valid": true,
+    "error_code": null,
+    "ttft_ms": 7196,
+    "latency_ms": 11307,
+    "output_tokens": 194,
+    "total": 11.5
+  },
+  "describe": {
+    "ok": true,
+    "error_code": null,
+    "latency_ms": 6068,
+    "input_tokens": 792,
+    "preview": "This image shows a printed tax invoice from Blue Fig Caffe, located at 12 Example Street, Geelong. The date is August 14, 2026. Items purchased include two Flat"
+  },
+  "warm": {
+    "runs": 5,
+    "all_valid": true,
+    "ttft_ms_p50": 920,
+    "latency_ms_p50": 4341,
+    "latency_ms_max": 5580
+  }
+}

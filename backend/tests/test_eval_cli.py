@@ -129,3 +129,19 @@ def test_rescore_uses_saved_answers(setup, monkeypatch):
     assert again["created_at"] == first["created_at"]
     bad = next(d for d in again["scores"]["per_doc"] if d["id"] == "d1")
     assert bad["line_items"] is None or "expected" in bad["line_items"]
+
+
+def test_steady_load_cost_for_gpu_model():
+    from docduel.models.registry import ModelSpec
+
+    gpu = ModelSpec("small-base", "vllm", "small-base", None, "K", gpu="L4")
+    s = ev.steady_load(gpu, wall_seconds=36.0, docs=10, concurrency=4)
+    # L4 $0.799/h -> 36 s busy / 10 docs = 3.6 s each -> $0.799 per 1,000 docs
+    assert s == {
+        "concurrency": 4,
+        "wall_seconds": 36.0,
+        "docs": 10,
+        "cost_per_1000_docs_usd": 0.799,
+    }
+    api = ModelSpec("openai", "openai", "gpt-6-luna", None, "K")
+    assert ev.steady_load(api, 36.0, 10, 4) is None

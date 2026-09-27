@@ -4,6 +4,7 @@ Uses the official `openai` SDK and the Chat Completions API, which both OpenAI a
 speak. Only the base URL, key and model ID change between models, so the comparison is fair.
 """
 
+import asyncio
 import os
 import time
 from collections.abc import AsyncIterator
@@ -54,6 +55,16 @@ def _map_error(exc: Exception) -> ModelCallError:
     return ModelCallError("unknown_error", type(exc).__name__)
 
 
+# Modal answers 503 at once while a sleeping GPU container boots (it does not hold the
+# request). For our vLLM models we keep retrying so a cold start becomes a wait, not an error.
+WAKE_RETRY_S = 4.0
+WAKE_LIMIT_S = 590.0  # just under the 600 s vLLM timeout in the orchestrator
+
+
+def _booting(exc: Exception) -> bool:
+    return isinstance(exc, openai.APIStatusError) and exc.status_code in (502, 503, 504)
+
+
 class ModelClient:
     def __init__(self, spec: ModelSpec, sdk: AsyncOpenAI) -> None:
         self.spec = spec
@@ -81,9 +92,21 @@ class ModelClient:
         parts: list[str] = []
         usage = None
         try:
-            stream = await self._sdk.chat.completions.create(
-                messages=messages, **self._request_args(response_format)
-            )
+            while True:
+                try:
+                    stream = await self._sdk.chat.completions.create(
+                        messages=messages, **self._request_args(response_format)
+                    )
+                    break
+                except openai.APIStatusError as exc:
+                    waited = time.perf_counter() - start
+                    if self.spec.provider != "vllm" or not _booting(exc):
+                        raise
+                    if waited + WAKE_RETRY_S > WAKE_LIMIT_S:
+                        raise ModelCallError(
+                            "timeout", "The GPU did not wake up in time. Try again shortly."
+                        ) from exc
+                    await asyncio.sleep(WAKE_RETRY_S)
             async for chunk in stream:
                 if chunk.usage is not None:
                     usage = chunk.usage
@@ -124,5 +147,7 @@ def client_for(spec: ModelSpec, timeout_s: float = 60.0) -> ModelClient:
     if not api_key:
         raise ModelCallError("not_configured", f"No API key set for model '{spec.key}'.")
     base_url = os.getenv(spec.base_url_env) if spec.base_url_env else None
+    if spec.provider == "vllm":
+        timeout_s = max(timeout_s, 600.0)  # cold GPU start (see orchestrator.VLLM_TIMEOUT_S)
     sdk = AsyncOpenAI(api_key=api_key, base_url=base_url, timeout=timeout_s, max_retries=0)
     return ModelClient(spec, sdk)

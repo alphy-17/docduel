@@ -107,11 +107,13 @@ def test_client_for_refuses_missing_key_and_undeployed(monkeypatch) -> None:
     assert err.value.error_code == "not_configured"
 
 
-def test_config_has_placeholder_left_and_openai_right() -> None:
+def test_config_has_small_model_left_and_openai_right() -> None:
+    """Phase 6: the real small model replaces the placeholder in the left panel."""
     models = load_models()
     left, right = duel_keys()
-    assert (left, right) == ("placeholder", "openai")
-    assert models[left].is_placeholder and models[left].reasoning_effort == "none"
+    assert (left, right) == ("small-base", "openai")
+    assert models[left].provider == "vllm" and not models[left].is_placeholder
+    assert models[left].gpu == "L4" and models[right].reasoning_effort == "medium"
 
 
 @pytest.mark.parametrize("model", [ReceiptExtraction, TransactionCategories, SummaryOutput])
@@ -147,3 +149,50 @@ def test_gpu_cost_hand_worked() -> None:
 
 def test_pricing_file_has_luna() -> None:
     assert load_pricing()["openai"]["gpt-6-luna"]["output_per_1m"] == 0.50
+
+
+def test_vllm_waits_through_503_while_gpu_boots(monkeypatch) -> None:
+    """Modal returns 503 at once while a sleeping container boots; we retry, not fail."""
+    from docduel.models import client as client_mod
+
+    monkeypatch.setattr(client_mod, "WAKE_RETRY_S", 0.0)
+    calls = {"n": 0}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls["n"] += 1
+        if calls["n"] < 3:
+            return httpx.Response(503, text="booting")
+        body = _sse([_chunk('{"bullets": ["a","b","c"]}'), _chunk(usage=None)])
+        return httpx.Response(200, content=body, headers={"content-type": "text/event-stream"})
+
+    http = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+    sdk = AsyncOpenAI(api_key="k", base_url="http://fake/v1", http_client=http, max_retries=0)
+    vllm = ModelSpec("small-base", "vllm", "small-base", None, "K", gpu="L4")
+    events = _collect(ModelClient(vllm, sdk))
+    assert calls["n"] == 3 and isinstance(events[-1], Finished)
+
+
+def test_openai_503_is_not_retried() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(503, text="down")
+
+    with pytest.raises(ModelCallError) as err:
+        _collect(_client(handler))
+    assert err.value.error_code == "api_error"
+
+
+def test_vllm_gives_up_after_wake_limit(monkeypatch) -> None:
+    from docduel.models import client as client_mod
+
+    monkeypatch.setattr(client_mod, "WAKE_RETRY_S", 0.0)
+    monkeypatch.setattr(client_mod, "WAKE_LIMIT_S", -1.0)
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(503, text="booting")
+
+    http = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+    sdk = AsyncOpenAI(api_key="k", base_url="http://fake/v1", http_client=http, max_retries=0)
+    vllm = ModelSpec("small-base", "vllm", "small-base", None, "K", gpu="L4")
+    with pytest.raises(ModelCallError) as err:
+        _collect(ModelClient(vllm, sdk))
+    assert err.value.error_code == "timeout"

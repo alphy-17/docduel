@@ -16,6 +16,7 @@ import dataclasses
 import json
 import statistics
 import sys
+import time
 from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
@@ -27,6 +28,7 @@ from dotenv import load_dotenv
 from docduel.datasets.build import DATASET_VERSION, splits_dir
 from docduel.models.client import client_for
 from docduel.models.registry import load_models
+from docduel.runs.costing import load_pricing
 from docduel.runs.orchestrator import ModelOutcome, run_model
 from docduel.runs.prompting import VERSION, build_prompt
 from docduel.scoring import categorise, extract
@@ -92,7 +94,9 @@ def saved_outcome(out: ModelOutcome) -> dict[str, Any]:
     return data
 
 
-def load_saved(path: Path, docs: list[dict]) -> tuple[list[tuple[dict, ModelOutcome]], str]:
+def load_saved(
+    path: Path, docs: list[dict]
+) -> tuple[list[tuple[dict, ModelOutcome]], str, dict | None]:
     if not path.exists():
         sys.exit(f"no saved report at {path}; run without --rescore first")
     report = json.loads(path.read_text(encoding="utf-8"))
@@ -102,7 +106,27 @@ def load_saved(path: Path, docs: list[dict]) -> tuple[list[tuple[dict, ModelOutc
     missing = [d["id"] for d in docs if d["id"] not in saved]
     if missing:
         sys.exit(f"saved report lacks {len(missing)} documents, e.g. {missing[:3]}")
-    return [(d, ModelOutcome(**saved[d["id"]])) for d in docs], report["created_at"]
+    steady = report.get("speed_cost", {}).get("steady_load")
+    return [(d, ModelOutcome(**saved[d["id"]])) for d in docs], report["created_at"], steady
+
+
+def steady_load(spec, wall_seconds: float, docs: int, concurrency: int) -> dict[str, Any] | None:
+    """Plan 11: GPU cost at a stated steady load = GPU busy time / documents.
+
+    The eval keeps `concurrency` requests in flight on a warm GPU, so the wall-clock time of
+    the run is the time the GPU was busy. Only for our own GPU model (OpenAI bills per token).
+    """
+    if spec.provider != "vllm" or not docs:
+        return None
+    per_hour = load_pricing().get("modal", {}).get("gpu_per_hour", {}).get(spec.gpu or "")
+    if per_hour is None:
+        return None
+    return {
+        "concurrency": concurrency,
+        "wall_seconds": round(wall_seconds, 1),
+        "docs": docs,
+        "cost_per_1000_docs_usd": round(per_hour / 3600 * wall_seconds / docs * 1000, 4),
+    }
 
 
 def speed_and_cost(outs: list[ModelOutcome]) -> dict[str, Any]:
@@ -110,6 +134,8 @@ def speed_and_cost(outs: list[ModelOutcome]) -> dict[str, Any]:
     lat = [o.latency_ms for o in warm]
     ttft = [o.ttft_ms for o in warm if o.ttft_ms is not None]
     costs = [o.cost_usd for o in outs if o.cost_usd is not None]
+    # Plan 11: GPU cost per 1,000 docs is the warm, busy cost; cold starts are reported apart.
+    warm_costs = [o.cost_usd for o in warm if o.cost_usd is not None]
     return {
         "latency_ms_p50": percentile(lat, 50),
         "latency_ms_p95": percentile(lat, 95),
@@ -121,7 +147,10 @@ def speed_and_cost(outs: list[ModelOutcome]) -> dict[str, Any]:
             round(statistics.mean(o.reasoning_tokens for o in outs)) if outs else 0
         ),
         "cost_usd_total": round(sum(costs), 6),
-        "cost_per_1000_docs_usd": round(1000 * sum(costs) / len(costs), 4) if costs else None,
+        "cost_per_1000_docs_usd": (
+            round(1000 * sum(warm_costs) / len(warm_costs), 4) if warm_costs else None
+        ),
+        "cold_start_ttft_ms": [round(o.ttft_ms) for o in outs if o.cold_start and o.ttft_ms],
         "errors": dict(Counter(o.error_code for o in outs if o.error_code)),
     }
 
@@ -318,11 +347,18 @@ async def main(argv: list[str] | None = None) -> None:
     stem = f"eval_{args.model}_{args.split}_{args.prompt}"
     run_at = datetime.now(UTC).isoformat(timespec="seconds")
     if args.rescore:
-        results, run_at = load_saved(report_dir() / f"{stem}.json", docs)
+        results, run_at, steady = load_saved(report_dir() / f"{stem}.json", docs)
         print(f"re-scoring {len(results)} saved answers (no model calls)")
     else:
         print(f"{args.model} on {args.split}: {len(docs)} {task} docs (max ${args.max_usd})")
+        if spec.provider == "vllm" and docs:
+            # Wake the GPU first so a cold start does not count as busy time (not scored).
+            print("waking the GPU (one untimed warm-up request)...")
+            await run_all(spec, docs[:1], task, args.max_usd, 1)
+        started = time.perf_counter()
         results = await run_all(spec, docs, task, args.max_usd, args.concurrency)
+        wall = time.perf_counter() - started
+        steady = steady_load(spec, wall, len(docs), args.concurrency)
     ran = [(d, o) for d, o in results if o is not None]
     skipped = [d["id"] for d, o in results if o is None]
     outs = [o for _, o in ran]
@@ -341,7 +377,7 @@ async def main(argv: list[str] | None = None) -> None:
         "docs_scored": len(ran),
         "skipped_budget": skipped,
         "scores": scores,
-        "speed_cost": speed_and_cost(outs),
+        "speed_cost": speed_and_cost(outs) | ({"steady_load": steady} if steady else {}),
         "outputs": [{"id": d["id"]} | saved_outcome(o) for d, o in ran],
     }
     out_dir = report_dir()

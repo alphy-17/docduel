@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocDuel concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #05060a;
+    --ink: #f5f5f7;
+    --ink-2: #a1a1a6;
+    --ink-3: #6e6e73;
+    --glass: rgba(255, 255, 255, 0.055);
+    --glass-2: rgba(255, 255, 255, 0.09);
+    --hair: rgba(255, 255, 255, 0.1);
+    --left: #7c8cff;
+    --right: #36d3a8;
+    --ok: #36d3a8;
+    --warn: #ffb547;
+    --bad: #ff6b6b;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+  body {
+    font-family: "Inter", -apple-system, "SF Pro Display", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.011em;
+    overflow-x: hidden;
+  }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: 0; }
+
+  /* Aurora: slow, living light behind everything */
+  .aurora { position: fixed; inset: -20%; z-index: 0; pointer-events: none; filter: blur(80px) saturate(1.2); opacity: 0.55; }
+  .aurora i { position: absolute; border-radius: 50%; animation: float 22s var(--ease) infinite alternate; }
+  .aurora i:nth-child(1) { width: 46vw; height: 46vw; left: 6%; top: 8%; background: #3b3fd8; }
+  .aurora i:nth-child(2) { width: 40vw; height: 40vw; right: 4%; top: 14%; background: #0f8f78; animation-delay: -6s; }
+  .aurora i:nth-child(3) { width: 30vw; height: 30vw; left: 38%; top: 48%; background: #6b2fb5; animation-delay: -12s; opacity: 0.7; }
+  @keyframes float { to { transform: translate3d(6vw, -4vh, 0) scale(1.15); } }
+  .grain { position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .page { position: relative; z-index: 2; }
+
+  /* Nav */
+  nav.top { position: sticky; top: 0; z-index: 20; backdrop-filter: saturate(1.8) blur(20px); -webkit-backdrop-filter: saturate(1.8) blur(20px); background: rgba(5, 6, 10, 0.6); border-bottom: 1px solid var(--hair); }
+  nav .in { max-width: 1180px; margin: 0 auto; height: 52px; display: flex; align-items: center; gap: 28px; padding: 0 22px; font-size: 13px; }
+  .mark { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 16px; letter-spacing: -0.02em; }
+  .mark b { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 7px; background: linear-gradient(135deg, var(--left), var(--right)); font-size: 12px; color: #05060a; }
+  nav .links { display: flex; gap: 26px; }
+  nav a { color: var(--ink-2); text-decoration: none; transition: color .2s; }
+  nav a:hover, nav a.on { color: var(--ink); }
+  nav .cta { margin-left: auto; color: #05060a; background: var(--ink); padding: 6px 14px; border-radius: 999px; font-weight: 600; }
+
+  /* Hero */
+  header.hero { max-width: 1180px; margin: 0 auto; padding: 96px 22px 40px; text-align: center; }
+  .eyebrow { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; color: var(--ink-2); padding: 6px 12px; border-radius: 999px; background: var(--glass); border: 1px solid var(--hair); }
+  .eyebrow .live { width: 7px; height: 7px; border-radius: 50%; background: var(--right); box-shadow: 0 0 12px var(--right); animation: pulse 1.6s infinite; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  h1 { font-size: clamp(40px, 6.6vw, 84px); line-height: 0.98; letter-spacing: -0.045em; font-weight: 800; margin: 26px 0 0; }
+  h1 .grad { background: linear-gradient(92deg, var(--left) 10%, #c8b6ff 45%, var(--right) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sub { max-width: 660px; margin: 22px auto 0; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.45; color: var(--ink-2); }
+  .sub strong { color: var(--ink); font-weight: 600; }
+  .reveal { opacity: 0; transform: translateY(24px); filter: blur(8px); animation: in 1.1s var(--ease) forwards; }
+  @keyframes in { to { opacity: 1; transform: none; filter: none; } }
+
+  /* Task switcher */
+  .tasks { margin: 40px auto 0; display: inline-flex; padding: 4px; border-radius: 999px; background: var(--glass); border: 1px solid var(--hair); position: relative; }
+  .tasks button { position: relative; z-index: 1; border: 0; background: none; color: var(--ink-2); font: inherit; font-size: 14px; font-weight: 500; padding: 9px 18px; border-radius: 999px; cursor: pointer; transition: color .3s; }
+  .tasks button.on { color: #05060a; }
+  .tasks .pill { position: absolute; top: 4px; bottom: 4px; border-radius: 999px; background: var(--ink); transition: left .5s var(--ease), width .5s var(--ease); }
+
+  /* Arena */
+  .arena { max-width: 1180px; margin: 44px auto 0; padding: 0 22px; display: grid; grid-template-columns: 1fr 300px 1fr; gap: 22px; align-items: stretch; }
+  .lane { position: relative; border-radius: 28px; padding: 26px; background: var(--glass); border: 1px solid var(--hair); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); overflow: hidden; }
+  .lane::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: linear-gradient(180deg, color-mix(in oklab, var(--c) 60%, transparent), transparent 55%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .lane.left { --c: var(--left); }
+  .lane.right { --c: var(--right); }
+  .lane .glow { position: absolute; width: 260px; height: 260px; border-radius: 50%; background: var(--c); filter: blur(90px); opacity: .18; top: -120px; left: 50%; transform: translateX(-50%); }
+  .who { display: flex; align-items: center; gap: 12px; position: relative; }
+  .who .dot { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; font-weight: 700; color: #05060a; background: var(--c); box-shadow: 0 8px 24px color-mix(in oklab, var(--c) 45%, transparent); }
+  .who h3 { margin: 0; font-size: 19px; letter-spacing: -0.02em; }
+  .who small { display: block; color: var(--ink-3); font-size: 12.5px; margin-top: 1px; }
+  .clock { margin-left: auto; text-align: right; }
+  .clock .t { font-size: 26px; font-weight: 500; }
+  .clock .s { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .08em; }
+  .bar { margin: 20px 0 6px; height: 4px; border-radius: 4px; background: rgba(255,255,255,.07); overflow: hidden; position: relative; }
+  .bar i { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: 4px; background: var(--c); box-shadow: 0 0 18px var(--c); }
+  .fields { list-style: none; margin: 18px 0 0; padding: 0; }
+  .fields li { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 2px; border-top: 1px solid var(--hair); opacity: .18; transition: opacity .5s var(--ease), transform .5s var(--ease); transform: translateY(6px); }
+  .fields li.in { opacity: 1; transform: none; }
+  .fields .k { color: var(--ink-2); font-size: 14px; }
+  .fields .v { font-size: 15px; display: inline-flex; align-items: center; gap: 8px; }
+  .fields .v::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: transparent; transition: background .4s, box-shadow .4s; }
+  .fields li.ok .v::after { background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+  .fields li.bad .v { color: var(--bad); }
+  .fields li.bad .v::after { background: var(--bad); box-shadow: 0 0 10px var(--bad); }
+  .done { margin-top: 16px; font-size: 13px; color: var(--ink-3); min-height: 20px; }
+  .done b { color: var(--ink); font-weight: 600; }
+
+  /* Center: the document under the scanner */
+  .doc { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .paper { position: relative; width: 240px; padding: 22px 20px 30px; background: #fbfaf6; color: #1a1a1a; border-radius: 6px; font-family: "JetBrains Mono", monospace; font-size: 11.5px; line-height: 1.75;
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.06); transform: perspective(900px) rotateX(8deg) rotateY(0deg); transition: transform 1s var(--ease); }
+  .doc:hover .paper { transform: perspective(900px) rotateX(0) scale(1.02); }
+  .paper::after { content: ""; position: absolute; left: 0; right: 0; bottom: -8px; height: 10px;
+    background: radial-gradient(circle at 5px -2px, transparent 6px, #fbfaf6 6.5px) 0 0 / 10px 10px repeat-x; }
+  .paper .c { text-align: center; }
+  .paper .row { display: flex; justify-content: space-between; border-radius: 3px; padding: 0 3px; margin: 0 -3px; transition: background .4s; }
+  .paper .row.hit { background: rgba(124, 140, 255, 0.22); }
+  .paper hr { border: 0; border-top: 1px dashed #bbb; margin: 8px 0; }
+  .scan { position: absolute; left: -10px; right: -10px; height: 2px; top: 0; background: #fff; box-shadow: 0 0 18px 6px rgba(160,170,255,.8), 0 0 60px 18px rgba(54,211,168,.35); opacity: 0; border-radius: 2px; }
+  .scan.go { animation: scan 1.6s var(--ease) 2; }
+  @keyframes scan { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+  .vs { margin-top: 30px; font-size: 13px; color: var(--ink-3); letter-spacing: .3em; }
+  .run { margin-top: 16px; border: 0; cursor: pointer; font: inherit; font-weight: 600; font-size: 15px; color: #05060a; padding: 14px 26px; border-radius: 999px;
+    background: linear-gradient(92deg, var(--left), var(--right)); box-shadow: 0 10px 40px -8px rgba(124,140,255,.7); transition: transform .3s var(--ease), box-shadow .3s; }
+  .run:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 16px 48px -8px rgba(54,211,168,.7); }
+  .run:active { transform: scale(.98); }
+
+  /* Scoreboard */
+  section.score { max-width: 1180px; margin: 90px auto 0; padding: 0 22px; }
+  .kicker { font-size: 13px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .14em; }
+  h2 { font-size: clamp(32px, 4.4vw, 56px); letter-spacing: -0.035em; line-height: 1.02; margin: 10px 0 34px; font-weight: 700; max-width: 760px; }
+  h2 span { color: var(--ink-3); }
+  .tiles { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+  .tile { grid-column: span 4; border-radius: 26px; padding: 26px; background: var(--glass); border: 1px solid var(--hair); min-height: 230px; position: relative; overflow: hidden; }
+  .tile.wide { grid-column: span 8; }
+  .tile h4 { margin: 0; font-size: 14px; color: var(--ink-2); font-weight: 500; }
+  .big { font-size: 64px; font-weight: 700; letter-spacing: -0.05em; line-height: 1; margin-top: 18px; }
+  .big small { font-size: 18px; color: var(--ink-3); font-weight: 500; letter-spacing: -0.01em; }
+  .vsrow { display: flex; gap: 22px; margin-top: 22px; }
+  .vsrow div { flex: 1; }
+  .vsrow .n { font-size: 32px; font-weight: 700; letter-spacing: -0.04em; }
+  .vsrow .l { font-size: 12px; color: var(--ink-3); }
+  .lc { color: var(--left); } .rc { color: var(--right); }
+  .rings { display: flex; gap: 26px; align-items: center; margin-top: 16px; }
+  .ring { position: relative; width: 132px; height: 132px; }
+  .ring svg { transform: rotate(-90deg); }
+  .ring .lbl { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
+  .ring .lbl b { font-size: 28px; letter-spacing: -0.04em; display: block; }
+  .ring .lbl span { font-size: 11px; color: var(--ink-3); }
+  .ring circle.p { transition: stroke-dashoffset 1.6s var(--ease); }
+  .race { margin-top: 26px; display: grid; gap: 16px; }
+  .race .ln { display: grid; grid-template-columns: 120px 1fr 64px; align-items: center; gap: 14px; font-size: 13px; color: var(--ink-2); }
+  .race .tr { height: 12px; border-radius: 12px; background: rgba(255,255,255,.06); overflow: hidden; }
+  .race .tr i { display: block; height: 100%; width: 0; border-radius: 12px; transition: width 1.4s var(--ease); }
+  .heat { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top: 22px; }
+  .heat div { height: 46px; border-radius: 10px; background: rgba(255,255,255,.06); display: grid; place-items: end start; padding: 6px 8px; font-size: 10px; color: var(--ink-3); transition: background .6s; }
+  .heat .a { background: rgba(54,211,168,.28); color: #bff5e4; }
+  .heat .d { background: rgba(255,181,71,.28); color: #ffe0ae; }
+
+  footer { max-width: 1180px; margin: 90px auto 0; padding: 30px 22px 60px; border-top: 1px solid var(--hair); display: flex; gap: 20px; color: var(--ink-3); font-size: 12.5px; }
+  footer span:last-child { margin-left: auto; }
+
+  @media (max-width: 980px) {
+    .arena { grid-template-columns: 1fr; }
+    .doc { order: -1; padding: 10px 0 20px; }
+    .tile, .tile.wide { grid-column: span 12; }
+    nav .links { display: none; }
+    .tasks { flex-wrap: wrap; justify-content: center; border-radius: 22px; }
+    .tasks .pill { display: none; }
+    .tasks button.on { background: var(--ink); }
+    nav .cta { padding: 6px 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; filter: none; } }
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="page">
+  <nav class="top"><div class="in">
+    <div class="mark"><b>D</b>DocDuel</div>
+    <div class="links">
+      <a class="on" href="#">Duel</a><a href="#">Benchmark</a><a href="#">How it works</a><a href="#">Corrections</a>
+    </div>
+    <a class="cta" href="#">Try your own receipt</a>
+  </div></nav>
+
+  <header class="hero">
+    <div class="eyebrow reveal" style="animation-delay:.05s"><span class="live"></span>Live comparison, illustrative data</div>
+    <h1 class="reveal" style="animation-delay:.15s">Two models. One receipt.<br><span class="grad">Only one can be cheaper.</span></h1>
+    <p class="sub reveal" style="animation-delay:.3s">A <strong>4 billion parameter</strong> open model, trained on receipts and invoices, reads the exact same document as <strong>OpenAI</strong>. Same prompt, same moment. You see who is right, who is faster, and what it costs.</p>
+    <div class="tasks reveal" style="animation-delay:.45s" role="tablist" aria-label="Task">
+      <span class="pill" aria-hidden="true"></span>
+      <button class="on" role="tab">Extract</button><button role="tab">Categorise</button><button role="tab">Summarise</button><button role="tab">Ask</button><button role="tab">Describe</button>
+    </div>
+  </header>
+
+  <main class="arena">
+    <article class="lane left reveal" style="animation-delay:.6s">
+      <div class="glow"></div>
+      <div class="who"><div class="dot">Q</div><div><h3>Small model</h3><small>Qwen 3.5 4B, fine-tuned</small></div>
+        <div class="clock"><div class="t mono" id="tl">0.00</div><div class="s">seconds</div></div></div>
+      <div class="bar"><i id="bl"></i></div>
+      <ul class="fields" id="fl"></ul>
+      <div class="done" id="dl"></div>
+    </article>
+
+    <div class="doc reveal" style="animation-delay:.5s">
+      <div class="paper" id="paper">
+        <div class="c"><b>KOPI KENANGAN</b><br>JL. SUDIRMAN 21, JAKARTA</div>
+        <hr>
+        <div class="row" data-f="item"><span>1 S-Ovaltine 50%</span><span>20,000</span></div>
+        <hr>
+        <div class="row" data-f="sub"><span>Subtotal</span><span>18,181</span></div>
+        <div class="row" data-f="tax"><span>PB1 10%</span><span>1,818</span></div>
+        <div class="row" data-f="total"><span><b>Total</b></span><span><b>20,000</b></span></div>
+        <div class="row" data-f="pay"><span>Cash</span><span>100,000</span></div>
+        <div class="row"><span>Change</span><span>80,000</span></div>
+        <hr>
+        <div class="c">10% TAX INCLUDED</div>
+        <div class="scan" id="scan"></div>
+      </div>
+      <div class="vs">VS</div>
+      <button class="run" id="run">Run the duel</button>
+    </div>
+
+    <article class="lane right reveal" style="animation-delay:.7s">
+      <div class="glow"></div>
+      <div class="who"><div class="dot">O</div><div><h3>OpenAI</h3><small>gpt-6-luna, reasoning medium</small></div>
+        <div class="clock"><div class="t mono" id="tr">0.00</div><div class="s">seconds</div></div></div>
+      <div class="bar"><i id="br"></i></div>
+      <ul class="fields" id="fr"></ul>
+      <div class="done" id="dr"></div>
+    </article>
+  </main>
+
+  <section class="score">
+    <div class="kicker">The scorecard</div>
+    <h2>Same accuracy ballpark. <span>A very different bill.</span></h2>
+    <div class="tiles">
+      <div class="tile">
+        <h4>Fields right, against the answer key</h4>
+        <div class="rings">
+          <div class="ring"><svg width="132" height="132"><circle cx="66" cy="66" r="56" stroke="rgba(255,255,255,.08)" stroke-width="10" fill="none"/><circle class="p" id="ringL" cx="66" cy="66" r="56" stroke="var(--left)" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="351.9" stroke-dashoffset="351.9"/></svg><div class="lbl"><div><b class="lc" id="accL">0%</b><span>small</span></div></div></div>
+          <div class="ring"><svg width="132" height="132"><circle cx="66" cy="66" r="56" stroke="rgba(255,255,255,.08)" stroke-width="10" fill="none"/><circle class="p" id="ringR" cx="66" cy="66" r="56" stroke="var(--right)" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="351.9" stroke-dashoffset="351.9"/></svg><div class="lbl"><div><b class="rc" id="accR">0%</b><span>OpenAI</span></div></div></div>
+        </div>
+      </div>
+      <div class="tile wide">
+        <h4>Cost per 1,000 documents</h4>
+        <div class="big mono" id="save">0x<small> cheaper on a warm GPU</small></div>
+        <div class="vsrow">
+          <div><div class="n lc mono" id="cL">$0.00</div><div class="l">Small model, L4 GPU time</div></div>
+          <div><div class="n rc mono" id="cR">$0.00</div><div class="l">OpenAI, tokens at list price</div></div>
+        </div>
+      </div>
+      <div class="tile wide">
+        <h4>Where they agree</h4>
+        <div class="heat" id="heat"></div>
+        <p style="margin:18px 0 0;color:var(--ink-3);font-size:13px;line-height:1.5">Green: both models gave the same value. Amber: they disagree, so at least one is wrong. On test documents each field is also checked against the answer key.</p>
+      </div>
+      <div class="tile">
+        <h4>Time to answer</h4>
+        <div class="race">
+          <div class="ln"><span>Small model</span><div class="tr"><i id="rL" style="background:var(--left)"></i></div><span class="mono" id="sL">0.0 s</span></div>
+          <div class="ln"><span>OpenAI</span><div class="tr"><i id="rR" style="background:var(--right)"></i></div><span class="mono" id="sR">0.0 s</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>DocDuel</span><span>A portfolio project by Alphy Baby</span><span>Concept mockup. Numbers are illustrative.</span></footer>
+</div>
+
+<script>
+  // Illustrative run based on a real CORD receipt. The small model is shown after fine-tuning.
+  const FIELDS = [
+    { k: "Currency", l: "IDR", r: "IDR", f: null, ok: [1, 1] },
+    { k: "Item", l: "S-Ovaltine 50%", r: "S-Ovaltine 50%", f: "item", ok: [1, 1] },
+    { k: "Subtotal", l: "18,181", r: "20,000", f: "sub", ok: [1, 0] },
+    { k: "Tax", l: "1,818", r: "1,818", f: "tax", ok: [1, 1] },
+    { k: "Total", l: "20,000", r: "20,000", f: "total", ok: [1, 1] },
+    { k: "Payment", l: "cash", r: "cash", f: "pay", ok: [1, 1] },
+  ];
+  const T = { l: 1.42, r: 2.53 };
+  const COST = { l: 0.09, r: 0.38 };
+  const $ = (id) => document.getElementById(id);
+
+  // Sliding pill in the task switcher
+  const tabs = document.querySelectorAll(".tasks button"), pill = document.querySelector(".tasks .pill");
+  function movePill(b) { pill.style.left = b.offsetLeft + "px"; pill.style.width = b.offsetWidth + "px"; }
+  tabs.forEach((b) => b.addEventListener("click", () => { tabs.forEach((x) => x.classList.remove("on")); b.classList.add("on"); movePill(b); }));
+  requestAnimationFrame(() => movePill(document.querySelector(".tasks .on")));
+  addEventListener("resize", () => movePill(document.querySelector(".tasks .on")));
+
+  // Agreement heat strip
+  const HEAT = ["Vendor", "Date", "Number", "Currency", "Items", "Subtotal", "Tax", "Service", "Total", "Payment"];
+  const AGREE = [1, 1, 1, 1, 1, 0, 1, 1, 1, 1];
+
+  function tween(el, to, dur, fmt) {
+    const t0 = performance.now();
+    const step = (now) => { const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3); el.textContent = fmt(to * e); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+
+  let timers = [];
+  function reset() {
+    timers.forEach(clearTimeout); timers = [];
+    for (const side of ["l", "r"]) {
+      $("f" + side).innerHTML = FIELDS.map((f) => `<li><span class="k">${f.k}</span><span class="v mono">${f[side]}</span></li>`).join("");
+      $("t" + side).textContent = "0.00"; $("b" + side).style.transition = "none"; $("b" + side).style.width = "0"; $("d" + side).textContent = "";
+    }
+    document.querySelectorAll(".paper .row").forEach((r) => r.classList.remove("hit"));
+    $("heat").innerHTML = HEAT.map((h) => `<div>${h}</div>`).join("");
+    for (const id of ["ringL", "ringR"]) $(id).style.strokeDashoffset = 351.9;
+    $("rL").style.width = $("rR").style.width = "0";
+  }
+
+  function run() {
+    reset();
+    const scan = $("scan"); scan.classList.remove("go"); void scan.offsetWidth; scan.classList.add("go");
+    const start = performance.now();
+    for (const side of ["l", "r"]) {
+      const total = T[side] * 1000;
+      requestAnimationFrame(() => { const b = $("b" + side); b.style.transition = `width ${total}ms linear`; b.style.width = "100%"; });
+      const tick = () => { const s = Math.min(T[side], (performance.now() - start) / 1000); $("t" + side).textContent = s.toFixed(2); if (s < T[side]) requestAnimationFrame(tick); };
+      requestAnimationFrame(tick);
+      const items = $("f" + side).children;
+      FIELDS.forEach((f, i) => {
+        timers.push(setTimeout(() => {
+          items[i].classList.add("in", f.ok[side === "l" ? 0 : 1] ? "ok" : "bad");
+          if (f.f) document.querySelector(`.row[data-f="${f.f}"]`)?.classList.add("hit");
+        }, total * (0.25 + (0.75 * (i + 1)) / FIELDS.length)));
+      });
+      timers.push(setTimeout(() => {
+        const right = FIELDS.filter((f) => f.ok[side === "l" ? 0 : 1]).length;
+        $("d" + side).innerHTML = `Finished in <b>${T[side].toFixed(2)} s</b>, <b>${right} of ${FIELDS.length}</b> fields right.`;
+      }, total + 60));
+    }
+    timers.push(setTimeout(score, T.r * 1000 + 300));
+  }
+
+  function score() {
+    const acc = (s) => FIELDS.filter((f) => f.ok[s]).length / FIELDS.length;
+    const set = (ring, lbl, a) => { $(ring).style.strokeDashoffset = 351.9 * (1 - a); tween($(lbl), a * 100, 1600, (v) => Math.round(v) + "%"); };
+    set("ringL", "accL", acc(0)); set("ringR", "accR", acc(1));
+    tween($("cL"), COST.l, 1400, (v) => "$" + v.toFixed(2)); tween($("cR"), COST.r, 1400, (v) => "$" + v.toFixed(2));
+    const save = $("save"); const saveTo = COST.r / COST.l;
+    const t0 = performance.now(); const step = (now) => { const p = Math.min(1, (now - t0) / 1400); save.firstChild.textContent = (saveTo * (1 - Math.pow(1 - p, 3))).toFixed(1) + "x"; if (p < 1) requestAnimationFrame(step); }; requestAnimationFrame(step);
+    const max = Math.max(T.l, T.r);
+    $("rL").style.width = (T.l / max) * 100 + "%"; $("rR").style.width = (T.r / max) * 100 + "%";
+    tween($("sL"), T.l, 1400, (v) => v.toFixed(1) + " s"); tween($("sR"), T.r, 1400, (v) => v.toFixed(1) + " s");
+    [...$("heat").children].forEach((c, i) => setTimeout(() => c.classList.add(AGREE[i] ? "a" : "d"), i * 90));
+  }
+
+  $("run").addEventListener("click", run);
+  reset();
+  setTimeout(run, 1500);
+</script>
+</body>
+</html>

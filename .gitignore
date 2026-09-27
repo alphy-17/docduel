@@ -35,3 +35,6 @@ data/train/*.jsonl
 Thumbs.db
 .vscode/
 .idea/
+
+# Local design reference photos (Unsplash, not committed)
+frontend/backgrounds/

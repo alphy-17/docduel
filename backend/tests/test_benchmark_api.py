@@ -26,7 +26,7 @@ def test_empty_when_no_reports(tmp_path, monkeypatch):
     assert body["dataset_version"] == "test-v1"
     assert body["ours"] is None and body["relative_score"] is None
     assert body["models"]["openai"]["extract"] is None
-    assert body["models"]["small-ft-r1"]["status"] == "not_trained"
+    assert body["models"]["small-ft-r2"]["status"] == "not_trained"
 
 
 def test_reads_reports_and_relative_score(tmp_path, monkeypatch):

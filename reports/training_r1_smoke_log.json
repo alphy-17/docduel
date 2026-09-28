@@ -1,0 +1,120 @@
+{
+ "adapter": "small-ft-r1-smoke",
+ "base_model": "Qwen/Qwen3.5-4B",
+ "base_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+ "gpu": "L40S",
+ "settings": {
+  "method": "bf16 LoRA (Unsloth)",
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_targets": [
+   "q_proj",
+   "k_proj",
+   "v_proj",
+   "o_proj",
+   "gate_proj",
+   "up_proj",
+   "down_proj"
+  ],
+  "learning_rate": 0.0002,
+  "epochs": 2,
+  "max_steps": 5,
+  "batch": 4,
+  "grad_accum": 4,
+  "max_len": 4096,
+  "seed": 2026,
+  "loss": "answer tokens only; CORD vendor/date/number nulls masked"
+ },
+ "versions": {
+  "unsloth": "2026.9.11",
+  "transformers": "5.5.0",
+  "peft": "0.21.0",
+  "torch": "2.12.1+cu130"
+ },
+ "examples": {
+  "train": 96,
+  "dev": 12
+ },
+ "dropped_too_long": {
+  "train": [],
+  "dev": []
+ },
+ "trained_text_example_1": "{\"vendor_name\":, \"document_date\":, \"document_number\":, \"currency\": \"IDR\", \"line_items\": [{\"description\": \"Nasi Campur Bali\", \"quantity\": 1.0, \"unit_price\": null, \"amount\": 75000.0}, {\"description\": \"Bbk Bengil Nasi\", \"quantity\": 1.0, \"unit_price\": null, \"amount\": 125000.0}, {\"description\": \"MilkShake Starwb\", \"quantity\": 1.0, \"unit_price\": null, \"amount\": 37000.0}, {\"description\": \"Ice Lemon Tea\", \"quantity\": 1.0, \"unit_price\": null, \"amount\": 24000.0}, {\"description\": \"Nasi Ayam Dewata\", \"quantity\": 1.0, \"unit_price\": null, \"amount\": 70000.0}, {\"description\": \"Free Ice Tea\", \"quantity\": 3.0, ",
+ "eval_loss_before": 0.0303,
+ "eval_loss_after": 0.0207,
+ "train_loss": 0.0189,
+ "optimizer_steps": 5,
+ "train_seconds": 156,
+ "total_seconds": 242,
+ "step_seconds": [
+  89.35,
+  15.47,
+  16.13,
+  14.67,
+  14.66
+ ],
+ "history": [
+  {
+   "loss": 0.01492518000304699,
+   "grad_norm": 0.26581016182899475,
+   "learning_rate": 0.0,
+   "epoch": 0.16666666666666666,
+   "step": 1
+  },
+  {
+   "loss": 0.026074545457959175,
+   "grad_norm": 0.25294601917266846,
+   "learning_rate": 2e-05,
+   "epoch": 0.3333333333333333,
+   "step": 2
+  },
+  {
+   "loss": 0.021621573716402054,
+   "grad_norm": 0.22910243272781372,
+   "learning_rate": 4e-05,
+   "epoch": 0.5,
+   "step": 3
+  },
+  {
+   "loss": 0.013275004923343658,
+   "grad_norm": 0.1317206621170044,
+   "learning_rate": 6e-05,
+   "epoch": 0.6666666666666666,
+   "step": 4
+  },
+  {
+   "loss": 0.018769120797514915,
+   "grad_norm": 0.13447712361812592,
+   "learning_rate": 8e-05,
+   "epoch": 0.8333333333333334,
+   "step": 5
+  },
+  {
+   "eval_loss": 0.0207185260951519,
+   "eval_model_preparation_time": 0.0216,
+   "eval_runtime": 3.4878,
+   "eval_samples_per_second": 3.441,
+   "eval_steps_per_second": 0.86,
+   "epoch": 0.8333333333333334,
+   "step": 5
+  },
+  {
+   "train_runtime": 153.9348,
+   "train_samples_per_second": 0.52,
+   "train_steps_per_second": 0.032,
+   "total_flos": 6354730494787584.0,
+   "train_loss": 0.018933084979653358,
+   "epoch": 0.8333333333333334,
+   "step": 5
+  },
+  {
+   "eval_loss": 0.0207185260951519,
+   "eval_model_preparation_time": 0.0216,
+   "eval_runtime": 3.4932,
+   "eval_samples_per_second": 3.435,
+   "eval_steps_per_second": 0.859,
+   "epoch": 0.8333333333333334,
+   "step": 5
+  }
+ ]
+}

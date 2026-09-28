@@ -9,13 +9,14 @@ What this does
 - Scales to zero after 5 idle minutes; at most one GPU container ever runs (cost cap).
 - Keeps the vision encoder (the describe task sends images), thinking off by default.
 - CUDA graphs on and MTP speculative decoding (Qwen's built-in draft head) for speed.
-- LoRA serving is off until Phase 7/8 adapters exist.
+- Serves fine-tuned LoRA adapters (small-ft-r1, ...) from the docduel-adapters volume.
 
 Deploy:  modal deploy training/modal_serve.py
 Check:   uv run python scripts/check_serving.py   (from backend/, uses the token in .env)
 """
 
 import json
+import os
 import subprocess
 
 import modal
@@ -30,8 +31,11 @@ SCALEDOWN_SECONDS = 5 * 60  # Owner choice: sleep after 5 idle minutes
 MAX_MODEL_LEN = 16384  # our prompts are ~2k tokens; a 1536 px image adds a few thousand
 FAST_BOOT = False  # CUDA graphs on: much faster answers; graphs cached on the vllm volume
 MTP_TOKENS = 1  # speculative decoding with Qwen's own draft head: same answers, faster
-ENABLE_LORA = False  # on in Phase 7 with adapters (target whole layer groups: vLLM bug #47639)
+ENABLE_LORA = True  # Phase 7: fine-tuned adapters from the docduel-adapters volume
 MAX_LORA_RANK = 32
+# Served name = folder under /adapters. Missing folders are skipped at start-up, so the server
+# still boots before an adapter exists. Adapters target attention/MLP only (vLLM bug #47639).
+LORA_ADAPTERS = ["small-ft-r1", "small-ft-r1-smoke"]
 PORT = 8000
 MINUTES = 60
 
@@ -84,7 +88,10 @@ def serve_command() -> list[str]:
             json.dumps({"method": "mtp", "num_speculative_tokens": MTP_TOKENS}),
         ]
     if ENABLE_LORA:
-        cmd += ["--enable-lora", "--max-lora-rank", str(MAX_LORA_RANK), "--max-loras", "2"]
+        found = [n for n in LORA_ADAPTERS if os.path.isdir(f"/adapters/{n}")]
+        if found:
+            cmd += ["--enable-lora", "--max-lora-rank", str(MAX_LORA_RANK), "--max-loras", "2"]
+            cmd += ["--lora-modules", *(f"{n}=/adapters/{n}" for n in found)]
     return cmd
 
 

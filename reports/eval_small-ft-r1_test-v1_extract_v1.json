@@ -1,0 +1,4879 @@
+{
+  "created_at": "2026-09-28T10:21:59+00:00",
+  "scored_at": "2026-09-28T10:23:47+00:00",
+  "model_key": "small-ft-r1",
+  "model_id": "small-ft-r1",
+  "reasoning_effort": null,
+  "split": "test-v1",
+  "prompt": "extract_v1",
+  "task": "extract",
+  "docs_total": 63,
+  "docs_scored": 63,
+  "skipped_budget": [],
+  "scores": {
+    "headline": {
+      "field_accuracy": {
+        "value": 0.9634,
+        "ci95": [
+          0.9397,
+          0.9846
+        ],
+        "display": "96.3% (94.0-98.5)"
+      },
+      "line_item_f1": {
+        "value": 0.9049,
+        "ci95": [
+          0.8317,
+          0.9673
+        ],
+        "display": "90.5% (83.2-96.7)"
+      },
+      "perfect_document_rate": {
+        "value": 0.746,
+        "ci95": [
+          0.6349,
+          0.8417
+        ],
+        "display": "74.6% (63.5-84.2)"
+      },
+      "schema_validity": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "display": "100.0% (100.0-100.0)"
+      },
+      "field_accuracy_exact": 0.9512,
+      "line_item_precision": 0.9139,
+      "line_item_recall": 0.8961
+    },
+    "per_field": {
+      "vendor_name": {
+        "scored": 23,
+        "accuracy": 0.9565217391304348,
+        "accuracy_exact": 0.782608695652174
+      },
+      "document_date": {
+        "scored": 23,
+        "accuracy": 1.0,
+        "accuracy_exact": 1.0
+      },
+      "document_number": {
+        "scored": 23,
+        "accuracy": 0.9130434782608695,
+        "accuracy_exact": 0.9130434782608695
+      },
+      "currency": {
+        "scored": 63,
+        "accuracy": 1.0,
+        "accuracy_exact": 1.0
+      },
+      "subtotal": {
+        "scored": 42,
+        "accuracy": 0.9523809523809523,
+        "accuracy_exact": 0.9523809523809523
+      },
+      "tax": {
+        "scored": 37,
+        "accuracy": 0.972972972972973,
+        "accuracy_exact": 0.972972972972973
+      },
+      "service_charge": {
+        "scored": 5,
+        "accuracy": 1.0,
+        "accuracy_exact": 1.0
+      },
+      "discount": {
+        "scored": 6,
+        "accuracy": 0.5,
+        "accuracy_exact": 0.5
+      },
+      "total": {
+        "scored": 60,
+        "accuracy": 0.9666666666666667,
+        "accuracy_exact": 0.9666666666666667
+      },
+      "payment_method": {
+        "scored": 46,
+        "accuracy": 0.9782608695652174,
+        "accuracy_exact": 0.9782608695652174
+      }
+    },
+    "by_source": {
+      "cord": {
+        "docs": 40,
+        "field_accuracy": 0.9613,
+        "field_accuracy_exact": 0.9613,
+        "line_item_precision": 0.9302,
+        "line_item_recall": 0.8989,
+        "line_item_f1": 0.9143,
+        "perfect_document_rate": 0.775,
+        "schema_validity": 1.0
+      },
+      "owner": {
+        "docs": 8,
+        "field_accuracy": 0.8966,
+        "field_accuracy_exact": 0.8276,
+        "line_item_precision": 1.0,
+        "line_item_recall": 1.0,
+        "line_item_f1": 1.0,
+        "perfect_document_rate": 0.375,
+        "schema_validity": 1.0
+      },
+      "synthetic_invoice": {
+        "docs": 15,
+        "field_accuracy": 1.0,
+        "field_accuracy_exact": 1.0,
+        "line_item_precision": 0.86,
+        "line_item_recall": 0.86,
+        "line_item_f1": 0.86,
+        "perfect_document_rate": 0.8667,
+        "schema_validity": 1.0
+      }
+    },
+    "worst_failures": [
+      "cord_test_0098",
+      "cord_test_0000",
+      "owner_c0398287",
+      "cord_test_0076",
+      "cord_test_0096",
+      "owner_c750c369",
+      "owner_cecc6be6",
+      "owner_b498201b",
+      "owner_37d275e1",
+      "inv_F_20003"
+    ],
+    "per_doc": [
+      {
+        "id": "cord_test_0000",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "4/6",
+        "wrong_fields": {
+          "discount": {
+            "predicted": null,
+            "expected": 60000.0
+          },
+          "total": {
+            "predicted": null,
+            "expected": 60000.0
+          }
+        },
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "- TICKET CP",
+              "quantity": 2.0,
+              "unit_price": 30000.0,
+              "amount": 60000.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "-TICKET CP",
+              "quantity": 2.0,
+              "unit_price": null,
+              "amount": 60000.0
+            }
+          ]
+        },
+        "latency_ms": 4845.8733999868855,
+        "cost_usd": 0.0010755146796082005
+      },
+      {
+        "id": "cord_test_0001",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 6394.717799965292,
+        "cost_usd": 0.0014192720894922967
+      },
+      {
+        "id": "cord_test_0009",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4581.862199993338,
+        "cost_usd": 0.0010169188604985213
+      },
+      {
+        "id": "cord_test_0010",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "4/4",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4881.429800007027,
+        "cost_usd": 0.0010834062250571152
+      },
+      {
+        "id": "cord_test_0011",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4524.962399969809,
+        "cost_usd": 0.0010042902659932993
+      },
+      {
+        "id": "cord_test_0012",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "0571-1854",
+              "quantity": 1.0,
+              "unit_price": 120000.0,
+              "amount": 120000.0
+            },
+            {
+              "description": "1002-0060 SHOPPING BAG",
+              "quantity": 1.0,
+              "unit_price": 880.0,
+              "amount": 880.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "BLUS WANITA",
+              "quantity": 1.0,
+              "unit_price": 120000.0,
+              "amount": null
+            },
+            {
+              "description": "SHOPPING BAG",
+              "quantity": 1.0,
+              "unit_price": 880.0,
+              "amount": null
+            }
+          ]
+        },
+        "latency_ms": 6004.740500007756,
+        "cost_usd": 0.001332718794307277
+      },
+      {
+        "id": "cord_test_0013",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/5",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 6038.810300000478,
+        "cost_usd": 0.001340280397138995
+      },
+      {
+        "id": "cord_test_0014",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/6",
+        "wrong_fields": {},
+        "items": {
+          "tp": 5,
+          "pred": 5,
+          "gold": 6
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "RedVelvet Cheese S1c",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 38000.0
+            },
+            {
+              "description": "Chicken Baked Rice",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 55000.0
+            },
+            {
+              "description": "Fish n Chips",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 65000.0
+            },
+            {
+              "description": "Mushroom Soup",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 35000.0
+            },
+            {
+              "description": "Chamomile Iced Tea",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 25000.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "RedVelvet Cheese Slc",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 38000.0
+            },
+            {
+              "description": "Chicken Baked Rice",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 55000.0
+            },
+            {
+              "description": "Fish n Chips",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 65000.0
+            },
+            {
+              "description": "Mushroom Soup",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 35000.0
+            },
+            {
+              "description": "Chamomile",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 25000.0
+            },
+            {
+              "description": "Iced Tea",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 20000.0
+            }
+          ]
+        },
+        "latency_ms": 8787.918900023215,
+        "cost_usd": 0.0019504297780884858
+      },
+      {
+        "id": "cord_test_0015",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5049.3392999633215,
+        "cost_usd": 0.0011206728057418594
+      },
+      {
+        "id": "cord_test_0018",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 0,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "",
+              "quantity": 1.0,
+              "unit_price": 156000.0,
+              "amount": 156000.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "Propolis Cair",
+              "quantity": 1.0,
+              "unit_price": 156000.0,
+              "amount": 156000.0
+            }
+          ]
+        },
+        "latency_ms": 4339.422199991532,
+        "cost_usd": 0.0009631106493870094
+      },
+      {
+        "id": "cord_test_0026",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "4/4",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Nasi Cap Cay Porsi B esar",
+              "quantity": 1.0,
+              "unit_price": 65000.0,
+              "amount": 65000.0
+            },
+            {
+              "description": "Minuman Teh Tawar Fu Yung Hai",
+              "quantity": 2.0,
+              "unit_price": 4000.0,
+              "amount": 8000.0
+            },
+            {
+              "description": "Lain-lain",
+              "quantity": 1.0,
+              "unit_price": 65000.0,
+              "amount": 65000.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "Nasi Cap Cay Porsi B esar",
+              "quantity": 1.0,
+              "unit_price": 65000.0,
+              "amount": 65000.0
+            },
+            {
+              "description": "Teh Tawar",
+              "quantity": 2.0,
+              "unit_price": 4000.0,
+              "amount": null
+            },
+            {
+              "description": "Fu Yung Hai",
+              "quantity": 1.0,
+              "unit_price": 65000.0,
+              "amount": 65000.0
+            }
+          ]
+        },
+        "latency_ms": 7295.811899995897,
+        "cost_usd": 0.001619264918915756
+      },
+      {
+        "id": "cord_test_0028",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/6",
+        "wrong_fields": {},
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 7044.024300004821,
+        "cost_usd": 0.0015633820599177367
+      },
+      {
+        "id": "cord_test_0030",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/5",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4397.70850003697,
+        "cost_usd": 0.0009760469698693164
+      },
+      {
+        "id": "cord_test_0032",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "4/4",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4533.685599977616,
+        "cost_usd": 0.0010062263317728098
+      },
+      {
+        "id": "cord_test_0034",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/5",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5507.204600027762,
+        "cost_usd": 0.0012222934653950506
+      },
+      {
+        "id": "cord_test_0035",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 4,
+          "pred": 4,
+          "gold": 4
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 7224.115499993786,
+        "cost_usd": 0.0016033523012486208
+      },
+      {
+        "id": "cord_test_0036",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "4/4",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5039.072199957445,
+        "cost_usd": 0.0011183940799349996
+      },
+      {
+        "id": "cord_test_0040",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 6179.936399974395,
+        "cost_usd": 0.0013716025509943172
+      },
+      {
+        "id": "cord_test_0043",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/5",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4673.728100024164,
+        "cost_usd": 0.0010373079866442519
+      },
+      {
+        "id": "cord_test_0044",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4092.6119999494404,
+        "cost_usd": 0.0009083324966554452
+      },
+      {
+        "id": "cord_test_0045",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 4,
+          "pred": 4,
+          "gold": 4
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 7344.9641999905,
+        "cost_usd": 0.001630173998831225
+      },
+      {
+        "id": "cord_test_0048",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/5",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4759.246500034351,
+        "cost_usd": 0.0010562883204242907
+      },
+      {
+        "id": "cord_test_0050",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/5",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4422.454599989578,
+        "cost_usd": 0.0009815392292754647
+      },
+      {
+        "id": "cord_test_0053",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/5",
+        "wrong_fields": {},
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 6699.202699994203,
+        "cost_usd": 0.0014868508214709356
+      },
+      {
+        "id": "cord_test_0056",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/5",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4189.497700019274,
+        "cost_usd": 0.0009298357395320556
+      },
+      {
+        "id": "cord_test_0057",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "2/2",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4888.597600045614,
+        "cost_usd": 0.0010849970784545682
+      },
+      {
+        "id": "cord_test_0062",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5160.810200031847,
+        "cost_usd": 0.0011454131527292904
+      },
+      {
+        "id": "cord_test_0064",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4052.1642999956384,
+        "cost_usd": 0.000899355354360143
+      },
+      {
+        "id": "cord_test_0065",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4671.057900006417,
+        "cost_usd": 0.0010367153505847575
+      },
+      {
+        "id": "cord_test_0070",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/5",
+        "wrong_fields": {},
+        "items": {
+          "tp": 8,
+          "pred": 8,
+          "gold": 10
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "RE",
+              "quantity": 2.0,
+              "unit_price": 216000.0,
+              "amount": 432000.0
+            },
+            {
+              "description": "AYM GR JUN NJAN",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 108000.0
+            },
+            {
+              "description": "SAPO TH SEAFOOD",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 172000.0
+            },
+            {
+              "description": "POCAI 3",
+              "quantity": 2.0,
+              "unit_price": 111000.0,
+              "amount": 222000.0
+            },
+            {
+              "description": "GURAME FILLET M ASAM MANIS",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 163000.0
+            },
+            {
+              "description": "BIHUN GORENG JJ",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 116000.0
+            },
+            {
+              "description": "ICED TEA",
+              "quantity": 5.0,
+              "unit_price": 12000.0,
+              "amount": 60000.0
+            },
+            {
+              "description": "NASI PUTIH",
+              "quantity": 7.0,
+              "unit_price": 10000.0,
+              "amount": 70000.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "UDANG RE",
+              "quantity": 2.0,
+              "unit_price": 216000.0,
+              "amount": 432000.0
+            },
+            {
+              "description": "=*LARGE*==",
+              "quantity": 2.0,
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "AYM GR JUN NJAN",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 108000.0
+            },
+            {
+              "description": "SAPO TH SEAFOOD",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 172000.0
+            },
+            {
+              "description": "POCAI 3",
+              "quantity": 2.0,
+              "unit_price": 111000.0,
+              "amount": 222000.0
+            },
+            {
+              "description": "=*MEDIUM*=",
+              "quantity": 2.0,
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "GURAME FILLET M",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 163000.0
+            },
+            {
+              "description": "BIHUN GORENG JJ",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 116000.0
+            },
+            {
+              "description": "ICED TEA",
+              "quantity": 5.0,
+              "unit_price": 12000.0,
+              "amount": 60000.0
+            },
+            {
+              "description": "NASI PUTIH",
+              "quantity": 7.0,
+              "unit_price": 10000.0,
+              "amount": 70000.0
+            }
+          ]
+        },
+        "latency_ms": 12954.310500004794,
+        "cost_usd": 0.0028751372470843975
+      },
+      {
+        "id": "cord_test_0071",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4661.948800028767,
+        "cost_usd": 0.001034693636450829
+      },
+      {
+        "id": "cord_test_0073",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5228.419099992607,
+        "cost_usd": 0.0011604185724705814
+      },
+      {
+        "id": "cord_test_0075",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "4/4",
+        "wrong_fields": {},
+        "items": {
+          "tp": 6,
+          "pred": 6,
+          "gold": 6
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 9352.618300006725,
+        "cost_usd": 0.002075761672695937
+      },
+      {
+        "id": "cord_test_0076",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "1/2",
+        "wrong_fields": {
+          "payment_method": {
+            "predicted": null,
+            "expected": "cash"
+          }
+        },
+        "items": {
+          "tp": 4,
+          "pred": 4,
+          "gold": 4
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "BASO TAHU",
+              "quantity": 1.0,
+              "unit_price": 46000.0,
+              "amount": 46000.0
+            },
+            {
+              "description": "NASI PUTIH",
+              "quantity": 1.0,
+              "unit_price": 6000.0,
+              "amount": 6000.0
+            },
+            {
+              "description": "BASO TAHU",
+              "quantity": 1.0,
+              "unit_price": 46000.0,
+              "amount": 46000.0
+            },
+            {
+              "description": "NASI PUTIH",
+              "quantity": 2.0,
+              "unit_price": 6000.0,
+              "amount": 12000.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "BASO TAHU",
+              "quantity": null,
+              "unit_price": null,
+              "amount": 46000.0
+            },
+            {
+              "description": "NASI PUTIH",
+              "quantity": null,
+              "unit_price": null,
+              "amount": 6000.0
+            },
+            {
+              "description": "BASO TAHU",
+              "quantity": null,
+              "unit_price": null,
+              "amount": 46000.0
+            },
+            {
+              "description": "NASI PUTIH",
+              "quantity": 2.0,
+              "unit_price": 6000.0,
+              "amount": 12000.0
+            }
+          ]
+        },
+        "latency_ms": 7757.046999991871,
+        "cost_usd": 0.0017216334869426403
+      },
+      {
+        "id": "cord_test_0078",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4724.292300001252,
+        "cost_usd": 0.0010485304299169445
+      },
+      {
+        "id": "cord_test_0079",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/3",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5544.612600002438,
+        "cost_usd": 0.0012305959631672078
+      },
+      {
+        "id": "cord_test_0082",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "4/4",
+        "wrong_fields": {},
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 7204.307499981951,
+        "cost_usd": 0.0015989560256904386
+      },
+      {
+        "id": "cord_test_0086",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "4/4",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4915.396600030363,
+        "cost_usd": 0.00109094496761785
+      },
+      {
+        "id": "cord_test_0096",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/4",
+        "wrong_fields": {
+          "subtotal": {
+            "predicted": null,
+            "expected": 41000.0
+          }
+        },
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "BBQ Chicken",
+              "quantity": 1.0,
+              "unit_price": 41000.0,
+              "amount": 41000.0
+            },
+            {
+              "description": "-Tidak Pedas",
+              "quantity": 1.0,
+              "unit_price": 0.0,
+              "amount": 0.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "BBQ Chicken",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 41000.0
+            },
+            {
+              "description": "- Tidak Pedas",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 0.0
+            }
+          ]
+        },
+        "latency_ms": 5247.942199988756,
+        "cost_usd": 0.00116475161605306
+      },
+      {
+        "id": "cord_test_0098",
+        "source": "cord",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/5",
+        "wrong_fields": {
+          "tax": {
+            "predicted": 250690.0,
+            "expected": 22790.0
+          },
+          "total": {
+            "predicted": 258690.0,
+            "expected": 250690.0
+          }
+        },
+        "items": {
+          "tp": 0,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "BLACK PEPPER MEATBALL P/S",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 77000.0
+            },
+            {
+              "description": "TRUFFLE CREAM",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 59000.0
+            },
+            {
+              "description": "EARL GREY MILK TEA",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": null
+            }
+          ],
+          "expected": [
+            {
+              "description": "BLACK PAPPER MEATBALL PAS",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 79000.0
+            },
+            {
+              "description": "TRUFFLE CREAM",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 77000.0
+            },
+            {
+              "description": "EARL GREY MILK TEA",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 59000.0
+            }
+          ]
+        },
+        "latency_ms": 7088.162500003818,
+        "cost_usd": 0.0015731782881952918
+      },
+      {
+        "id": "inv_F_20000",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/7",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 6300.4833000013605,
+        "cost_usd": 0.001398357265750302
+      },
+      {
+        "id": "inv_F_20001",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "8/8",
+        "wrong_fields": {},
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 7513.305300031789,
+        "cost_usd": 0.0016675363707570553
+      },
+      {
+        "id": "inv_F_20002",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "9/9",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 6234.7291999612935,
+        "cost_usd": 0.0013837635085469648
+      },
+      {
+        "id": "inv_F_20003",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "8/8",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 6,
+          "gold": 6
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "A4 copy paper (5 reams)",
+              "quantity": 1.0,
+              "unit_price": 35.06,
+              "amount": 35.06
+            },
+            {
+              "description": "Lawn mowing & edging",
+              "quantity": 1.0,
+              "unit_price": 68.65,
+              "amount": 68.65
+            },
+            {
+              "description": "Venue hire (half day)",
+              "quantity": 2.0,
+              "unit_price": 528.92,
+              "amount": 1057.84
+            },
+            {
+              "description": "Coffee & tea service",
+              "quantity": 1.0,
+              "unit_price": 188.96,
+              "amount": 188.96
+            },
+            {
+              "description": "Timber - pine 90x45 (per m)",
+              "quantity": 1.0,
+              "unit_price": 88.71,
+              "amount": 88.71
+            },
+            {
+              "description": "Monthly IT support plan",
+              "quantity": 10.0,
+              "unit_price": 10.03,
+              "amount": 100.3
+            }
+          ],
+          "expected": [
+            {
+              "description": "Lawn mowing & edging",
+              "quantity": 1.0,
+              "unit_price": 68.65,
+              "amount": 68.65
+            },
+            {
+              "description": "A4 copy paper (5 reams)",
+              "quantity": 1.0,
+              "unit_price": 35.06,
+              "amount": 35.06
+            },
+            {
+              "description": "Venue hire (half day)",
+              "quantity": 2.0,
+              "unit_price": 264.46,
+              "amount": 528.92
+            },
+            {
+              "description": "Monthly IT support plan",
+              "quantity": 1.0,
+              "unit_price": 188.96,
+              "amount": 188.96
+            },
+            {
+              "description": "Coffee & tea service",
+              "quantity": 1.0,
+              "unit_price": 88.71,
+              "amount": 88.71
+            },
+            {
+              "description": "Timber - pine 90x45 (per m)",
+              "quantity": 1.0,
+              "unit_price": 10.03,
+              "amount": 10.03
+            }
+          ]
+        },
+        "latency_ms": 11401.144200004637,
+        "cost_usd": 0.0025304206155010293
+      },
+      {
+        "id": "inv_F_20004",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "8/8",
+        "wrong_fields": {},
+        "items": {
+          "tp": 4,
+          "pred": 4,
+          "gold": 4
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 8266.72180002788,
+        "cost_usd": 0.0018347529772839656
+      },
+      {
+        "id": "inv_F_20005",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/7",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5969.54810002353,
+        "cost_usd": 0.0013249080366441112
+      },
+      {
+        "id": "inv_F_20006",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "8/8",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5677.737699996214,
+        "cost_usd": 0.0012601423395269375
+      },
+      {
+        "id": "inv_F_20007",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/7",
+        "wrong_fields": {},
+        "items": {
+          "tp": 5,
+          "pred": 5,
+          "gold": 5
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 9720.82980000414,
+        "cost_usd": 0.002157484169500919
+      },
+      {
+        "id": "inv_F_20008",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "8/8",
+        "wrong_fields": {},
+        "items": {
+          "tp": 6,
+          "pred": 6,
+          "gold": 6
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 11257.751299999654,
+        "cost_usd": 0.0024985953579721456
+      },
+      {
+        "id": "inv_F_20009",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/7",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4969.358199974522,
+        "cost_usd": 0.0011029214449387898
+      },
+      {
+        "id": "inv_F_20010",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "8/8",
+        "wrong_fields": {},
+        "items": {
+          "tp": 3,
+          "pred": 6,
+          "gold": 6
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Copper pipe 15mm x 3m",
+              "quantity": 1.0,
+              "unit_price": 54.83,
+              "amount": 54.83
+            },
+            {
+              "description": "Website hosting (12 months)",
+              "quantity": 3.0,
+              "unit_price": 418.2,
+              "amount": 139.4
+            },
+            {
+              "description": "Vinyl banner 2m x 1m",
+              "quantity": 1.0,
+              "unit_price": 143.58,
+              "amount": 143.58
+            },
+            {
+              "description": "Sourdough loaves (dozen)",
+              "quantity": 1.0,
+              "unit_price": 63.81,
+              "amount": 63.81
+            },
+            {
+              "description": "Printer toner cartridge",
+              "quantity": 2.0,
+              "unit_price": 154.68,
+              "amount": 77.34
+            },
+            {
+              "description": "Power drill 18V",
+              "quantity": 2.0,
+              "unit_price": 433.48,
+              "amount": 216.74
+            }
+          ],
+          "expected": [
+            {
+              "description": "Copper pipe 15mm x 3m",
+              "quantity": 1.0,
+              "unit_price": 54.83,
+              "amount": 54.83
+            },
+            {
+              "description": "Website hosting (12 months)",
+              "quantity": 3.0,
+              "unit_price": 139.4,
+              "amount": 418.2
+            },
+            {
+              "description": "Vinyl banner 2m x 1m",
+              "quantity": 1.0,
+              "unit_price": 143.58,
+              "amount": 143.58
+            },
+            {
+              "description": "Sourdough loaves (dozen)",
+              "quantity": 1.0,
+              "unit_price": 63.81,
+              "amount": 63.81
+            },
+            {
+              "description": "Printer toner cartridge",
+              "quantity": 2.0,
+              "unit_price": 77.34,
+              "amount": 154.68
+            },
+            {
+              "description": "Power drill 18V",
+              "quantity": 2.0,
+              "unit_price": 216.74,
+              "amount": 433.48
+            }
+          ]
+        },
+        "latency_ms": 11062.931600026786,
+        "cost_usd": 0.002455356207894834
+      },
+      {
+        "id": "inv_F_20011",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "8/8",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 4746.860000013839,
+        "cost_usd": 0.0010535392055586272
+      },
+      {
+        "id": "inv_F_20012",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "8/8",
+        "wrong_fields": {},
+        "items": {
+          "tp": 4,
+          "pred": 4,
+          "gold": 4
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 8768.914200016297,
+        "cost_usd": 0.001946211790503617
+      },
+      {
+        "id": "inv_F_20013",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/7",
+        "wrong_fields": {},
+        "items": {
+          "tp": 4,
+          "pred": 4,
+          "gold": 4
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 8547.307900036685,
+        "cost_usd": 0.001897027503369253
+      },
+      {
+        "id": "inv_F_20014",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/7",
+        "wrong_fields": {},
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5946.502799983136,
+        "cost_usd": 0.0013197932603295904
+      },
+      {
+        "id": "owner_cf140962",
+        "source": "owner",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/7",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5976.977199956309,
+        "cost_usd": 0.001326556884101414
+      },
+      {
+        "id": "owner_c750c369",
+        "source": "owner",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/7",
+        "wrong_fields": {
+          "document_number": {
+            "predicted": "S95981",
+            "expected": "D04600313969"
+          }
+        },
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "ADIZERO PACER M Ftwr White/Core Black/Crystal White 8",
+              "quantity": 1.0,
+              "unit_price": 159.99,
+              "amount": 159.99
+            },
+            {
+              "description": "PLAT SNEAKER PROTECTOR SPRAY No Colour 05",
+              "quantity": 1.0,
+              "unit_price": 19.99,
+              "amount": 19.99
+            },
+            {
+              "description": "Platypus Reusable Bag Standard No Colour OS",
+              "quantity": 1.0,
+              "unit_price": 0.5,
+              "amount": 0.5
+            }
+          ],
+          "expected": [
+            {
+              "description": "ADIZERO PACER N Ftwr White/Core Black/Crystal White 8",
+              "quantity": 1.0,
+              "unit_price": 159.99,
+              "amount": 159.99
+            },
+            {
+              "description": "PLAT SNEAKER PROTECTOR SPRAY No Colour OS",
+              "quantity": 1.0,
+              "unit_price": 19.99,
+              "amount": 19.99
+            },
+            {
+              "description": "Platypus Reusable Bag Standard No Colour OS",
+              "quantity": 1.0,
+              "unit_price": 0.5,
+              "amount": 0.5
+            }
+          ]
+        },
+        "latency_ms": 8562.148500001058,
+        "cost_usd": 0.0019003212920835682
+      },
+      {
+        "id": "owner_6e9cd376",
+        "source": "owner",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/6",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5178.600600047503,
+        "cost_usd": 0.0011493616331772097
+      },
+      {
+        "id": "owner_cecc6be6",
+        "source": "owner",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/7",
+        "wrong_fields": {
+          "discount": {
+            "predicted": null,
+            "expected": 9.99
+          }
+        },
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Remington Advanced Coconut Therapy Straightener, S8648AU, Salon Performance, 110mm Ceramic Plates With Micro-Conditioners, Integrated Heat Sensor Helps Protect Hair, Ultra-Fast Heat Up, LCD Display",
+              "quantity": 1.0,
+              "unit_price": 50.91,
+              "amount": 56.0
+            },
+            {
+              "description": "Shipping Charges",
+              "quantity": 1.0,
+              "unit_price": 9.08,
+              "amount": 9.99
+            }
+          ],
+          "expected": [
+            {
+              "description": "Remington Advanced Coconut Therapy Straightener, S8648AU",
+              "quantity": 1.0,
+              "unit_price": 56.0,
+              "amount": 56.0
+            },
+            {
+              "description": "Shipping Charges",
+              "quantity": null,
+              "unit_price": 9.99,
+              "amount": 9.99
+            }
+          ]
+        },
+        "latency_ms": 7180.5183999822475,
+        "cost_usd": 0.001593676167107171
+      },
+      {
+        "id": "owner_c07760cb",
+        "source": "owner",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/7",
+        "wrong_fields": {},
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 5218.591400014702,
+        "cost_usd": 0.0011582373690588186
+      },
+      {
+        "id": "owner_c0398287",
+        "source": "owner",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/9",
+        "wrong_fields": {
+          "subtotal": {
+            "predicted": 156.99,
+            "expected": 179.99
+          },
+          "discount": {
+            "predicted": null,
+            "expected": 7.3
+          }
+        },
+        "items": {
+          "tp": 1,
+          "pred": 1,
+          "gold": 1
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Standard Freight",
+              "quantity": 1.0,
+              "unit_price": 0.0,
+              "amount": 0.0
+            },
+            {
+              "description": "VOMERO PLUS, Red/gold",
+              "quantity": 1.0,
+              "unit_price": 179.99,
+              "amount": 179.99
+            }
+          ],
+          "expected": [
+            {
+              "description": "Standard Freight",
+              "quantity": 1.0,
+              "unit_price": 0.0,
+              "amount": 0.0
+            },
+            {
+              "description": "VOMERO PLUS, Red/gold, 9.5",
+              "quantity": 1.0,
+              "unit_price": 179.99,
+              "amount": 179.99
+            }
+          ]
+        },
+        "latency_ms": 6202.219900034834,
+        "cost_usd": 0.001376548250035509
+      },
+      {
+        "id": "owner_b498201b",
+        "source": "owner",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/7",
+        "wrong_fields": {
+          "document_number": {
+            "predicted": "JAPT1816",
+            "expected": "9417315001131728"
+          }
+        },
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "* JACKSON 6 WAY SWITCH SURGE PB",
+              "quantity": 1.0,
+              "unit_price": 33.0,
+              "amount": 33.0
+            },
+            {
+              "description": "LENOVO 25 FHD 320HZ L25-10",
+              "quantity": 1.0,
+              "unit_price": 198.0,
+              "amount": 198.0
+            },
+            {
+              "description": "LENOVO 25 FHD 320HZ L25-10",
+              "quantity": 1.0,
+              "unit_price": 198.0,
+              "amount": 198.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "JACKSON 6 WAY SWITCH SURGE PB",
+              "quantity": null,
+              "unit_price": null,
+              "amount": 33.0
+            },
+            {
+              "description": "LENOVO 25 FHD 320HZ L25-10",
+              "quantity": null,
+              "unit_price": null,
+              "amount": 198.0
+            },
+            {
+              "description": "LENOVO 25 FHD 320HZ L25-10",
+              "quantity": null,
+              "unit_price": null,
+              "amount": 198.0
+            }
+          ]
+        },
+        "latency_ms": 7299.238699954003,
+        "cost_usd": 0.00162002547812868
+      },
+      {
+        "id": "owner_37d275e1",
+        "source": "owner",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/8",
+        "wrong_fields": {
+          "vendor_name": {
+            "predicted": "Palermo South Wharf Pty Ltd",
+            "expected": "Palermo Perfumes"
+          }
+        },
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "inspired By Sauvage - Christian Dior",
+              "quantity": null,
+              "unit_price": 50.0,
+              "amount": 50.0
+            },
+            {
+              "description": "inspired By Good Girl Blush - Carolina Herrera",
+              "quantity": null,
+              "unit_price": 50.0,
+              "amount": 50.0
+            },
+            {
+              "description": "inspired By Born In Roma Extradose Donna - Valentino",
+              "quantity": null,
+              "unit_price": 35.0,
+              "amount": 35.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "Inspired By Sauvage - Christian Dior (100ml Mens 248)",
+              "quantity": null,
+              "unit_price": null,
+              "amount": 50.0
+            },
+            {
+              "description": "Inspired By Good Girl Blush - Carolina Herrera (100ml Womens 789)",
+              "quantity": null,
+              "unit_price": null,
+              "amount": 50.0
+            },
+            {
+              "description": "Inspired By Born in Roma Extradose Donna - Valentino (women's 819)",
+              "quantity": null,
+              "unit_price": null,
+              "amount": 35.0
+            }
+          ]
+        },
+        "latency_ms": 6609.158000035677,
+        "cost_usd": 0.0014668659005634738
+      }
+    ],
+    "scoring_notes": [
+      "Only fields with non-null ground truth are scored (CORD has no vendor or date).",
+      "Short strings: headline uses fuzzy match (token_set_ratio >= 90); exact also given.",
+      "Zero-priced line items (modifiers, free extras) are ignored on both sides.",
+      "A line item with a blank true amount only needs a matching description.",
+      "Perfect document = every scored field and every priced line item right.",
+      "95% intervals: 1,000 bootstrap resamples of documents, seed 2026."
+    ]
+  },
+  "speed_cost": {
+    "latency_ms_p50": 5970,
+    "latency_ms_p95": 10929,
+    "ttft_ms_p50": 1201,
+    "cold_starts": 0,
+    "input_tokens_mean": 2158,
+    "output_tokens_mean": 186,
+    "reasoning_tokens_mean": 0,
+    "cost_usd_total": 0.088981,
+    "cost_per_1000_docs_usd": 1.4124,
+    "cold_start_ttft_ms": [],
+    "errors": {},
+    "steady_load": {
+      "concurrency": 4,
+      "wall_seconds": 103.0,
+      "docs": 63,
+      "cost_per_1000_docs_usd": 0.3628
+    }
+  },
+  "outputs": [
+    {
+      "id": "cord_test_0000",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Comcinemas",
+        "document_date": null,
+        "document_number": "901016",
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "- TICKET CP",
+            "quantity": 2.0,
+            "unit_price": 30000.0,
+            "amount": 60000.0
+          }
+        ],
+        "subtotal": 60000.0,
+        "tax": 5455.0,
+        "service_charge": null,
+        "discount": null,
+        "total": null,
+        "payment_method": "card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1230.6815999909304,
+      "latency_ms": 4845.8733999868855,
+      "input_tokens": 2107,
+      "cached_input_tokens": 0,
+      "output_tokens": 126,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010755146796082005,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0001",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "J.STB PROMO",
+            "quantity": null,
+            "unit_price": null,
+            "amount": 17500.0
+          },
+          {
+            "description": "Y.B.BAT",
+            "quantity": null,
+            "unit_price": null,
+            "amount": 46000.0
+          },
+          {
+            "description": "Y BASO PROM",
+            "quantity": null,
+            "unit_price": null,
+            "amount": 27500.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 91000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1626.2347999727353,
+      "latency_ms": 6394.717799965292,
+      "input_tokens": 2048,
+      "cached_input_tokens": 0,
+      "output_tokens": 166,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0014192720894922967,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0009",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Bumbu Kaldu Ayam",
+            "quantity": 1.0,
+            "unit_price": 36000.0,
+            "amount": 36000.0
+          }
+        ],
+        "subtotal": 36000.0,
+        "tax": null,
+        "service_charge": null,
+        "discount": 0.0,
+        "total": null,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1614.2818999942392,
+      "latency_ms": 4581.862199993338,
+      "input_tokens": 2052,
+      "cached_input_tokens": 0,
+      "output_tokens": 116,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010169188604985213,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0010",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Suntie Ann",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "CINNAMON SUGAR",
+            "quantity": 1.0,
+            "unit_price": 17000.0,
+            "amount": 17000.0
+          }
+        ],
+        "subtotal": 17000.0,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 17000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1700.6889000185765,
+      "latency_ms": 4881.429800007027,
+      "input_tokens": 2069,
+      "cached_input_tokens": 0,
+      "output_tokens": 126,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010834062250571152,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0011",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "BANABERRY FRESH CREAM CAK",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 230000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 230000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1081.3510000007227,
+      "latency_ms": 4524.962399969809,
+      "input_tokens": 2040,
+      "cached_input_tokens": 0,
+      "output_tokens": 112,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010042902659932993,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0012",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "BLUS WANITA",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "0571-1854",
+            "quantity": 1.0,
+            "unit_price": 120000.0,
+            "amount": 120000.0
+          },
+          {
+            "description": "1002-0060 SHOPPING BAG",
+            "quantity": 1.0,
+            "unit_price": 880.0,
+            "amount": 880.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 120000.0,
+        "payment_method": "card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1280.0062999594957,
+      "latency_ms": 6004.740500007756,
+      "input_tokens": 2097,
+      "cached_input_tokens": 0,
+      "output_tokens": 170,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001332718794307277,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0013",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "A Fung",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "BASO KUAH",
+            "quantity": 1.0,
+            "unit_price": 43636.0,
+            "amount": 43636.0
+          },
+          {
+            "description": "A.MINERAL GELAS",
+            "quantity": 1.0,
+            "unit_price": 3000.0,
+            "amount": 3000.0
+          }
+        ],
+        "subtotal": 46636.0,
+        "tax": 4664.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 51300.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1388.433400017675,
+      "latency_ms": 6038.810300000478,
+      "input_tokens": 2143,
+      "cached_input_tokens": 0,
+      "output_tokens": 171,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001340280397138995,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0014",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "RedVelvet Cheese S1c",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 38000.0
+          },
+          {
+            "description": "Chicken Baked Rice",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 55000.0
+          },
+          {
+            "description": "Fish n Chips",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 65000.0
+          },
+          {
+            "description": "Mushroom Soup",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 35000.0
+          },
+          {
+            "description": "Chamomile Iced Tea",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 25000.0
+          }
+        ],
+        "subtotal": 238000.0,
+        "tax": 25585.0,
+        "service_charge": 17850.0,
+        "discount": null,
+        "total": 281435.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1209.1225999756716,
+      "latency_ms": 8787.918900023215,
+      "input_tokens": 2140,
+      "cached_input_tokens": 0,
+      "output_tokens": 273,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0019504297780884858,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0015",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Cal\u00e9",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Lemon Tea (L)",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 25000.0
+          },
+          {
+            "description": "Caramel Small",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 38000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 63000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1104.5283999992535,
+      "latency_ms": 5049.3392999633215,
+      "input_tokens": 2061,
+      "cached_input_tokens": 0,
+      "output_tokens": 142,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0011206728057418594,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0018",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Propolis Cair",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "",
+            "quantity": 1.0,
+            "unit_price": 156000.0,
+            "amount": 156000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 156000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1268.6797000351362,
+      "latency_ms": 4339.422199991532,
+      "input_tokens": 2046,
+      "cached_input_tokens": 0,
+      "output_tokens": 113,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0009631106493870094,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0026",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Cap Cay",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Nasi Cap Cay Porsi B esar",
+            "quantity": 1.0,
+            "unit_price": 65000.0,
+            "amount": 65000.0
+          },
+          {
+            "description": "Minuman Teh Tawar Fu Yung Hai",
+            "quantity": 2.0,
+            "unit_price": 4000.0,
+            "amount": 8000.0
+          },
+          {
+            "description": "Lain-lain",
+            "quantity": 1.0,
+            "unit_price": 65000.0,
+            "amount": 65000.0
+          }
+        ],
+        "subtotal": 138000.0,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 138000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1344.662800023798,
+      "latency_ms": 7295.811899995897,
+      "input_tokens": 2118,
+      "cached_input_tokens": 0,
+      "output_tokens": 216,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001619264918915756,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0028",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "SAMGYOPSAL",
+            "quantity": 2.0,
+            "unit_price": null,
+            "amount": 194000.0
+          },
+          {
+            "description": "SUL LUNG TANG",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 75000.0
+          },
+          {
+            "description": "MAKOLI",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 100000.0
+          }
+        ],
+        "subtotal": 369000.0,
+        "tax": 38745.0,
+        "service_charge": 18450.0,
+        "discount": 0.0,
+        "total": 426195.0,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1117.2663000179455,
+      "latency_ms": 7044.024300004821,
+      "input_tokens": 2085,
+      "cached_input_tokens": 0,
+      "output_tokens": 203,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0015633820599177367,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0030",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Kupon 3",
+            "quantity": null,
+            "unit_price": null,
+            "amount": 28636.0
+          }
+        ],
+        "subtotal": 28636.0,
+        "tax": 2864.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 31500.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1345.7275000400841,
+      "latency_ms": 4397.70850003697,
+      "input_tokens": 2061,
+      "cached_input_tokens": 0,
+      "output_tokens": 115,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0009760469698693164,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0032",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "THAI ICED GREEN TEA",
+            "quantity": 1.0,
+            "unit_price": 24000.0,
+            "amount": 24000.0
+          }
+        ],
+        "subtotal": 24000.0,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 24000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1224.2192999692634,
+      "latency_ms": 4533.685599977616,
+      "input_tokens": 2070,
+      "cached_input_tokens": 0,
+      "output_tokens": 122,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010062263317728098,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0034",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Ash Chick Sambal Matah",
+            "quantity": 5.0,
+            "unit_price": null,
+            "amount": 75000.0
+          },
+          {
+            "description": "Jamur Goreng",
+            "quantity": 2.0,
+            "unit_price": null,
+            "amount": 10000.0
+          }
+        ],
+        "subtotal": 85000.0,
+        "tax": 8500.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 93500.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1118.6227000434883,
+      "latency_ms": 5507.204600027762,
+      "input_tokens": 2081,
+      "cached_input_tokens": 0,
+      "output_tokens": 155,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0012222934653950506,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0035",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "TWIST DONUT",
+            "quantity": 2.0,
+            "unit_price": null,
+            "amount": 18000.0
+          },
+          {
+            "description": "BANANA DONUT",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 11000.0
+          },
+          {
+            "description": "REAMCHEESE BREAD",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 13000.0
+          },
+          {
+            "description": "FRANKFRUT SAUSAGE ROLL",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 12000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 54000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1215.651299979072,
+      "latency_ms": 7224.115499993786,
+      "input_tokens": 2084,
+      "cached_input_tokens": 0,
+      "output_tokens": 215,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0016033523012486208,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0036",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "XXL Crispy Chicken",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 40000.0
+          },
+          {
+            "description": "- Sedang",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 0.0
+          }
+        ],
+        "subtotal": 40000.0,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 40000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1179.398099950049,
+      "latency_ms": 5039.072199957445,
+      "input_tokens": 2066,
+      "cached_input_tokens": 0,
+      "output_tokens": 143,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0011183940799349996,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0040",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "ComSconnor",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Snack Lestari All",
+            "quantity": 2.0,
+            "unit_price": 27000.0,
+            "amount": 54000.0
+          },
+          {
+            "description": "Bakery Aneka Sisir banana, Pizza, yoko, Mar mer. Daging, abon, keju, cokelat, d]",
+            "quantity": 2.0,
+            "unit_price": 7000.0,
+            "amount": 14000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 68000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1116.013600025326,
+      "latency_ms": 6179.936399974395,
+      "input_tokens": 2101,
+      "cached_input_tokens": 0,
+      "output_tokens": 184,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0013716025509943172,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0043",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Cheese Tart",
+            "quantity": 6.0,
+            "unit_price": null,
+            "amount": 165000.0
+          }
+        ],
+        "subtotal": 165000.0,
+        "tax": 15000.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 165000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1175.9782999870367,
+      "latency_ms": 4673.728100024164,
+      "input_tokens": 2112,
+      "cached_input_tokens": 0,
+      "output_tokens": 121,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010373079866442519,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0044",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Combo 1",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 30000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 30000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1119.289199996274,
+      "latency_ms": 4092.6119999494404,
+      "input_tokens": 2038,
+      "cached_input_tokens": 0,
+      "output_tokens": 104,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0009083324966554452,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0045",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Lemon Tea (L).",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 25000.0
+          },
+          {
+            "description": "Mike & Ike Original",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 28000.0
+          },
+          {
+            "description": "Mike & Berry",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 28000.0
+          },
+          {
+            "description": "Roti Keju Manis.",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 7000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 88000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1125.8369999704883,
+      "latency_ms": 7344.9641999905,
+      "input_tokens": 2081,
+      "cached_input_tokens": 0,
+      "output_tokens": 212,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001630173998831225,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0048",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "KOI Cafe",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "S-Hazelnut",
+            "quantity": 1.0,
+            "unit_price": 25000.0,
+            "amount": 25000.0
+          }
+        ],
+        "subtotal": 22728.0,
+        "tax": 2272.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 25000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1124.787800014019,
+      "latency_ms": 4759.246500034351,
+      "input_tokens": 2080,
+      "cached_input_tokens": 0,
+      "output_tokens": 129,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010562883204242907,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0050",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "SpcPrice Cadburry",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 17727.0
+          }
+        ],
+        "subtotal": 17727.0,
+        "tax": 1773.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 19500.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1161.9295999989845,
+      "latency_ms": 4422.454599989578,
+      "input_tokens": 2081,
+      "cached_input_tokens": 0,
+      "output_tokens": 120,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0009815392292754647,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0053",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Kopi Legit",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Pecel Komplit + Nasi",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 42000.0
+          },
+          {
+            "description": "SOTO KUDUS",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 47000.0
+          },
+          {
+            "description": "Mineral Water",
+            "quantity": 2.0,
+            "unit_price": null,
+            "amount": 18000.0
+          }
+        ],
+        "subtotal": 107000.0,
+        "tax": 11235.0,
+        "service_charge": 5350.0,
+        "discount": null,
+        "total": 123585.0,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1115.6644999864511,
+      "latency_ms": 6699.202699994203,
+      "input_tokens": 2100,
+      "cached_input_tokens": 0,
+      "output_tokens": 203,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0014868508214709356,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0056",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "AIR MINERAL",
+            "quantity": null,
+            "unit_price": null,
+            "amount": 8181.0
+          }
+        ],
+        "subtotal": 8181.0,
+        "tax": 818.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 8999.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1111.326200014446,
+      "latency_ms": 4189.497700019274,
+      "input_tokens": 2062,
+      "cached_input_tokens": 0,
+      "output_tokens": 110,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0009298357395320556,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0057",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "ICED TT",
+            "quantity": null,
+            "unit_price": null,
+            "amount": 20000.0
+          },
+          {
+            "description": "ICED GT",
+            "quantity": null,
+            "unit_price": null,
+            "amount": 22000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 42000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1075.8266000193544,
+      "latency_ms": 4888.597600045614,
+      "input_tokens": 2032,
+      "cached_input_tokens": 0,
+      "output_tokens": 132,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010849970784545682,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0062",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "XXI Java Tea (M)",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 18000.0
+          },
+          {
+            "description": "Combo 2",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 30000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 48000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1094.0419000107795,
+      "latency_ms": 5160.810200031847,
+      "input_tokens": 2054,
+      "cached_input_tokens": 0,
+      "output_tokens": 141,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0011454131527292904,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0064",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "SINGLE SCOOP",
+            "quantity": null,
+            "unit_price": null,
+            "amount": 16000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 16000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1100.8749000029638,
+      "latency_ms": 4052.1642999956384,
+      "input_tokens": 2036,
+      "cached_input_tokens": 0,
+      "output_tokens": 102,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.000899355354360143,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0065",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "bubur Polos + Telur",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 13000.0
+          }
+        ],
+        "subtotal": 13000.0,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 13000.0,
+        "payment_method": "e-money"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1087.0440000435337,
+      "latency_ms": 4671.057900006417,
+      "input_tokens": 2048,
+      "cached_input_tokens": 0,
+      "output_tokens": 117,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010367153505847575,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0070",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "RE",
+            "quantity": 2.0,
+            "unit_price": 216000.0,
+            "amount": 432000.0
+          },
+          {
+            "description": "AYM GR JUN NJAN",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 108000.0
+          },
+          {
+            "description": "SAPO TH SEAFOOD",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 172000.0
+          },
+          {
+            "description": "POCAI 3",
+            "quantity": 2.0,
+            "unit_price": 111000.0,
+            "amount": 222000.0
+          },
+          {
+            "description": "GURAME FILLET M ASAM MANIS",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 163000.0
+          },
+          {
+            "description": "BIHUN GORENG JJ",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 116000.0
+          },
+          {
+            "description": "ICED TEA",
+            "quantity": 5.0,
+            "unit_price": 12000.0,
+            "amount": 60000.0
+          },
+          {
+            "description": "NASI PUTIH",
+            "quantity": 7.0,
+            "unit_price": 10000.0,
+            "amount": 70000.0
+          }
+        ],
+        "subtotal": 1343000.0,
+        "tax": 142358.0,
+        "service_charge": 80580.0,
+        "discount": null,
+        "total": 1565938.0,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1211.1663999967277,
+      "latency_ms": 12954.310500004794,
+      "input_tokens": 2272,
+      "cached_input_tokens": 0,
+      "output_tokens": 422,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0028751372470843975,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0071",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Cuka Apel Tetes",
+            "quantity": 1.0,
+            "unit_price": 198000.0,
+            "amount": 198000.0
+          }
+        ],
+        "subtotal": 198000.0,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 198000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1103.000900009647,
+      "latency_ms": 4661.948800028767,
+      "input_tokens": 2049,
+      "cached_input_tokens": 0,
+      "output_tokens": 124,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001034693636450829,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0073",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "1001-Choco Bun",
+            "quantity": 1.0,
+            "unit_price": 22000.0,
+            "amount": 22000.0
+          },
+          {
+            "description": "6001-Plastic Bag Small",
+            "quantity": 1.0,
+            "unit_price": 0.0,
+            "amount": 0.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 22000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1150.018899992574,
+      "latency_ms": 5228.419099992607,
+      "input_tokens": 2077,
+      "cached_input_tokens": 0,
+      "output_tokens": 154,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0011604185724705814,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0075",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "CHOCO PUFF",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 29091.0
+          },
+          {
+            "description": "CREAMY BEEF CLS FTC",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 42727.0
+          },
+          {
+            "description": "NEW ORIENTAL CHK RICE",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 34545.0
+          },
+          {
+            "description": "LIPTON PITCHER",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 54545.0
+          },
+          {
+            "description": "SC/P SUPER SUPREME",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 47273.0
+          },
+          {
+            "description": "CB/P BLACK PEPP BEEF",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 48182.0
+          }
+        ],
+        "subtotal": 256363.0,
+        "tax": 25637.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 282000.0,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1184.948500012979,
+      "latency_ms": 9352.618300006725,
+      "input_tokens": 2121,
+      "cached_input_tokens": 0,
+      "output_tokens": 310,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.002075761672695937,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0076",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "BASO TAHU",
+            "quantity": 1.0,
+            "unit_price": 46000.0,
+            "amount": 46000.0
+          },
+          {
+            "description": "NASI PUTIH",
+            "quantity": 1.0,
+            "unit_price": 6000.0,
+            "amount": 6000.0
+          },
+          {
+            "description": "BASO TAHU",
+            "quantity": 1.0,
+            "unit_price": 46000.0,
+            "amount": 46000.0
+          },
+          {
+            "description": "NASI PUTIH",
+            "quantity": 2.0,
+            "unit_price": 6000.0,
+            "amount": 12000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 110000.0,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1162.269699969329,
+      "latency_ms": 7757.046999991871,
+      "input_tokens": 2068,
+      "cached_input_tokens": 0,
+      "output_tokens": 235,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0017216334869426403,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0078",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Lemon Tea (L)",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 25000.0
+          },
+          {
+            "description": "Extra Jelly Lychee",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 5000.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 30000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1165.5244000139646,
+      "latency_ms": 4724.292300001252,
+      "input_tokens": 2050,
+      "cached_input_tokens": 0,
+      "output_tokens": 141,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010485304299169445,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0079",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "1001-Choco Bun",
+            "quantity": 1.0,
+            "unit_price": 22000.0,
+            "amount": 22000.0
+          },
+          {
+            "description": "6001-Plastic Bag Small",
+            "quantity": 1.0,
+            "unit_price": 0.0,
+            "amount": 0.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 22000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1112.5400000019,
+      "latency_ms": 5544.612600002438,
+      "input_tokens": 2067,
+      "cached_input_tokens": 0,
+      "output_tokens": 154,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0012305959631672078,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0082",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Chocolate Log Cake",
+            "quantity": 1.0,
+            "unit_price": 115000.0,
+            "amount": 115000.0
+          },
+          {
+            "description": "Snowman Cake Chocolate",
+            "quantity": 1.0,
+            "unit_price": 60000.0,
+            "amount": 60000.0
+          },
+          {
+            "description": "Strawberry Log Cake",
+            "quantity": 2.0,
+            "unit_price": 105000.0,
+            "amount": 210000.0
+          }
+        ],
+        "subtotal": 385000.0,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 385000.0,
+        "payment_method": "card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1360.790900012944,
+      "latency_ms": 7204.307499981951,
+      "input_tokens": 2119,
+      "cached_input_tokens": 0,
+      "output_tokens": 209,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0015989560256904386,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0086",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Cheezemania",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 9500.0
+          },
+          {
+            "description": "Mamamia",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 12500.0
+          }
+        ],
+        "subtotal": 22000.0,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 22000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1123.2938999892212,
+      "latency_ms": 4915.396600030363,
+      "input_tokens": 2068,
+      "cached_input_tokens": 0,
+      "output_tokens": 145,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.00109094496761785,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0096",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Choki",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "BBQ Chicken",
+            "quantity": 1.0,
+            "unit_price": 41000.0,
+            "amount": 41000.0
+          },
+          {
+            "description": "-Tidak Pedas",
+            "quantity": 1.0,
+            "unit_price": 0.0,
+            "amount": 0.0
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 41000.0,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1093.9622999867424,
+      "latency_ms": 5247.942199988756,
+      "input_tokens": 2060,
+      "cached_input_tokens": 0,
+      "output_tokens": 146,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.00116475161605306,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "cord_test_0098",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Pancia",
+        "document_date": null,
+        "document_number": null,
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "BLACK PEPPER MEATBALL P/S",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 77000.0
+          },
+          {
+            "description": "TRUFFLE CREAM",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 59000.0
+          },
+          {
+            "description": "EARL GREY MILK TEA",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": null
+          }
+        ],
+        "subtotal": 215000.0,
+        "tax": 250690.0,
+        "service_charge": 12900.0,
+        "discount": null,
+        "total": 258690.0,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1198.457199963741,
+      "latency_ms": 7088.162500003818,
+      "input_tokens": 2163,
+      "cached_input_tokens": 0,
+      "output_tokens": 202,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0015731782881952918,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20000",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Granite Catering",
+        "document_date": "2026-03-14",
+        "document_number": "A22002",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Power drill 18V",
+            "quantity": 3.0,
+            "unit_price": 220.63,
+            "amount": 661.89
+          },
+          {
+            "description": "Software licence (annual)",
+            "quantity": 10.0,
+            "unit_price": 513.36,
+            "amount": 5133.6
+          }
+        ],
+        "subtotal": 5795.49,
+        "tax": 526.86,
+        "service_charge": null,
+        "discount": null,
+        "total": 5795.49,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1215.6107000191696,
+      "latency_ms": 6300.4833000013605,
+      "input_tokens": 2170,
+      "cached_input_tokens": 0,
+      "output_tokens": 184,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001398357265750302,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20001",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Bluegum Landscaping Pty Ltd",
+        "document_date": "2026-06-04",
+        "document_number": "A59571",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "LED downlight fitting",
+            "quantity": 1.0,
+            "unit_price": 31.76,
+            "amount": 31.76
+          },
+          {
+            "description": "Wholesale pastries (tray)",
+            "quantity": 1.0,
+            "unit_price": 66.1,
+            "amount": 66.1
+          },
+          {
+            "description": "Sourdough loaves (dozen)",
+            "quantity": 10.0,
+            "unit_price": 56.14,
+            "amount": 561.4
+          }
+        ],
+        "subtotal": 659.26,
+        "tax": 65.93,
+        "service_charge": null,
+        "discount": null,
+        "total": 725.19,
+        "payment_method": "direct debit"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1200.6884000147693,
+      "latency_ms": 7513.305300031789,
+      "input_tokens": 2198,
+      "cached_input_tokens": 0,
+      "output_tokens": 224,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0016675363707570553,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20002",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Summit Joinery Pty Ltd",
+        "document_date": "2026-02-27",
+        "document_number": "INV-44207",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Photo prints A3",
+            "quantity": 5.0,
+            "unit_price": 29.12,
+            "amount": 145.6
+          },
+          {
+            "description": "LED downlight fitting",
+            "quantity": 10.0,
+            "unit_price": 40.24,
+            "amount": 402.4
+          }
+        ],
+        "subtotal": 548.0,
+        "tax": 52.06,
+        "service_charge": null,
+        "discount": 27.4,
+        "total": 572.66,
+        "payment_method": "bank transfer"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1179.1076000081375,
+      "latency_ms": 6234.7291999612935,
+      "input_tokens": 2171,
+      "cached_input_tokens": 0,
+      "output_tokens": 183,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0013837635085469648,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20003",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Coastal Hardware",
+        "document_date": "2026-03-22",
+        "document_number": "78059",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "A4 copy paper (5 reams)",
+            "quantity": 1.0,
+            "unit_price": 35.06,
+            "amount": 35.06
+          },
+          {
+            "description": "Lawn mowing & edging",
+            "quantity": 1.0,
+            "unit_price": 68.65,
+            "amount": 68.65
+          },
+          {
+            "description": "Venue hire (half day)",
+            "quantity": 2.0,
+            "unit_price": 528.92,
+            "amount": 1057.84
+          },
+          {
+            "description": "Coffee & tea service",
+            "quantity": 1.0,
+            "unit_price": 188.96,
+            "amount": 188.96
+          },
+          {
+            "description": "Timber - pine 90x45 (per m)",
+            "quantity": 1.0,
+            "unit_price": 88.71,
+            "amount": 88.71
+          },
+          {
+            "description": "Monthly IT support plan",
+            "quantity": 10.0,
+            "unit_price": 10.03,
+            "amount": 100.3
+          }
+        ],
+        "subtotal": 920.33,
+        "tax": 92.03,
+        "service_charge": null,
+        "discount": null,
+        "total": 1012.36,
+        "payment_method": "paypal"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1322.3086999496445,
+      "latency_ms": 11401.144200004637,
+      "input_tokens": 2274,
+      "cached_input_tokens": 0,
+      "output_tokens": 350,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0025304206155010293,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20004",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Coastal Bakery Pty Ltd",
+        "document_date": "2025-11-13",
+        "document_number": "S83043",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Photo prints A3",
+            "quantity": 5.0,
+            "unit_price": 18.96,
+            "amount": 94.8
+          },
+          {
+            "description": "Carpet steam clean",
+            "quantity": 2.0,
+            "unit_price": 357.61,
+            "amount": 715.22
+          },
+          {
+            "description": "Brake pads (front)",
+            "quantity": 2.0,
+            "unit_price": 147.28,
+            "amount": 294.56
+          },
+          {
+            "description": "Logo design package",
+            "quantity": 3.0,
+            "unit_price": 477.33,
+            "amount": 1431.99
+          }
+        ],
+        "subtotal": 2536.57,
+        "tax": 253.66,
+        "service_charge": null,
+        "discount": null,
+        "total": 2790.23,
+        "payment_method": "bank transfer"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1238.414700026624,
+      "latency_ms": 8266.72180002788,
+      "input_tokens": 2208,
+      "cached_input_tokens": 0,
+      "output_tokens": 263,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0018347529772839656,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20005",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Orchard Photography Pty Ltd",
+        "document_date": "2025-03-19",
+        "document_number": "A59357",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Site visit / call-out fee",
+            "quantity": 2.0,
+            "unit_price": 88.43,
+            "amount": 176.86
+          },
+          {
+            "description": "Screws assorted (box)",
+            "quantity": 4.0,
+            "unit_price": 17.62,
+            "amount": 70.48
+          }
+        ],
+        "subtotal": 247.34,
+        "tax": 22.49,
+        "service_charge": null,
+        "discount": null,
+        "total": 247.34,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1190.6058000167832,
+      "latency_ms": 5969.54810002353,
+      "input_tokens": 2169,
+      "cached_input_tokens": 0,
+      "output_tokens": 181,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0013249080366441112,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20006",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Granite Print Co",
+        "document_date": "2025-10-10",
+        "document_number": "S47161",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Garden waste removal",
+            "quantity": 2.0,
+            "unit_price": 74.05,
+            "amount": 148.1
+          },
+          {
+            "description": "A4 copy paper (5 reams)",
+            "quantity": 10.0,
+            "unit_price": 27.21,
+            "amount": 272.1
+          }
+        ],
+        "subtotal": 420.2,
+        "tax": 38.2,
+        "service_charge": null,
+        "discount": null,
+        "total": 420.2,
+        "payment_method": "bank transfer"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1157.753599982243,
+      "latency_ms": 5677.737699996214,
+      "input_tokens": 2165,
+      "cached_input_tokens": 0,
+      "output_tokens": 178,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0012601423395269375,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20007",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Copperleaf Logistics LLC",
+        "document_date": "2026-06-15",
+        "document_number": "A4212",
+        "currency": "USD",
+        "line_items": [
+          {
+            "description": "Laptop setup & configuration",
+            "quantity": 1.0,
+            "unit_price": 154.75,
+            "amount": 154.75
+          },
+          {
+            "description": "Wholesale pastries (tray)",
+            "quantity": 2.0,
+            "unit_price": 37.48,
+            "amount": 74.96
+          },
+          {
+            "description": "Event photography (2 hrs)",
+            "quantity": 1.0,
+            "unit_price": 336.79,
+            "amount": 336.79
+          },
+          {
+            "description": "Website hosting (12 months)",
+            "quantity": 3.0,
+            "unit_price": 207.04,
+            "amount": 621.12
+          },
+          {
+            "description": "LED downlight fitting",
+            "quantity": 1.0,
+            "unit_price": 44.66,
+            "amount": 44.66
+          }
+        ],
+        "subtotal": 1232.28,
+        "tax": 98.58,
+        "service_charge": null,
+        "discount": null,
+        "total": 1330.86,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1202.9081000364386,
+      "latency_ms": 9720.82980000414,
+      "input_tokens": 2241,
+      "cached_input_tokens": 0,
+      "output_tokens": 303,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.002157484169500919,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20008",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Silver Fern Cleaning Services Pty Ltd",
+        "document_date": "2026-01-17",
+        "document_number": "13563",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Timber - pine 90x45 (per m)",
+            "quantity": 4.0,
+            "unit_price": 11.01,
+            "amount": 44.04
+          },
+          {
+            "description": "Office cleaning (per visit)",
+            "quantity": 5.0,
+            "unit_price": 206.68,
+            "amount": 1033.4
+          },
+          {
+            "description": "Power drill 18V",
+            "quantity": 4.0,
+            "unit_price": 237.89,
+            "amount": 951.56
+          },
+          {
+            "description": "Event photography (2 hrs)",
+            "quantity": 4.0,
+            "unit_price": 379.24,
+            "amount": 1516.96
+          },
+          {
+            "description": "Site visit / call-out fee",
+            "quantity": 2.0,
+            "unit_price": 140.91,
+            "amount": 281.82
+          },
+          {
+            "description": "Logo design package",
+            "quantity": 1.0,
+            "unit_price": 755.65,
+            "amount": 755.65
+          }
+        ],
+        "subtotal": 4583.43,
+        "tax": 458.34,
+        "service_charge": null,
+        "discount": null,
+        "total": 5041.77,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1177.739200007636,
+      "latency_ms": 11257.751299999654,
+      "input_tokens": 2267,
+      "cached_input_tokens": 0,
+      "output_tokens": 356,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0024985953579721456,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20009",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Northside Office Supplies Pty Ltd",
+        "document_date": "2025-07-25",
+        "document_number": "16357",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Photo prints A3",
+            "quantity": 10.0,
+            "unit_price": 36.94,
+            "amount": 369.4
+          }
+        ],
+        "subtotal": 369.4,
+        "tax": 36.94,
+        "service_charge": null,
+        "discount": null,
+        "total": 406.34,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1297.6548000006005,
+      "latency_ms": 4969.358199974522,
+      "input_tokens": 2144,
+      "cached_input_tokens": 0,
+      "output_tokens": 137,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0011029214449387898,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20010",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Ironbark Logistics",
+        "document_date": "2025-03-09",
+        "document_number": "TI-57430",
+        "currency": "GBP",
+        "line_items": [
+          {
+            "description": "Copper pipe 15mm x 3m",
+            "quantity": 1.0,
+            "unit_price": 54.83,
+            "amount": 54.83
+          },
+          {
+            "description": "Website hosting (12 months)",
+            "quantity": 3.0,
+            "unit_price": 418.2,
+            "amount": 139.4
+          },
+          {
+            "description": "Vinyl banner 2m x 1m",
+            "quantity": 1.0,
+            "unit_price": 143.58,
+            "amount": 143.58
+          },
+          {
+            "description": "Sourdough loaves (dozen)",
+            "quantity": 1.0,
+            "unit_price": 63.81,
+            "amount": 63.81
+          },
+          {
+            "description": "Printer toner cartridge",
+            "quantity": 2.0,
+            "unit_price": 154.68,
+            "amount": 77.34
+          },
+          {
+            "description": "Power drill 18V",
+            "quantity": 2.0,
+            "unit_price": 433.48,
+            "amount": 216.74
+          }
+        ],
+        "subtotal": 1268.58,
+        "tax": 253.72,
+        "service_charge": null,
+        "discount": null,
+        "total": 1522.3,
+        "payment_method": "card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1205.8029000181705,
+      "latency_ms": 11062.931600026786,
+      "input_tokens": 2264,
+      "cached_input_tokens": 0,
+      "output_tokens": 356,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.002455356207894834,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20011",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Wattle Signage",
+        "document_date": "2025-12-23",
+        "document_number": "INV-20209",
+        "currency": "GBP",
+        "line_items": [
+          {
+            "description": "Car service - standard",
+            "quantity": 2.0,
+            "unit_price": 338.37,
+            "amount": 676.74
+          }
+        ],
+        "subtotal": 676.74,
+        "tax": 135.35,
+        "service_charge": null,
+        "discount": null,
+        "total": 812.09,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1202.6726999902166,
+      "latency_ms": 4746.860000013839,
+      "input_tokens": 2154,
+      "cached_input_tokens": 0,
+      "output_tokens": 141,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0010535392055586272,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20012",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Parkside Plumbing Pty Ltd",
+        "document_date": "2025-01-10",
+        "document_number": "S59206",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Garden waste removal",
+            "quantity": 3.0,
+            "unit_price": 106.03,
+            "amount": 318.09
+          },
+          {
+            "description": "Carpet steam clean",
+            "quantity": 2.0,
+            "unit_price": 198.12,
+            "amount": 396.24
+          },
+          {
+            "description": "Brake pads (front)",
+            "quantity": 2.0,
+            "unit_price": 144.38,
+            "amount": 288.76
+          },
+          {
+            "description": "Power drill 18V",
+            "quantity": 5.0,
+            "unit_price": 237.43,
+            "amount": 1187.15
+          }
+        ],
+        "subtotal": 2190.24,
+        "tax": 197.12,
+        "service_charge": null,
+        "discount": 219.02,
+        "total": 2168.34,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1253.2207000185736,
+      "latency_ms": 8768.914200016297,
+      "input_tokens": 2214,
+      "cached_input_tokens": 0,
+      "output_tokens": 272,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001946211790503617,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20013",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Northside Office Supplies Pty Ltd",
+        "document_date": "2025-10-07",
+        "document_number": "A94592",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Copper pipe 15mm x 3m",
+            "quantity": 4.0,
+            "unit_price": 35.8,
+            "amount": 143.2
+          },
+          {
+            "description": "Pallet freight",
+            "quantity": 2.0,
+            "unit_price": 234.14,
+            "amount": 468.28
+          },
+          {
+            "description": "LED downlight fitting",
+            "quantity": 10.0,
+            "unit_price": 52.0,
+            "amount": 520.0
+          },
+          {
+            "description": "Photo prints A3",
+            "quantity": 3.0,
+            "unit_price": 19.83,
+            "amount": 59.49
+          }
+        ],
+        "subtotal": 1190.97,
+        "tax": 108.27,
+        "service_charge": null,
+        "discount": null,
+        "total": 1190.97,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1173.1444000033662,
+      "latency_ms": 8547.307900036685,
+      "input_tokens": 2220,
+      "cached_input_tokens": 0,
+      "output_tokens": 262,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001897027503369253,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_F_20014",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Copperleaf Photography",
+        "document_date": "2025-08-17",
+        "document_number": "59401",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Timber - pine 90x45 (per m)",
+            "quantity": 4.0,
+            "unit_price": 7.45,
+            "amount": 29.8
+          },
+          {
+            "description": "Courier delivery - metro",
+            "quantity": 2.0,
+            "unit_price": 17.52,
+            "amount": 35.04
+          }
+        ],
+        "subtotal": 64.84,
+        "tax": 5.89,
+        "service_charge": null,
+        "discount": null,
+        "total": 64.84,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1255.738299980294,
+      "latency_ms": 5946.502799983136,
+      "input_tokens": 2155,
+      "cached_input_tokens": 0,
+      "output_tokens": 177,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0013197932603295904,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "owner_cf140962",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "adidas Australia Pty Ltd",
+        "document_date": "2026-08-27",
+        "document_number": "0002330442",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "KE6326 M Inter Miami CF 2026 Third Jersey Messi",
+            "quantity": 1.0,
+            "unit_price": 163.63,
+            "amount": 180.0
+          }
+        ],
+        "subtotal": 180.0,
+        "tax": 16.36,
+        "service_charge": null,
+        "discount": null,
+        "total": 180.0,
+        "payment_method": "card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1324.9535000068136,
+      "latency_ms": 5976.977199956309,
+      "input_tokens": 2438,
+      "cached_input_tokens": 0,
+      "output_tokens": 154,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001326556884101414,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "owner_c750c369",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "PLATYPUS",
+        "document_date": "2026-07-31",
+        "document_number": "S95981",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "ADIZERO PACER M Ftwr White/Core Black/Crystal White 8",
+            "quantity": 1.0,
+            "unit_price": 159.99,
+            "amount": 159.99
+          },
+          {
+            "description": "PLAT SNEAKER PROTECTOR SPRAY No Colour 05",
+            "quantity": 1.0,
+            "unit_price": 19.99,
+            "amount": 19.99
+          },
+          {
+            "description": "Platypus Reusable Bag Standard No Colour OS",
+            "quantity": 1.0,
+            "unit_price": 0.5,
+            "amount": 0.5
+          }
+        ],
+        "subtotal": 180.48,
+        "tax": 16.41,
+        "service_charge": null,
+        "discount": null,
+        "total": 180.48,
+        "payment_method": "card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1369.0781999612227,
+      "latency_ms": 8562.148500001058,
+      "input_tokens": 2694,
+      "cached_input_tokens": 0,
+      "output_tokens": 243,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0019003212920835682,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "owner_6e9cd376",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "La Trobe Sport",
+        "document_date": "2026-08-14",
+        "document_number": "553242",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "SC - Badminton Court 1 (17:00-18:00)",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 25.0
+          }
+        ],
+        "subtotal": null,
+        "tax": 2.27,
+        "service_charge": null,
+        "discount": null,
+        "total": 25.0,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1210.2672000182793,
+      "latency_ms": 5178.600600047503,
+      "input_tokens": 2210,
+      "cached_input_tokens": 0,
+      "output_tokens": 137,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0011493616331772097,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "owner_cecc6be6",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Amazon Commericial Services Pty Ltd",
+        "document_date": "2026-07-13",
+        "document_number": "AU61ACI3AACSI",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Remington Advanced Coconut Therapy Straightener, S8648AU, Salon Performance, 110mm Ceramic Plates With Micro-Conditioners, Integrated Heat Sensor Helps Protect Hair, Ultra-Fast Heat Up, LCD Display",
+            "quantity": 1.0,
+            "unit_price": 50.91,
+            "amount": 56.0
+          },
+          {
+            "description": "Shipping Charges",
+            "quantity": 1.0,
+            "unit_price": 9.08,
+            "amount": 9.99
+          }
+        ],
+        "subtotal": 56.0,
+        "tax": 5.09,
+        "service_charge": null,
+        "discount": null,
+        "total": 56.0,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1239.7997000371106,
+      "latency_ms": 7180.5183999822475,
+      "input_tokens": 2407,
+      "cached_input_tokens": 0,
+      "output_tokens": 211,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001593676167107171,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "owner_c07760cb",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "99 Bikes Preston",
+        "document_date": "2026-06-27",
+        "document_number": "SO2234977",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Headphones Shokz OpenSwim Pro Red",
+            "quantity": 1.0,
+            "unit_price": 219.0,
+            "amount": 219.0
+          }
+        ],
+        "subtotal": 199.09,
+        "tax": 19.91,
+        "service_charge": null,
+        "discount": null,
+        "total": 219.0,
+        "payment_method": "gift card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1257.3091000085697,
+      "latency_ms": 5218.591400014702,
+      "input_tokens": 2485,
+      "cached_input_tokens": 0,
+      "output_tokens": 146,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0011582373690588186,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "owner_c0398287",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Rebel Sport Limited",
+        "document_date": "2026-08-01",
+        "document_number": "1607702714",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Standard Freight",
+            "quantity": 1.0,
+            "unit_price": 0.0,
+            "amount": 0.0
+          },
+          {
+            "description": "VOMERO PLUS, Red/gold",
+            "quantity": 1.0,
+            "unit_price": 179.99,
+            "amount": 179.99
+          }
+        ],
+        "subtotal": 156.99,
+        "tax": 15.7,
+        "service_charge": null,
+        "discount": null,
+        "total": 172.69,
+        "payment_method": "afterpay"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1242.33760003699,
+      "latency_ms": 6202.219900034834,
+      "input_tokens": 2471,
+      "cached_input_tokens": 0,
+      "output_tokens": 179,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001376548250035509,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "owner_b498201b",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Officeworks",
+        "document_date": "2026-06-02",
+        "document_number": "JAPT1816",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "* JACKSON 6 WAY SWITCH SURGE PB",
+            "quantity": 1.0,
+            "unit_price": 33.0,
+            "amount": 33.0
+          },
+          {
+            "description": "LENOVO 25 FHD 320HZ L25-10",
+            "quantity": 1.0,
+            "unit_price": 198.0,
+            "amount": 198.0
+          },
+          {
+            "description": "LENOVO 25 FHD 320HZ L25-10",
+            "quantity": 1.0,
+            "unit_price": 198.0,
+            "amount": 198.0
+          }
+        ],
+        "subtotal": null,
+        "tax": 39.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 429.0,
+        "payment_method": "card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1248.1962000019848,
+      "latency_ms": 7299.238699954003,
+      "input_tokens": 2497,
+      "cached_input_tokens": 0,
+      "output_tokens": 239,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.00162002547812868,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "owner_37d275e1",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Palermo South Wharf Pty Ltd",
+        "document_date": "2026-06-13",
+        "document_number": "52-30101",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "inspired By Sauvage - Christian Dior",
+            "quantity": null,
+            "unit_price": 50.0,
+            "amount": 50.0
+          },
+          {
+            "description": "inspired By Good Girl Blush - Carolina Herrera",
+            "quantity": null,
+            "unit_price": 50.0,
+            "amount": 50.0
+          },
+          {
+            "description": "inspired By Born In Roma Extradose Donna - Valentino",
+            "quantity": null,
+            "unit_price": 35.0,
+            "amount": 35.0
+          }
+        ],
+        "subtotal": 135.0,
+        "tax": 12.28,
+        "service_charge": null,
+        "discount": null,
+        "total": 135.0,
+        "payment_method": "card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1275.218000053428,
+      "latency_ms": 6609.158000035677,
+      "input_tokens": 2437,
+      "cached_input_tokens": 0,
+      "output_tokens": 219,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0014668659005634738,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    }
+  ]
+}

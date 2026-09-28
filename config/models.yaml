@@ -32,11 +32,13 @@ models:
     checked_on: 2026-09-25
   small-ft-r1:
     provider: vllm
-    model_id: null                # LoRA adapter name, set in Phase 7
+    model_id: small-ft-r1         # LoRA adapter served next to small-base (training/modal_serve.py)
     base_url_env: MODAL_VLLM_BASE_URL
     api_key_env: MODAL_VLLM_API_KEY
-    gpu: null                     # Modal GPU type (e.g. L4), set in Phase 6; used for cost
-    status: not_trained
+    gpu: L4                       # same serving GPU as small-base; used for cost
+    status: active
+    extra_body: {chat_template_kwargs: {enable_thinking: false}}
+    notes: "Phase 7 round 1: bf16 LoRA r16 on Train (CORD + synthetic invoices + CSV), 2 epochs on L40S. reports/training_r1_log.json"
   small-ft-r2:
     provider: vllm
     model_id: null                # set in Phase 8

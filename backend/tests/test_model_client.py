@@ -103,7 +103,7 @@ def test_client_for_refuses_missing_key_and_undeployed(monkeypatch) -> None:
         client_for(SPEC)
     models = load_models()
     with pytest.raises(ModelCallError) as err:
-        client_for(models["small-ft-r1"])
+        client_for(models["small-ft-r2"])
     assert err.value.error_code == "not_configured"
 
 

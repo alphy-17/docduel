@@ -2,6 +2,7 @@
 
     uv run python scripts/check_serving.py            # auth, models list, extract + describe
     uv run python scripts/check_serving.py --md-only  # rebuild reports/serving.md, no calls
+    uv run python scripts/check_serving.py --adapter NAME  # is a LoRA served? no report
 
 Reads MODAL_VLLM_BASE_URL and MODAL_VLLM_API_KEY from backend/.env and never prints the key.
 Writes reports/serving_small-base.json and reports/serving.md (rule R5).
@@ -13,6 +14,7 @@ import json
 import statistics
 import sys
 import time
+from dataclasses import replace
 from datetime import UTC, datetime
 
 import httpx
@@ -153,6 +155,7 @@ async def main() -> None:
     ap.add_argument("--cold", type=int, default=0, help="cold starts to time (6 min apart)")
     ap.add_argument("--warm", type=int, default=5, help="warm extract calls to time")
     ap.add_argument("--md-only", action="store_true", help="rebuild serving.md, no model calls")
+    ap.add_argument("--adapter", help="served LoRA name: check it is listed and answers valid JSON")
     args = ap.parse_args()
     if args.md_only:
         write_md()
@@ -161,6 +164,13 @@ async def main() -> None:
 
     base, token = env("MODAL_VLLM_BASE_URL").rstrip("/"), env("MODAL_VLLM_API_KEY")
     spec = load_models()[KEY]
+    if args.adapter:
+        auth = check_auth(base, token)
+        print("served models:", auth["models"], f"(wake {auth['wake_seconds']} s)")
+        if args.adapter not in auth["models"]:
+            sys.exit(f"{args.adapter} is not served")
+        print("extract:", await one_extract(replace(spec, model_id=args.adapter)))
+        return
     report: dict = {
         "created_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "model": spec.model_id,

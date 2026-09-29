@@ -25,7 +25,10 @@ azure_document_intelligence:
   source_url: https://prices.azure.com/api/retail/prices
   checked_on: 2026-09-25        # Phase 9: the public page hides prices; our S0 bill matched this rate
 hosting:
-  render_free_web_service: 0     # backend; sleeps after 15 min idle, about 1 min to wake
+  azure_container_apps:          # backend, Consumption plan, scales to zero
+    free_per_subscription_month: {vcpu_seconds: 180000, gib_seconds: 360000, requests: 2000000}
+    request_timeout_s: 240       # why live runs wake the GPU first (backend/src/docduel/warmup.py)
+    source_url: https://learn.microsoft.com/en-us/azure/container-apps/billing
+  ghcr_public_image: 0           # backend image storage (GitHub Container Registry, public)
   vercel_hobby: 0                # frontend (static)
-  source_url: https://render.com/docs/free
   checked_on: 2026-09-29

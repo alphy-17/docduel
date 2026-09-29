@@ -16,9 +16,10 @@ from pydantic import BaseModel, Field
 from sqlalchemy import Engine
 from sqlmodel import Session, select
 
+from docduel import warmup
 from docduel.db import Document, ModelResult, Run, get_engine, get_session
 from docduel.errors import ApiError
-from docduel.guard import live_guard
+from docduel.guard import code_only, live_guard
 from docduel.ingest.csv import is_transactions_text
 from docduel.ingest.vision import DESCRIBE_KINDS
 from docduel.models.client import client_for
@@ -75,6 +76,12 @@ def _check_task(doc: Document, body: RunIn) -> None:
 @router.post("/access", status_code=204)
 def check_access(_: Annotated[None, Depends(live_guard)]) -> None:
     """Lets the site check a live-mode access code before the visitor uploads anything."""
+
+
+@router.get("/gpu")
+async def gpu_status(_: Annotated[None, Depends(code_only)]) -> dict[str, str]:
+    """Wakes the small model's GPU if it is asleep. States: cold, waking, ready."""
+    return {"state": warmup.ensure_awake()}
 
 
 @router.post("/runs", response_model=RunCreated)

@@ -46,3 +46,28 @@ def test_access_check_endpoint() -> None:
         assert c.post("/api/access", headers={"X-Access-Code": "letmein"}).status_code == 204
     finally:
         app.dependency_overrides.pop(get_settings, None)
+
+
+def test_gpu_status_needs_code_and_reports_ready_for_api_models(monkeypatch) -> None:
+    from docduel import warmup
+
+    app.dependency_overrides[get_settings] = lambda: Settings(
+        live_mode_enabled=True, access_code="letmein"
+    )
+    monkeypatch.setattr(warmup, "duel_keys", lambda: ("openai", "openai"))
+    try:
+        c = TestClient(app)
+        assert c.get("/api/gpu").status_code == 403
+        r = c.get("/api/gpu", headers={"X-Access-Code": "letmein"})
+        assert r.json() == {"state": "ready"}
+    finally:
+        app.dependency_overrides.pop(get_settings, None)
+
+
+def test_warmup_state_expires() -> None:
+    from docduel import warmup
+
+    warmup._state.update(task=None, ready_at=warmup.time.monotonic())
+    assert warmup.status() == "ready"
+    warmup._state["ready_at"] -= warmup.READY_FOR_S + 1
+    assert warmup.status() == "cold"

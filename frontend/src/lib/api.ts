@@ -157,6 +157,26 @@ export async function unlockLive(code: string): Promise<void> {
   }
 }
 
+export type GpuState = "cold" | "waking" | "ready"
+
+/** Asks the backend to wake the small model's GPU (if asleep) and returns its state. */
+export async function getGpu(): Promise<GpuState> {
+  return (await readJson<{ state: GpuState }>(await fetch(`${API}/gpu`, { headers: codeHeader() }))).state
+}
+
+/**
+ * Live runs on the public site wait until the GPU answers: the hosting cuts requests after 240 s
+ * and a cold GPU takes about 5 minutes. Polls only while waiting, so the GPU can still sleep later.
+ */
+export async function waitForGpu(onWaiting: () => void): Promise<void> {
+  for (let i = 0; i < 60; i++) {
+    if ((await getGpu()) === "ready") return
+    if (i === 0) onWaiting()
+    await new Promise((r) => setTimeout(r, 10_000))
+  }
+  throw new ApiError("gpu_timeout", "The small model's GPU didn't wake up. Try again in a few minutes.")
+}
+
 let replayIndex: Promise<ReplayIndex> | null = null
 export function getReplayIndex(): Promise<ReplayIndex> {
   replayIndex ??= fetch("/demo/replays/index.json").then((r) => readJson<ReplayIndex>(r))

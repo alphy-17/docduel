@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import {
   ApiError,
   DEMO,
+  getGpu,
   getReplay,
   getReplayIndex,
   hasAccessCode,
@@ -11,6 +12,7 @@ import {
   startRun,
   unlockLive,
   uploadDocument,
+  waitForGpu,
   type StreamHandlers,
 } from "@/lib/api"
 import { parseCsv } from "@/lib/csv"
@@ -67,6 +69,8 @@ export function useDuel() {
   // Replays recorded for the chosen sample (replay mode only).
   const [replays, setReplays] = useState<ReplayEntry[] | null>(null)
   const [phase, setPhase] = useState<Phase>("empty")
+  // Public live mode only: true while the small model's GPU is starting up.
+  const [gpuWaking, setGpuWaking] = useState(false)
   const [file, setFile] = useState<File | null>(null)
   const [doc, setDoc] = useState<DocumentOut | null>(null)
   const [task, setTask] = useState<Task>("extract")
@@ -152,6 +156,7 @@ export function useDuel() {
 
   const unlock = useCallback(async (code: string) => {
     await unlockLive(code) // throws ApiError with a readable message when the code is wrong
+    if (DEMO) getGpu().catch(() => undefined) // start waking the GPU while the visitor picks a file
     closeStream.current?.()
     setMode("live")
     setFile(null)
@@ -206,9 +211,14 @@ export function useDuel() {
         closeStream.current = playReplay(await getReplay(entry.id), handlers)
         return
       }
+      if (DEMO) {
+        await waitForGpu(() => setGpuWaking(true))
+        setGpuWaking(false)
+      }
       const runId = await startRun(doc.document_id, task, instructions.trim() || undefined)
       closeStream.current = openRunStream(runId, handlers)
     } catch (e) {
+      setGpuWaking(false)
       setPhase("ready")
       setNotice(e instanceof ApiError ? e.message : "Could not start the run.")
     }
@@ -217,6 +227,7 @@ export function useDuel() {
   return {
     mode,
     replays,
+    gpuWaking,
     unlock,
     phase,
     file,

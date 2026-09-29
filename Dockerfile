@@ -1,6 +1,7 @@
-# DocDuel backend for Render (free Docker web service). Build from the repo root:
+# DocDuel backend image. GitHub Actions builds it on every push to main and stores it in
+# GitHub Container Registry (ghcr.io); Azure Container Apps runs it. Local build:
 #   docker build -t docduel-api .
-# The frontend is deployed separately (Vercel). No secrets are baked in: Render injects them.
+# The frontend is deployed separately (Vercel). No secrets are baked in: Azure injects them.
 FROM python:3.12-slim
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
@@ -20,8 +21,9 @@ COPY config /app/config
 COPY reports /app/reports
 COPY data/test/manifest.json /app/data/test/manifest.json
 
-# Production defaults (rule R7: uploads are not kept). SQLite lives in /tmp and is lost on
-# restart, which is fine: the public site shows replays and the benchmark from static files.
+# Production defaults (rule R7: uploads are not kept). SQLite lives in /tmp and is lost when
+# the app scales to zero, which is fine: the public site shows replays and the benchmark from
+# static files.
 ENV LIVE_MODE_ENABLED=true KEEP_UPLOADS=false CORRECTIONS_ENABLED=false \
     DATABASE_URL=sqlite:////tmp/docduel.db PORT=8000
 

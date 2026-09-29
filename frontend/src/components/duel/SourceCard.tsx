@@ -29,6 +29,7 @@ const KIND_LABEL: Record<DocumentOut["kind"], string> = {
 
 interface Props {
   mode: Mode
+  gpuWaking: boolean
   replays: ReplayEntry[] | null
   onUnlock: (code: string) => Promise<void>
   phase: Phase
@@ -163,7 +164,9 @@ export function SourceCard(p: Props) {
             {p.phase === "running"
               ? replay
                 ? "Playing the recorded run…"
-                : "Running both models…"
+                : p.gpuWaking
+                  ? "Waking the small model's GPU…"
+                  : "Running both models…"
               : replay
                 ? "Play the recorded run"
                 : "Run both models"}
@@ -171,11 +174,13 @@ export function SourceCard(p: Props) {
           <p className="mt-2 text-center text-xs text-ink-3">
             {!p.doc
               ? "Add a document first."
-              : replay
-                ? "A real run of both models, replayed with its original timing."
-                : needsInstructions
-                  ? "Type a question first."
-                  : "Usually a few seconds. Well under a cent."}
+              : p.gpuWaking
+                ? "The GPU sleeps when nobody uses it. Waking takes about 5 minutes, then the run starts by itself."
+                : replay
+                  ? "A real run of both models, replayed with its original timing."
+                  : needsInstructions
+                    ? "Type a question first."
+                    : "Usually a few seconds. Well under a cent."}
           </p>
         </div>
       </div>

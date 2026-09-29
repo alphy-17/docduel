@@ -49,6 +49,7 @@ export default function App() {
           <>
             <SourceCard
               mode={duel.mode}
+              gpuWaking={duel.gpuWaking}
               replays={duel.replays}
               onUnlock={duel.unlock}
               phase={duel.phase}

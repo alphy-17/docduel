@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 
 import { BenchmarkPage } from "@/components/benchmark/BenchmarkPage"
+import { CorrectionsPage } from "@/components/corrections/CorrectionsPage"
 import { ModelPanel } from "@/components/duel/ModelPanel"
 import { StatsTable, Verdict } from "@/components/duel/Results"
 import { SourceCard } from "@/components/duel/SourceCard"
@@ -42,6 +43,8 @@ export default function App() {
       <main className="mx-auto flex max-w-[1240px] flex-col gap-5 px-4 pt-7 pb-14 sm:px-5">
         {path === "/benchmark" ? (
           <BenchmarkPage />
+        ) : path === "/corrections" ? (
+          <CorrectionsPage />
         ) : (
           <>
             <SourceCard

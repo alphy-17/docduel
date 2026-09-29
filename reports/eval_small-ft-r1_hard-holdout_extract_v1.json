@@ -1,0 +1,2614 @@
+{
+  "created_at": "2026-09-29T06:13:24+00:00",
+  "scored_at": "2026-09-29T06:20:36+00:00",
+  "model_key": "small-ft-r1",
+  "model_id": "small-ft-r1",
+  "reasoning_effort": null,
+  "split": "hard-holdout",
+  "prompt": "extract_v1",
+  "task": "extract",
+  "docs_total": 20,
+  "docs_scored": 20,
+  "skipped_budget": [],
+  "scores": {
+    "headline": {
+      "field_accuracy": {
+        "value": 0.7451,
+        "ci95": [
+          0.6093,
+          0.8516
+        ],
+        "display": "74.5% (60.9-85.2)"
+      },
+      "line_item_f1": {
+        "value": 0.7532,
+        "ci95": [
+          0.5454,
+          0.919
+        ],
+        "display": "75.3% (54.5-91.9)"
+      },
+      "perfect_document_rate": {
+        "value": 0.1,
+        "ci95": [
+          0.0,
+          0.25
+        ],
+        "display": "10.0% (0.0-25.0)"
+      },
+      "schema_validity": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "display": "100.0% (100.0-100.0)"
+      },
+      "field_accuracy_exact": 0.7451,
+      "line_item_precision": 0.7632,
+      "line_item_recall": 0.7436
+    },
+    "per_field": {
+      "vendor_name": {
+        "scored": 20,
+        "accuracy": 0.9,
+        "accuracy_exact": 0.9
+      },
+      "document_date": {
+        "scored": 20,
+        "accuracy": 0.2,
+        "accuracy_exact": 0.2
+      },
+      "document_number": {
+        "scored": 20,
+        "accuracy": 0.85,
+        "accuracy_exact": 0.85
+      },
+      "currency": {
+        "scored": 20,
+        "accuracy": 0.85,
+        "accuracy_exact": 0.85
+      },
+      "subtotal": {
+        "scored": 20,
+        "accuracy": 0.8,
+        "accuracy_exact": 0.8
+      },
+      "tax": {
+        "scored": 20,
+        "accuracy": 0.8,
+        "accuracy_exact": 0.8
+      },
+      "discount": {
+        "scored": 3,
+        "accuracy": 0.6666666666666666,
+        "accuracy_exact": 0.6666666666666666
+      },
+      "total": {
+        "scored": 20,
+        "accuracy": 0.75,
+        "accuracy_exact": 0.75
+      },
+      "payment_method": {
+        "scored": 10,
+        "accuracy": 0.9,
+        "accuracy_exact": 0.9
+      }
+    },
+    "by_source": {
+      "synthetic_invoice": {
+        "docs": 20,
+        "field_accuracy": 0.7451,
+        "field_accuracy_exact": 0.7451,
+        "line_item_precision": 0.7632,
+        "line_item_recall": 0.7436,
+        "line_item_f1": 0.7532,
+        "perfect_document_rate": 0.1,
+        "schema_validity": 1.0
+      }
+    },
+    "worst_failures": [
+      "inv_G_30037",
+      "inv_G_30039",
+      "inv_G_30041",
+      "inv_G_30033",
+      "inv_G_30007",
+      "inv_G_30017",
+      "inv_G_30000",
+      "inv_G_30008",
+      "inv_G_30022",
+      "inv_G_30028"
+    ],
+    "per_doc": [
+      {
+        "id": "inv_G_30000",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/7",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2026-02-03",
+            "expected": "2026-03-22"
+          }
+        },
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "LED downlight fitting",
+              "quantity": 5.0,
+              "unit_price": 35.88,
+              "amount": 179.4
+            },
+            {
+              "description": "Software licence (annual)",
+              "quantity": 1.0,
+              "unit_price": 667.42,
+              "amount": 667.42
+            },
+            {
+              "description": "Consulting - hourly rate",
+              "quantity": 4.0,
+              "unit_price": 200.65,
+              "amount": 802.6
+            }
+          ],
+          "expected": [
+            {
+              "description": "LED downlight fitting",
+              "quantity": 5.0,
+              "unit_price": 35.88,
+              "amount": 179.4
+            },
+            {
+              "description": "Software licence (annual)",
+              "quantity": 1.0,
+              "unit_price": 667.42,
+              "amount": 667.42
+            },
+            {
+              "description": "Consulting - hourly rate",
+              "quantity": 4.0,
+              "unit_price": 200.65,
+              "amount": 802.6
+            }
+          ]
+        },
+        "latency_ms": 7331.306499952916,
+        "cost_usd": 0.0016271427481839944
+      },
+      {
+        "id": "inv_G_30007",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/8",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2025-03-07",
+            "expected": "2025-07-03"
+          },
+          "document_number": {
+            "predicted": "TI5685",
+            "expected": "TI-5685"
+          }
+        },
+        "items": {
+          "tp": 0,
+          "pred": 6,
+          "gold": 4
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Business cards (500)",
+              "quantity": 5.0,
+              "unit_price": 585.0,
+              "amount": 2925.0
+            },
+            {
+              "description": "Consulting - hourly",
+              "quantity": 4.0,
+              "unit_price": 131.32,
+              "amount": 525.28
+            },
+            {
+              "description": "Pallet freight",
+              "quantity": 2.0,
+              "unit_price": 167.55,
+              "amount": 335.1
+            },
+            {
+              "description": "Ergonomic office chair",
+              "quantity": 5.0,
+              "unit_price": 68.0,
+              "amount": 340.0
+            },
+            {
+              "description": "Laptop desktop",
+              "quantity": 4.0,
+              "unit_price": 68.0,
+              "amount": 272.0
+            },
+            {
+              "description": "Printer",
+              "quantity": 4.0,
+              "unit_price": 68.0,
+              "amount": 272.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "Business cards (500)",
+              "quantity": 3.0,
+              "unit_price": 55.85,
+              "amount": 167.55
+            },
+            {
+              "description": "Consulting - hourly rate",
+              "quantity": 3.0,
+              "unit_price": 131.32,
+              "amount": 393.96
+            },
+            {
+              "description": "Pallet freight",
+              "quantity": 4.0,
+              "unit_price": 163.08,
+              "amount": 652.32
+            },
+            {
+              "description": "Ergonomic office chair",
+              "quantity": 4.0,
+              "unit_price": 560.2,
+              "amount": 2240.8
+            }
+          ]
+        },
+        "latency_ms": 10822.496899985708,
+        "cost_usd": 0.0024019930619690504
+      },
+      {
+        "id": "inv_G_30008",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/7",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2026-02-02",
+            "expected": "2026-02-26"
+          }
+        },
+        "items": {
+          "tp": 4,
+          "pred": 4,
+          "gold": 4
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Lawn mowing & edging",
+              "quantity": 1.0,
+              "unit_price": 85.98,
+              "amount": 85.98
+            },
+            {
+              "description": "Garden waste removal",
+              "quantity": 1.0,
+              "unit_price": 84.96,
+              "amount": 84.96
+            },
+            {
+              "description": "Wholesale pastries (tray)",
+              "quantity": 3.0,
+              "unit_price": 49.68,
+              "amount": 149.04
+            },
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 10.0,
+              "unit_price": 234.01,
+              "amount": 2340.1
+            }
+          ],
+          "expected": [
+            {
+              "description": "Lawn mowing & edging",
+              "quantity": 1.0,
+              "unit_price": 85.98,
+              "amount": 85.98
+            },
+            {
+              "description": "Garden waste removal",
+              "quantity": 1.0,
+              "unit_price": 84.96,
+              "amount": 84.96
+            },
+            {
+              "description": "Wholesale pastries (tray)",
+              "quantity": 3.0,
+              "unit_price": 49.68,
+              "amount": 149.04
+            },
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 10.0,
+              "unit_price": 234.01,
+              "amount": 2340.1
+            }
+          ]
+        },
+        "latency_ms": 8748.740300012287,
+        "cost_usd": 0.0019417343054749492
+      },
+      {
+        "id": "inv_G_30016",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "8/8",
+        "wrong_fields": {},
+        "items": {
+          "tp": 5,
+          "pred": 5,
+          "gold": 5
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 10304.204799991567,
+        "cost_usd": 0.0022869610097759063
+      },
+      {
+        "id": "inv_G_30017",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/8",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2026-03-03",
+            "expected": "2026-03-20"
+          },
+          "total": {
+            "predicted": 20419.1,
+            "expected": 2419.1
+          }
+        },
+        "items": {
+          "tp": 4,
+          "pred": 6,
+          "gold": 6
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 1.0,
+              "unit_price": 222.74,
+              "amount": 222.74
+            },
+            {
+              "description": "Venue hire (half day)",
+              "quantity": 1.0,
+              "unit_price": 757.55,
+              "amount": 757.55
+            },
+            {
+              "description": "Screws assorted (box)",
+              "quantity": 1.0,
+              "unit_price": 81.4,
+              "amount": 81.4
+            },
+            {
+              "description": "Labour (per hour)",
+              "quantity": 1.0,
+              "unit_price": 325.6,
+              "amount": 325.6
+            },
+            {
+              "description": "LED downlight fitting",
+              "quantity": 1.0,
+              "unit_price": 49.24,
+              "amount": 49.24
+            },
+            {
+              "description": "A4 copy paper (5 reams)",
+              "quantity": 3.0,
+              "unit_price": 44.04,
+              "amount": 132.12
+            }
+          ],
+          "expected": [
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 4.0,
+              "unit_price": 222.74,
+              "amount": 890.96
+            },
+            {
+              "description": "Venue hire (half day)",
+              "quantity": 1.0,
+              "unit_price": 757.55,
+              "amount": 757.55
+            },
+            {
+              "description": "Screws assorted (box)",
+              "quantity": 3.0,
+              "unit_price": 14.57,
+              "amount": 43.71
+            },
+            {
+              "description": "Labour (per hour)",
+              "quantity": 4.0,
+              "unit_price": 81.4,
+              "amount": 325.6
+            },
+            {
+              "description": "LED downlight fitting",
+              "quantity": 1.0,
+              "unit_price": 49.24,
+              "amount": 49.24
+            },
+            {
+              "description": "A4 copy paper (5 reams)",
+              "quantity": 3.0,
+              "unit_price": 44.04,
+              "amount": 132.12
+            }
+          ]
+        },
+        "latency_ms": 11156.553599983454,
+        "cost_usd": 0.0024761350906629944
+      },
+      {
+        "id": "inv_G_30022",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/8",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2025-02-06",
+            "expected": "2025-06-18"
+          }
+        },
+        "items": {
+          "tp": 4,
+          "pred": 4,
+          "gold": 4
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Screws assorted (box)",
+              "quantity": 10.0,
+              "unit_price": 15.05,
+              "amount": 150.5
+            },
+            {
+              "description": "Photo prints A3",
+              "quantity": 2.0,
+              "unit_price": 26.29,
+              "amount": 52.58
+            },
+            {
+              "description": "Power drill 18V",
+              "quantity": 2.0,
+              "unit_price": 226.09,
+              "amount": 452.18
+            },
+            {
+              "description": "Business cards (500)",
+              "quantity": 1.0,
+              "unit_price": 57.62,
+              "amount": 57.62
+            }
+          ],
+          "expected": [
+            {
+              "description": "Screws assorted (box)",
+              "quantity": 10.0,
+              "unit_price": 15.05,
+              "amount": 150.5
+            },
+            {
+              "description": "Photo prints A3",
+              "quantity": 2.0,
+              "unit_price": 26.29,
+              "amount": 52.58
+            },
+            {
+              "description": "Power drill 18V",
+              "quantity": 2.0,
+              "unit_price": 226.09,
+              "amount": 452.18
+            },
+            {
+              "description": "Business cards (500)",
+              "quantity": 1.0,
+              "unit_price": 57.62,
+              "amount": 57.62
+            }
+          ]
+        },
+        "latency_ms": 8564.904700033367,
+        "cost_usd": 0.0019009330153685168
+      },
+      {
+        "id": "inv_G_30028",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/8",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2026-13-08",
+            "expected": "2026-08-13"
+          }
+        },
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Business cards (500)",
+              "quantity": 1.0,
+              "unit_price": 105.36,
+              "amount": 105.36
+            },
+            {
+              "description": "Venue hire (half day)",
+              "quantity": 4.0,
+              "unit_price": 375.79,
+              "amount": 1503.16
+            }
+          ],
+          "expected": [
+            {
+              "description": "Business cards (500)",
+              "quantity": 1.0,
+              "unit_price": 105.36,
+              "amount": 105.36
+            },
+            {
+              "description": "Venue hire (half day)",
+              "quantity": 4.0,
+              "unit_price": 375.79,
+              "amount": 1503.16
+            }
+          ]
+        },
+        "latency_ms": 6272.64959999593,
+        "cost_usd": 0.0013921797306657633
+      },
+      {
+        "id": "inv_G_30030",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/8",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2025-05-10",
+            "expected": "2025-10-05"
+          }
+        },
+        "items": {
+          "tp": 4,
+          "pred": 4,
+          "gold": 4
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Consulting - hourly rate",
+              "quantity": 10.0,
+              "unit_price": 97.89,
+              "amount": 978.9
+            },
+            {
+              "description": "Brake pads (front)",
+              "quantity": 3.0,
+              "unit_price": 96.15,
+              "amount": 288.45
+            },
+            {
+              "description": "Screws assorted (box)",
+              "quantity": 4.0,
+              "unit_price": 17.9,
+              "amount": 71.6
+            },
+            {
+              "description": "Venue hire (half day)",
+              "quantity": 1.0,
+              "unit_price": 382.07,
+              "amount": 382.07
+            }
+          ],
+          "expected": [
+            {
+              "description": "Consulting - hourly rate",
+              "quantity": 10.0,
+              "unit_price": 97.89,
+              "amount": 978.9
+            },
+            {
+              "description": "Brake pads (front)",
+              "quantity": 3.0,
+              "unit_price": 96.15,
+              "amount": 288.45
+            },
+            {
+              "description": "Screws assorted (box)",
+              "quantity": 4.0,
+              "unit_price": 17.9,
+              "amount": 71.6
+            },
+            {
+              "description": "Venue hire (half day)",
+              "quantity": 1.0,
+              "unit_price": 382.07,
+              "amount": 382.07
+            }
+          ]
+        },
+        "latency_ms": 8233.093400020152,
+        "cost_usd": 0.0018272893407266949
+      },
+      {
+        "id": "inv_G_30033",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "5/8",
+        "wrong_fields": {
+          "subtotal": {
+            "predicted": null,
+            "expected": 47.61
+          },
+          "tax": {
+            "predicted": null,
+            "expected": 4.76
+          },
+          "total": {
+            "predicted": 15452.62,
+            "expected": 52.37
+          }
+        },
+        "items": {
+          "tp": 0,
+          "pred": 8,
+          "gold": 1
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Carpet pad",
+              "quantity": 14.0,
+              "unit_price": 41.06,
+              "amount": 574.84
+            },
+            {
+              "description": "42.0",
+              "quantity": 36.0,
+              "unit_price": 5.0,
+              "amount": 180.0
+            },
+            {
+              "description": "Guttersour (trim) cleaning",
+              "quantity": 1.0,
+              "unit_price": 255.75,
+              "amount": 255.75
+            },
+            {
+              "description": "Hauling",
+              "quantity": 42.0,
+              "unit_price": 68.57,
+              "amount": 2879.94
+            },
+            {
+              "description": "Leafe clean (spray)",
+              "quantity": 6.0,
+              "unit_price": 638.5,
+              "amount": 3831.0
+            },
+            {
+              "description": "Lawnspray",
+              "quantity": 5.0,
+              "unit_price": 256.35,
+              "amount": 1281.75
+            },
+            {
+              "description": "Spriration cleanup",
+              "quantity": 1.0,
+              "unit_price": 323.09,
+              "amount": 323.09
+            },
+            {
+              "description": "Trayclean",
+              "quantity": 31.0,
+              "unit_price": 255.65,
+              "amount": 7925.15
+            }
+          ],
+          "expected": [
+            {
+              "description": "Copper pipe 15mm x 3m",
+              "quantity": 1.0,
+              "unit_price": 47.61,
+              "amount": 47.61
+            }
+          ]
+        },
+        "latency_ms": 14199.899400002323,
+        "cost_usd": 0.0031515887835005156
+      },
+      {
+        "id": "inv_G_30034",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "8/8",
+        "wrong_fields": {},
+        "items": {
+          "tp": 5,
+          "pred": 5,
+          "gold": 5
+        },
+        "perfect": true,
+        "line_items": null,
+        "latency_ms": 9910.860100004356,
+        "cost_usd": 0.0021996603388620777
+      },
+      {
+        "id": "inv_G_30037",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "0/8",
+        "wrong_fields": {
+          "vendor_name": {
+            "predicted": "Co Poi",
+            "expected": "Harbour Events Pty Ltd"
+          },
+          "document_date": {
+            "predicted": null,
+            "expected": "2026-02-02"
+          },
+          "document_number": {
+            "predicted": null,
+            "expected": "A30903"
+          },
+          "currency": {
+            "predicted": null,
+            "expected": "AUD"
+          },
+          "subtotal": {
+            "predicted": null,
+            "expected": 1816.44
+          },
+          "tax": {
+            "predicted": null,
+            "expected": 172.56
+          },
+          "discount": {
+            "predicted": null,
+            "expected": 90.82
+          },
+          "total": {
+            "predicted": null,
+            "expected": 1898.18
+          }
+        },
+        "items": {
+          "tp": 0,
+          "pred": 0,
+          "gold": 6
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [],
+          "expected": [
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 1.0,
+              "unit_price": 138.26,
+              "amount": 138.26
+            },
+            {
+              "description": "Coffee & tea service",
+              "quantity": 2.0,
+              "unit_price": 55.17,
+              "amount": 110.34
+            },
+            {
+              "description": "Copper pipe 15mm x 3m",
+              "quantity": 10.0,
+              "unit_price": 42.66,
+              "amount": 426.6
+            },
+            {
+              "description": "Consulting - hourly rate",
+              "quantity": 1.0,
+              "unit_price": 189.36,
+              "amount": 189.36
+            },
+            {
+              "description": "Power drill 18V",
+              "quantity": 4.0,
+              "unit_price": 145.17,
+              "amount": 580.68
+            },
+            {
+              "description": "Ergonomic office chair",
+              "quantity": 1.0,
+              "unit_price": 371.2,
+              "amount": 371.2
+            }
+          ]
+        },
+        "latency_ms": 2889.722599997185,
+        "cost_usd": 0.0006413578770549308
+      },
+      {
+        "id": "inv_G_30038",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/7",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2025-10-05",
+            "expected": "2025-05-10"
+          }
+        },
+        "items": {
+          "tp": 4,
+          "pred": 4,
+          "gold": 4
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "LED downlight fitting",
+              "quantity": 2.0,
+              "unit_price": 33.45,
+              "amount": 66.9
+            },
+            {
+              "description": "Business cards (500)",
+              "quantity": 1.0,
+              "unit_price": 71.62,
+              "amount": 71.62
+            },
+            {
+              "description": "Timber - pine 90x45 (per m)",
+              "quantity": 1.0,
+              "unit_price": 5.28,
+              "amount": 5.28
+            },
+            {
+              "description": "Wholesale pastries (tray)",
+              "quantity": 1.0,
+              "unit_price": 62.98,
+              "amount": 62.98
+            }
+          ],
+          "expected": [
+            {
+              "description": "LED downlight fitting",
+              "quantity": 2.0,
+              "unit_price": 33.45,
+              "amount": 66.9
+            },
+            {
+              "description": "Business cards (500)",
+              "quantity": 1.0,
+              "unit_price": 71.62,
+              "amount": 71.62
+            },
+            {
+              "description": "Timber - pine 90x45 (per m)",
+              "quantity": 1.0,
+              "unit_price": 5.28,
+              "amount": 5.28
+            },
+            {
+              "description": "Wholesale pastries (tray)",
+              "quantity": 1.0,
+              "unit_price": 62.98,
+              "amount": 62.98
+            }
+          ]
+        },
+        "latency_ms": 8130.900099989958,
+        "cost_usd": 0.001804608105525549
+      },
+      {
+        "id": "inv_G_30039",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "0/8",
+        "wrong_fields": {
+          "vendor_name": {
+            "predicted": null,
+            "expected": "Ironbark Photography Pty Ltd"
+          },
+          "document_date": {
+            "predicted": null,
+            "expected": "2025-01-20"
+          },
+          "document_number": {
+            "predicted": null,
+            "expected": "A60822"
+          },
+          "currency": {
+            "predicted": null,
+            "expected": "AUD"
+          },
+          "subtotal": {
+            "predicted": null,
+            "expected": 422.58
+          },
+          "tax": {
+            "predicted": null,
+            "expected": 42.26
+          },
+          "total": {
+            "predicted": null,
+            "expected": 464.84
+          },
+          "payment_method": {
+            "predicted": null,
+            "expected": "bank transfer"
+          }
+        },
+        "items": {
+          "tp": 0,
+          "pred": 0,
+          "gold": 2
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [],
+          "expected": [
+            {
+              "description": "Printer toner cartridge",
+              "quantity": 2.0,
+              "unit_price": 127.65,
+              "amount": 255.3
+            },
+            {
+              "description": "Wholesale pastries (tray)",
+              "quantity": 2.0,
+              "unit_price": 83.64,
+              "amount": 167.28
+            }
+          ]
+        },
+        "latency_ms": 2508.1031000008807,
+        "cost_usd": 0.0005566595491390844
+      },
+      {
+        "id": "inv_G_30040",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/7",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2026-07-09",
+            "expected": "2026-07-29"
+          }
+        },
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 1.0,
+              "unit_price": 149.02,
+              "amount": 149.02
+            },
+            {
+              "description": "Timber - pine 90x45 (per m)",
+              "quantity": 5.0,
+              "unit_price": 9.45,
+              "amount": 47.25
+            }
+          ],
+          "expected": [
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 1.0,
+              "unit_price": 149.02,
+              "amount": 149.02
+            },
+            {
+              "description": "Timber - pine 90x45 (per m)",
+              "quantity": 5.0,
+              "unit_price": 9.45,
+              "amount": 47.25
+            }
+          ]
+        },
+        "latency_ms": 6255.937000038102,
+        "cost_usd": 0.001388470461952901
+      },
+      {
+        "id": "inv_G_30041",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "3/7",
+        "wrong_fields": {
+          "currency": {
+            "predicted": "IDR",
+            "expected": "AUD"
+          },
+          "subtotal": {
+            "predicted": 29300.0,
+            "expected": 3735.61
+          },
+          "tax": {
+            "predicted": 2930.0,
+            "expected": 373.56
+          },
+          "total": {
+            "predicted": 37358.0,
+            "expected": 4109.17
+          }
+        },
+        "items": {
+          "tp": 0,
+          "pred": 2,
+          "gold": 5
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Photo print",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 13800.0
+            },
+            {
+              "description": "Carpet clean",
+              "quantity": 1.0,
+              "unit_price": null,
+              "amount": 15500.0
+            }
+          ],
+          "expected": [
+            {
+              "description": "Monthly IT support plan",
+              "quantity": 5.0,
+              "unit_price": 358.22,
+              "amount": 1791.1
+            },
+            {
+              "description": "LED downlight fitting",
+              "quantity": 2.0,
+              "unit_price": 51.61,
+              "amount": 103.22
+            },
+            {
+              "description": "Logo design package",
+              "quantity": 1.0,
+              "unit_price": 1188.16,
+              "amount": 1188.16
+            },
+            {
+              "description": "Photo prints A3",
+              "quantity": 3.0,
+              "unit_price": 33.71,
+              "amount": 101.13
+            },
+            {
+              "description": "Carpet steam clean",
+              "quantity": 4.0,
+              "unit_price": 138.0,
+              "amount": 552.0
+            }
+          ]
+        },
+        "latency_ms": 6166.09569999855,
+        "cost_usd": 0.001368530684527456
+      },
+      {
+        "id": "inv_G_30044",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/8",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2026-04-02",
+            "expected": "2026-02-04"
+          }
+        },
+        "items": {
+          "tp": 6,
+          "pred": 6,
+          "gold": 6
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Monthly IT support plan",
+              "quantity": 1.0,
+              "unit_price": 410.62,
+              "amount": 410.62
+            },
+            {
+              "description": "Consulting - hourly rate",
+              "quantity": 2.0,
+              "unit_price": 96.81,
+              "amount": 193.62
+            },
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 10.0,
+              "unit_price": 140.72,
+              "amount": 1407.2
+            },
+            {
+              "description": "Website hosting (12 months)",
+              "quantity": 1.0,
+              "unit_price": 228.5,
+              "amount": 228.5
+            },
+            {
+              "description": "Lawn mowing & edging",
+              "quantity": 2.0,
+              "unit_price": 89.79,
+              "amount": 179.58
+            },
+            {
+              "description": "Ergonomic office chair",
+              "quantity": 10.0,
+              "unit_price": 593.44,
+              "amount": 5934.4
+            }
+          ],
+          "expected": [
+            {
+              "description": "Monthly IT support plan",
+              "quantity": 1.0,
+              "unit_price": 410.62,
+              "amount": 410.62
+            },
+            {
+              "description": "Consulting - hourly rate",
+              "quantity": 2.0,
+              "unit_price": 96.81,
+              "amount": 193.62
+            },
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 10.0,
+              "unit_price": 140.72,
+              "amount": 1407.2
+            },
+            {
+              "description": "Website hosting (12 months)",
+              "quantity": 1.0,
+              "unit_price": 228.5,
+              "amount": 228.5
+            },
+            {
+              "description": "Lawn mowing & edging",
+              "quantity": 2.0,
+              "unit_price": 89.79,
+              "amount": 179.58
+            },
+            {
+              "description": "Ergonomic office chair",
+              "quantity": 10.0,
+              "unit_price": 593.44,
+              "amount": 5934.4
+            }
+          ]
+        },
+        "latency_ms": 10851.71449999325,
+        "cost_usd": 0.002408477745970724
+      },
+      {
+        "id": "inv_G_30050",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/7",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2026-02-05",
+            "expected": "2026-05-02"
+          }
+        },
+        "items": {
+          "tp": 5,
+          "pred": 5,
+          "gold": 5
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Garden waste removal",
+              "quantity": 1.0,
+              "unit_price": 79.5,
+              "amount": 79.5
+            },
+            {
+              "description": "Carpet steam clean",
+              "quantity": 10.0,
+              "unit_price": 164.29,
+              "amount": 1642.9
+            },
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 10.0,
+              "unit_price": 139.33,
+              "amount": 1393.3
+            },
+            {
+              "description": "Ergonomic office chair",
+              "quantity": 5.0,
+              "unit_price": 469.5,
+              "amount": 2347.5
+            },
+            {
+              "description": "Vinyl banner 2m x 1m",
+              "quantity": 1.0,
+              "unit_price": 172.13,
+              "amount": 172.13
+            }
+          ],
+          "expected": [
+            {
+              "description": "Garden waste removal",
+              "quantity": 1.0,
+              "unit_price": 79.5,
+              "amount": 79.5
+            },
+            {
+              "description": "Carpet steam clean",
+              "quantity": 10.0,
+              "unit_price": 164.29,
+              "amount": 1642.9
+            },
+            {
+              "description": "Laptop setup & configuration",
+              "quantity": 10.0,
+              "unit_price": 139.33,
+              "amount": 1393.3
+            },
+            {
+              "description": "Ergonomic office chair",
+              "quantity": 5.0,
+              "unit_price": 469.5,
+              "amount": 2347.5
+            },
+            {
+              "description": "Vinyl banner 2m x 1m",
+              "quantity": 1.0,
+              "unit_price": 172.13,
+              "amount": 172.13
+            }
+          ]
+        },
+        "latency_ms": 9439.244200009853,
+        "cost_usd": 0.0020949878099466314
+      },
+      {
+        "id": "inv_G_30054",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "6/7",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2026-01-01",
+            "expected": "2026-01-13"
+          }
+        },
+        "items": {
+          "tp": 5,
+          "pred": 5,
+          "gold": 5
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Projector rental",
+              "quantity": 3.0,
+              "unit_price": 107.18,
+              "amount": 321.54
+            },
+            {
+              "description": "Coffee & tea service",
+              "quantity": 1.0,
+              "unit_price": 63.63,
+              "amount": 63.63
+            },
+            {
+              "description": "Copper pipe 15mm x 3m",
+              "quantity": 1.0,
+              "unit_price": 49.55,
+              "amount": 49.55
+            },
+            {
+              "description": "Labour (per hour)",
+              "quantity": 4.0,
+              "unit_price": 100.41,
+              "amount": 401.64
+            },
+            {
+              "description": "Logo design package",
+              "quantity": 1.0,
+              "unit_price": 344.86,
+              "amount": 344.86
+            }
+          ],
+          "expected": [
+            {
+              "description": "Projector rental",
+              "quantity": 3.0,
+              "unit_price": 107.18,
+              "amount": 321.54
+            },
+            {
+              "description": "Coffee & tea service",
+              "quantity": 1.0,
+              "unit_price": 63.63,
+              "amount": 63.63
+            },
+            {
+              "description": "Copper pipe 15mm x 3m",
+              "quantity": 1.0,
+              "unit_price": 49.55,
+              "amount": 49.55
+            },
+            {
+              "description": "Labour (per hour)",
+              "quantity": 4.0,
+              "unit_price": 100.41,
+              "amount": 401.64
+            },
+            {
+              "description": "Logo design package",
+              "quantity": 1.0,
+              "unit_price": 344.86,
+              "amount": 344.86
+            }
+          ]
+        },
+        "latency_ms": 9228.452700015623,
+        "cost_usd": 0.0020482038075868006
+      },
+      {
+        "id": "inv_G_30056",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/8",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2025-06-04",
+            "expected": "2025-04-06"
+          }
+        },
+        "items": {
+          "tp": 2,
+          "pred": 2,
+          "gold": 2
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Timber - pine 90x45 (per m)",
+              "quantity": 1.0,
+              "unit_price": 12.88,
+              "amount": 12.88
+            },
+            {
+              "description": "Photo prints A3",
+              "quantity": 4.0,
+              "unit_price": 38.95,
+              "amount": 155.8
+            }
+          ],
+          "expected": [
+            {
+              "description": "Timber - pine 90x45 (per m)",
+              "quantity": 1.0,
+              "unit_price": 12.88,
+              "amount": 12.88
+            },
+            {
+              "description": "Photo prints A3",
+              "quantity": 4.0,
+              "unit_price": 38.95,
+              "amount": 155.8
+            }
+          ]
+        },
+        "latency_ms": 6040.456999966409,
+        "cost_usd": 0.0013406458730481003
+      },
+      {
+        "id": "inv_G_30062",
+        "source": "synthetic_invoice",
+        "valid": true,
+        "error_code": null,
+        "fields": "7/8",
+        "wrong_fields": {
+          "document_date": {
+            "predicted": "2025-08-05",
+            "expected": "2025-05-18"
+          }
+        },
+        "items": {
+          "tp": 3,
+          "pred": 3,
+          "gold": 3
+        },
+        "perfect": false,
+        "line_items": {
+          "predicted": [
+            {
+              "description": "Lawn mowing & edging",
+              "quantity": 3.0,
+              "unit_price": 95.55,
+              "amount": 286.65
+            },
+            {
+              "description": "Projector rental",
+              "quantity": 1.0,
+              "unit_price": 112.49,
+              "amount": 112.49
+            },
+            {
+              "description": "Printer toner cartridge",
+              "quantity": 1.0,
+              "unit_price": 124.83,
+              "amount": 124.83
+            }
+          ],
+          "expected": [
+            {
+              "description": "Lawn mowing & edging",
+              "quantity": 3.0,
+              "unit_price": 95.55,
+              "amount": 286.65
+            },
+            {
+              "description": "Projector rental",
+              "quantity": 1.0,
+              "unit_price": 112.49,
+              "amount": 112.49
+            },
+            {
+              "description": "Printer toner cartridge",
+              "quantity": 1.0,
+              "unit_price": 124.83,
+              "amount": 124.83
+            }
+          ]
+        },
+        "latency_ms": 6310.535900003742,
+        "cost_usd": 0.0014005883844730527
+      }
+    ],
+    "scoring_notes": [
+      "Only fields with non-null ground truth are scored (CORD has no vendor or date).",
+      "Short strings: headline uses fuzzy match (token_set_ratio >= 90); exact also given.",
+      "Zero-priced line items (modifiers, free extras) are ignored on both sides.",
+      "A line item with a blank true amount only needs a matching description.",
+      "Perfect document = every scored field and every priced line item right.",
+      "95% intervals: 1,000 bootstrap resamples of documents, seed 2026."
+    ]
+  },
+  "speed_cost": {
+    "latency_ms_p50": 8399,
+    "latency_ms_p95": 11309,
+    "ttft_ms_p50": 1167,
+    "cold_starts": 0,
+    "input_tokens_mean": 2177,
+    "output_tokens_mean": 252,
+    "reasoning_tokens_mean": 0,
+    "cost_usd_total": 0.036258,
+    "cost_per_1000_docs_usd": 1.8129,
+    "cold_start_ttft_ms": [],
+    "errors": {},
+    "steady_load": {
+      "concurrency": 4,
+      "wall_seconds": 44.4,
+      "docs": 20,
+      "cost_per_1000_docs_usd": 0.4932
+    }
+  },
+  "outputs": [
+    {
+      "id": "inv_G_30000",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Granite Office Supplies",
+        "document_date": "2026-02-03",
+        "document_number": "A56115",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "LED downlight fitting",
+            "quantity": 5.0,
+            "unit_price": 35.88,
+            "amount": 179.4
+          },
+          {
+            "description": "Software licence (annual)",
+            "quantity": 1.0,
+            "unit_price": 667.42,
+            "amount": 667.42
+          },
+          {
+            "description": "Consulting - hourly rate",
+            "quantity": 4.0,
+            "unit_price": 200.65,
+            "amount": 802.6
+          }
+        ],
+        "subtotal": 1649.42,
+        "tax": 164.94,
+        "service_charge": null,
+        "discount": null,
+        "total": 1814.36,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1649.7280999901704,
+      "latency_ms": 7331.306499952916,
+      "input_tokens": 2176,
+      "cached_input_tokens": 0,
+      "output_tokens": 219,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0016271427481839944,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30007",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Wattle Catering",
+        "document_date": "2025-03-07",
+        "document_number": "TI5685",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Business cards (500)",
+            "quantity": 5.0,
+            "unit_price": 585.0,
+            "amount": 2925.0
+          },
+          {
+            "description": "Consulting - hourly",
+            "quantity": 4.0,
+            "unit_price": 131.32,
+            "amount": 525.28
+          },
+          {
+            "description": "Pallet freight",
+            "quantity": 2.0,
+            "unit_price": 167.55,
+            "amount": 335.1
+          },
+          {
+            "description": "Ergonomic office chair",
+            "quantity": 5.0,
+            "unit_price": 68.0,
+            "amount": 340.0
+          },
+          {
+            "description": "Laptop desktop",
+            "quantity": 4.0,
+            "unit_price": 68.0,
+            "amount": 272.0
+          },
+          {
+            "description": "Printer",
+            "quantity": 4.0,
+            "unit_price": 68.0,
+            "amount": 272.0
+          }
+        ],
+        "subtotal": 3454.63,
+        "tax": 345.46,
+        "service_charge": null,
+        "discount": null,
+        "total": 3800.09,
+        "payment_method": "direct debit"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1629.8566000186838,
+      "latency_ms": 10822.496899985708,
+      "input_tokens": 2212,
+      "cached_input_tokens": 0,
+      "output_tokens": 329,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0024019930619690504,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30008",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Beacon Consulting Pty Ltd",
+        "document_date": "2026-02-02",
+        "document_number": "S11078",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Lawn mowing & edging",
+            "quantity": 1.0,
+            "unit_price": 85.98,
+            "amount": 85.98
+          },
+          {
+            "description": "Garden waste removal",
+            "quantity": 1.0,
+            "unit_price": 84.96,
+            "amount": 84.96
+          },
+          {
+            "description": "Wholesale pastries (tray)",
+            "quantity": 3.0,
+            "unit_price": 49.68,
+            "amount": 149.04
+          },
+          {
+            "description": "Laptop setup & configuration",
+            "quantity": 10.0,
+            "unit_price": 234.01,
+            "amount": 2340.1
+          }
+        ],
+        "subtotal": 2660.08,
+        "tax": 266.01,
+        "service_charge": null,
+        "discount": null,
+        "total": 2926.09,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1909.8681000177749,
+      "latency_ms": 8748.740300012287,
+      "input_tokens": 2203,
+      "cached_input_tokens": 0,
+      "output_tokens": 265,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0019417343054749492,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30016",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Redgum Hardware Pty Ltd",
+        "document_date": "2026-03-28",
+        "document_number": "A30113",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Vinyl banner 2m x 1m",
+            "quantity": 10.0,
+            "unit_price": 157.13,
+            "amount": 1571.3
+          },
+          {
+            "description": "Car service - standard",
+            "quantity": 1.0,
+            "unit_price": 301.81,
+            "amount": 301.81
+          },
+          {
+            "description": "Wholesale pastries (tray)",
+            "quantity": 3.0,
+            "unit_price": 60.37,
+            "amount": 181.11
+          },
+          {
+            "description": "Catering platter (serves 10)",
+            "quantity": 5.0,
+            "unit_price": 121.46,
+            "amount": 607.3
+          },
+          {
+            "description": "Monthly IT support plan",
+            "quantity": 2.0,
+            "unit_price": 252.74,
+            "amount": 505.48
+          }
+        ],
+        "subtotal": 3167.0,
+        "tax": 316.7,
+        "service_charge": null,
+        "discount": null,
+        "total": 3483.7,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1913.0915999994613,
+      "latency_ms": 10304.204799991567,
+      "input_tokens": 2243,
+      "cached_input_tokens": 0,
+      "output_tokens": 315,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0022869610097759063,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30017",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Tidewater Joinery",
+        "document_date": "2026-03-03",
+        "document_number": "TI-42547",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Laptop setup & configuration",
+            "quantity": 1.0,
+            "unit_price": 222.74,
+            "amount": 222.74
+          },
+          {
+            "description": "Venue hire (half day)",
+            "quantity": 1.0,
+            "unit_price": 757.55,
+            "amount": 757.55
+          },
+          {
+            "description": "Screws assorted (box)",
+            "quantity": 1.0,
+            "unit_price": 81.4,
+            "amount": 81.4
+          },
+          {
+            "description": "Labour (per hour)",
+            "quantity": 1.0,
+            "unit_price": 325.6,
+            "amount": 325.6
+          },
+          {
+            "description": "LED downlight fitting",
+            "quantity": 1.0,
+            "unit_price": 49.24,
+            "amount": 49.24
+          },
+          {
+            "description": "A4 copy paper (5 reams)",
+            "quantity": 3.0,
+            "unit_price": 44.04,
+            "amount": 132.12
+          }
+        ],
+        "subtotal": 2199.18,
+        "tax": 219.92,
+        "service_charge": null,
+        "discount": null,
+        "total": 20419.1,
+        "payment_method": "card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1167.2912999638356,
+      "latency_ms": 11156.553599983454,
+      "input_tokens": 2258,
+      "cached_input_tokens": 0,
+      "output_tokens": 343,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0024761350906629944,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30022",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Redgum Landscaping Pty Ltd",
+        "document_date": "2025-02-06",
+        "document_number": "S20299",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Screws assorted (box)",
+            "quantity": 10.0,
+            "unit_price": 15.05,
+            "amount": 150.5
+          },
+          {
+            "description": "Photo prints A3",
+            "quantity": 2.0,
+            "unit_price": 26.29,
+            "amount": 52.58
+          },
+          {
+            "description": "Power drill 18V",
+            "quantity": 2.0,
+            "unit_price": 226.09,
+            "amount": 452.18
+          },
+          {
+            "description": "Business cards (500)",
+            "quantity": 1.0,
+            "unit_price": 57.62,
+            "amount": 57.62
+          }
+        ],
+        "subtotal": 712.88,
+        "tax": 58.33,
+        "service_charge": null,
+        "discount": 71.29,
+        "total": 641.59,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1219.1315999953076,
+      "latency_ms": 8564.904700033367,
+      "input_tokens": 2208,
+      "cached_input_tokens": 0,
+      "output_tokens": 268,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0019009330153685168,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30028",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Lighthouse Bakery",
+        "document_date": "2026-13-08",
+        "document_number": "TI-21102",
+        "currency": "NZD",
+        "line_items": [
+          {
+            "description": "Business cards (500)",
+            "quantity": 1.0,
+            "unit_price": 105.36,
+            "amount": 105.36
+          },
+          {
+            "description": "Venue hire (half day)",
+            "quantity": 4.0,
+            "unit_price": 375.79,
+            "amount": 1503.16
+          }
+        ],
+        "subtotal": 1608.52,
+        "tax": 241.28,
+        "service_charge": null,
+        "discount": null,
+        "total": 1849.8,
+        "payment_method": "paypal"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1461.4168999833055,
+      "latency_ms": 6272.64959999593,
+      "input_tokens": 2166,
+      "cached_input_tokens": 0,
+      "output_tokens": 186,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0013921797306657633,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30030",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Wattle Photography Ltd",
+        "document_date": "2025-05-10",
+        "document_number": "INV-55453",
+        "currency": "NZD",
+        "line_items": [
+          {
+            "description": "Consulting - hourly rate",
+            "quantity": 10.0,
+            "unit_price": 97.89,
+            "amount": 978.9
+          },
+          {
+            "description": "Brake pads (front)",
+            "quantity": 3.0,
+            "unit_price": 96.15,
+            "amount": 288.45
+          },
+          {
+            "description": "Screws assorted (box)",
+            "quantity": 4.0,
+            "unit_price": 17.9,
+            "amount": 71.6
+          },
+          {
+            "description": "Venue hire (half day)",
+            "quantity": 1.0,
+            "unit_price": 382.07,
+            "amount": 382.07
+          }
+        ],
+        "subtotal": 1721.02,
+        "tax": 258.15,
+        "service_charge": null,
+        "discount": null,
+        "total": 1979.17,
+        "payment_method": "bank transfer"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1188.2997999782674,
+      "latency_ms": 8233.093400020152,
+      "input_tokens": 2210,
+      "cached_input_tokens": 0,
+      "output_tokens": 264,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0018272893407266949,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30033",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Highland Landscaping Pty Ltd",
+        "document_date": "2026-06-25",
+        "document_number": "S53731",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Carpet pad",
+            "quantity": 14.0,
+            "unit_price": 41.06,
+            "amount": 574.84
+          },
+          {
+            "description": "42.0",
+            "quantity": 36.0,
+            "unit_price": 5.0,
+            "amount": 180.0
+          },
+          {
+            "description": "Guttersour (trim) cleaning",
+            "quantity": 1.0,
+            "unit_price": 255.75,
+            "amount": 255.75
+          },
+          {
+            "description": "Hauling",
+            "quantity": 42.0,
+            "unit_price": 68.57,
+            "amount": 2879.94
+          },
+          {
+            "description": "Leafe clean (spray)",
+            "quantity": 6.0,
+            "unit_price": 638.5,
+            "amount": 3831.0
+          },
+          {
+            "description": "Lawnspray",
+            "quantity": 5.0,
+            "unit_price": 256.35,
+            "amount": 1281.75
+          },
+          {
+            "description": "Spriration cleanup",
+            "quantity": 1.0,
+            "unit_price": 323.09,
+            "amount": 323.09
+          },
+          {
+            "description": "Trayclean",
+            "quantity": 31.0,
+            "unit_price": 255.65,
+            "amount": 7925.15
+          }
+        ],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": 15452.62,
+        "payment_method": "direct debit"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1076.1044000391848,
+      "latency_ms": 14199.899400002323,
+      "input_tokens": 2092,
+      "cached_input_tokens": 0,
+      "output_tokens": 414,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0031515887835005156,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30034",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Northside IT Services",
+        "document_date": "2025-11-22",
+        "document_number": "A39227",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Carpet steam clean",
+            "quantity": 1.0,
+            "unit_price": 361.38,
+            "amount": 361.38
+          },
+          {
+            "description": "Vinyl banner 2m x 1m",
+            "quantity": 5.0,
+            "unit_price": 136.97,
+            "amount": 684.85
+          },
+          {
+            "description": "Monthly IT support plan",
+            "quantity": 2.0,
+            "unit_price": 518.88,
+            "amount": 1037.76
+          },
+          {
+            "description": "Laptop setup & configuration",
+            "quantity": 1.0,
+            "unit_price": 124.25,
+            "amount": 124.25
+          },
+          {
+            "description": "Brake pads (front)",
+            "quantity": 2.0,
+            "unit_price": 188.91,
+            "amount": 377.82
+          }
+        ],
+        "subtotal": 2586.06,
+        "tax": 211.59,
+        "service_charge": null,
+        "discount": 258.61,
+        "total": 2327.45,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1167.0744000002742,
+      "latency_ms": 9910.860100004356,
+      "input_tokens": 2238,
+      "cached_input_tokens": 0,
+      "output_tokens": 316,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0021996603388620777,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30037",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Co Poi",
+        "document_date": null,
+        "document_number": null,
+        "currency": null,
+        "line_items": [],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": null,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1096.4195000124164,
+      "latency_ms": 2889.722599997185,
+      "input_tokens": 2001,
+      "cached_input_tokens": 0,
+      "output_tokens": 63,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0006413578770549308,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30038",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Orchard Office Supplies Pty Ltd",
+        "document_date": "2025-10-05",
+        "document_number": "A77779",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "LED downlight fitting",
+            "quantity": 2.0,
+            "unit_price": 33.45,
+            "amount": 66.9
+          },
+          {
+            "description": "Business cards (500)",
+            "quantity": 1.0,
+            "unit_price": 71.62,
+            "amount": 71.62
+          },
+          {
+            "description": "Timber - pine 90x45 (per m)",
+            "quantity": 1.0,
+            "unit_price": 5.28,
+            "amount": 5.28
+          },
+          {
+            "description": "Wholesale pastries (tray)",
+            "quantity": 1.0,
+            "unit_price": 62.98,
+            "amount": 62.98
+          }
+        ],
+        "subtotal": 206.78,
+        "tax": 18.8,
+        "service_charge": null,
+        "discount": null,
+        "total": 206.78,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1156.8250000127591,
+      "latency_ms": 8130.900099989958,
+      "input_tokens": 2202,
+      "cached_input_tokens": 0,
+      "output_tokens": 263,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001804608105525549,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30039",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": null,
+        "document_date": null,
+        "document_number": null,
+        "currency": null,
+        "line_items": [],
+        "subtotal": null,
+        "tax": null,
+        "service_charge": null,
+        "discount": null,
+        "total": null,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1004.5937999966554,
+      "latency_ms": 2508.1031000008807,
+      "input_tokens": 1999,
+      "cached_input_tokens": 0,
+      "output_tokens": 61,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0005566595491390844,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30040",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Granite Design Studio Pty Ltd",
+        "document_date": "2026-07-09",
+        "document_number": "INV23790",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Laptop setup & configuration",
+            "quantity": 1.0,
+            "unit_price": 149.02,
+            "amount": 149.02
+          },
+          {
+            "description": "Timber - pine 90x45 (per m)",
+            "quantity": 5.0,
+            "unit_price": 9.45,
+            "amount": 47.25
+          }
+        ],
+        "subtotal": 196.27,
+        "tax": 19.63,
+        "service_charge": null,
+        "discount": null,
+        "total": 215.9,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1121.1121000233106,
+      "latency_ms": 6255.937000038102,
+      "input_tokens": 2160,
+      "cached_input_tokens": 0,
+      "output_tokens": 186,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001388470461952901,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30041",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Northside Auto Care",
+        "document_date": "2025-01-16",
+        "document_number": "21890",
+        "currency": "IDR",
+        "line_items": [
+          {
+            "description": "Photo print",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 13800.0
+          },
+          {
+            "description": "Carpet clean",
+            "quantity": 1.0,
+            "unit_price": null,
+            "amount": 15500.0
+          }
+        ],
+        "subtotal": 29300.0,
+        "tax": 2930.0,
+        "service_charge": null,
+        "discount": null,
+        "total": 37358.0,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1367.5224999897182,
+      "latency_ms": 6166.09569999855,
+      "input_tokens": 2117,
+      "cached_input_tokens": 0,
+      "output_tokens": 168,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.001368530684527456,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30044",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Ironbark Print Co Pty Ltd",
+        "document_date": "2026-04-02",
+        "document_number": "INV-21338",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Monthly IT support plan",
+            "quantity": 1.0,
+            "unit_price": 410.62,
+            "amount": 410.62
+          },
+          {
+            "description": "Consulting - hourly rate",
+            "quantity": 2.0,
+            "unit_price": 96.81,
+            "amount": 193.62
+          },
+          {
+            "description": "Laptop setup & configuration",
+            "quantity": 10.0,
+            "unit_price": 140.72,
+            "amount": 1407.2
+          },
+          {
+            "description": "Website hosting (12 months)",
+            "quantity": 1.0,
+            "unit_price": 228.5,
+            "amount": 228.5
+          },
+          {
+            "description": "Lawn mowing & edging",
+            "quantity": 2.0,
+            "unit_price": 89.79,
+            "amount": 179.58
+          },
+          {
+            "description": "Ergonomic office chair",
+            "quantity": 10.0,
+            "unit_price": 593.44,
+            "amount": 5934.4
+          }
+        ],
+        "subtotal": 8353.92,
+        "tax": 759.45,
+        "service_charge": null,
+        "discount": null,
+        "total": 8353.92,
+        "payment_method": "cash"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1349.435300042387,
+      "latency_ms": 10851.71449999325,
+      "input_tokens": 2263,
+      "cached_input_tokens": 0,
+      "output_tokens": 352,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.002408477745970724,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30050",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Copperleaf Photography",
+        "document_date": "2026-02-05",
+        "document_number": "A34847",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Garden waste removal",
+            "quantity": 1.0,
+            "unit_price": 79.5,
+            "amount": 79.5
+          },
+          {
+            "description": "Carpet steam clean",
+            "quantity": 10.0,
+            "unit_price": 164.29,
+            "amount": 1642.9
+          },
+          {
+            "description": "Laptop setup & configuration",
+            "quantity": 10.0,
+            "unit_price": 139.33,
+            "amount": 1393.3
+          },
+          {
+            "description": "Ergonomic office chair",
+            "quantity": 5.0,
+            "unit_price": 469.5,
+            "amount": 2347.5
+          },
+          {
+            "description": "Vinyl banner 2m x 1m",
+            "quantity": 1.0,
+            "unit_price": 172.13,
+            "amount": 172.13
+          }
+        ],
+        "subtotal": 5635.33,
+        "tax": 563.53,
+        "service_charge": null,
+        "discount": null,
+        "total": 6198.86,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1107.643899973482,
+      "latency_ms": 9439.244200009853,
+      "input_tokens": 2230,
+      "cached_input_tokens": 0,
+      "output_tokens": 306,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0020949878099466314,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30054",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Bluegum Catering Limited",
+        "document_date": "2026-01-01",
+        "document_number": "S73594",
+        "currency": "NZD",
+        "line_items": [
+          {
+            "description": "Projector rental",
+            "quantity": 3.0,
+            "unit_price": 107.18,
+            "amount": 321.54
+          },
+          {
+            "description": "Coffee & tea service",
+            "quantity": 1.0,
+            "unit_price": 63.63,
+            "amount": 63.63
+          },
+          {
+            "description": "Copper pipe 15mm x 3m",
+            "quantity": 1.0,
+            "unit_price": 49.55,
+            "amount": 49.55
+          },
+          {
+            "description": "Labour (per hour)",
+            "quantity": 4.0,
+            "unit_price": 100.41,
+            "amount": 401.64
+          },
+          {
+            "description": "Logo design package",
+            "quantity": 1.0,
+            "unit_price": 344.86,
+            "amount": 344.86
+          }
+        ],
+        "subtotal": 1181.22,
+        "tax": 154.07,
+        "service_charge": null,
+        "discount": null,
+        "total": 1181.22,
+        "payment_method": null
+      },
+      "schema_valid": true,
+      "ttft_ms": 1146.9560000114143,
+      "latency_ms": 9228.452700015623,
+      "input_tokens": 2222,
+      "cached_input_tokens": 0,
+      "output_tokens": 305,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0020482038075868006,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30056",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Orchard Design Studio LLC",
+        "document_date": "2025-06-04",
+        "document_number": "TI-94086",
+        "currency": "USD",
+        "line_items": [
+          {
+            "description": "Timber - pine 90x45 (per m)",
+            "quantity": 1.0,
+            "unit_price": 12.88,
+            "amount": 12.88
+          },
+          {
+            "description": "Photo prints A3",
+            "quantity": 4.0,
+            "unit_price": 38.95,
+            "amount": 155.8
+          }
+        ],
+        "subtotal": 168.68,
+        "tax": 13.49,
+        "service_charge": null,
+        "discount": null,
+        "total": 182.17,
+        "payment_method": "bank transfer"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1102.1577999927104,
+      "latency_ms": 6040.456999966409,
+      "input_tokens": 2165,
+      "cached_input_tokens": 0,
+      "output_tokens": 188,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0013406458730481003,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "id": "inv_G_30062",
+      "model_key": "small-ft-r1",
+      "model_id": "small-ft-r1",
+      "parsed": {
+        "vendor_name": "Harbour Print Co Pty Ltd",
+        "document_date": "2025-08-05",
+        "document_number": "S30101",
+        "currency": "AUD",
+        "line_items": [
+          {
+            "description": "Lawn mowing & edging",
+            "quantity": 3.0,
+            "unit_price": 95.55,
+            "amount": 286.65
+          },
+          {
+            "description": "Projector rental",
+            "quantity": 1.0,
+            "unit_price": 112.49,
+            "amount": 112.49
+          },
+          {
+            "description": "Printer toner cartridge",
+            "quantity": 1.0,
+            "unit_price": 124.83,
+            "amount": 124.83
+          }
+        ],
+        "subtotal": 523.97,
+        "tax": 47.63,
+        "service_charge": null,
+        "discount": null,
+        "total": 523.97,
+        "payment_method": "card"
+      },
+      "schema_valid": true,
+      "ttft_ms": 1102.283800020814,
+      "latency_ms": 6310.535900003742,
+      "input_tokens": 2178,
+      "cached_input_tokens": 0,
+      "output_tokens": 222,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0014005883844730527,
+      "cold_start": false,
+      "error_code": null,
+      "error": null
+    }
+  ]
+}

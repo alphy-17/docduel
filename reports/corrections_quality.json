@@ -1,0 +1,312 @@
+{
+ "created_at": "2026-09-29T05:28:33+00:00",
+ "documents": 40,
+ "prefill_model": "small-ft-r1",
+ "human_corrections_vs_truth": {
+  "field_accuracy": 0.9874,
+  "field_accuracy_exact": 0.9842,
+  "line_item_precision": 1.0,
+  "line_item_recall": 0.9855,
+  "line_item_f1": 0.9927,
+  "perfect_document_rate": 0.9,
+  "schema_validity": 1.0
+ },
+ "prefill_vs_truth": {
+  "field_accuracy": 0.6435,
+  "field_accuracy_exact": 0.6404,
+  "line_item_precision": 0.6602,
+  "line_item_recall": 0.4928,
+  "line_item_f1": 0.5643,
+  "perfect_document_rate": 0.2,
+  "schema_validity": 1.0
+ },
+ "documents_changed": 32,
+ "human_wrong_by_field": {
+  "document_date": 1,
+  "document_number": 1,
+  "currency": 1,
+  "payment_method": 1
+ },
+ "per_doc": [
+  {
+   "id": "inv_G_30002",
+   "changed_fields": 1,
+   "human_fields": "6/7",
+   "human_perfect": false,
+   "prefill_fields": "6/7"
+  },
+  {
+   "id": "inv_G_30003",
+   "changed_fields": 9,
+   "human_fields": "6/8",
+   "human_perfect": false,
+   "prefill_fields": "0/8"
+  },
+  {
+   "id": "inv_G_30004",
+   "changed_fields": 0,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "8/8"
+  },
+  {
+   "id": "inv_G_30005",
+   "changed_fields": 7,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "3/8"
+  },
+  {
+   "id": "inv_G_30006",
+   "changed_fields": 1,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "7/8"
+  },
+  {
+   "id": "inv_G_30009",
+   "changed_fields": 2,
+   "human_fields": "7/7",
+   "human_perfect": true,
+   "prefill_fields": "6/7"
+  },
+  {
+   "id": "inv_G_30010",
+   "changed_fields": 1,
+   "human_fields": "7/7",
+   "human_perfect": true,
+   "prefill_fields": "6/7"
+  },
+  {
+   "id": "inv_G_30011",
+   "changed_fields": 8,
+   "human_fields": "9/9",
+   "human_perfect": true,
+   "prefill_fields": "2/9"
+  },
+  {
+   "id": "inv_G_30012",
+   "changed_fields": 1,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "7/8"
+  },
+  {
+   "id": "inv_G_30014",
+   "changed_fields": 1,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "7/8"
+  },
+  {
+   "id": "inv_G_30015",
+   "changed_fields": 1,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "7/8"
+  },
+  {
+   "id": "inv_G_30018",
+   "changed_fields": 1,
+   "human_fields": "9/9",
+   "human_perfect": true,
+   "prefill_fields": "8/9"
+  },
+  {
+   "id": "inv_G_30019",
+   "changed_fields": 7,
+   "human_fields": "7/7",
+   "human_perfect": false,
+   "prefill_fields": "1/7"
+  },
+  {
+   "id": "inv_G_30020",
+   "changed_fields": 0,
+   "human_fields": "9/9",
+   "human_perfect": true,
+   "prefill_fields": "9/9"
+  },
+  {
+   "id": "inv_G_30021",
+   "changed_fields": 4,
+   "human_fields": "8/9",
+   "human_perfect": false,
+   "prefill_fields": "7/9"
+  },
+  {
+   "id": "inv_G_30023",
+   "changed_fields": 3,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "6/8"
+  },
+  {
+   "id": "inv_G_30024",
+   "changed_fields": 1,
+   "human_fields": "9/9",
+   "human_perfect": true,
+   "prefill_fields": "8/9"
+  },
+  {
+   "id": "inv_G_30025",
+   "changed_fields": 6,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "3/8"
+  },
+  {
+   "id": "inv_G_30026",
+   "changed_fields": 0,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "8/8"
+  },
+  {
+   "id": "inv_G_30027",
+   "changed_fields": 5,
+   "human_fields": "7/7",
+   "human_perfect": true,
+   "prefill_fields": "3/7"
+  },
+  {
+   "id": "inv_G_30029",
+   "changed_fields": 8,
+   "human_fields": "7/7",
+   "human_perfect": true,
+   "prefill_fields": "1/7"
+  },
+  {
+   "id": "inv_G_30031",
+   "changed_fields": 9,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "0/8"
+  },
+  {
+   "id": "inv_G_30032",
+   "changed_fields": 0,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "8/8"
+  },
+  {
+   "id": "inv_G_30035",
+   "changed_fields": 9,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "0/8"
+  },
+  {
+   "id": "inv_G_30036",
+   "changed_fields": 0,
+   "human_fields": "9/9",
+   "human_perfect": true,
+   "prefill_fields": "9/9"
+  },
+  {
+   "id": "inv_G_30042",
+   "changed_fields": 1,
+   "human_fields": "7/7",
+   "human_perfect": true,
+   "prefill_fields": "6/7"
+  },
+  {
+   "id": "inv_G_30045",
+   "changed_fields": 9,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "0/8"
+  },
+  {
+   "id": "inv_G_30046",
+   "changed_fields": 1,
+   "human_fields": "7/7",
+   "human_perfect": true,
+   "prefill_fields": "6/7"
+  },
+  {
+   "id": "inv_G_30047",
+   "changed_fields": 0,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "8/8"
+  },
+  {
+   "id": "inv_G_30048",
+   "changed_fields": 0,
+   "human_fields": "9/9",
+   "human_perfect": true,
+   "prefill_fields": "9/9"
+  },
+  {
+   "id": "inv_G_30051",
+   "changed_fields": 9,
+   "human_fields": "7/7",
+   "human_perfect": true,
+   "prefill_fields": "0/7"
+  },
+  {
+   "id": "inv_G_30052",
+   "changed_fields": 1,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "7/8"
+  },
+  {
+   "id": "inv_G_30053",
+   "changed_fields": 4,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "5/8"
+  },
+  {
+   "id": "inv_G_30057",
+   "changed_fields": 4,
+   "human_fields": "7/7",
+   "human_perfect": true,
+   "prefill_fields": "4/7"
+  },
+  {
+   "id": "inv_G_30058",
+   "changed_fields": 1,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "7/8"
+  },
+  {
+   "id": "inv_G_30059",
+   "changed_fields": 9,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "0/8"
+  },
+  {
+   "id": "inv_G_30060",
+   "changed_fields": 1,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "7/8"
+  },
+  {
+   "id": "inv_G_30061",
+   "changed_fields": 4,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "6/8"
+  },
+  {
+   "id": "inv_G_30064",
+   "changed_fields": 0,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "8/8"
+  },
+  {
+   "id": "inv_G_30065",
+   "changed_fields": 8,
+   "human_fields": "8/8",
+   "human_perfect": true,
+   "prefill_fields": "1/8"
+  }
+ ]
+}

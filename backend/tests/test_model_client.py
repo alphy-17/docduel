@@ -1,6 +1,7 @@
 """Model client, strict schemas and cost maths. No real API calls: HTTP is faked."""
 
 import asyncio
+import dataclasses
 import json
 from decimal import Decimal
 
@@ -101,9 +102,11 @@ def test_client_for_refuses_missing_key_and_undeployed(monkeypatch) -> None:
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     with pytest.raises(ModelCallError, match="No API key"):
         client_for(SPEC)
-    models = load_models()
+    untrained = dataclasses.replace(
+        load_models()["small-ft-r2"], model_id=None, status="not_trained"
+    )
     with pytest.raises(ModelCallError) as err:
-        client_for(models["small-ft-r2"])
+        client_for(untrained)
     assert err.value.error_code == "not_configured"
 
 

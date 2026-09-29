@@ -104,7 +104,7 @@ def inventory() -> list[dict]:
 
     # Synthetic invoices and transactions (splits decided at generation time)
     syn = d / "synthetic" / "output"
-    for split in ("train", "dev", "test"):
+    for split in ("train", "dev", "test", "hard"):
         for r in _read_jsonl(syn / "invoices" / split / "labels.jsonl"):
             path = syn / "invoices" / split / r["file"]
             rows.append(
@@ -201,7 +201,7 @@ def _is_cached(r: dict) -> bool:
 
 def ocr_plan() -> dict:
     rows = [r for r in _load_inventory() if r["needs_ocr"] and r["split"] != "reserve"]
-    pages = {s: 0 for s in ("train", "dev", "test")}
+    pages = {s: 0 for s in ("train", "dev", "test", "hard")}
     cached = 0
     for r in rows:
         if _is_cached(r):
@@ -276,6 +276,9 @@ def build_splits(splits=("train", "dev", "test")) -> dict:
             rec = dict(r)
             if r["task"] == "extract":
                 t = text_dir / f"{r['sha256']}.txt"
+                if not t.exists() and split == "hard":  # unreadable heavy scan: leave it out
+                    print(f"skipped {r['id']}: OCR found no text")
+                    continue
                 if not t.exists():
                     sys.exit(f"no extracted text for {r['id']} - run the ocr step first")
                 rec["text"] = t.read_text(encoding="utf-8")

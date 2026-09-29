@@ -26,7 +26,7 @@ def test_empty_when_no_reports(tmp_path, monkeypatch):
     assert body["dataset_version"] == "test-v1"
     assert body["ours"] is None and body["relative_score"] is None
     assert body["models"]["openai"]["extract"] is None
-    assert body["models"]["small-ft-r2"]["status"] == "not_trained"
+    assert body["models"]["small-ft-r2"]["status"] == "active"
 
 
 def test_reads_reports_and_relative_score(tmp_path, monkeypatch):
@@ -58,3 +58,31 @@ def test_reads_reports_and_relative_score(tmp_path, monkeypatch):
     assert "outputs" not in openai["extract"]
     assert openai["categorise"]["rows"] == 40
     assert body["ours"] == "small-ft-r1" and body["relative_score"] == 80.0
+    rounds = {r["key"]: r for r in body["rounds"]["models"]}
+    assert rounds["small-ft-r1"]["test"]["field_accuracy"]["value"] == 0.72
+    assert rounds["small-base"]["test"] is None and rounds["small-ft-r1"]["holdout"] is None
+    assert body["rounds"]["baseline_test"]["docs"] == 2
+
+
+def test_ours_is_chosen_on_dev_not_test(tmp_path, monkeypatch):
+    def write(name: str, value: float) -> None:
+        rep = _report(
+            headline={"field_accuracy": {"value": value}},
+            per_field={},
+            by_source={},
+            worst_failures=[],
+            per_doc=[],
+            scoring_notes=[],
+        )
+        (tmp_path / name).write_text(json.dumps(rep))
+
+    write("eval_small-ft-r1_test-v1_extract_v1.json", 0.96)
+    write("eval_small-ft-r2_test-v1_extract_v1.json", 0.95)
+    write("eval_small-ft-r1_dev_extract_v1.json", 0.979)
+    write("eval_small-ft-r2_dev_extract_v1.json", 0.970)
+    write("eval_small-ft-r2_hard-holdout_extract_v1.json", 0.856)
+    monkeypatch.setattr(benchmark, "report_dir", lambda: tmp_path)
+    body = TestClient(app).get("/api/benchmark").json()
+    assert body["ours"] == "small-ft-r1"
+    r2 = next(r for r in body["rounds"]["models"] if r["key"] == "small-ft-r2")
+    assert r2["holdout"]["field_accuracy"]["value"] == 0.856

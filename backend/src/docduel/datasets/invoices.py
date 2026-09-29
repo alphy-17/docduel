@@ -692,6 +692,7 @@ PLAN = {  # split -> (templates, count); G is generated in Phase 8
     "dev": ("ABCDE", 50),
     "test": ("F", 15),
 }
+HARD_PLAN = {"hard": ("G", 66)}  # Phase 8 pool: 60 used; spares because heavy scans can defeat OCR
 
 
 def generate(out_root: Path, plan: dict = PLAN, seed: int = SEED) -> dict[str, int]:
@@ -725,8 +726,13 @@ def generate(out_root: Path, plan: dict = PLAN, seed: int = SEED) -> dict[str, i
 
 
 def main() -> None:
+    import argparse
+
+    ap = argparse.ArgumentParser(prog="python -m docduel.datasets.invoices")
+    ap.add_argument("--hard", action="store_true", help="only the Phase 8 hard pool (template G)")
+    args = ap.parse_args()
     out = get_settings().data_dir / "synthetic" / "output" / "invoices"
-    counts = generate(out)
+    counts = generate(out, HARD_PLAN if args.hard else PLAN)
     print("invoices written:", counts, "->", out)
 
 

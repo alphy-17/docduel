@@ -27,8 +27,12 @@ def report_dir() -> Path:
     return REPO_DIR / "reports"
 
 
-def _read(model: str, prompt: str) -> dict[str, Any] | None:
-    path = report_dir() / f"eval_{model}_{DATASET_VERSION}_{prompt}.json"
+ROUNDS = ("small-base", "small-ft-r1", "small-ft-r2")  # base, round 1, round 2 (Plan 8.9)
+ROUND_METRICS = ("field_accuracy", "line_item_f1", "perfect_document_rate")
+
+
+def _read(model: str, prompt: str, split: str = DATASET_VERSION) -> dict[str, Any] | None:
+    path = report_dir() / f"eval_{model}_{split}_{prompt}.json"
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
@@ -76,7 +80,14 @@ def benchmark() -> dict[str, Any]:
             "extract": _extract_view(ex) if ex else None,
             "categorise": _categorise_view(cat) if cat else None,
         }
-    ours = next((k for k in OURS if models[k]["extract"]), None)
+
+    # Our headline model is chosen on dev, never on the test set: best dev field accuracy.
+    def dev_score(key: str) -> float:
+        dev = _read(key, f"extract_{VERSION}", "dev")
+        return dev["scores"]["headline"]["field_accuracy"]["value"] if dev else -1.0
+
+    candidates = [k for k in OURS if models[k]["extract"]]
+    ours = max(candidates, key=dev_score) if candidates else None  # ties keep OURS order
     relative = None
     if ours and models[BASELINE]["extract"]:
         relative = relative_score(
@@ -90,4 +101,28 @@ def benchmark() -> dict[str, Any]:
         "baseline": BASELINE,
         "relative_score": round(relative, 1) if relative is not None else None,
         "models": models,
+        "rounds": _rounds(),
+    }
+
+
+def _metrics(report: dict[str, Any] | None) -> dict[str, Any] | None:
+    if report is None:
+        return None
+    head = report["scores"]["headline"]
+    return {"docs": report["docs_scored"], **{m: head.get(m) for m in ROUND_METRICS}}
+
+
+def _rounds() -> dict[str, Any]:
+    """Base -> round 1 -> round 2 on the frozen test set and the hard-case holdout (Plan 8.9)."""
+    prompt = f"extract_{VERSION}"
+    return {
+        "models": [
+            {
+                "key": key,
+                "test": _metrics(_read(key, prompt)),
+                "holdout": _metrics(_read(key, prompt, "hard-holdout")),
+            }
+            for key in ROUNDS
+        ],
+        "baseline_test": _metrics(_read(BASELINE, prompt)),
     }

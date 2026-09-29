@@ -16,6 +16,7 @@ function initialDark(): boolean {
 const PAGES = [
   { path: "/", label: "Duel" },
   { path: "/benchmark", label: "Benchmark" },
+  { path: "/corrections", label: "Corrections" },
 ]
 
 export function TopBar({ path, onNavigate }: { path: string; onNavigate: (to: string) => void }) {
@@ -32,17 +33,18 @@ export function TopBar({ path, onNavigate }: { path: string; onNavigate: (to: st
 
   return (
     <header className="drop relative z-10 mx-auto mt-5 max-w-[1240px] px-4 sm:px-5">
-      <div className="surface flex h-14 items-center gap-6 rounded-full pr-2 pl-5">
+      <div className="surface flex h-14 items-center gap-2 rounded-full pr-2 pl-4 sm:gap-6 sm:pl-5">
         <a
           href="/"
           onClick={(e) => {
             e.preventDefault()
             onNavigate("/")
           }}
-          className="font-serif text-[21px] font-bold tracking-tight">
+          className="font-serif text-[17px] font-bold tracking-tight sm:text-[21px]"
+        >
           Doc<span className="text-brand transition-colors duration-500">Duel</span>
         </a>
-        <nav aria-label="Main" className="flex gap-1">
+        <nav aria-label="Main" className="flex min-w-0 gap-0.5 sm:gap-1">
           {PAGES.map((p) => (
             <a
               key={p.path}
@@ -54,7 +56,7 @@ export function TopBar({ path, onNavigate }: { path: string; onNavigate: (to: st
                 onNavigate(p.path)
               }}
               className={cn(
-                "rounded-full px-3.5 py-1.5 font-medium transition-colors",
+                "rounded-full px-1.5 py-1.5 text-[13px] font-medium transition-colors sm:px-3.5 sm:text-[14px]",
                 path === p.path ? "bg-wash" : "text-ink-2 hover:text-foreground",
               )}
             >
@@ -67,9 +69,12 @@ export function TopBar({ path, onNavigate }: { path: string; onNavigate: (to: st
           onClick={() => setDark((d) => !d)}
           aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
           aria-pressed={dark}
-          className="ml-auto grid size-10 place-items-center rounded-full text-ink-2 transition-colors hover:bg-wash hover:text-foreground"
+          className="ml-auto grid size-9 shrink-0 sm:size-10 place-items-center rounded-full text-ink-2 transition-colors hover:bg-wash hover:text-foreground"
         >
-          <span key={dark ? "moon" : "sun"} className="grid place-items-center animate-in spin-in-45 fade-in duration-500">
+          <span
+            key={dark ? "moon" : "sun"}
+            className="grid place-items-center animate-in spin-in-45 fade-in duration-500"
+          >
             {dark ? <Moon className="size-[19px]" /> : <Sun className="size-[19px]" />}
           </span>
         </button>

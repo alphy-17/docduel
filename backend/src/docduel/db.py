@@ -63,6 +63,26 @@ class ModelResult(SQLModel, table=True):
     error: str | None = None
 
 
+class Correction(SQLModel, table=True):
+    """A human-verified answer for one document (Plan 8.3, rule R3)."""
+
+    __tablename__ = "corrections"
+
+    id: str = Field(default_factory=lambda: uuid4().hex, primary_key=True)
+    doc_id: str = Field(index=True, unique=True)  # hard-pool id, e.g. inv_G_30004
+    run_id: str | None = None  # set when a correction comes from a Duel run
+    document_sha256: str = Field(index=True)
+    payload_json: str  # the verified ReceiptExtraction
+    prefilled_from: str = "our_model"  # never OpenAI (R3)
+    prefill_model: str | None = None  # e.g. small-ft-r1
+    changed_fields: int = 0  # fields the Owner changed from the pre-fill
+    verified_by_human: bool = True
+    is_test_document: bool = False
+    used_in_round: int | None = None
+    created_at: datetime = Field(default_factory=_now)
+    updated_at: datetime = Field(default_factory=_now)
+
+
 @lru_cache
 def get_engine() -> Engine:
     url = get_settings().database_url

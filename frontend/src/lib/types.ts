@@ -158,6 +158,13 @@ export interface BenchmarkModel {
   categorise: CategoriseReport | null
 }
 
+export interface RoundMetrics {
+  docs: number
+  field_accuracy: Metric | null
+  line_item_f1: Metric | null
+  perfect_document_rate: Metric | null
+}
+
 export interface Benchmark {
   dataset_version: string
   prompt_version: string
@@ -165,4 +172,39 @@ export interface Benchmark {
   baseline: string
   relative_score: number | null
   models: Record<string, BenchmarkModel>
+  rounds?: {
+    models: { key: string; test: RoundMetrics | null; holdout: RoundMetrics | null }[]
+    baseline_test: RoundMetrics | null
+  }
+}
+
+// Corrections page (Plan 8.2)
+export interface CorrectionItem {
+  id: string
+  verified: boolean
+  changed_fields: number | null
+}
+
+export interface CorrectionList {
+  total: number
+  verified: number
+  prefill_model: string
+  prefill_ready: boolean
+  items: CorrectionItem[]
+}
+
+export interface CorrectionDoc {
+  id: string
+  prefill_model: string
+  prefill_valid: boolean
+  prefill: ReceiptExtraction
+  saved: ReceiptExtraction | null
+  verified: boolean
+}
+
+export interface CorrectionSaved {
+  id: string
+  changed_fields: number
+  verified: number
+  total: number
 }

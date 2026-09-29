@@ -46,7 +46,8 @@ def check_from_disk(extra_train: list[dict] | None = None) -> list[str]:
     manifest = get_settings().data_dir / "test" / "manifest.json"
     if manifest.exists():  # once frozen, the manifest is the source of truth for the test set
         test = json.loads(manifest.read_text(encoding="utf-8"))["documents"]
-    train_like = [r for r in rows if r["split"] in ("train", "dev")] + (extra_train or [])
+    # "hard" = Phase 8 pool: its corrections become training data, so it is checked too
+    train_like = [r for r in rows if r["split"] in ("train", "dev", "hard")] + (extra_train or [])
     return find_leaks(train_like, test)
 
 

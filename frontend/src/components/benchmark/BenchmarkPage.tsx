@@ -7,6 +7,8 @@ import { seconds, usd } from "@/lib/format"
 import type { Benchmark, BenchmarkModel, Failure, LineItem, Metric } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
+import { RoundsChart } from "./RoundsChart"
+
 // Every number on this page comes from reports/*.json through GET /api/benchmark (rule R5).
 
 const anim = (d: number) => ({ ["--d" as string]: `${d}ms` })
@@ -110,6 +112,8 @@ export function BenchmarkPage() {
       </div>
 
       <Failures model={shown} who={shown === ours ? "our model" : "OpenAI"} />
+
+      <RoundsChart data={data} />
 
       <Card title="How we score" delay={480}>
         <ul className="list-disc space-y-1 pl-5 text-ink-2">
@@ -236,7 +240,7 @@ function Headline({ data, base, ours }: { data: Benchmark; base: BenchmarkModel;
                 Our model
                 {data.ours && (
                   <span className="text-ink-3">
-                    ({data.ours}, {data.ours === "small-base" ? "not fine-tuned yet" : "fine-tuned"})
+                    ({data.ours}, {data.ours === "small-base" ? "not fine-tuned yet" : "fine-tuned, best on dev"})
                   </span>
                 )}
               </span>

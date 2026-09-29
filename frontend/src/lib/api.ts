@@ -2,9 +2,13 @@ import type {
   ApiErrorBody,
   Benchmark,
   Completed,
+  CorrectionDoc,
+  CorrectionList,
+  CorrectionSaved,
   DocumentOut,
   HealthModel,
   ModelError,
+  ReceiptExtraction,
   RunStarted,
   ScoreCompleted,
   Task,
@@ -35,6 +39,25 @@ export async function getHealth(): Promise<Record<string, HealthModel>> {
 
 export async function getBenchmark(): Promise<Benchmark> {
   return readJson<Benchmark>(await fetch("/api/benchmark"))
+}
+
+export async function getCorrections(): Promise<CorrectionList> {
+  return readJson<CorrectionList>(await fetch("/api/corrections"))
+}
+
+export async function getCorrection(id: string): Promise<CorrectionDoc> {
+  return readJson<CorrectionDoc>(await fetch(`/api/corrections/${encodeURIComponent(id)}`))
+}
+
+export const correctionImageUrl = (id: string) => `/api/corrections/${encodeURIComponent(id)}/image`
+
+export async function saveCorrection(id: string, answer: ReceiptExtraction): Promise<CorrectionSaved> {
+  const res = await fetch(`/api/corrections/${encodeURIComponent(id)}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(answer),
+  })
+  return readJson<CorrectionSaved>(res)
 }
 
 export async function uploadDocument(file: File): Promise<DocumentOut> {

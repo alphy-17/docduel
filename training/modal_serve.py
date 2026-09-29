@@ -35,7 +35,7 @@ ENABLE_LORA = True  # Phase 7: fine-tuned adapters from the docduel-adapters vol
 MAX_LORA_RANK = 32
 # Served name = folder under /adapters. Missing folders are skipped at start-up, so the server
 # still boots before an adapter exists. Adapters target attention/MLP only (vLLM bug #47639).
-LORA_ADAPTERS = ["small-ft-r1", "small-ft-r1-smoke"]
+LORA_ADAPTERS = ["small-ft-r1", "small-ft-r2", "small-ft-r1-smoke"]
 PORT = 8000
 MINUTES = 60
 

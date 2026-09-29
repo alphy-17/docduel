@@ -2,6 +2,8 @@
 
 import json
 
+import pytest
+
 from docduel.datasets import sft
 
 LABEL = {
@@ -63,3 +65,36 @@ def test_dev_slice_is_balanced_and_stable():
     assert len(picked) == 20
     assert sum(r["source"] == "synthetic_invoice" for r in picked) == 5
     assert picked == sft.dev_slice(list(reversed(rows)), 20)
+
+
+def test_round_two_adds_corrections_three_times_and_marks_them(tmp_path, monkeypatch):
+    splits = tmp_path / "splits"
+    splits.mkdir()
+    row = {
+        "id": "c1",
+        "task": "extract",
+        "source": "cord",
+        "sha256": "h",
+        "text": "T",
+        "label": LABEL,
+    }
+    (splits / "train.jsonl").write_text(json.dumps(row) + "\n")
+    (splits / "dev.jsonl").write_text(json.dumps(dict(row, id="d1", sha256="d")) + "\n")
+    (splits / "test.jsonl").write_text("")
+    fixed = dict(LABEL, vendor_name="Orchard", total=12.5)
+    corr = [dict(row, id="inv_G_1", sha256="g", source="correction", label=fixed)]
+    marked = {}
+    monkeypatch.setattr(sft, "splits_dir", lambda: splits)
+    monkeypatch.setattr(sft, "check_from_disk", lambda extra_train=None: [])
+    monkeypatch.setattr(sft, "load_corrections", lambda: corr)
+    monkeypatch.setattr(sft, "mark_used", lambda ids, n: marked.update({n: ids}))
+    out = sft.build(tmp_path / "train", round_no=2, min_corrections=1)
+    lines = (tmp_path / "train" / "sft_r2_train.jsonl").read_text().splitlines()
+    exs = [json.loads(x) for x in lines]
+    assert [e["id"] for e in exs] == ["c1", "inv_G_1#1", "inv_G_1#2", "inv_G_1#3"]
+    assert json.loads(exs[1]["answer"])["vendor_name"] == "Orchard"
+    assert exs[1]["mask_spans"] == []  # corrections are fully labelled
+    assert out["counts"]["train"] == {"cord:extract": 1, "correction:extract": 3}
+    assert marked == {2: ["inv_G_1"]}
+    with pytest.raises(SystemExit, match="only 1 verified"):
+        sft.build(tmp_path / "train", round_no=2, min_corrections=40)

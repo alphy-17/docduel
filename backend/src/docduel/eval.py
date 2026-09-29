@@ -36,7 +36,12 @@ from docduel.scoring.bootstrap import bootstrap_ci, fmt_ci
 from docduel.settings import BACKEND_DIR, REPO_DIR
 from docduel.testset import is_test_document
 
-SPLITS = {"dev": "dev.jsonl", DATASET_VERSION: "test.jsonl"}
+SPLITS = {
+    "dev": "dev.jsonl",
+    DATASET_VERSION: "test.jsonl",
+    "hard-correct": "hard_correct.jsonl",  # Phase 8: 40 docs the Owner corrects
+    "hard-holdout": "hard_holdout.jsonl",  # Phase 8: 20 docs held out to measure round 2
+}
 SCORED_TASKS = ("extract", "categorise")
 WORST_N = 10
 

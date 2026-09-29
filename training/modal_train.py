@@ -14,6 +14,7 @@ What this does
 Run from the repo root:
   modal run training/modal_train.py --smoke   # 5 steps on a few examples: pipeline + speed
   modal run training/modal_train.py           # the real run (Gate 7 approved)
+  modal run training/modal_train.py --round 2 # round 2 from the base model (Gate 8)
 """
 
 import hashlib
@@ -25,8 +26,7 @@ import modal
 
 MODEL_ID = "Qwen/Qwen3.5-4B"
 MODEL_REVISION = "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"  # same weights as small-base
-ROUND = "r1"
-ADAPTER = "small-ft-r1"
+# Round 2 (Plan 8.7) trains from the base model again with the same settings; only the data changes.
 GPU = "L40S"  # Owner choice 2026-09-28: 48 GB, $1.95/h, faster than L4
 GPU_USD_PER_HOUR = 1.95
 
@@ -294,9 +294,10 @@ def _load(path: pathlib.Path) -> list[dict]:
 
 
 @app.local_entrypoint()
-def main(smoke: bool = False) -> None:
+def main(smoke: bool = False, round: int = 1) -> None:  # noqa: A002 (CLI flag name)
     repo = pathlib.Path(__file__).resolve().parents[1]
     data = repo / "data" / "train"
+    ROUND, ADAPTER = f"r{round}", f"small-ft-r{round}"
     manifest = json.loads((data / f"manifest_{ROUND}.json").read_text(encoding="utf-8"))
     rows = {}
     for split, meta in manifest["files"].items():

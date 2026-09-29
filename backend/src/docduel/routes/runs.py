@@ -10,7 +10,7 @@ import json
 from collections.abc import AsyncIterator
 from typing import Annotated, Any, Literal
 
-from fastapi import APIRouter, Depends, Header
+from fastapi import APIRouter, Depends
 from fastapi.sse import EventSourceResponse, ServerSentEvent
 from pydantic import BaseModel, Field
 from sqlalchemy import Engine
@@ -18,6 +18,7 @@ from sqlmodel import Session, select
 
 from docduel.db import Document, ModelResult, Run, get_engine, get_session
 from docduel.errors import ApiError
+from docduel.guard import live_guard
 from docduel.ingest.csv import is_transactions_text
 from docduel.ingest.vision import DESCRIBE_KINDS
 from docduel.models.client import client_for
@@ -28,7 +29,6 @@ from docduel.runs.prompting import VERSION as PROMPT_VERSION
 from docduel.runs.prompting import build_prompt
 from docduel.runs.store import create_run, save_outcomes
 from docduel.scoring.live import ground_truth_event
-from docduel.settings import Settings, get_settings
 from docduel.testset import frozen_entry
 
 router = APIRouter(prefix="/api")
@@ -72,17 +72,17 @@ def _check_task(doc: Document, body: RunIn) -> None:
         raise ApiError("instructions_required", "The custom task needs instructions.", 422)
 
 
+@router.post("/access", status_code=204)
+def check_access(_: Annotated[None, Depends(live_guard)]) -> None:
+    """Lets the site check a live-mode access code before the visitor uploads anything."""
+
+
 @router.post("/runs", response_model=RunCreated)
 def start_run(
     body: RunIn,
     session: Annotated[Session, Depends(get_session)],
-    settings: Annotated[Settings, Depends(get_settings)],
-    x_access_code: Annotated[str | None, Header()] = None,
+    _: Annotated[None, Depends(live_guard)],
 ) -> RunCreated:
-    if settings.live_mode_enabled:
-        expected = settings.access_code.get_secret_value()
-        if not expected or x_access_code != expected:
-            raise ApiError("access_denied", "A valid access code is needed.", 403)
     doc = session.get(Document, body.document_id)
     if doc is None:
         raise ApiError("document_not_found", "No document with that id.", 404)

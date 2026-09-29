@@ -5,22 +5,16 @@ openai:
     cached_input_per_1m: 0.01
     cache_write_per_1m: 0.125
     output_per_1m: 0.50
-    long_context:                 # higher tier for very long prompts; receipts stay in short context
-      input_per_1m: 0.20
-      cached_input_per_1m: 0.02
-      cache_write_per_1m: 0.25
-      output_per_1m: 0.75
-    confirmed_in_dashboard_on: 2026-09-25
     source_url: https://developers.openai.com/api/docs/models/gpt-6-luna
-    checked_on: 2026-09-25
+    checked_on: 2026-09-29        # Phase 9 refresh: unchanged
 modal:
   gpu_per_hour:
     L4: 0.799
     A10: 1.102
     L40S: 1.951
   free_credit_per_month_starter: 30
-  source_url: https://modal.com/pricing
-  checked_on: 2026-09-25
+  source_url: https://modal.com/pricing   # per second: L4 $0.000222, A10 $0.000306, L40S $0.000542
+  checked_on: 2026-09-29        # Phase 9 refresh: unchanged
 azure_document_intelligence:
   model: prebuilt-read
   tier: S0
@@ -29,10 +23,9 @@ azure_document_intelligence:
   free_tier_F0_pages_per_month: 500
   region: australiaeast
   source_url: https://prices.azure.com/api/retail/prices
-  checked_on: 2026-09-25
-
-# Owner spend controls (set 2026-09-25)
-spend_controls:
-  openai_project_docduel: {hard_limit_usd_per_month: 20, alert_usd: 10}
-  modal_workspace: {usage_limit_usd: 30, spend_limit_usd: 0, note: "stops when free $30 credit is used; volume storage still accrues"}
-  azure_document_intelligence: {tier: F0, note: "free 500 pages/month; switch to S0 at Gate 2A if needed"}
+  checked_on: 2026-09-25        # Phase 9: the public page hides prices; our S0 bill matched this rate
+hosting:
+  render_free_web_service: 0     # backend; sleeps after 15 min idle, about 1 min to wake
+  vercel_hobby: 0                # frontend (static)
+  source_url: https://render.com/docs/free
+  checked_on: 2026-09-29

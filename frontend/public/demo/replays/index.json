@@ -1,0 +1,48 @@
+{
+ "models": {
+  "small-ft-r1": {
+   "model_id": "small-ft-r1"
+  },
+  "openai": {
+   "model_id": "gpt-6-luna"
+  }
+ },
+ "replays": [
+  {
+   "id": "cafe-receipt-extract",
+   "title": "Caf\u00e9 receipt",
+   "sample": "cafe-receipt.png",
+   "task": "extract"
+  },
+  {
+   "id": "scanned-receipt-extract",
+   "title": "Scanned receipt",
+   "sample": "scanned-receipt.pdf",
+   "task": "extract"
+  },
+  {
+   "id": "tax-invoice-extract",
+   "title": "Tax invoice",
+   "sample": "tax-invoice.pdf",
+   "task": "extract"
+  },
+  {
+   "id": "dense-invoice-extract",
+   "title": "Dense invoice (hard layout)",
+   "sample": "dense-invoice.pdf",
+   "task": "extract"
+  },
+  {
+   "id": "bank-transactions-categorise",
+   "title": "Bank transactions",
+   "sample": "bank-transactions.csv",
+   "task": "categorise"
+  },
+  {
+   "id": "tax-invoice-summarise",
+   "title": "Tax invoice",
+   "sample": "tax-invoice.pdf",
+   "task": "summarise"
+  }
+ ]
+}

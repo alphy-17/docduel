@@ -33,7 +33,8 @@ app.add_middleware(
 app.include_router(documents.router)
 app.include_router(runs.router)
 app.include_router(benchmark.router)
-app.include_router(corrections.router)
+if settings.corrections_enabled:
+    app.include_router(corrections.router)
 
 
 @app.exception_handler(IngestError)

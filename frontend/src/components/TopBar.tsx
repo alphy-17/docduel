@@ -1,6 +1,7 @@
 import { Moon, Sun } from "lucide-react"
 import { useEffect, useState } from "react"
 
+import { DEMO } from "@/lib/api"
 import { cn } from "@/lib/utils"
 
 function initialDark(): boolean {
@@ -16,7 +17,8 @@ function initialDark(): boolean {
 const PAGES = [
   { path: "/", label: "Duel" },
   { path: "/benchmark", label: "Benchmark" },
-  { path: "/corrections", label: "Corrections" },
+  // The Corrections page is a local tool for the Owner; the public site does not show it.
+  ...(DEMO ? [] : [{ path: "/corrections", label: "Corrections" }]),
 ]
 
 export function TopBar({ path, onNavigate }: { path: string; onNavigate: (to: string) => void }) {

@@ -1,0 +1,5628 @@
+{
+ "id": "bank-transactions-categorise",
+ "title": "Bank transactions",
+ "sample": "bank-transactions.csv",
+ "task": "categorise",
+ "recorded_at": "2026-09-29T07:17:18+00:00",
+ "document": {
+  "document_id": "e0253a41ab06438c843d56b6ad8ee5c5",
+  "kind": "csv",
+  "pages": 1,
+  "text_preview": "row_id | date | description | amount\n1 | 2025-01-03 | TRANSFER TO SAVINGS REF855 | -526.44\n2 | 2025-01-04 | SQ *NETFLIX.COM 2652 MELBOURNE TAP | -19.45\n3 | 2025-01-06 | EFTPOS SECURE PARKING #529 21/06 | -16.52\n4 | 2025-01-06 | EFTPOS CITYLINK 8896 DOCKLANDS | -13.63\n5 | 2025-01-06 | CARD JB HI-FI 9383 CARD 2545 | -443.21\n6 | 2025-01-06 | TRANSFER TO SAVINGS REF602 | -696.91\n7 | 2025-01-07 | ATM WITHDRAWAL 3052 | -36.80\n8 | 2025-01-08 | EFTPOS CHEMIST WAREHOUSE 9509 CARLTON CARD 4268 | -29.73\n9 ",
+  "ocr_ms": 0,
+  "is_test_document": false,
+  "already_ingested": true,
+  "can_describe": false
+ },
+ "events": [
+  {
+   "t": 32,
+   "event": "run.started",
+   "data": {
+    "run_id": "f5083932cc8b44efbbf849ec856d96cb",
+    "task": "categorise",
+    "model_keys": [
+     "small-ft-r1",
+     "openai"
+    ],
+    "placeholders": [],
+    "prompt_version": "categorise_v1"
+   }
+  },
+  {
+   "t": 1469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 1500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "items\":"
+   }
+  },
+  {
+   "t": 1563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " [{\"row"
+   }
+  },
+  {
+   "t": 1610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 1657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 1704,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 1750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 1797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Other"
+   }
+  },
+  {
+   "t": 1829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 1891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 1922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 1969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "2,"
+   }
+  },
+  {
+   "t": 2016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 2063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 2110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Entertainment"
+   }
+  },
+  {
+   "t": 2157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 2219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 2250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 2297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "3,"
+   }
+  },
+  {
+   "t": 2344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 2407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 2407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 2407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "items"
+   }
+  },
+  {
+   "t": 2407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":["
+   }
+  },
+  {
+   "t": 2407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 2438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "1"
+   }
+  },
+  {
+   "t": 2454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Transport\"},"
+   }
+  },
+  {
+   "t": 2454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 2454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 2454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Other"
+   }
+  },
+  {
+   "t": 2469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 2469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "2"
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Entertainment"
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "3"
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 2547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 2563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Transport"
+   }
+  },
+  {
+   "t": 2563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 2563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2579,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 4"
+   }
+  },
+  {
+   "t": 2594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "4"
+   }
+  },
+  {
+   "t": 2594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 2594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 2594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Transport"
+   }
+  },
+  {
+   "t": 2610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 2610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "5"
+   }
+  },
+  {
+   "t": 2641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 2672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 2672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 2688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 2688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Shopping"
+   }
+  },
+  {
+   "t": 2688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 2688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Transport"
+   }
+  },
+  {
+   "t": 2719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "6"
+   }
+  },
+  {
+   "t": 2719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 2719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 2719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Other"
+   }
+  },
+  {
+   "t": 2735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 2750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "7"
+   }
+  },
+  {
+   "t": 2782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 2782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 2782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Other"
+   }
+  },
+  {
+   "t": 2782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 2782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 2813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "8"
+   }
+  },
+  {
+   "t": 2829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 2829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 2829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 2860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Health"
+   }
+  },
+  {
+   "t": 2860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 2860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 2875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "9"
+   }
+  },
+  {
+   "t": 2875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 2875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 2875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Shopping"
+   }
+  },
+  {
+   "t": 2891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 2891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "5,"
+   }
+  },
+  {
+   "t": 2938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "10"
+   }
+  },
+  {
+   "t": 2954,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 2954,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 2954,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2954,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Gro"
+   }
+  },
+  {
+   "t": 2969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "ceries"
+   }
+  },
+  {
+   "t": 2969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 2969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 2969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 2969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 2985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 2985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "11"
+   }
+  },
+  {
+   "t": 3000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Dining"
+   }
+  },
+  {
+   "t": 3016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 3016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "12"
+   }
+  },
+  {
+   "t": 3047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Shopping"
+   }
+  },
+  {
+   "t": 3047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Shopping\"},"
+   }
+  },
+  {
+   "t": 3079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "13"
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Entertainment"
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "14"
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Dining"
+   }
+  },
+  {
+   "t": 3141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 3157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "15"
+   }
+  },
+  {
+   "t": 3172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Dining"
+   }
+  },
+  {
+   "t": 3188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 6"
+   }
+  },
+  {
+   "t": 3204,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3204,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "16"
+   }
+  },
+  {
+   "t": 3219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 3235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Other"
+   }
+  },
+  {
+   "t": 3235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "17"
+   }
+  },
+  {
+   "t": 3266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Transport"
+   }
+  },
+  {
+   "t": 3266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 3313,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3313,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3313,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "18"
+   }
+  },
+  {
+   "t": 3313,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Entertainment"
+   }
+  },
+  {
+   "t": 3329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Other"
+   }
+  },
+  {
+   "t": 3344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "19"
+   }
+  },
+  {
+   "t": 3360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Transport"
+   }
+  },
+  {
+   "t": 3375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "20"
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Other"
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 3438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "21"
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Utilities"
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 3485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "22"
+   }
+  },
+  {
+   "t": 3500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Shopping"
+   }
+  },
+  {
+   "t": 3516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "7,"
+   }
+  },
+  {
+   "t": 3547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "23"
+   }
+  },
+  {
+   "t": 3547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Health"
+   }
+  },
+  {
+   "t": 3563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3579,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 3579,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3579,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "24"
+   }
+  },
+  {
+   "t": 3594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Health"
+   }
+  },
+  {
+   "t": 3610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 3625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "25"
+   }
+  },
+  {
+   "t": 3641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Dining"
+   }
+  },
+  {
+   "t": 3657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Other\"},"
+   }
+  },
+  {
+   "t": 3688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "26"
+   }
+  },
+  {
+   "t": 3688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Other"
+   }
+  },
+  {
+   "t": 3704,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3704,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 3719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "27"
+   }
+  },
+  {
+   "t": 3735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Other"
+   }
+  },
+  {
+   "t": 3735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 3766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "28"
+   }
+  },
+  {
+   "t": 3782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Utilities"
+   }
+  },
+  {
+   "t": 3797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 8"
+   }
+  },
+  {
+   "t": 3813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "29"
+   }
+  },
+  {
+   "t": 3813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Shopping"
+   }
+  },
+  {
+   "t": 3829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 3875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "30"
+   }
+  },
+  {
+   "t": 3891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Dining"
+   }
+  },
+  {
+   "t": 3891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 3922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "31"
+   }
+  },
+  {
+   "t": 3922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Gro"
+   }
+  },
+  {
+   "t": 3938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "ceries"
+   }
+  },
+  {
+   "t": 3938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 3938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Health"
+   }
+  },
+  {
+   "t": 3969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 3969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "32"
+   }
+  },
+  {
+   "t": 3969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 3985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Utilities"
+   }
+  },
+  {
+   "t": 3985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 3985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 4000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 4000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 4016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 4016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "33"
+   }
+  },
+  {
+   "t": 4016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 4016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 4032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 4032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Dining"
+   }
+  },
+  {
+   "t": 4032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 4032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 4032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 4047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 4047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 4063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "34"
+   }
+  },
+  {
+   "t": 4063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 4063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 4063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 4079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 4079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Gro"
+   }
+  },
+  {
+   "t": 4079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "ceries"
+   }
+  },
+  {
+   "t": 4079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 4079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 4110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 4110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 4125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "35"
+   }
+  },
+  {
+   "t": 4125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 4125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 4125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 4141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "9,"
+   }
+  },
+  {
+   "t": 4141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Health"
+   }
+  },
+  {
+   "t": 4141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 4157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 4157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 4172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 4172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "36"
+   }
+  },
+  {
+   "t": 4188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 4188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 4188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 4188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Health"
+   }
+  },
+  {
+   "t": 4188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 4204,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 4204,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 4204,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 4204,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 4219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "37"
+   }
+  },
+  {
+   "t": 4219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 4219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 4219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 4219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Utilities"
+   }
+  },
+  {
+   "t": 4219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 4235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 4250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 4266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 4266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 4266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "38"
+   }
+  },
+  {
+   "t": 4266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 4266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 4266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 4282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Gro"
+   }
+  },
+  {
+   "t": 4282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "ceries"
+   }
+  },
+  {
+   "t": 4282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 4282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Shopping\"},"
+   }
+  },
+  {
+   "t": 4329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 4329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 4329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 4329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 4329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "39"
+   }
+  },
+  {
+   "t": 4344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 4344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 4344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 4344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Utilities"
+   }
+  },
+  {
+   "t": 4344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"},{\""
+   }
+  },
+  {
+   "t": 4344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "row"
+   }
+  },
+  {
+   "t": 4375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 4375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_id"
+   }
+  },
+  {
+   "t": 4375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 4391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "40"
+   }
+  },
+  {
+   "t": 4391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 4391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "category"
+   }
+  },
+  {
+   "t": 4391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 4391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Utilities"
+   }
+  },
+  {
+   "t": 4391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"}"
+   }
+  },
+  {
+   "t": 4422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 4422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "]}"
+   }
+  },
+  {
+   "t": 4422,
+   "event": "model.completed",
+   "data": {
+    "model_key": "openai",
+    "output": {
+     "items": [
+      {
+       "row_id": 1,
+       "category": "Other"
+      },
+      {
+       "row_id": 2,
+       "category": "Entertainment"
+      },
+      {
+       "row_id": 3,
+       "category": "Transport"
+      },
+      {
+       "row_id": 4,
+       "category": "Transport"
+      },
+      {
+       "row_id": 5,
+       "category": "Shopping"
+      },
+      {
+       "row_id": 6,
+       "category": "Other"
+      },
+      {
+       "row_id": 7,
+       "category": "Other"
+      },
+      {
+       "row_id": 8,
+       "category": "Health"
+      },
+      {
+       "row_id": 9,
+       "category": "Shopping"
+      },
+      {
+       "row_id": 10,
+       "category": "Groceries"
+      },
+      {
+       "row_id": 11,
+       "category": "Dining"
+      },
+      {
+       "row_id": 12,
+       "category": "Shopping"
+      },
+      {
+       "row_id": 13,
+       "category": "Entertainment"
+      },
+      {
+       "row_id": 14,
+       "category": "Dining"
+      },
+      {
+       "row_id": 15,
+       "category": "Dining"
+      },
+      {
+       "row_id": 16,
+       "category": "Other"
+      },
+      {
+       "row_id": 17,
+       "category": "Transport"
+      },
+      {
+       "row_id": 18,
+       "category": "Entertainment"
+      },
+      {
+       "row_id": 19,
+       "category": "Transport"
+      },
+      {
+       "row_id": 20,
+       "category": "Other"
+      },
+      {
+       "row_id": 21,
+       "category": "Utilities"
+      },
+      {
+       "row_id": 22,
+       "category": "Shopping"
+      },
+      {
+       "row_id": 23,
+       "category": "Health"
+      },
+      {
+       "row_id": 24,
+       "category": "Health"
+      },
+      {
+       "row_id": 25,
+       "category": "Dining"
+      },
+      {
+       "row_id": 26,
+       "category": "Other"
+      },
+      {
+       "row_id": 27,
+       "category": "Other"
+      },
+      {
+       "row_id": 28,
+       "category": "Utilities"
+      },
+      {
+       "row_id": 29,
+       "category": "Shopping"
+      },
+      {
+       "row_id": 30,
+       "category": "Dining"
+      },
+      {
+       "row_id": 31,
+       "category": "Groceries"
+      },
+      {
+       "row_id": 32,
+       "category": "Utilities"
+      },
+      {
+       "row_id": 33,
+       "category": "Dining"
+      },
+      {
+       "row_id": 34,
+       "category": "Groceries"
+      },
+      {
+       "row_id": 35,
+       "category": "Health"
+      },
+      {
+       "row_id": 36,
+       "category": "Health"
+      },
+      {
+       "row_id": 37,
+       "category": "Utilities"
+      },
+      {
+       "row_id": 38,
+       "category": "Groceries"
+      },
+      {
+       "row_id": 39,
+       "category": "Utilities"
+      },
+      {
+       "row_id": 40,
+       "category": "Utilities"
+      }
+     ]
+    },
+    "schema_valid": true,
+    "ttft_ms": 2375.412200053688,
+    "latency_ms": 4398.84430001257,
+    "input_tokens": 2351,
+    "output_tokens": 467,
+    "cost_usd": 0.0004686,
+    "cold_start": false
+   }
+  },
+  {
+   "t": 4469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 4500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 4547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 4594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Groceries"
+   }
+  },
+  {
+   "t": 4657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 4704,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 4750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 4797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "11"
+   }
+  },
+  {
+   "t": 4844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 4891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 4938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"D"
+   }
+  },
+  {
+   "t": 4985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "ining\"},"
+   }
+  },
+  {
+   "t": 5032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 5079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 5125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 5172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "2,"
+   }
+  },
+  {
+   "t": 5219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 5266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 5313,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Shopping\"},"
+   }
+  },
+  {
+   "t": 5360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 5407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 5438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 5500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "3,"
+   }
+  },
+  {
+   "t": 5532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 5594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 5641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Entertainment"
+   }
+  },
+  {
+   "t": 5688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 5735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 5782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 5829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "14"
+   }
+  },
+  {
+   "t": 5875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 5922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 5969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"D"
+   }
+  },
+  {
+   "t": 6016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "ining\"},"
+   }
+  },
+  {
+   "t": 6047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 6110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 6157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 6204,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "5,"
+   }
+  },
+  {
+   "t": 6250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 6297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 6344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Dining"
+   }
+  },
+  {
+   "t": 6391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 6438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 6485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 6532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "16"
+   }
+  },
+  {
+   "t": 6579,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 6625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 6672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Other"
+   }
+  },
+  {
+   "t": 6719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 6766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 6813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 6860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "17"
+   }
+  },
+  {
+   "t": 6907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 6954,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 7000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Transport"
+   }
+  },
+  {
+   "t": 7047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 7094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 7141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 7188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "18"
+   }
+  },
+  {
+   "t": 7235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 7282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 7329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Ent"
+   }
+  },
+  {
+   "t": 7375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "ertainment\"},"
+   }
+  },
+  {
+   "t": 7438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 7469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 7516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 7563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "9,"
+   }
+  },
+  {
+   "t": 7625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 7672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 7704,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Transport\"},"
+   }
+  },
+  {
+   "t": 7750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 7813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 7860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 2"
+   }
+  },
+  {
+   "t": 7907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 7954,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 8000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 8047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Other\"},"
+   }
+  },
+  {
+   "t": 8079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 8141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 8188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 2"
+   }
+  },
+  {
+   "t": 8235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "1,"
+   }
+  },
+  {
+   "t": 8282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 8329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 8375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Utilities\"},"
+   }
+  },
+  {
+   "t": 8422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 8469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 8516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 2"
+   }
+  },
+  {
+   "t": 8547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "2,"
+   }
+  },
+  {
+   "t": 8610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 8657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 8704,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Shopping\"},"
+   }
+  },
+  {
+   "t": 8750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 8797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 8844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 2"
+   }
+  },
+  {
+   "t": 8891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "3,"
+   }
+  },
+  {
+   "t": 8938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 8985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 9032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Health\"},"
+   }
+  },
+  {
+   "t": 9063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 9125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 9172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 2"
+   }
+  },
+  {
+   "t": 9219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "4,"
+   }
+  },
+  {
+   "t": 9266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 9313,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 9360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Health\"},"
+   }
+  },
+  {
+   "t": 9407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 9454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 9500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 2"
+   }
+  },
+  {
+   "t": 9547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "5,"
+   }
+  },
+  {
+   "t": 9594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 9641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 9688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Dining"
+   }
+  },
+  {
+   "t": 9735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 9782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 9829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 9875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "26"
+   }
+  },
+  {
+   "t": 9922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 9969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 10016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Other"
+   }
+  },
+  {
+   "t": 10047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 10110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 10157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 10204,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "27"
+   }
+  },
+  {
+   "t": 10250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 10297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 10344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Other"
+   }
+  },
+  {
+   "t": 10391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 10438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 10485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 10532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "28"
+   }
+  },
+  {
+   "t": 10579,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 10625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 10672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Utilities"
+   }
+  },
+  {
+   "t": 10719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 10766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 10813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 10860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "29"
+   }
+  },
+  {
+   "t": 10922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 10954,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 11000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Shopping"
+   }
+  },
+  {
+   "t": 11047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 11094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 11157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 11204,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "30"
+   }
+  },
+  {
+   "t": 11250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 11282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 11344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"D"
+   }
+  },
+  {
+   "t": 11391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "ining\"},"
+   }
+  },
+  {
+   "t": 11438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 11485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 11532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 3"
+   }
+  },
+  {
+   "t": 11563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "1,"
+   }
+  },
+  {
+   "t": 11625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 11672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 11704,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Groceries"
+   }
+  },
+  {
+   "t": 11750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 11813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 11860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 11907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "32"
+   }
+  },
+  {
+   "t": 11954,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 12000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 12032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Utilities"
+   }
+  },
+  {
+   "t": 12079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 12141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 12188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 12235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "33"
+   }
+  },
+  {
+   "t": 12282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 12329,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 12375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"D"
+   }
+  },
+  {
+   "t": 12422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "ining\"},"
+   }
+  },
+  {
+   "t": 12469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 12516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 12563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 3"
+   }
+  },
+  {
+   "t": 12610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "4,"
+   }
+  },
+  {
+   "t": 12657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 12704,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 12750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Groceries"
+   }
+  },
+  {
+   "t": 12797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 12844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 12891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 12938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "35"
+   }
+  },
+  {
+   "t": 12985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 13032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 13079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Health"
+   }
+  },
+  {
+   "t": 13125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 13172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 13219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 13266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "36"
+   }
+  },
+  {
+   "t": 13313,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 13360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 13407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Health"
+   }
+  },
+  {
+   "t": 13454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 13500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 13547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 13594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "37"
+   }
+  },
+  {
+   "t": 13641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 13704,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 13750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Utilities"
+   }
+  },
+  {
+   "t": 13797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}, {\""
+   }
+  },
+  {
+   "t": 13844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "row_id"
+   }
+  },
+  {
+   "t": 13891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 13938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "38"
+   }
+  },
+  {
+   "t": 13969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 14032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "category\":"
+   }
+  },
+  {
+   "t": 14079,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Gro"
+   }
+  },
+  {
+   "t": 14125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "ceries\"},"
+   }
+  },
+  {
+   "t": 14172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 14204,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 14266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 3"
+   }
+  },
+  {
+   "t": 14297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "9,"
+   }
+  },
+  {
+   "t": 14344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 14391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 14454,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Utilities\"},"
+   }
+  },
+  {
+   "t": 14500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"row"
+   }
+  },
+  {
+   "t": 14547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_id\":"
+   }
+  },
+  {
+   "t": 14594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 4"
+   }
+  },
+  {
+   "t": 14641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 14688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"category"
+   }
+  },
+  {
+   "t": 14735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 14782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Utilities\"}"
+   }
+  },
+  {
+   "t": 14829,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "]}"
+   }
+  },
+  {
+   "t": 14829,
+   "event": "model.completed",
+   "data": {
+    "model_key": "small-ft-r1",
+    "output": {
+     "items": [
+      {
+       "row_id": 1,
+       "category": "Other"
+      },
+      {
+       "row_id": 2,
+       "category": "Entertainment"
+      },
+      {
+       "row_id": 3,
+       "category": "Transport"
+      },
+      {
+       "row_id": 4,
+       "category": "Transport"
+      },
+      {
+       "row_id": 5,
+       "category": "Shopping"
+      },
+      {
+       "row_id": 6,
+       "category": "Other"
+      },
+      {
+       "row_id": 7,
+       "category": "Other"
+      },
+      {
+       "row_id": 8,
+       "category": "Health"
+      },
+      {
+       "row_id": 9,
+       "category": "Shopping"
+      },
+      {
+       "row_id": 10,
+       "category": "Groceries"
+      },
+      {
+       "row_id": 11,
+       "category": "Dining"
+      },
+      {
+       "row_id": 12,
+       "category": "Shopping"
+      },
+      {
+       "row_id": 13,
+       "category": "Entertainment"
+      },
+      {
+       "row_id": 14,
+       "category": "Dining"
+      },
+      {
+       "row_id": 15,
+       "category": "Dining"
+      },
+      {
+       "row_id": 16,
+       "category": "Other"
+      },
+      {
+       "row_id": 17,
+       "category": "Transport"
+      },
+      {
+       "row_id": 18,
+       "category": "Entertainment"
+      },
+      {
+       "row_id": 19,
+       "category": "Transport"
+      },
+      {
+       "row_id": 20,
+       "category": "Other"
+      },
+      {
+       "row_id": 21,
+       "category": "Utilities"
+      },
+      {
+       "row_id": 22,
+       "category": "Shopping"
+      },
+      {
+       "row_id": 23,
+       "category": "Health"
+      },
+      {
+       "row_id": 24,
+       "category": "Health"
+      },
+      {
+       "row_id": 25,
+       "category": "Dining"
+      },
+      {
+       "row_id": 26,
+       "category": "Other"
+      },
+      {
+       "row_id": 27,
+       "category": "Other"
+      },
+      {
+       "row_id": 28,
+       "category": "Utilities"
+      },
+      {
+       "row_id": 29,
+       "category": "Shopping"
+      },
+      {
+       "row_id": 30,
+       "category": "Dining"
+      },
+      {
+       "row_id": 31,
+       "category": "Groceries"
+      },
+      {
+       "row_id": 32,
+       "category": "Utilities"
+      },
+      {
+       "row_id": 33,
+       "category": "Dining"
+      },
+      {
+       "row_id": 34,
+       "category": "Groceries"
+      },
+      {
+       "row_id": 35,
+       "category": "Health"
+      },
+      {
+       "row_id": 36,
+       "category": "Health"
+      },
+      {
+       "row_id": 37,
+       "category": "Utilities"
+      },
+      {
+       "row_id": 38,
+       "category": "Groceries"
+      },
+      {
+       "row_id": 39,
+       "category": "Utilities"
+      },
+      {
+       "row_id": 40,
+       "category": "Utilities"
+      }
+     ]
+    },
+    "schema_valid": true,
+    "ttft_ms": 1437.0662000146694,
+    "latency_ms": 14802.197999961209,
+    "input_tokens": 2965,
+    "output_tokens": 569,
+    "cost_usd": 0.0032852656116580574,
+    "cold_start": false
+   }
+  },
+  {
+   "t": 14954,
+   "event": "run.completed",
+   "data": {
+    "run_id": "f5083932cc8b44efbbf849ec856d96cb"
+   }
+  }
+ ]
+}

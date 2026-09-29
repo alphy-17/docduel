@@ -9,12 +9,12 @@ import { TopBar } from "@/components/TopBar"
 import { Wallpaper } from "@/components/Wallpaper"
 import { useDuel, type PanelState } from "@/hooks/useDuel"
 import { usePath } from "@/hooks/usePath"
-import { getHealth } from "@/lib/api"
+import { DEMO, getHealth } from "@/lib/api"
 import type { HealthModel } from "@/lib/types"
 
 // Before a run, show the two panels empty so the layout never jumps (Owner wireframe).
 const IDLE: PanelState[] = [
-  { key: "small-base", status: "idle", text: "", startedAt: 0 },
+  { key: "small-ft-r1", status: "idle", text: "", startedAt: 0 },
   { key: "openai", status: "idle", text: "", startedAt: 0 },
 ]
 
@@ -43,17 +43,22 @@ export default function App() {
       <main className="mx-auto flex max-w-[1240px] flex-col gap-5 px-4 pt-7 pb-14 sm:px-5">
         {path === "/benchmark" ? (
           <BenchmarkPage />
-        ) : path === "/corrections" ? (
+        ) : path === "/corrections" && !DEMO ? (
           <CorrectionsPage />
         ) : (
           <>
             <SourceCard
+              mode={duel.mode}
+              replays={duel.replays}
+              onUnlock={duel.unlock}
               phase={duel.phase}
               file={duel.file}
               doc={duel.doc}
               task={duel.task}
               instructions={duel.instructions}
-              notice={backendDown ? "Can't reach the backend. Start it with uvicorn on port 8000." : duel.notice}
+              notice={
+                backendDown && !DEMO ? "Can't reach the backend. Start it with uvicorn on port 8000." : duel.notice
+              }
               onFile={duel.selectFile}
               onClear={duel.clear}
               onTask={duel.setTask}

@@ -1,0 +1,17 @@
+# Keep the image small and secret-free: only what the Dockerfile copies is needed.
+**/.env
+**/*.env
+!**/.env.example
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+**/*.db
+**/node_modules
+frontend
+training
+scratch
+data
+!data/test/manifest.json
+.git
+.github

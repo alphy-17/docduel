@@ -1,0 +1,1138 @@
+{
+ "id": "tax-invoice-summarise",
+ "title": "Tax invoice",
+ "sample": "tax-invoice.pdf",
+ "task": "summarise",
+ "recorded_at": "2026-09-29T07:17:22+00:00",
+ "document": {
+  "document_id": "4691dc1db88841fbac7aa7e7cc0b082e",
+  "kind": "pdf_text",
+  "pages": 1,
+  "text_preview": "Bluegum Print Co TAX INVOICE\n132 Beach Rd\nChristchurch 8011\nGST No. 22 15 533 508 308\nBill to:\nSilver Fern Studio\n99 Beach Rd\nChristchurch 8011\nInvoice No: A39213\nDate: 05/10/2025\nDue date: 12/10/2025\nDescription Qty Unit Price Amount\nSite visit / call-out fee 2 $102.04 $204.08\nSubtotal $204.08\nGST (15%) $30.61\nTOTAL $234.69",
+  "ocr_ms": 0,
+  "is_test_document": false,
+  "already_ingested": true,
+  "can_describe": false
+ },
+ "events": [
+  {
+   "t": 94,
+   "event": "run.started",
+   "data": {
+    "run_id": "0238a06ba1d04d21b3ebe8db0f35299b",
+    "task": "summarise",
+    "model_keys": [
+     "small-ft-r1",
+     "openai"
+    ],
+    "placeholders": [],
+    "prompt_version": "summarise_v1"
+   }
+  },
+  {
+   "t": 890,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "bul"
+   }
+  },
+  {
+   "t": 969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "lets\":"
+   }
+  },
+  {
+   "t": 1015,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " [\"Blue"
+   }
+  },
+  {
+   "t": 1062,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "gum"
+   }
+  },
+  {
+   "t": 1109,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " Print Co"
+   }
+  },
+  {
+   "t": 1156,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " charged"
+   }
+  },
+  {
+   "t": 1203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " Silver"
+   }
+  },
+  {
+   "t": 1234,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " Fern Studio"
+   }
+  },
+  {
+   "t": 1281,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " for"
+   }
+  },
+  {
+   "t": 1328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " a site"
+   }
+  },
+  {
+   "t": 1375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " visit and"
+   }
+  },
+  {
+   "t": 1422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " call"
+   }
+  },
+  {
+   "t": 1469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "-out fee"
+   }
+  },
+  {
+   "t": 1515,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".\", \""
+   }
+  },
+  {
+   "t": 1547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "The invoice"
+   }
+  },
+  {
+   "t": 1609,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " dated"
+   }
+  },
+  {
+   "t": 1656,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " October"
+   }
+  },
+  {
+   "t": 1703,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 5"
+   }
+  },
+  {
+   "t": 1750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", "
+   }
+  },
+  {
+   "t": 1781,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "20"
+   }
+  },
+  {
+   "t": 1828,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "25"
+   }
+  },
+  {
+   "t": 1890,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", totals"
+   }
+  },
+  {
+   "t": 1937,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " $2"
+   }
+  },
+  {
+   "t": 1953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 1953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "bul"
+   }
+  },
+  {
+   "t": 1953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "lets"
+   }
+  },
+  {
+   "t": 1953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":[\""
+   }
+  },
+  {
+   "t": 1953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Blue"
+   }
+  },
+  {
+   "t": 1953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "gum"
+   }
+  },
+  {
+   "t": 1969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "34"
+   }
+  },
+  {
+   "t": 2031,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".6"
+   }
+  },
+  {
+   "t": 2031,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " Print"
+   }
+  },
+  {
+   "t": 2031,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " Co"
+   }
+  },
+  {
+   "t": 2031,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " invo"
+   }
+  },
+  {
+   "t": 2031,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "iced"
+   }
+  },
+  {
+   "t": 2047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " Silver"
+   }
+  },
+  {
+   "t": 2047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " Fern"
+   }
+  },
+  {
+   "t": 2047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " Studio"
+   }
+  },
+  {
+   "t": 2047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " under"
+   }
+  },
+  {
+   "t": 2062,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " invoice"
+   }
+  },
+  {
+   "t": 2062,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " A"
+   }
+  },
+  {
+   "t": 2062,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "9 including"
+   }
+  },
+  {
+   "t": 2109,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " A"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "392"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "13"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ","
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " dated"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " "
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "05"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "/"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "10"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "/"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "202"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "5"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " and"
+   }
+  },
+  {
+   "t": 2156,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " due"
+   }
+  },
+  {
+   "t": 2156,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " "
+   }
+  },
+  {
+   "t": 2156,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "12"
+   }
+  },
+  {
+   "t": 2156,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "/"
+   }
+  },
+  {
+   "t": 2156,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "3"
+   }
+  },
+  {
+   "t": 2172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "10"
+   }
+  },
+  {
+   "t": 2172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "/"
+   }
+  },
+  {
+   "t": 2172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "202"
+   }
+  },
+  {
+   "t": 2172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "5"
+   }
+  },
+  {
+   "t": 2187,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ".\",\""
+   }
+  },
+  {
+   "t": 2187,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "The"
+   }
+  },
+  {
+   "t": 2187,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " invoice"
+   }
+  },
+  {
+   "t": 2187,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " covers"
+   }
+  },
+  {
+   "t": 2203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "9"
+   }
+  },
+  {
+   "t": 2203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " two"
+   }
+  },
+  {
+   "t": 2203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " site"
+   }
+  },
+  {
+   "t": 2219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " visit"
+   }
+  },
+  {
+   "t": 2219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "/c"
+   }
+  },
+  {
+   "t": 2219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "all"
+   }
+  },
+  {
+   "t": 2219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "-out"
+   }
+  },
+  {
+   "t": 2234,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " fees"
+   }
+  },
+  {
+   "t": 2234,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " at"
+   }
+  },
+  {
+   "t": 2250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "21"
+   }
+  },
+  {
+   "t": 2250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " $"
+   }
+  },
+  {
+   "t": 2250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "102"
+   }
+  },
+  {
+   "t": 2250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 2265,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "04"
+   }
+  },
+  {
+   "t": 2281,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " each"
+   }
+  },
+  {
+   "t": 2281,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ","
+   }
+  },
+  {
+   "t": 2281,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " totaling"
+   }
+  },
+  {
+   "t": 2281,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " $"
+   }
+  },
+  {
+   "t": 2281,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "3 invoice"
+   }
+  },
+  {
+   "t": 2312,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "204"
+   }
+  },
+  {
+   "t": 2312,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 2328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "08"
+   }
+  },
+  {
+   "t": 2328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " before"
+   }
+  },
+  {
+   "t": 2328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " GST"
+   }
+  },
+  {
+   "t": 2328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ".\",\""
+   }
+  },
+  {
+   "t": 2328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " number.\","
+   }
+  },
+  {
+   "t": 2359,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "GST"
+   }
+  },
+  {
+   "t": 2359,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " is"
+   }
+  },
+  {
+   "t": 2359,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " $"
+   }
+  },
+  {
+   "t": 2359,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "30"
+   }
+  },
+  {
+   "t": 2359,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 2359,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "61"
+   }
+  },
+  {
+   "t": 2375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ","
+   }
+  },
+  {
+   "t": 2375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " making"
+   }
+  },
+  {
+   "t": 2375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Two"
+   }
+  },
+  {
+   "t": 2406,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " the"
+   }
+  },
+  {
+   "t": 2406,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " total"
+   }
+  },
+  {
+   "t": 2406,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " payable"
+   }
+  },
+  {
+   "t": 2406,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " $"
+   }
+  },
+  {
+   "t": 2422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "234"
+   }
+  },
+  {
+   "t": 2422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 2422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "69"
+   }
+  },
+  {
+   "t": 2422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 2422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " units"
+   }
+  },
+  {
+   "t": 2453,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"]"
+   }
+  },
+  {
+   "t": 2453,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "}"
+   }
+  },
+  {
+   "t": 2484,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " are"
+   }
+  },
+  {
+   "t": 2484,
+   "event": "model.completed",
+   "data": {
+    "model_key": "openai",
+    "output": {
+     "bullets": [
+      "Bluegum Print Co invoiced Silver Fern Studio under invoice A39213, dated 05/10/2025 and due 12/10/2025.",
+      "The invoice covers two site visit/call-out fees at $102.04 each, totaling $204.08 before GST.",
+      "GST is $30.61, making the total payable $234.69."
+     ]
+    },
+    "schema_valid": true,
+    "ttft_ms": 1871.3955999701284,
+    "latency_ms": 2393.66959995823,
+    "input_tokens": 271,
+    "output_tokens": 134,
+    "cost_usd": 9.41e-05,
+    "cold_start": false
+   }
+  },
+  {
+   "t": 2515,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " billed"
+   }
+  },
+  {
+   "t": 2562,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " at $"
+   }
+  },
+  {
+   "t": 2609,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "10"
+   }
+  },
+  {
+   "t": 2656,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "2."
+   }
+  },
+  {
+   "t": 2703,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "04"
+   }
+  },
+  {
+   "t": 2750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " per"
+   }
+  },
+  {
+   "t": 2797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " unit with"
+   }
+  },
+  {
+   "t": 2828,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " a "
+   }
+  },
+  {
+   "t": 2890,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "15"
+   }
+  },
+  {
+   "t": 2937,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "% GST"
+   }
+  },
+  {
+   "t": 2984,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " of"
+   }
+  },
+  {
+   "t": 3031,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " $3"
+   }
+  },
+  {
+   "t": 3078,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0."
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "61"
+   }
+  },
+  {
+   "t": 3156,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".\""
+   }
+  },
+  {
+   "t": 3203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "]}"
+   }
+  },
+  {
+   "t": 3203,
+   "event": "model.completed",
+   "data": {
+    "model_key": "small-ft-r1",
+    "output": {
+     "bullets": [
+      "Bluegum Print Co charged Silver Fern Studio for a site visit and call-out fee.",
+      "The invoice dated October 5, 2025, totals $234.69 including A39213 invoice number.",
+      "Two units are billed at $102.04 per unit with a 15% GST of $30.61."
+     ]
+    },
+    "schema_valid": true,
+    "ttft_ms": 796.8736999901012,
+    "latency_ms": 3125.30610000249,
+    "input_tokens": 278,
+    "output_tokens": 87,
+    "cost_usd": 0.000693644326083886,
+    "cold_start": false
+   }
+  },
+  {
+   "t": 3312,
+   "event": "run.completed",
+   "data": {
+    "run_id": "0238a06ba1d04d21b3ebe8db0f35299b"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1428 @@
+{
+ "id": "tax-invoice-extract",
+ "title": "Tax invoice",
+ "sample": "tax-invoice.pdf",
+ "task": "extract",
+ "recorded_at": "2026-09-29T07:16:57+00:00",
+ "document": {
+  "document_id": "4691dc1db88841fbac7aa7e7cc0b082e",
+  "kind": "pdf_text",
+  "pages": 1,
+  "text_preview": "Bluegum Print Co TAX INVOICE\n132 Beach Rd\nChristchurch 8011\nGST No. 22 15 533 508 308\nBill to:\nSilver Fern Studio\n99 Beach Rd\nChristchurch 8011\nInvoice No: A39213\nDate: 05/10/2025\nDue date: 12/10/2025\nDescription Qty Unit Price Amount\nSite visit / call-out fee 2 $102.04 $204.08\nSubtotal $204.08\nGST (15%) $30.61\nTOTAL $234.69",
+  "ocr_ms": 0,
+  "is_test_document": false,
+  "already_ingested": true,
+  "can_describe": false
+ },
+ "events": [
+  {
+   "t": 16,
+   "event": "run.started",
+   "data": {
+    "run_id": "af1e280ab9bf4688919c91461e346fe0",
+    "task": "extract",
+    "model_keys": [
+     "small-ft-r1",
+     "openai"
+    ],
+    "placeholders": [],
+    "prompt_version": "extract_v1"
+   }
+  },
+  {
+   "t": 1047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 1094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "vendor_name"
+   }
+  },
+  {
+   "t": 1141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 1172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Blueg"
+   }
+  },
+  {
+   "t": 1235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "um Print"
+   }
+  },
+  {
+   "t": 1282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " Co\","
+   }
+  },
+  {
+   "t": 1328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"document"
+   }
+  },
+  {
+   "t": 1375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_date\":"
+   }
+  },
+  {
+   "t": 1422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"2"
+   }
+  },
+  {
+   "t": 1469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "02"
+   }
+  },
+  {
+   "t": 1500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "5-"
+   }
+  },
+  {
+   "t": 1547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "10"
+   }
+  },
+  {
+   "t": 1610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "-0"
+   }
+  },
+  {
+   "t": 1641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "5\","
+   }
+  },
+  {
+   "t": 1688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"document"
+   }
+  },
+  {
+   "t": 1750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_number\":"
+   }
+  },
+  {
+   "t": 1797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"A"
+   }
+  },
+  {
+   "t": 1844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "39"
+   }
+  },
+  {
+   "t": 1891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "21"
+   }
+  },
+  {
+   "t": 1938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "3\","
+   }
+  },
+  {
+   "t": 1969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"currency"
+   }
+  },
+  {
+   "t": 2016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 2063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "NZD"
+   }
+  },
+  {
+   "t": 2110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\", \""
+   }
+  },
+  {
+   "t": 2172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "line_items"
+   }
+  },
+  {
+   "t": 2219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": [{\""
+   }
+  },
+  {
+   "t": 2266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "description\":"
+   }
+  },
+  {
+   "t": 2297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Site"
+   }
+  },
+  {
+   "t": 2360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " visit /"
+   }
+  },
+  {
+   "t": 2391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " call-out"
+   }
+  },
+  {
+   "t": 2438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " fee\","
+   }
+  },
+  {
+   "t": 2485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"quantity"
+   }
+  },
+  {
+   "t": 2532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 2578,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "2."
+   }
+  },
+  {
+   "t": 2625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 2672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"unit"
+   }
+  },
+  {
+   "t": 2719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_price\":"
+   }
+  },
+  {
+   "t": 2766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 2813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "02"
+   }
+  },
+  {
+   "t": 2860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".0"
+   }
+  },
+  {
+   "t": 2907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "4,"
+   }
+  },
+  {
+   "t": 2953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"amount"
+   }
+  },
+  {
+   "t": 2969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 2969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "vendor"
+   }
+  },
+  {
+   "t": 2969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_name"
+   }
+  },
+  {
+   "t": 2969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 2985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Blue"
+   }
+  },
+  {
+   "t": 2985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "gum"
+   }
+  },
+  {
+   "t": 3000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 3000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " Print"
+   }
+  },
+  {
+   "t": 3000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " Co"
+   }
+  },
+  {
+   "t": 3016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 3016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "document"
+   }
+  },
+  {
+   "t": 3016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_date"
+   }
+  },
+  {
+   "t": 3032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "202"
+   }
+  },
+  {
+   "t": 3032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "5"
+   }
+  },
+  {
+   "t": 3032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "-"
+   }
+  },
+  {
+   "t": 3032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "20"
+   }
+  },
+  {
+   "t": 3047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "10"
+   }
+  },
+  {
+   "t": 3047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "-"
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "4."
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "05"
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "document"
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_number"
+   }
+  },
+  {
+   "t": 3110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "A"
+   }
+  },
+  {
+   "t": 3110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "392"
+   }
+  },
+  {
+   "t": 3110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "13"
+   }
+  },
+  {
+   "t": 3110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "currency"
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "NZ"
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "D"
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 3125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "line"
+   }
+  },
+  {
+   "t": 3141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "08"
+   }
+  },
+  {
+   "t": 3172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_items"
+   }
+  },
+  {
+   "t": 3172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":["
+   }
+  },
+  {
+   "t": 3172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 3172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "description"
+   }
+  },
+  {
+   "t": 3188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "}], \""
+   }
+  },
+  {
+   "t": 3188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 3188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Site"
+   }
+  },
+  {
+   "t": 3203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " visit"
+   }
+  },
+  {
+   "t": 3203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " /"
+   }
+  },
+  {
+   "t": 3203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " call"
+   }
+  },
+  {
+   "t": 3203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "-out"
+   }
+  },
+  {
+   "t": 3235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " fee"
+   }
+  },
+  {
+   "t": 3235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 3235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "subtotal\":"
+   }
+  },
+  {
+   "t": 3250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "quantity"
+   }
+  },
+  {
+   "t": 3250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "2"
+   }
+  },
+  {
+   "t": 3266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "unit"
+   }
+  },
+  {
+   "t": 3266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_price"
+   }
+  },
+  {
+   "t": 3282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 2"
+   }
+  },
+  {
+   "t": 3282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "102"
+   }
+  },
+  {
+   "t": 3297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 3297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "04"
+   }
+  },
+  {
+   "t": 3313,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3313,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "amount"
+   }
+  },
+  {
+   "t": 3328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "204"
+   }
+  },
+  {
+   "t": 3328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "04"
+   }
+  },
+  {
+   "t": 3344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 3344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "08"
+   }
+  },
+  {
+   "t": 3344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "}"
+   }
+  },
+  {
+   "t": 3344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "],\""
+   }
+  },
+  {
+   "t": 3344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "subtotal"
+   }
+  },
+  {
+   "t": 3344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "204"
+   }
+  },
+  {
+   "t": 3360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 3375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".0"
+   }
+  },
+  {
+   "t": 3375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "08"
+   }
+  },
+  {
+   "t": 3375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "tax"
+   }
+  },
+  {
+   "t": 3375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "30"
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "61"
+   }
+  },
+  {
+   "t": 3407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "8,"
+   }
+  },
+  {
+   "t": 3422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "service"
+   }
+  },
+  {
+   "t": 3422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_charge"
+   }
+  },
+  {
+   "t": 3438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 3438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "discount"
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"tax"
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "total"
+   }
+  },
+  {
+   "t": 3485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "234"
+   }
+  },
+  {
+   "t": 3485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 3485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "69"
+   }
+  },
+  {
+   "t": 3485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 3485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "payment"
+   }
+  },
+  {
+   "t": 3516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 3516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_method"
+   }
+  },
+  {
+   "t": 3516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 3532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 3532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "}"
+   }
+  },
+  {
+   "t": 3563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "30"
+   }
+  },
+  {
+   "t": 3578,
+   "event": "model.completed",
+   "data": {
+    "model_key": "openai",
+    "output": {
+     "vendor_name": "Bluegum Print Co",
+     "document_date": "2025-10-05",
+     "document_number": "A39213",
+     "currency": "NZD",
+     "line_items": [
+      {
+       "description": "Site visit / call-out fee",
+       "quantity": 2.0,
+       "unit_price": 102.04,
+       "amount": 204.08
+      }
+     ],
+     "subtotal": 204.08,
+     "tax": 30.61,
+     "service_charge": null,
+     "discount": null,
+     "total": 234.69,
+     "payment_method": null
+    },
+    "schema_valid": true,
+    "ttft_ms": 2947.501300019212,
+    "latency_ms": 3561.583000002429,
+    "input_tokens": 1948,
+    "output_tokens": 131,
+    "cost_usd": 0.0002603,
+    "cold_start": false
+   }
+  },
+  {
+   "t": 3594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".6"
+   }
+  },
+  {
+   "t": 3641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "1,"
+   }
+  },
+  {
+   "t": 3688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"service"
+   }
+  },
+  {
+   "t": 3735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_charge\":"
+   }
+  },
+  {
+   "t": 3782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " null,"
+   }
+  },
+  {
+   "t": 3844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"discount"
+   }
+  },
+  {
+   "t": 3875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": null"
+   }
+  },
+  {
+   "t": 3938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 3985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "total\":"
+   }
+  },
+  {
+   "t": 4032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 2"
+   }
+  },
+  {
+   "t": 4063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "34"
+   }
+  },
+  {
+   "t": 4125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".6"
+   }
+  },
+  {
+   "t": 4157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "9,"
+   }
+  },
+  {
+   "t": 4219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"payment"
+   }
+  },
+  {
+   "t": 4250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_method\":"
+   }
+  },
+  {
+   "t": 4297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " null}"
+   }
+  },
+  {
+   "t": 4344,
+   "event": "model.completed",
+   "data": {
+    "model_key": "small-ft-r1",
+    "output": {
+     "vendor_name": "Bluegum Print Co",
+     "document_date": "2025-10-05",
+     "document_number": "A39213",
+     "currency": "NZD",
+     "line_items": [
+      {
+       "description": "Site visit / call-out fee",
+       "quantity": 2.0,
+       "unit_price": 102.04,
+       "amount": 204.08
+      }
+     ],
+     "subtotal": 204.08,
+     "tax": 30.61,
+     "service_charge": null,
+     "discount": null,
+     "total": 234.69,
+     "payment_method": null
+    },
+    "schema_valid": true,
+    "ttft_ms": 1035.0365999620408,
+    "latency_ms": 4334.348999953363,
+    "input_tokens": 2161,
+    "output_tokens": 142,
+    "cost_usd": 0.0009619846808229826,
+    "cold_start": false
+   }
+  },
+  {
+   "t": 4453,
+   "event": "run.completed",
+   "data": {
+    "run_id": "af1e280ab9bf4688919c91461e346fe0"
+   }
+  }
+ ]
+}

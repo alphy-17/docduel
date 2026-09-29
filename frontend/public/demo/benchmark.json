@@ -1,0 +1,3833 @@
+{
+ "dataset_version": "test-v1",
+ "prompt_version": "v1",
+ "ours": "small-ft-r1",
+ "baseline": "openai",
+ "relative_score": 97.5,
+ "models": {
+  "small-ft-r2": {
+   "model_id": "small-ft-r2",
+   "reasoning_effort": null,
+   "status": "active",
+   "extract": {
+    "created_at": "2026-09-29T06:39:30+00:00",
+    "docs": 63,
+    "headline": {
+     "field_accuracy": {
+      "value": 0.9512,
+      "ci95": [
+       0.9212,
+       0.9759
+      ],
+      "display": "95.1% (92.1-97.6)"
+     },
+     "line_item_f1": {
+      "value": 0.8553,
+      "ci95": [
+       0.781,
+       0.9304
+      ],
+      "display": "85.5% (78.1-93.0)"
+     },
+     "perfect_document_rate": {
+      "value": 0.6508,
+      "ci95": [
+       0.5397,
+       0.7619
+      ],
+      "display": "65.1% (54.0-76.2)"
+     },
+     "schema_validity": {
+      "value": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "display": "100.0% (100.0-100.0)"
+     },
+     "field_accuracy_exact": 0.936,
+     "line_item_precision": 0.8667,
+     "line_item_recall": 0.8442
+    },
+    "per_field": {
+     "vendor_name": {
+      "scored": 23,
+      "accuracy": 0.9565217391304348,
+      "accuracy_exact": 0.7391304347826086
+     },
+     "document_date": {
+      "scored": 23,
+      "accuracy": 1.0,
+      "accuracy_exact": 1.0
+     },
+     "document_number": {
+      "scored": 23,
+      "accuracy": 0.9130434782608695,
+      "accuracy_exact": 0.9130434782608695
+     },
+     "currency": {
+      "scored": 63,
+      "accuracy": 0.9682539682539683,
+      "accuracy_exact": 0.9682539682539683
+     },
+     "subtotal": {
+      "scored": 42,
+      "accuracy": 0.9285714285714286,
+      "accuracy_exact": 0.9285714285714286
+     },
+     "tax": {
+      "scored": 37,
+      "accuracy": 0.9459459459459459,
+      "accuracy_exact": 0.9459459459459459
+     },
+     "service_charge": {
+      "scored": 5,
+      "accuracy": 0.8,
+      "accuracy_exact": 0.8
+     },
+     "discount": {
+      "scored": 6,
+      "accuracy": 0.6666666666666666,
+      "accuracy_exact": 0.6666666666666666
+     },
+     "total": {
+      "scored": 60,
+      "accuracy": 0.95,
+      "accuracy_exact": 0.95
+     },
+     "payment_method": {
+      "scored": 46,
+      "accuracy": 1.0,
+      "accuracy_exact": 1.0
+     }
+    },
+    "by_source": {
+     "cord": {
+      "docs": 40,
+      "field_accuracy": 0.9355,
+      "field_accuracy_exact": 0.9355,
+      "line_item_precision": 0.8824,
+      "line_item_recall": 0.8427,
+      "line_item_f1": 0.8621,
+      "perfect_document_rate": 0.675,
+      "schema_validity": 1.0
+     },
+     "owner": {
+      "docs": 8,
+      "field_accuracy": 0.8966,
+      "field_accuracy_exact": 0.8103,
+      "line_item_precision": 0.9333,
+      "line_item_recall": 0.9333,
+      "line_item_f1": 0.9333,
+      "perfect_document_rate": 0.375,
+      "schema_validity": 1.0
+     },
+     "synthetic_invoice": {
+      "docs": 15,
+      "field_accuracy": 1.0,
+      "field_accuracy_exact": 1.0,
+      "line_item_precision": 0.82,
+      "line_item_recall": 0.82,
+      "line_item_f1": 0.82,
+      "perfect_document_rate": 0.7333,
+      "schema_validity": 1.0
+     }
+    },
+    "worst_failures": [
+     {
+      "id": "cord_test_0098",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "2/5",
+      "wrong_fields": {
+       "tax": {
+        "predicted": 25069.0,
+        "expected": 22790.0
+       },
+       "service_charge": {
+        "predicted": 22790.0,
+        "expected": 12900.0
+       },
+       "total": {
+        "predicted": 215000.0,
+        "expected": 250690.0
+       }
+      },
+      "items": {
+       "tp": 0,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "BLACK PEPPER MEATBALL PAS",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 77000.0
+        },
+        {
+         "description": "TRUFFLE CREAM",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 59000.0
+        },
+        {
+         "description": "EARL GREY MILK TEA",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 79000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "BLACK PAPPER MEATBALL PAS",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 79000.0
+        },
+        {
+         "description": "TRUFFLE CREAM",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 77000.0
+        },
+        {
+         "description": "EARL GREY MILK TEA",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 59000.0
+        }
+       ]
+      },
+      "latency_ms": 7141.838899988215,
+      "cost_usd": 0.0015850914669696067
+     },
+     {
+      "id": "cord_test_0079",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "1/3",
+      "wrong_fields": {
+       "currency": {
+        "predicted": "AUD",
+        "expected": "IDR"
+       },
+       "total": {
+        "predicted": 22.0,
+        "expected": 22000.0
+       }
+      },
+      "items": {
+       "tp": 0,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "1001-Choco Bun",
+         "quantity": 1.0,
+         "unit_price": 22.0,
+         "amount": 22.0
+        },
+        {
+         "description": "6001-Plastic Bag Small",
+         "quantity": 1.0,
+         "unit_price": 0.0,
+         "amount": 0.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "1001-Choco Bun",
+         "quantity": 1.0,
+         "unit_price": 22000.0,
+         "amount": 22000.0
+        },
+        {
+         "description": "6001-Plastic Bag Small",
+         "quantity": 1.0,
+         "unit_price": 0.0,
+         "amount": 0.0
+        }
+       ]
+      },
+      "latency_ms": 5833.788799995091,
+      "cost_usd": 0.0012947770142211327
+     },
+     {
+      "id": "owner_c0398287",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "7/9",
+      "wrong_fields": {
+       "subtotal": {
+        "predicted": 172.69,
+        "expected": 179.99
+       },
+       "discount": {
+        "predicted": null,
+        "expected": 7.3
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "#FRT-ST Standard Freight",
+         "quantity": 1.0,
+         "unit_price": 0.0,
+         "amount": 0.0
+        },
+        {
+         "description": "VOMERO PLUS, Red/gold",
+         "quantity": 1.0,
+         "unit_price": 179.99,
+         "amount": 179.99
+        }
+       ],
+       "expected": [
+        {
+         "description": "Standard Freight",
+         "quantity": 1.0,
+         "unit_price": 0.0,
+         "amount": 0.0
+        },
+        {
+         "description": "VOMERO PLUS, Red/gold, 9.5",
+         "quantity": 1.0,
+         "unit_price": 179.99,
+         "amount": 179.99
+        }
+       ]
+      },
+      "latency_ms": 6230.9611000237055,
+      "cost_usd": 0.0013829271996997057
+     },
+     {
+      "id": "cord_test_0086",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "3/4",
+      "wrong_fields": {
+       "total": {
+        "predicted": 24640.0,
+        "expected": 22000.0
+       }
+      },
+      "items": {
+       "tp": 0,
+       "pred": 2,
+       "gold": 2
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Cheezemania",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 10500.0
+        },
+        {
+         "description": "Mamamia",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 11500.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "Cheezemania",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 9500.0
+        },
+        {
+         "description": "Mamamia",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 12500.0
+        }
+       ]
+      },
+      "latency_ms": 6261.030399997253,
+      "cost_usd": 0.001389600913777168
+     },
+     {
+      "id": "owner_cecc6be6",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "6/7",
+      "wrong_fields": {
+       "discount": {
+        "predicted": null,
+        "expected": 9.99
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 2,
+       "gold": 2
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Remington Advanced Coconut Therapy Straightener, S8648AU, Salon Performance, 110mm Ceramic Plates With Micro-Conditioners, Integrated Heat Sensor Helps Protect Hair, Ultra-Fast Heat Up, LCD Display | B09T8ZCKPY",
+         "quantity": 1.0,
+         "unit_price": 50.91,
+         "amount": 50.91
+        },
+        {
+         "description": "Shipping Charges",
+         "quantity": 1.0,
+         "unit_price": 9.08,
+         "amount": 9.99
+        }
+       ],
+       "expected": [
+        {
+         "description": "Remington Advanced Coconut Therapy Straightener, S8648AU",
+         "quantity": 1.0,
+         "unit_price": 56.0,
+         "amount": 56.0
+        },
+        {
+         "description": "Shipping Charges",
+         "quantity": null,
+         "unit_price": 9.99,
+         "amount": 9.99
+        }
+       ]
+      },
+      "latency_ms": 7671.710100024939,
+      "cost_usd": 0.0017026934360888685
+     },
+     {
+      "id": "cord_test_0012",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "2/3",
+      "wrong_fields": {
+       "currency": {
+        "predicted": "AUD",
+        "expected": "IDR"
+       }
+      },
+      "items": {
+       "tp": 2,
+       "pred": 2,
+       "gold": 2
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "0571-1854 BLUS WANITA",
+         "quantity": 1.0,
+         "unit_price": 120000.0,
+         "amount": 120000.0
+        },
+        {
+         "description": "1002-0060 SHOPPING BAG",
+         "quantity": 1.0,
+         "unit_price": 880.0,
+         "amount": 880.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "BLUS WANITA",
+         "quantity": 1.0,
+         "unit_price": 120000.0,
+         "amount": null
+        },
+        {
+         "description": "SHOPPING BAG",
+         "quantity": 1.0,
+         "unit_price": 880.0,
+         "amount": null
+        }
+       ]
+      },
+      "latency_ms": 7077.136799984146,
+      "cost_usd": 0.0015707311953298147
+     },
+     {
+      "id": "cord_test_0034",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "4/5",
+      "wrong_fields": {
+       "tax": {
+        "predicted": null,
+        "expected": 8500.0
+       }
+      },
+      "items": {
+       "tp": 2,
+       "pred": 2,
+       "gold": 2
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Sambal Matah",
+         "quantity": 5.0,
+         "unit_price": null,
+         "amount": 75000.0
+        },
+        {
+         "description": "Jamur Goreng",
+         "quantity": 2.0,
+         "unit_price": null,
+         "amount": 10000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "Ash Chick Sambal Matah",
+         "quantity": 5.0,
+         "unit_price": null,
+         "amount": 75000.0
+        },
+        {
+         "description": "Jamur Goreng",
+         "quantity": 2.0,
+         "unit_price": null,
+         "amount": 10000.0
+        }
+       ]
+      },
+      "latency_ms": 5444.245699967723,
+      "cost_usd": 0.0012083200872983917
+     },
+     {
+      "id": "cord_test_0048",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "4/5",
+      "wrong_fields": {
+       "subtotal": {
+        "predicted": 25000.0,
+        "expected": 22728.0
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Cafe",
+         "quantity": 1.0,
+         "unit_price": 25000.0,
+         "amount": 25000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "S-Hazelnut KOI Cafe",
+         "quantity": 1.0,
+         "unit_price": 25000.0,
+         "amount": 25000.0
+        }
+       ]
+      },
+      "latency_ms": 5243.75860003056,
+      "cost_usd": 0.0011638230892845605
+     },
+     {
+      "id": "cord_test_0096",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "3/4",
+      "wrong_fields": {
+       "subtotal": {
+        "predicted": null,
+        "expected": 41000.0
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "BBQ Chicken",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 41000.0
+        },
+        {
+         "description": "- Tidak Pedas",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 0.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "BBQ Chicken",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 41000.0
+        },
+        {
+         "description": "- Tidak Pedas",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 0.0
+        }
+       ]
+      },
+      "latency_ms": 4634.615600050893,
+      "cost_usd": 0.001028627184566851
+     },
+     {
+      "id": "owner_c750c369",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "6/7",
+      "wrong_fields": {
+       "document_number": {
+        "predicted": "S95981",
+        "expected": "D04600313969"
+       }
+      },
+      "items": {
+       "tp": 3,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "ADIZERO PACER M Flyte White/Core Black/Crystal White 8",
+         "quantity": 1.0,
+         "unit_price": 159.99,
+         "amount": 159.99
+        },
+        {
+         "description": "PLAT SNEAKER PROTECTOR SPRAY No Colour 05",
+         "quantity": 1.0,
+         "unit_price": 19.99,
+         "amount": 19.99
+        },
+        {
+         "description": "Platypus Reusable Bag Standard No Colour 05",
+         "quantity": 1.0,
+         "unit_price": 0.5,
+         "amount": 0.5
+        }
+       ],
+       "expected": [
+        {
+         "description": "ADIZERO PACER N Ftwr White/Core Black/Crystal White 8",
+         "quantity": 1.0,
+         "unit_price": 159.99,
+         "amount": 159.99
+        },
+        {
+         "description": "PLAT SNEAKER PROTECTOR SPRAY No Colour OS",
+         "quantity": 1.0,
+         "unit_price": 19.99,
+         "amount": 19.99
+        },
+        {
+         "description": "Platypus Reusable Bag Standard No Colour OS",
+         "quantity": 1.0,
+         "unit_price": 0.5,
+         "amount": 0.5
+        }
+       ]
+      },
+      "latency_ms": 8451.327700051479,
+      "cost_usd": 0.00187572523120587
+     }
+    ],
+    "speed_cost": {
+     "latency_ms_p50": 5993,
+     "latency_ms_p95": 10817,
+     "ttft_ms_p50": 1137,
+     "cold_starts": 0,
+     "input_tokens_mean": 2158,
+     "output_tokens_mean": 189,
+     "reasoning_tokens_mean": 0,
+     "cost_usd_total": 0.089776,
+     "cost_per_1000_docs_usd": 1.425,
+     "cold_start_ttft_ms": [],
+     "errors": {},
+     "steady_load": {
+      "concurrency": 4,
+      "wall_seconds": 103.4,
+      "docs": 63,
+      "cost_per_1000_docs_usd": 0.3642
+     }
+    },
+    "notes": [
+     "Only fields with non-null ground truth are scored (CORD has no vendor or date).",
+     "Short strings: headline uses fuzzy match (token_set_ratio >= 90); exact also given.",
+     "Zero-priced line items (modifiers, free extras) are ignored on both sides.",
+     "A line item with a blank true amount only needs a matching description.",
+     "Perfect document = every scored field and every priced line item right.",
+     "95% intervals: 1,000 bootstrap resamples of documents, seed 2026."
+    ]
+   },
+   "categorise": {
+    "created_at": "2026-09-29T06:42:22+00:00",
+    "docs": 5,
+    "rows": 100,
+    "headline": {
+     "accuracy": {
+      "value": 0.82,
+      "ci95": [
+       0.71,
+       0.9102
+      ],
+      "display": "82.0% (71.0-91.0)"
+     },
+     "macro_f1": {
+      "value": 0.8176,
+      "ci95": [
+       0.6728,
+       0.9037
+      ],
+      "display": "81.8% (67.3-90.4)"
+     },
+     "schema_validity": {
+      "value": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "display": "100.0% (100.0-100.0)"
+     }
+    },
+    "confusion_matrix": {
+     "Groceries": {
+      "Groceries": 8,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 1,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Dining": {
+      "Groceries": 2,
+      "Dining": 13,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Transport": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 8,
+      "Utilities": 3,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Utilities": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 10,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Shopping": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 1,
+      "Utilities": 0,
+      "Shopping": 12,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 1,
+      "(missing)": 0
+     },
+     "Health": {
+      "Groceries": 2,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 15,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Entertainment": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 1,
+      "Utilities": 1,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 7,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Other": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 6,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 9,
+      "(missing)": 0
+     }
+    },
+    "speed_cost": {
+     "latency_ms_p50": 9185,
+     "latency_ms_p95": 9245,
+     "ttft_ms_p50": 1790,
+     "cold_starts": 0,
+     "input_tokens_mean": 2270,
+     "output_tokens_mean": 282,
+     "reasoning_tokens_mean": 0,
+     "cost_usd_total": 0.009868,
+     "cost_per_1000_docs_usd": 1.9736,
+     "cold_start_ttft_ms": [],
+     "errors": {},
+     "steady_load": {
+      "concurrency": 4,
+      "wall_seconds": 16.9,
+      "docs": 5,
+      "cost_per_1000_docs_usd": 0.748
+     }
+    }
+   }
+  },
+  "small-ft-r1": {
+   "model_id": "small-ft-r1",
+   "reasoning_effort": null,
+   "status": "active",
+   "extract": {
+    "created_at": "2026-09-28T10:21:59+00:00",
+    "docs": 63,
+    "headline": {
+     "field_accuracy": {
+      "value": 0.9634,
+      "ci95": [
+       0.9397,
+       0.9846
+      ],
+      "display": "96.3% (94.0-98.5)"
+     },
+     "line_item_f1": {
+      "value": 0.9049,
+      "ci95": [
+       0.8317,
+       0.9673
+      ],
+      "display": "90.5% (83.2-96.7)"
+     },
+     "perfect_document_rate": {
+      "value": 0.746,
+      "ci95": [
+       0.6349,
+       0.8417
+      ],
+      "display": "74.6% (63.5-84.2)"
+     },
+     "schema_validity": {
+      "value": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "display": "100.0% (100.0-100.0)"
+     },
+     "field_accuracy_exact": 0.9512,
+     "line_item_precision": 0.9139,
+     "line_item_recall": 0.8961
+    },
+    "per_field": {
+     "vendor_name": {
+      "scored": 23,
+      "accuracy": 0.9565217391304348,
+      "accuracy_exact": 0.782608695652174
+     },
+     "document_date": {
+      "scored": 23,
+      "accuracy": 1.0,
+      "accuracy_exact": 1.0
+     },
+     "document_number": {
+      "scored": 23,
+      "accuracy": 0.9130434782608695,
+      "accuracy_exact": 0.9130434782608695
+     },
+     "currency": {
+      "scored": 63,
+      "accuracy": 1.0,
+      "accuracy_exact": 1.0
+     },
+     "subtotal": {
+      "scored": 42,
+      "accuracy": 0.9523809523809523,
+      "accuracy_exact": 0.9523809523809523
+     },
+     "tax": {
+      "scored": 37,
+      "accuracy": 0.972972972972973,
+      "accuracy_exact": 0.972972972972973
+     },
+     "service_charge": {
+      "scored": 5,
+      "accuracy": 1.0,
+      "accuracy_exact": 1.0
+     },
+     "discount": {
+      "scored": 6,
+      "accuracy": 0.5,
+      "accuracy_exact": 0.5
+     },
+     "total": {
+      "scored": 60,
+      "accuracy": 0.9666666666666667,
+      "accuracy_exact": 0.9666666666666667
+     },
+     "payment_method": {
+      "scored": 46,
+      "accuracy": 0.9782608695652174,
+      "accuracy_exact": 0.9782608695652174
+     }
+    },
+    "by_source": {
+     "cord": {
+      "docs": 40,
+      "field_accuracy": 0.9613,
+      "field_accuracy_exact": 0.9613,
+      "line_item_precision": 0.9302,
+      "line_item_recall": 0.8989,
+      "line_item_f1": 0.9143,
+      "perfect_document_rate": 0.775,
+      "schema_validity": 1.0
+     },
+     "owner": {
+      "docs": 8,
+      "field_accuracy": 0.8966,
+      "field_accuracy_exact": 0.8276,
+      "line_item_precision": 1.0,
+      "line_item_recall": 1.0,
+      "line_item_f1": 1.0,
+      "perfect_document_rate": 0.375,
+      "schema_validity": 1.0
+     },
+     "synthetic_invoice": {
+      "docs": 15,
+      "field_accuracy": 1.0,
+      "field_accuracy_exact": 1.0,
+      "line_item_precision": 0.86,
+      "line_item_recall": 0.86,
+      "line_item_f1": 0.86,
+      "perfect_document_rate": 0.8667,
+      "schema_validity": 1.0
+     }
+    },
+    "worst_failures": [
+     {
+      "id": "cord_test_0098",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "3/5",
+      "wrong_fields": {
+       "tax": {
+        "predicted": 250690.0,
+        "expected": 22790.0
+       },
+       "total": {
+        "predicted": 258690.0,
+        "expected": 250690.0
+       }
+      },
+      "items": {
+       "tp": 0,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "BLACK PEPPER MEATBALL P/S",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 77000.0
+        },
+        {
+         "description": "TRUFFLE CREAM",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 59000.0
+        },
+        {
+         "description": "EARL GREY MILK TEA",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": null
+        }
+       ],
+       "expected": [
+        {
+         "description": "BLACK PAPPER MEATBALL PAS",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 79000.0
+        },
+        {
+         "description": "TRUFFLE CREAM",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 77000.0
+        },
+        {
+         "description": "EARL GREY MILK TEA",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 59000.0
+        }
+       ]
+      },
+      "latency_ms": 7088.162500003818,
+      "cost_usd": 0.0015731782881952918
+     },
+     {
+      "id": "cord_test_0000",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "4/6",
+      "wrong_fields": {
+       "discount": {
+        "predicted": null,
+        "expected": 60000.0
+       },
+       "total": {
+        "predicted": null,
+        "expected": 60000.0
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "- TICKET CP",
+         "quantity": 2.0,
+         "unit_price": 30000.0,
+         "amount": 60000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "-TICKET CP",
+         "quantity": 2.0,
+         "unit_price": null,
+         "amount": 60000.0
+        }
+       ]
+      },
+      "latency_ms": 4845.8733999868855,
+      "cost_usd": 0.0010755146796082005
+     },
+     {
+      "id": "owner_c0398287",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "7/9",
+      "wrong_fields": {
+       "subtotal": {
+        "predicted": 156.99,
+        "expected": 179.99
+       },
+       "discount": {
+        "predicted": null,
+        "expected": 7.3
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Standard Freight",
+         "quantity": 1.0,
+         "unit_price": 0.0,
+         "amount": 0.0
+        },
+        {
+         "description": "VOMERO PLUS, Red/gold",
+         "quantity": 1.0,
+         "unit_price": 179.99,
+         "amount": 179.99
+        }
+       ],
+       "expected": [
+        {
+         "description": "Standard Freight",
+         "quantity": 1.0,
+         "unit_price": 0.0,
+         "amount": 0.0
+        },
+        {
+         "description": "VOMERO PLUS, Red/gold, 9.5",
+         "quantity": 1.0,
+         "unit_price": 179.99,
+         "amount": 179.99
+        }
+       ]
+      },
+      "latency_ms": 6202.219900034834,
+      "cost_usd": 0.001376548250035509
+     },
+     {
+      "id": "cord_test_0076",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "1/2",
+      "wrong_fields": {
+       "payment_method": {
+        "predicted": null,
+        "expected": "cash"
+       }
+      },
+      "items": {
+       "tp": 4,
+       "pred": 4,
+       "gold": 4
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "BASO TAHU",
+         "quantity": 1.0,
+         "unit_price": 46000.0,
+         "amount": 46000.0
+        },
+        {
+         "description": "NASI PUTIH",
+         "quantity": 1.0,
+         "unit_price": 6000.0,
+         "amount": 6000.0
+        },
+        {
+         "description": "BASO TAHU",
+         "quantity": 1.0,
+         "unit_price": 46000.0,
+         "amount": 46000.0
+        },
+        {
+         "description": "NASI PUTIH",
+         "quantity": 2.0,
+         "unit_price": 6000.0,
+         "amount": 12000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "BASO TAHU",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 46000.0
+        },
+        {
+         "description": "NASI PUTIH",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 6000.0
+        },
+        {
+         "description": "BASO TAHU",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 46000.0
+        },
+        {
+         "description": "NASI PUTIH",
+         "quantity": 2.0,
+         "unit_price": 6000.0,
+         "amount": 12000.0
+        }
+       ]
+      },
+      "latency_ms": 7757.046999991871,
+      "cost_usd": 0.0017216334869426403
+     },
+     {
+      "id": "cord_test_0096",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "3/4",
+      "wrong_fields": {
+       "subtotal": {
+        "predicted": null,
+        "expected": 41000.0
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "BBQ Chicken",
+         "quantity": 1.0,
+         "unit_price": 41000.0,
+         "amount": 41000.0
+        },
+        {
+         "description": "-Tidak Pedas",
+         "quantity": 1.0,
+         "unit_price": 0.0,
+         "amount": 0.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "BBQ Chicken",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 41000.0
+        },
+        {
+         "description": "- Tidak Pedas",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 0.0
+        }
+       ]
+      },
+      "latency_ms": 5247.942199988756,
+      "cost_usd": 0.00116475161605306
+     },
+     {
+      "id": "owner_c750c369",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "6/7",
+      "wrong_fields": {
+       "document_number": {
+        "predicted": "S95981",
+        "expected": "D04600313969"
+       }
+      },
+      "items": {
+       "tp": 3,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "ADIZERO PACER M Ftwr White/Core Black/Crystal White 8",
+         "quantity": 1.0,
+         "unit_price": 159.99,
+         "amount": 159.99
+        },
+        {
+         "description": "PLAT SNEAKER PROTECTOR SPRAY No Colour 05",
+         "quantity": 1.0,
+         "unit_price": 19.99,
+         "amount": 19.99
+        },
+        {
+         "description": "Platypus Reusable Bag Standard No Colour OS",
+         "quantity": 1.0,
+         "unit_price": 0.5,
+         "amount": 0.5
+        }
+       ],
+       "expected": [
+        {
+         "description": "ADIZERO PACER N Ftwr White/Core Black/Crystal White 8",
+         "quantity": 1.0,
+         "unit_price": 159.99,
+         "amount": 159.99
+        },
+        {
+         "description": "PLAT SNEAKER PROTECTOR SPRAY No Colour OS",
+         "quantity": 1.0,
+         "unit_price": 19.99,
+         "amount": 19.99
+        },
+        {
+         "description": "Platypus Reusable Bag Standard No Colour OS",
+         "quantity": 1.0,
+         "unit_price": 0.5,
+         "amount": 0.5
+        }
+       ]
+      },
+      "latency_ms": 8562.148500001058,
+      "cost_usd": 0.0019003212920835682
+     },
+     {
+      "id": "owner_cecc6be6",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "6/7",
+      "wrong_fields": {
+       "discount": {
+        "predicted": null,
+        "expected": 9.99
+       }
+      },
+      "items": {
+       "tp": 2,
+       "pred": 2,
+       "gold": 2
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Remington Advanced Coconut Therapy Straightener, S8648AU, Salon Performance, 110mm Ceramic Plates With Micro-Conditioners, Integrated Heat Sensor Helps Protect Hair, Ultra-Fast Heat Up, LCD Display",
+         "quantity": 1.0,
+         "unit_price": 50.91,
+         "amount": 56.0
+        },
+        {
+         "description": "Shipping Charges",
+         "quantity": 1.0,
+         "unit_price": 9.08,
+         "amount": 9.99
+        }
+       ],
+       "expected": [
+        {
+         "description": "Remington Advanced Coconut Therapy Straightener, S8648AU",
+         "quantity": 1.0,
+         "unit_price": 56.0,
+         "amount": 56.0
+        },
+        {
+         "description": "Shipping Charges",
+         "quantity": null,
+         "unit_price": 9.99,
+         "amount": 9.99
+        }
+       ]
+      },
+      "latency_ms": 7180.5183999822475,
+      "cost_usd": 0.001593676167107171
+     },
+     {
+      "id": "owner_b498201b",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "6/7",
+      "wrong_fields": {
+       "document_number": {
+        "predicted": "JAPT1816",
+        "expected": "9417315001131728"
+       }
+      },
+      "items": {
+       "tp": 3,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "* JACKSON 6 WAY SWITCH SURGE PB",
+         "quantity": 1.0,
+         "unit_price": 33.0,
+         "amount": 33.0
+        },
+        {
+         "description": "LENOVO 25 FHD 320HZ L25-10",
+         "quantity": 1.0,
+         "unit_price": 198.0,
+         "amount": 198.0
+        },
+        {
+         "description": "LENOVO 25 FHD 320HZ L25-10",
+         "quantity": 1.0,
+         "unit_price": 198.0,
+         "amount": 198.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "JACKSON 6 WAY SWITCH SURGE PB",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 33.0
+        },
+        {
+         "description": "LENOVO 25 FHD 320HZ L25-10",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 198.0
+        },
+        {
+         "description": "LENOVO 25 FHD 320HZ L25-10",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 198.0
+        }
+       ]
+      },
+      "latency_ms": 7299.238699954003,
+      "cost_usd": 0.00162002547812868
+     },
+     {
+      "id": "owner_37d275e1",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "7/8",
+      "wrong_fields": {
+       "vendor_name": {
+        "predicted": "Palermo South Wharf Pty Ltd",
+        "expected": "Palermo Perfumes"
+       }
+      },
+      "items": {
+       "tp": 3,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "inspired By Sauvage - Christian Dior",
+         "quantity": null,
+         "unit_price": 50.0,
+         "amount": 50.0
+        },
+        {
+         "description": "inspired By Good Girl Blush - Carolina Herrera",
+         "quantity": null,
+         "unit_price": 50.0,
+         "amount": 50.0
+        },
+        {
+         "description": "inspired By Born In Roma Extradose Donna - Valentino",
+         "quantity": null,
+         "unit_price": 35.0,
+         "amount": 35.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "Inspired By Sauvage - Christian Dior (100ml Mens 248)",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 50.0
+        },
+        {
+         "description": "Inspired By Good Girl Blush - Carolina Herrera (100ml Womens 789)",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 50.0
+        },
+        {
+         "description": "Inspired By Born in Roma Extradose Donna - Valentino (women's 819)",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 35.0
+        }
+       ]
+      },
+      "latency_ms": 6609.158000035677,
+      "cost_usd": 0.0014668659005634738
+     },
+     {
+      "id": "inv_F_20003",
+      "source": "synthetic_invoice",
+      "valid": true,
+      "error_code": null,
+      "fields": "8/8",
+      "wrong_fields": {},
+      "items": {
+       "tp": 2,
+       "pred": 6,
+       "gold": 6
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "A4 copy paper (5 reams)",
+         "quantity": 1.0,
+         "unit_price": 35.06,
+         "amount": 35.06
+        },
+        {
+         "description": "Lawn mowing & edging",
+         "quantity": 1.0,
+         "unit_price": 68.65,
+         "amount": 68.65
+        },
+        {
+         "description": "Venue hire (half day)",
+         "quantity": 2.0,
+         "unit_price": 528.92,
+         "amount": 1057.84
+        },
+        {
+         "description": "Coffee & tea service",
+         "quantity": 1.0,
+         "unit_price": 188.96,
+         "amount": 188.96
+        },
+        {
+         "description": "Timber - pine 90x45 (per m)",
+         "quantity": 1.0,
+         "unit_price": 88.71,
+         "amount": 88.71
+        },
+        {
+         "description": "Monthly IT support plan",
+         "quantity": 10.0,
+         "unit_price": 10.03,
+         "amount": 100.3
+        }
+       ],
+       "expected": [
+        {
+         "description": "Lawn mowing & edging",
+         "quantity": 1.0,
+         "unit_price": 68.65,
+         "amount": 68.65
+        },
+        {
+         "description": "A4 copy paper (5 reams)",
+         "quantity": 1.0,
+         "unit_price": 35.06,
+         "amount": 35.06
+        },
+        {
+         "description": "Venue hire (half day)",
+         "quantity": 2.0,
+         "unit_price": 264.46,
+         "amount": 528.92
+        },
+        {
+         "description": "Monthly IT support plan",
+         "quantity": 1.0,
+         "unit_price": 188.96,
+         "amount": 188.96
+        },
+        {
+         "description": "Coffee & tea service",
+         "quantity": 1.0,
+         "unit_price": 88.71,
+         "amount": 88.71
+        },
+        {
+         "description": "Timber - pine 90x45 (per m)",
+         "quantity": 1.0,
+         "unit_price": 10.03,
+         "amount": 10.03
+        }
+       ]
+      },
+      "latency_ms": 11401.144200004637,
+      "cost_usd": 0.0025304206155010293
+     }
+    ],
+    "speed_cost": {
+     "latency_ms_p50": 5970,
+     "latency_ms_p95": 10929,
+     "ttft_ms_p50": 1201,
+     "cold_starts": 0,
+     "input_tokens_mean": 2158,
+     "output_tokens_mean": 186,
+     "reasoning_tokens_mean": 0,
+     "cost_usd_total": 0.088981,
+     "cost_per_1000_docs_usd": 1.4124,
+     "cold_start_ttft_ms": [],
+     "errors": {},
+     "steady_load": {
+      "concurrency": 4,
+      "wall_seconds": 103.0,
+      "docs": 63,
+      "cost_per_1000_docs_usd": 0.3628
+     }
+    },
+    "notes": [
+     "Only fields with non-null ground truth are scored (CORD has no vendor or date).",
+     "Short strings: headline uses fuzzy match (token_set_ratio >= 90); exact also given.",
+     "Zero-priced line items (modifiers, free extras) are ignored on both sides.",
+     "A line item with a blank true amount only needs a matching description.",
+     "Perfect document = every scored field and every priced line item right.",
+     "95% intervals: 1,000 bootstrap resamples of documents, seed 2026."
+    ]
+   },
+   "categorise": {
+    "created_at": "2026-09-28T10:24:17+00:00",
+    "docs": 5,
+    "rows": 100,
+    "headline": {
+     "accuracy": {
+      "value": 0.83,
+      "ci95": [
+       0.7,
+       0.94
+      ],
+      "display": "83.0% (70.0-94.0)"
+     },
+     "macro_f1": {
+      "value": 0.8312,
+      "ci95": [
+       0.6856,
+       0.9416
+      ],
+      "display": "83.1% (68.6-94.2)"
+     },
+     "schema_validity": {
+      "value": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "display": "100.0% (100.0-100.0)"
+     }
+    },
+    "confusion_matrix": {
+     "Groceries": {
+      "Groceries": 9,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Dining": {
+      "Groceries": 4,
+      "Dining": 11,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Transport": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 8,
+      "Utilities": 3,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Utilities": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 10,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Shopping": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 1,
+      "Utilities": 0,
+      "Shopping": 12,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 1,
+      "(missing)": 0
+     },
+     "Health": {
+      "Groceries": 1,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 16,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Entertainment": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 1,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 8,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Other": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 6,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 9,
+      "(missing)": 0
+     }
+    },
+    "speed_cost": {
+     "latency_ms_p50": 9304,
+     "latency_ms_p95": 9449,
+     "ttft_ms_p50": 1985,
+     "cold_starts": 0,
+     "input_tokens_mean": 2270,
+     "output_tokens_mean": 283,
+     "reasoning_tokens_mean": 0,
+     "cost_usd_total": 0.010065,
+     "cost_per_1000_docs_usd": 2.013,
+     "cold_start_ttft_ms": [],
+     "errors": {},
+     "steady_load": {
+      "concurrency": 4,
+      "wall_seconds": 17.2,
+      "docs": 5,
+      "cost_per_1000_docs_usd": 0.7639
+     }
+    }
+   }
+  },
+  "small-base": {
+   "model_id": "small-base",
+   "reasoning_effort": null,
+   "status": "active",
+   "extract": {
+    "created_at": "2026-09-27T11:40:10+00:00",
+    "docs": 63,
+    "headline": {
+     "field_accuracy": {
+      "value": 0.8872,
+      "ci95": [
+       0.8473,
+       0.9207
+      ],
+      "display": "88.7% (84.7-92.1)"
+     },
+     "line_item_f1": {
+      "value": 0.7082,
+      "ci95": [
+       0.5972,
+       0.8135
+      ],
+      "display": "70.8% (59.7-81.3)"
+     },
+     "perfect_document_rate": {
+      "value": 0.3175,
+      "ci95": [
+       0.2063,
+       0.4444
+      ],
+      "display": "31.7% (20.6-44.4)"
+     },
+     "schema_validity": {
+      "value": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "display": "100.0% (100.0-100.0)"
+     },
+     "field_accuracy_exact": 0.8689,
+     "line_item_precision": 0.7152,
+     "line_item_recall": 0.7013
+    },
+    "per_field": {
+     "vendor_name": {
+      "scored": 23,
+      "accuracy": 0.9565217391304348,
+      "accuracy_exact": 0.782608695652174
+     },
+     "document_date": {
+      "scored": 23,
+      "accuracy": 0.9565217391304348,
+      "accuracy_exact": 0.9565217391304348
+     },
+     "document_number": {
+      "scored": 23,
+      "accuracy": 0.9565217391304348,
+      "accuracy_exact": 0.9130434782608695
+     },
+     "currency": {
+      "scored": 63,
+      "accuracy": 0.9841269841269841,
+      "accuracy_exact": 0.9841269841269841
+     },
+     "subtotal": {
+      "scored": 42,
+      "accuracy": 0.8809523809523809,
+      "accuracy_exact": 0.8809523809523809
+     },
+     "tax": {
+      "scored": 37,
+      "accuracy": 0.8918918918918919,
+      "accuracy_exact": 0.8918918918918919
+     },
+     "service_charge": {
+      "scored": 5,
+      "accuracy": 0.8,
+      "accuracy_exact": 0.8
+     },
+     "discount": {
+      "scored": 6,
+      "accuracy": 0.6666666666666666,
+      "accuracy_exact": 0.6666666666666666
+     },
+     "total": {
+      "scored": 60,
+      "accuracy": 0.8666666666666667,
+      "accuracy_exact": 0.8666666666666667
+     },
+     "payment_method": {
+      "scored": 46,
+      "accuracy": 0.717391304347826,
+      "accuracy_exact": 0.6956521739130435
+     }
+    },
+    "by_source": {
+     "cord": {
+      "docs": 40,
+      "field_accuracy": 0.8387,
+      "field_accuracy_exact": 0.8387,
+      "line_item_precision": 0.7619,
+      "line_item_recall": 0.7191,
+      "line_item_f1": 0.7399,
+      "perfect_document_rate": 0.275,
+      "schema_validity": 1.0
+     },
+     "owner": {
+      "docs": 8,
+      "field_accuracy": 0.8621,
+      "field_accuracy_exact": 0.7586,
+      "line_item_precision": 1.0,
+      "line_item_recall": 1.0,
+      "line_item_f1": 1.0,
+      "perfect_document_rate": 0.375,
+      "schema_validity": 1.0
+     },
+     "synthetic_invoice": {
+      "docs": 15,
+      "field_accuracy": 0.9652,
+      "field_accuracy_exact": 0.9652,
+      "line_item_precision": 0.5577,
+      "line_item_recall": 0.58,
+      "line_item_f1": 0.5686,
+      "perfect_document_rate": 0.4,
+      "schema_validity": 1.0
+     }
+    },
+    "worst_failures": [
+     {
+      "id": "owner_c0398287",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "6/9",
+      "wrong_fields": {
+       "subtotal": {
+        "predicted": 156.99,
+        "expected": 179.99
+       },
+       "discount": {
+        "predicted": null,
+        "expected": 7.3
+       },
+       "payment_method": {
+        "predicted": null,
+        "expected": "afterpay"
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "#FRT-ST Standard Freight",
+         "quantity": 1.0,
+         "unit_price": 0.0,
+         "amount": 0.0
+        },
+        {
+         "description": "# 71067308 VOMERO PLUS, Red/gold",
+         "quantity": 1.0,
+         "unit_price": 179.99,
+         "amount": 179.99
+        }
+       ],
+       "expected": [
+        {
+         "description": "Standard Freight",
+         "quantity": 1.0,
+         "unit_price": 0.0,
+         "amount": 0.0
+        },
+        {
+         "description": "VOMERO PLUS, Red/gold, 9.5",
+         "quantity": 1.0,
+         "unit_price": 179.99,
+         "amount": 179.99
+        }
+       ]
+      },
+      "latency_ms": 5836.234899994452,
+      "cost_usd": 0.0012953199125265464
+     },
+     {
+      "id": "cord_test_0026",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "2/4",
+      "wrong_fields": {
+       "subtotal": {
+        "predicted": 138.0,
+        "expected": 138000.0
+       },
+       "total": {
+        "predicted": 138.0,
+        "expected": 138000.0
+       }
+      },
+      "items": {
+       "tp": 0,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Nasi Cap Cay Porsi Besar",
+         "quantity": 1.0,
+         "unit_price": 65.0,
+         "amount": 65.0
+        },
+        {
+         "description": "Minuman",
+         "quantity": 2.0,
+         "unit_price": 4.0,
+         "amount": 8.0
+        },
+        {
+         "description": "Lain-lain",
+         "quantity": 1.0,
+         "unit_price": 65.0,
+         "amount": 65.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "Nasi Cap Cay Porsi B esar",
+         "quantity": 1.0,
+         "unit_price": 65000.0,
+         "amount": 65000.0
+        },
+        {
+         "description": "Teh Tawar",
+         "quantity": 2.0,
+         "unit_price": 4000.0,
+         "amount": null
+        },
+        {
+         "description": "Fu Yung Hai",
+         "quantity": 1.0,
+         "unit_price": 65000.0,
+         "amount": 65000.0
+        }
+       ]
+      },
+      "latency_ms": 5850.4646999936085,
+      "cost_usd": 0.0012984781375819149
+     },
+     {
+      "id": "cord_test_0098",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "3/5",
+      "wrong_fields": {
+       "tax": {
+        "predicted": null,
+        "expected": 22790.0
+       },
+       "service_charge": {
+        "predicted": 22790.0,
+        "expected": 12900.0
+       }
+      },
+      "items": {
+       "tp": 0,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "BLACK PEPPER MEATBALL PAS",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 77000.0
+        },
+        {
+         "description": "TRUFFLE CREAM",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 59000.0
+        },
+        {
+         "description": "EARL GREY MILK TEA",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 79000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "BLACK PAPPER MEATBALL PAS",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 79000.0
+        },
+        {
+         "description": "TRUFFLE CREAM",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 77000.0
+        },
+        {
+         "description": "EARL GREY MILK TEA",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 59000.0
+        }
+       ]
+      },
+      "latency_ms": 6250.914599979296,
+      "cost_usd": 0.0013873557681620716
+     },
+     {
+      "id": "cord_test_0028",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "4/6",
+      "wrong_fields": {
+       "subtotal": {
+        "predicted": 491000.0,
+        "expected": 369000.0
+       },
+       "total": {
+        "predicted": 528195.0,
+        "expected": 426195.0
+       }
+      },
+      "items": {
+       "tp": 2,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "194,000",
+         "quantity": 2.0,
+         "unit_price": null,
+         "amount": 388000.0
+        },
+        {
+         "description": "SUL LUNG TANG",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 75000.0
+        },
+        {
+         "description": "MAKOLI",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 100000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "SAMGYOPSAL",
+         "quantity": 2.0,
+         "unit_price": null,
+         "amount": 194000.0
+        },
+        {
+         "description": "SUL LUNG TANG",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 75000.0
+        },
+        {
+         "description": "MAKOLI",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 100000.0
+        }
+       ]
+      },
+      "latency_ms": 6742.105400015134,
+      "cost_usd": 0.0014963728373922477
+     },
+     {
+      "id": "cord_test_0057",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "0/2",
+      "wrong_fields": {
+       "currency": {
+        "predicted": "AUD",
+        "expected": "IDR"
+       },
+       "payment_method": {
+        "predicted": null,
+        "expected": "cash"
+       }
+      },
+      "items": {
+       "tp": 0,
+       "pred": 0,
+       "gold": 2
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [],
+       "expected": [
+        {
+         "description": "ICED TT",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 20000.0
+        },
+        {
+         "description": "ICED GT",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 22000.0
+        }
+       ]
+      },
+      "latency_ms": 3185.3747999994084,
+      "cost_usd": 0.000706976240333202
+     },
+     {
+      "id": "cord_test_0000",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "4/6",
+      "wrong_fields": {
+       "tax": {
+        "predicted": 5.455,
+        "expected": 5455.0
+       },
+       "total": {
+        "predicted": null,
+        "expected": 60000.0
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "TICKET CP",
+         "quantity": 2.0,
+         "unit_price": 30000.0,
+         "amount": 60000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "-TICKET CP",
+         "quantity": 2.0,
+         "unit_price": null,
+         "amount": 60000.0
+        }
+       ]
+      },
+      "latency_ms": 4847.071500000311,
+      "cost_usd": 0.001075780591250069
+     },
+     {
+      "id": "inv_F_20011",
+      "source": "synthetic_invoice",
+      "valid": true,
+      "error_code": null,
+      "fields": "6/8",
+      "wrong_fields": {
+       "tax": {
+        "predicted": 812.09,
+        "expected": 135.35
+       },
+       "total": {
+        "predicted": 1488.83,
+        "expected": 812.09
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Car service - standard",
+         "quantity": 2.0,
+         "unit_price": null,
+         "amount": 676.74
+        }
+       ],
+       "expected": [
+        {
+         "description": "Car service - standard",
+         "quantity": 2.0,
+         "unit_price": 338.37,
+         "amount": 676.74
+        }
+       ]
+      },
+      "latency_ms": 4506.782199983718,
+      "cost_usd": 0.0010002552716074974
+     },
+     {
+      "id": "owner_37d275e1",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "6/8",
+      "wrong_fields": {
+       "vendor_name": {
+        "predicted": "Palermo South Wharf Pty Ltd",
+        "expected": "Palermo Perfumes"
+       },
+       "payment_method": {
+        "predicted": "eftpos",
+        "expected": "card"
+       }
+      },
+      "items": {
+       "tp": 3,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "inspired By Sauvage - Christian Dior (100ml Mens 248) 100M248",
+         "quantity": 1.0,
+         "unit_price": 50.0,
+         "amount": 50.0
+        },
+        {
+         "description": "Inspired By Good Girl Blush - Carolina Herrera (100ml Womens 789) 100W789",
+         "quantity": 1.0,
+         "unit_price": 50.0,
+         "amount": 50.0
+        },
+        {
+         "description": "Inspired By Born In Roma Extradose Donna - Valentino (women's 819) W819",
+         "quantity": 1.0,
+         "unit_price": 35.0,
+         "amount": 35.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "Inspired By Sauvage - Christian Dior (100ml Mens 248)",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 50.0
+        },
+        {
+         "description": "Inspired By Good Girl Blush - Carolina Herrera (100ml Womens 789)",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 50.0
+        },
+        {
+         "description": "Inspired By Born in Roma Extradose Donna - Valentino (women's 819)",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 35.0
+        }
+       ]
+      },
+      "latency_ms": 7518.0532000085805,
+      "cost_usd": 0.0016685901407796821
+     },
+     {
+      "id": "inv_F_20007",
+      "source": "synthetic_invoice",
+      "valid": true,
+      "error_code": null,
+      "fields": "6/7",
+      "wrong_fields": {
+       "document_date": {
+        "predicted": null,
+        "expected": "2026-06-15"
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 5,
+       "gold": 5
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Laptop setup & configuration",
+         "quantity": 1.0,
+         "unit_price": 154.75,
+         "amount": 154.75
+        },
+        {
+         "description": "Wholesale pastries (tray)",
+         "quantity": 2.0,
+         "unit_price": 336.79,
+         "amount": 673.58
+        },
+        {
+         "description": "Event photography (2 hrs)",
+         "quantity": 1.0,
+         "unit_price": 621.12,
+         "amount": 621.12
+        },
+        {
+         "description": "Website hosting (12 months)",
+         "quantity": 1.0,
+         "unit_price": 44.66,
+         "amount": 44.66
+        },
+        {
+         "description": "LED downlight fitting",
+         "quantity": null,
+         "unit_price": null,
+         "amount": null
+        }
+       ],
+       "expected": [
+        {
+         "description": "Laptop setup & configuration",
+         "quantity": 1.0,
+         "unit_price": 154.75,
+         "amount": 154.75
+        },
+        {
+         "description": "Wholesale pastries (tray)",
+         "quantity": 2.0,
+         "unit_price": 37.48,
+         "amount": 74.96
+        },
+        {
+         "description": "Event photography (2 hrs)",
+         "quantity": 1.0,
+         "unit_price": 336.79,
+         "amount": 336.79
+        },
+        {
+         "description": "Website hosting (12 months)",
+         "quantity": 3.0,
+         "unit_price": 207.04,
+         "amount": 621.12
+        },
+        {
+         "description": "LED downlight fitting",
+         "quantity": 1.0,
+         "unit_price": 44.66,
+         "amount": 44.66
+        }
+       ]
+      },
+      "latency_ms": 8201.27279998269,
+      "cost_usd": 0.0018202269353294915
+     },
+     {
+      "id": "cord_test_0062",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "2/3",
+      "wrong_fields": {
+       "total": {
+        "predicted": 48.0,
+        "expected": 48000.0
+       }
+      },
+      "items": {
+       "tp": 0,
+       "pred": 2,
+       "gold": 2
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "XXI Java Tea (M)",
+         "quantity": 1.0,
+         "unit_price": 30.0,
+         "amount": 30.0
+        },
+        {
+         "description": "Combo 2",
+         "quantity": 1.0,
+         "unit_price": 18.0,
+         "amount": 18.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "XXI Java Tea (M)",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 18000.0
+        },
+        {
+         "description": "Combo 2",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 30000.0
+        }
+       ]
+      },
+      "latency_ms": 4794.799499999499,
+      "cost_usd": 0.0010641791112498888
+     }
+    ],
+    "speed_cost": {
+     "latency_ms_p50": 5545,
+     "latency_ms_p95": 10045,
+     "ttft_ms_p50": 1072,
+     "cold_starts": 0,
+     "input_tokens_mean": 2158,
+     "output_tokens_mean": 193,
+     "reasoning_tokens_mean": 0,
+     "cost_usd_total": 0.084384,
+     "cost_per_1000_docs_usd": 1.3394,
+     "cold_start_ttft_ms": [],
+     "errors": {},
+     "steady_load": {
+      "concurrency": 4,
+      "wall_seconds": 98.0,
+      "docs": 63,
+      "cost_per_1000_docs_usd": 0.3454
+     }
+    },
+    "notes": [
+     "Only fields with non-null ground truth are scored (CORD has no vendor or date).",
+     "Short strings: headline uses fuzzy match (token_set_ratio >= 90); exact also given.",
+     "Zero-priced line items (modifiers, free extras) are ignored on both sides.",
+     "A line item with a blank true amount only needs a matching description.",
+     "Perfect document = every scored field and every priced line item right.",
+     "95% intervals: 1,000 bootstrap resamples of documents, seed 2026."
+    ]
+   },
+   "categorise": {
+    "created_at": "2026-09-27T11:47:13+00:00",
+    "docs": 5,
+    "rows": 100,
+    "headline": {
+     "accuracy": {
+      "value": 0.88,
+      "ci95": [
+       0.81,
+       0.95
+      ],
+      "display": "88.0% (81.0-95.0)"
+     },
+     "macro_f1": {
+      "value": 0.8742,
+      "ci95": [
+       0.7763,
+       0.9513
+      ],
+      "display": "87.4% (77.6-95.1)"
+     },
+     "schema_validity": {
+      "value": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "display": "100.0% (100.0-100.0)"
+     }
+    },
+    "confusion_matrix": {
+     "Groceries": {
+      "Groceries": 8,
+      "Dining": 1,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Dining": {
+      "Groceries": 2,
+      "Dining": 12,
+      "Transport": 1,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Transport": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 8,
+      "Utilities": 2,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 1,
+      "(missing)": 0
+     },
+     "Utilities": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 10,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Shopping": {
+      "Groceries": 1,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 12,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 1,
+      "(missing)": 0
+     },
+     "Health": {
+      "Groceries": 1,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 1,
+      "Health": 15,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Entertainment": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 1,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 8,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Other": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 15,
+      "(missing)": 0
+     }
+    },
+    "speed_cost": {
+     "latency_ms_p50": 8669,
+     "latency_ms_p95": 10584,
+     "ttft_ms_p50": 1918,
+     "cold_starts": 0,
+     "input_tokens_mean": 2270,
+     "output_tokens_mean": 300,
+     "reasoning_tokens_mean": 0,
+     "cost_usd_total": 0.009846,
+     "cost_per_1000_docs_usd": 1.9692,
+     "cold_start_ttft_ms": [],
+     "errors": {},
+     "steady_load": {
+      "concurrency": 4,
+      "wall_seconds": 16.0,
+      "docs": 5,
+      "cost_per_1000_docs_usd": 0.7082
+     }
+    }
+   }
+  },
+  "openai": {
+   "model_id": "gpt-6-luna",
+   "reasoning_effort": "medium",
+   "status": "active",
+   "extract": {
+    "created_at": "2026-09-27T00:40:46+00:00",
+    "docs": 63,
+    "headline": {
+     "field_accuracy": {
+      "value": 0.9878,
+      "ci95": [
+       0.974,
+       0.9971
+      ],
+      "display": "98.8% (97.4-99.7)"
+     },
+     "line_item_f1": {
+      "value": 0.9276,
+      "ci95": [
+       0.858,
+       0.9807
+      ],
+      "display": "92.8% (85.8-98.1)"
+     },
+     "perfect_document_rate": {
+      "value": 0.8413,
+      "ci95": [
+       0.746,
+       0.9206
+      ],
+      "display": "84.1% (74.6-92.1)"
+     },
+     "schema_validity": {
+      "value": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "display": "100.0% (100.0-100.0)"
+     },
+     "field_accuracy_exact": 0.9695,
+     "line_item_precision": 0.94,
+     "line_item_recall": 0.9156
+    },
+    "per_field": {
+     "vendor_name": {
+      "scored": 23,
+      "accuracy": 0.9565217391304348,
+      "accuracy_exact": 0.7391304347826086
+     },
+     "document_date": {
+      "scored": 23,
+      "accuracy": 1.0,
+      "accuracy_exact": 1.0
+     },
+     "document_number": {
+      "scored": 23,
+      "accuracy": 1.0,
+      "accuracy_exact": 0.9565217391304348
+     },
+     "currency": {
+      "scored": 63,
+      "accuracy": 1.0,
+      "accuracy_exact": 1.0
+     },
+     "subtotal": {
+      "scored": 42,
+      "accuracy": 0.9761904761904762,
+      "accuracy_exact": 0.9761904761904762
+     },
+     "tax": {
+      "scored": 37,
+      "accuracy": 1.0,
+      "accuracy_exact": 1.0
+     },
+     "service_charge": {
+      "scored": 5,
+      "accuracy": 1.0,
+      "accuracy_exact": 1.0
+     },
+     "discount": {
+      "scored": 6,
+      "accuracy": 1.0,
+      "accuracy_exact": 1.0
+     },
+     "total": {
+      "scored": 60,
+      "accuracy": 0.9833333333333333,
+      "accuracy_exact": 0.9833333333333333
+     },
+     "payment_method": {
+      "scored": 46,
+      "accuracy": 0.9782608695652174,
+      "accuracy_exact": 0.9782608695652174
+     }
+    },
+    "by_source": {
+     "cord": {
+      "docs": 40,
+      "field_accuracy": 0.9806,
+      "field_accuracy_exact": 0.9806,
+      "line_item_precision": 0.9302,
+      "line_item_recall": 0.8989,
+      "line_item_f1": 0.9143,
+      "perfect_document_rate": 0.825,
+      "schema_validity": 1.0
+     },
+     "owner": {
+      "docs": 8,
+      "field_accuracy": 0.9828,
+      "field_accuracy_exact": 0.8793,
+      "line_item_precision": 1.0,
+      "line_item_recall": 0.9333,
+      "line_item_f1": 0.9655,
+      "perfect_document_rate": 0.75,
+      "schema_validity": 1.0
+     },
+     "synthetic_invoice": {
+      "docs": 15,
+      "field_accuracy": 1.0,
+      "field_accuracy_exact": 1.0,
+      "line_item_precision": 0.94,
+      "line_item_recall": 0.94,
+      "line_item_f1": 0.94,
+      "perfect_document_rate": 0.9333,
+      "schema_validity": 1.0
+     }
+    },
+    "worst_failures": [
+     {
+      "id": "cord_test_0014",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "5/6",
+      "wrong_fields": {
+       "total": {
+        "predicted": 181435.0,
+        "expected": 281435.0
+       }
+      },
+      "items": {
+       "tp": 6,
+       "pred": 6,
+       "gold": 6
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "RedVelvet Cheese Slc",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 38000.0
+        },
+        {
+         "description": "Chicken Baked Rice",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 55000.0
+        },
+        {
+         "description": "Fish n Chips",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 65000.0
+        },
+        {
+         "description": "Mushroom Soup",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 35000.0
+        },
+        {
+         "description": "Chamomile",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 25000.0
+        },
+        {
+         "description": "Iced Tea",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 20000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "RedVelvet Cheese Slc",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 38000.0
+        },
+        {
+         "description": "Chicken Baked Rice",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 55000.0
+        },
+        {
+         "description": "Fish n Chips",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 65000.0
+        },
+        {
+         "description": "Mushroom Soup",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 35000.0
+        },
+        {
+         "description": "Chamomile",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 25000.0
+        },
+        {
+         "description": "Iced Tea",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 20000.0
+        }
+       ]
+      },
+      "latency_ms": 2894.464599987259,
+      "cost_usd": 0.00023154
+     },
+     {
+      "id": "cord_test_0064",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "2/3",
+      "wrong_fields": {
+       "payment_method": {
+        "predicted": null,
+        "expected": "cash"
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "SINGLE SCOOP",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 16000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "SINGLE SCOOP",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 16000.0
+        }
+       ]
+      },
+      "latency_ms": 1782.265899993945,
+      "cost_usd": 0.00010682
+     },
+     {
+      "id": "cord_test_0096",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "3/4",
+      "wrong_fields": {
+       "subtotal": {
+        "predicted": null,
+        "expected": 41000.0
+       }
+      },
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 1
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "BBQ Chicken - Tidak Pedas",
+         "quantity": 1.0,
+         "unit_price": 41000.0,
+         "amount": 41000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "BBQ Chicken",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 41000.0
+        },
+        {
+         "description": "- Tidak Pedas",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 0.0
+        }
+       ]
+      },
+      "latency_ms": 2448.028000013437,
+      "cost_usd": 0.00014953
+     },
+     {
+      "id": "owner_37d275e1",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "7/8",
+      "wrong_fields": {
+       "vendor_name": {
+        "predicted": "PALERMO SOUTH WHARF PTY LTD",
+        "expected": "Palermo Perfumes"
+       }
+      },
+      "items": {
+       "tp": 3,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Inspired By Sauvage - Christian Dior (100ml Mens 248) 100M248",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 50.0
+        },
+        {
+         "description": "Inspired By Good Girl Blush - 660 GG Carolina Herrera (100ml Womens 789) 100W789",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 50.0
+        },
+        {
+         "description": "Inspired By Born In Roma Extradose Donna - Valentino (women's 819) W819",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 35.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "Inspired By Sauvage - Christian Dior (100ml Mens 248)",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 50.0
+        },
+        {
+         "description": "Inspired By Good Girl Blush - Carolina Herrera (100ml Womens 789)",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 50.0
+        },
+        {
+         "description": "Inspired By Born in Roma Extradose Donna - Valentino (women's 819)",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 35.0
+        }
+       ]
+      },
+      "latency_ms": 2872.922300011851,
+      "cost_usd": 0.00022916
+     },
+     {
+      "id": "cord_test_0045",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "3/3",
+      "wrong_fields": {},
+      "items": {
+       "tp": 1,
+       "pred": 4,
+       "gold": 4
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Lemon Tea (L)",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 28000.0
+        },
+        {
+         "description": "Mike & Ike Original",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 28000.0
+        },
+        {
+         "description": "Mike & Berry",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 7000.0
+        },
+        {
+         "description": "Roti Keju Manis",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 25000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "Lemon Tea (L).",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 25000.0
+        },
+        {
+         "description": "Mike & Ike Original",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 28000.0
+        },
+        {
+         "description": "Mike & Berry",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 28000.0
+        },
+        {
+         "description": "Roti Keju Manis.",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 7000.0
+        }
+       ]
+      },
+      "latency_ms": 3525.7329999876674,
+      "cost_usd": 0.0002787
+     },
+     {
+      "id": "cord_test_0098",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "5/5",
+      "wrong_fields": {},
+      "items": {
+       "tp": 0,
+       "pred": 3,
+       "gold": 3
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "BLACK PEPPER MEATBALL PAS",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 77000.0
+        },
+        {
+         "description": "TRUFFLE CREAM",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 59000.0
+        },
+        {
+         "description": "EARL GREY MILK TEA",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 79000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "BLACK PAPPER MEATBALL PAS",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 79000.0
+        },
+        {
+         "description": "TRUFFLE CREAM",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 77000.0
+        },
+        {
+         "description": "EARL GREY MILK TEA",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 59000.0
+        }
+       ]
+      },
+      "latency_ms": 3328.146000014385,
+      "cost_usd": 0.00023441
+     },
+     {
+      "id": "inv_F_20003",
+      "source": "synthetic_invoice",
+      "valid": true,
+      "error_code": null,
+      "fields": "8/8",
+      "wrong_fields": {},
+      "items": {
+       "tp": 3,
+       "pred": 6,
+       "gold": 6
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Lawn mowing & edging",
+         "quantity": 1.0,
+         "unit_price": 68.65,
+         "amount": 68.65
+        },
+        {
+         "description": "Venue hire (half day)",
+         "quantity": 2.0,
+         "unit_price": 264.46,
+         "amount": 528.92
+        },
+        {
+         "description": "Coffee & tea service",
+         "quantity": 1.0,
+         "unit_price": 188.96,
+         "amount": 188.96
+        },
+        {
+         "description": "Timber - pine 90\u00d745 (per m)",
+         "quantity": 1.0,
+         "unit_price": 88.71,
+         "amount": 88.71
+        },
+        {
+         "description": "A4 copy paper (5 reams)",
+         "quantity": 1.0,
+         "unit_price": 35.06,
+         "amount": 35.06
+        },
+        {
+         "description": "Monthly IT support plan",
+         "quantity": null,
+         "unit_price": null,
+         "amount": 10.03
+        }
+       ],
+       "expected": [
+        {
+         "description": "Lawn mowing & edging",
+         "quantity": 1.0,
+         "unit_price": 68.65,
+         "amount": 68.65
+        },
+        {
+         "description": "A4 copy paper (5 reams)",
+         "quantity": 1.0,
+         "unit_price": 35.06,
+         "amount": 35.06
+        },
+        {
+         "description": "Venue hire (half day)",
+         "quantity": 2.0,
+         "unit_price": 264.46,
+         "amount": 528.92
+        },
+        {
+         "description": "Monthly IT support plan",
+         "quantity": 1.0,
+         "unit_price": 188.96,
+         "amount": 188.96
+        },
+        {
+         "description": "Coffee & tea service",
+         "quantity": 1.0,
+         "unit_price": 88.71,
+         "amount": 88.71
+        },
+        {
+         "description": "Timber - pine 90x45 (per m)",
+         "quantity": 1.0,
+         "unit_price": 10.03,
+         "amount": 10.03
+        }
+       ]
+      },
+      "latency_ms": 9905.184199975338,
+      "cost_usd": 0.00080261
+     },
+     {
+      "id": "cord_test_0070",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "5/5",
+      "wrong_fields": {},
+      "items": {
+       "tp": 8,
+       "pred": 8,
+       "gold": 10
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "UDANG RE",
+         "quantity": 2.0,
+         "unit_price": 216000.0,
+         "amount": 432000.0
+        },
+        {
+         "description": "AYM GR JUN NJAN",
+         "quantity": 1.0,
+         "unit_price": 108000.0,
+         "amount": 108000.0
+        },
+        {
+         "description": "SAPO TH SEAFOOD",
+         "quantity": 1.0,
+         "unit_price": 172000.0,
+         "amount": 172000.0
+        },
+        {
+         "description": "POCAI 3",
+         "quantity": 2.0,
+         "unit_price": 111000.0,
+         "amount": 222000.0
+        },
+        {
+         "description": "GURAME FILLET M ASAM MANIS",
+         "quantity": 1.0,
+         "unit_price": 163000.0,
+         "amount": 163000.0
+        },
+        {
+         "description": "BIHUN GORENG JJ",
+         "quantity": 1.0,
+         "unit_price": 116000.0,
+         "amount": 116000.0
+        },
+        {
+         "description": "ICED TEA",
+         "quantity": 5.0,
+         "unit_price": 12000.0,
+         "amount": 60000.0
+        },
+        {
+         "description": "NASI PUTIH",
+         "quantity": 7.0,
+         "unit_price": 10000.0,
+         "amount": 70000.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "UDANG RE",
+         "quantity": 2.0,
+         "unit_price": 216000.0,
+         "amount": 432000.0
+        },
+        {
+         "description": "=*LARGE*==",
+         "quantity": 2.0,
+         "unit_price": null,
+         "amount": null
+        },
+        {
+         "description": "AYM GR JUN NJAN",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 108000.0
+        },
+        {
+         "description": "SAPO TH SEAFOOD",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 172000.0
+        },
+        {
+         "description": "POCAI 3",
+         "quantity": 2.0,
+         "unit_price": 111000.0,
+         "amount": 222000.0
+        },
+        {
+         "description": "=*MEDIUM*=",
+         "quantity": 2.0,
+         "unit_price": null,
+         "amount": null
+        },
+        {
+         "description": "GURAME FILLET M",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 163000.0
+        },
+        {
+         "description": "BIHUN GORENG JJ",
+         "quantity": 1.0,
+         "unit_price": null,
+         "amount": 116000.0
+        },
+        {
+         "description": "ICED TEA",
+         "quantity": 5.0,
+         "unit_price": 12000.0,
+         "amount": 60000.0
+        },
+        {
+         "description": "NASI PUTIH",
+         "quantity": 7.0,
+         "unit_price": 10000.0,
+         "amount": 70000.0
+        }
+       ]
+      },
+      "latency_ms": 8839.294499979587,
+      "cost_usd": 0.00078505
+     },
+     {
+      "id": "cord_test_0012",
+      "source": "cord",
+      "valid": true,
+      "error_code": null,
+      "fields": "3/3",
+      "wrong_fields": {},
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 2
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "0571-1854 BLUS WANITA",
+         "quantity": 1.0,
+         "unit_price": 120000.0,
+         "amount": 120000.0
+        },
+        {
+         "description": "1002-0060 SHOPPING BAG",
+         "quantity": 1.0,
+         "unit_price": 880.0,
+         "amount": 0.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "BLUS WANITA",
+         "quantity": 1.0,
+         "unit_price": 120000.0,
+         "amount": null
+        },
+        {
+         "description": "SHOPPING BAG",
+         "quantity": 1.0,
+         "unit_price": 880.0,
+         "amount": null
+        }
+       ]
+      },
+      "latency_ms": 4398.294100014027,
+      "cost_usd": 0.00035573
+     },
+     {
+      "id": "owner_cecc6be6",
+      "source": "owner",
+      "valid": true,
+      "error_code": null,
+      "fields": "7/7",
+      "wrong_fields": {},
+      "items": {
+       "tp": 1,
+       "pred": 1,
+       "gold": 2
+      },
+      "perfect": false,
+      "line_items": {
+       "predicted": [
+        {
+         "description": "Remington Advanced Coconut Therapy Straightener, S8648AU, Salon Performance, 110mm Ceramic Plates With Micro-Conditioners, Integrated Heat Sensor Helps Protect Hair, Ultra-Fast Heat Up, LCD Display | B09T8ZCKPY",
+         "quantity": 1.0,
+         "unit_price": 50.91,
+         "amount": 56.0
+        }
+       ],
+       "expected": [
+        {
+         "description": "Remington Advanced Coconut Therapy Straightener, S8648AU",
+         "quantity": 1.0,
+         "unit_price": 56.0,
+         "amount": 56.0
+        },
+        {
+         "description": "Shipping Charges",
+         "quantity": null,
+         "unit_price": 9.99,
+         "amount": 9.99
+        }
+       ]
+      },
+      "latency_ms": 4592.191800009459,
+      "cost_usd": 0.00038795
+     }
+    ],
+    "speed_cost": {
+     "latency_ms_p50": 2448,
+     "latency_ms_p95": 4792,
+     "ttft_ms_p50": 1847,
+     "cold_starts": 0,
+     "input_tokens_mean": 1950,
+     "output_tokens_mean": 354,
+     "reasoning_tokens_mean": 219,
+     "cost_usd_total": 0.012394,
+     "cost_per_1000_docs_usd": 0.1967,
+     "errors": {}
+    },
+    "notes": [
+     "Only fields with non-null ground truth are scored (CORD has no vendor or date).",
+     "Short strings: headline uses fuzzy match (token_set_ratio >= 90); exact also given.",
+     "Zero-priced line items (modifiers, free extras) are ignored on both sides.",
+     "A line item with a blank true amount only needs a matching description.",
+     "Perfect document = every scored field and every priced line item right.",
+     "95% intervals: 1,000 bootstrap resamples of documents, seed 2026."
+    ]
+   },
+   "categorise": {
+    "created_at": "2026-09-27T00:36:15+00:00",
+    "docs": 5,
+    "rows": 100,
+    "headline": {
+     "accuracy": {
+      "value": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "display": "100.0% (100.0-100.0)"
+     },
+     "macro_f1": {
+      "value": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "display": "100.0% (100.0-100.0)"
+     },
+     "schema_validity": {
+      "value": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "display": "100.0% (100.0-100.0)"
+     }
+    },
+    "confusion_matrix": {
+     "Groceries": {
+      "Groceries": 9,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Dining": {
+      "Groceries": 0,
+      "Dining": 15,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Transport": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 11,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Utilities": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 10,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Shopping": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 14,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Health": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 17,
+      "Entertainment": 0,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Entertainment": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 9,
+      "Other": 0,
+      "(missing)": 0
+     },
+     "Other": {
+      "Groceries": 0,
+      "Dining": 0,
+      "Transport": 0,
+      "Utilities": 0,
+      "Shopping": 0,
+      "Health": 0,
+      "Entertainment": 0,
+      "Other": 15,
+      "(missing)": 0
+     }
+    },
+    "speed_cost": {
+     "latency_ms_p50": 1946,
+     "latency_ms_p95": 2394,
+     "ttft_ms_p50": 1269,
+     "cold_starts": 0,
+     "input_tokens_mean": 1836,
+     "output_tokens_mean": 266,
+     "reasoning_tokens_mean": 66,
+     "cost_usd_total": 0.001584,
+     "cost_per_1000_docs_usd": 0.3167,
+     "errors": {}
+    }
+   }
+  }
+ },
+ "rounds": {
+  "models": [
+   {
+    "key": "small-base",
+    "test": {
+     "docs": 63,
+     "field_accuracy": {
+      "value": 0.8872,
+      "ci95": [
+       0.8473,
+       0.9207
+      ],
+      "display": "88.7% (84.7-92.1)"
+     },
+     "line_item_f1": {
+      "value": 0.7082,
+      "ci95": [
+       0.5972,
+       0.8135
+      ],
+      "display": "70.8% (59.7-81.3)"
+     },
+     "perfect_document_rate": {
+      "value": 0.3175,
+      "ci95": [
+       0.2063,
+       0.4444
+      ],
+      "display": "31.7% (20.6-44.4)"
+     }
+    },
+    "holdout": {
+     "docs": 20,
+     "field_accuracy": {
+      "value": 0.6863,
+      "ci95": [
+       0.5297,
+       0.8158
+      ],
+      "display": "68.6% (53.0-81.6)"
+     },
+     "line_item_f1": {
+      "value": 0.75,
+      "ci95": [
+       0.5316,
+       0.9325
+      ],
+      "display": "75.0% (53.2-93.2)"
+     },
+     "perfect_document_rate": {
+      "value": 0.15,
+      "ci95": [
+       0.0,
+       0.3
+      ],
+      "display": "15.0% (0.0-30.0)"
+     }
+    }
+   },
+   {
+    "key": "small-ft-r1",
+    "test": {
+     "docs": 63,
+     "field_accuracy": {
+      "value": 0.9634,
+      "ci95": [
+       0.9397,
+       0.9846
+      ],
+      "display": "96.3% (94.0-98.5)"
+     },
+     "line_item_f1": {
+      "value": 0.9049,
+      "ci95": [
+       0.8317,
+       0.9673
+      ],
+      "display": "90.5% (83.2-96.7)"
+     },
+     "perfect_document_rate": {
+      "value": 0.746,
+      "ci95": [
+       0.6349,
+       0.8417
+      ],
+      "display": "74.6% (63.5-84.2)"
+     }
+    },
+    "holdout": {
+     "docs": 20,
+     "field_accuracy": {
+      "value": 0.7451,
+      "ci95": [
+       0.6093,
+       0.8516
+      ],
+      "display": "74.5% (60.9-85.2)"
+     },
+     "line_item_f1": {
+      "value": 0.7532,
+      "ci95": [
+       0.5454,
+       0.919
+      ],
+      "display": "75.3% (54.5-91.9)"
+     },
+     "perfect_document_rate": {
+      "value": 0.1,
+      "ci95": [
+       0.0,
+       0.25
+      ],
+      "display": "10.0% (0.0-25.0)"
+     }
+    }
+   },
+   {
+    "key": "small-ft-r2",
+    "test": {
+     "docs": 63,
+     "field_accuracy": {
+      "value": 0.9512,
+      "ci95": [
+       0.9212,
+       0.9759
+      ],
+      "display": "95.1% (92.1-97.6)"
+     },
+     "line_item_f1": {
+      "value": 0.8553,
+      "ci95": [
+       0.781,
+       0.9304
+      ],
+      "display": "85.5% (78.1-93.0)"
+     },
+     "perfect_document_rate": {
+      "value": 0.6508,
+      "ci95": [
+       0.5397,
+       0.7619
+      ],
+      "display": "65.1% (54.0-76.2)"
+     }
+    },
+    "holdout": {
+     "docs": 20,
+     "field_accuracy": {
+      "value": 0.8562,
+      "ci95": [
+       0.7179,
+       0.9671
+      ],
+      "display": "85.6% (71.8-96.7)"
+     },
+     "line_item_f1": {
+      "value": 0.7389,
+      "ci95": [
+       0.5341,
+       0.9167
+      ],
+      "display": "73.9% (53.4-91.7)"
+     },
+     "perfect_document_rate": {
+      "value": 0.7,
+      "ci95": [
+       0.5,
+       0.9
+      ],
+      "display": "70.0% (50.0-90.0)"
+     }
+    }
+   }
+  ],
+  "baseline_test": {
+   "docs": 63,
+   "field_accuracy": {
+    "value": 0.9878,
+    "ci95": [
+     0.974,
+     0.9971
+    ],
+    "display": "98.8% (97.4-99.7)"
+   },
+   "line_item_f1": {
+    "value": 0.9276,
+    "ci95": [
+     0.858,
+     0.9807
+    ],
+    "display": "92.8% (85.8-98.1)"
+   },
+   "perfect_document_rate": {
+    "value": 0.8413,
+    "ci95": [
+     0.746,
+     0.9206
+    ],
+    "display": "84.1% (74.6-92.1)"
+   }
+  }
+ }
+}

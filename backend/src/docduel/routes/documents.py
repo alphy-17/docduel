@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, UploadFile
 from sqlmodel import Session, select
 
 from docduel.db import Document, get_session
+from docduel.guard import live_guard
 from docduel.ingest import IngestError, filetype, ingest_bytes
 from docduel.ingest.factory import build_ocr
 from docduel.ingest.limits import MAX_FILE_BYTES
@@ -50,6 +51,7 @@ async def upload_document(
     session: Annotated[Session, Depends(get_session)],
     ocr: Annotated[CachedOcr | None, Depends(get_ocr)],
     settings: Annotated[Settings, Depends(get_settings)],
+    _: Annotated[None, Depends(live_guard)],
 ) -> DocumentOut:
     data = await file.read(MAX_FILE_BYTES + 1)
     if len(data) > MAX_FILE_BYTES:

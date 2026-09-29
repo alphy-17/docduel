@@ -49,7 +49,7 @@ models:
     extra_body: {chat_template_kwargs: {enable_thinking: false}}
     notes: "Phase 8 round 2: same settings as r1, trained from the base model on r1 data + 40 human-verified corrections x3. reports/training_r2_log.json"
 
-# Which keys fill the two Duel panels. Left moves to the best small-* model from Phase 6.
+# Which keys fill the two Duel panels. Left is our headline model (best dev score, Phase 8).
 duel:
-  left: small-base
+  left: small-ft-r1
   right: openai

@@ -1,0 +1,1236 @@
+{
+ "id": "cafe-receipt-extract",
+ "title": "Caf\u00e9 receipt",
+ "sample": "cafe-receipt.png",
+ "task": "extract",
+ "recorded_at": "2026-09-29T07:16:40+00:00",
+ "document": {
+  "document_id": "36633bf778fb46beb6be49583544ed47",
+  "kind": "image",
+  "pages": 1,
+  "text_preview": "20,000\n20,000\n1\nS-Ovaltine\n50%\n1,818\nPB1:\n18,181\nSubtotal:\n20,000\nTotal:\n100,000\nCash:\n80,000\nCHANGE :\nCS\n10% Tax Included",
+  "ocr_ms": 2696,
+  "is_test_document": false,
+  "already_ingested": true,
+  "can_describe": true
+ },
+ "events": [
+  {
+   "t": 140,
+   "event": "run.started",
+   "data": {
+    "run_id": "77560a2d4f7045fe8dfaeb357b44ea8b",
+    "task": "extract",
+    "model_keys": [
+     "small-ft-r1",
+     "openai"
+    ],
+    "placeholders": [],
+    "prompt_version": "extract_v1"
+   }
+  },
+  {
+   "t": 4922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 4922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "vendor_name"
+   }
+  },
+  {
+   "t": 4984,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": null"
+   }
+  },
+  {
+   "t": 5000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 5062,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "document_date"
+   }
+  },
+  {
+   "t": 5125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": null"
+   }
+  },
+  {
+   "t": 5140,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 5187,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "document_number"
+   }
+  },
+  {
+   "t": 5218,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": null"
+   }
+  },
+  {
+   "t": 5265,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 5328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "currency\":"
+   }
+  },
+  {
+   "t": 5375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"ID"
+   }
+  },
+  {
+   "t": 5406,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "R\","
+   }
+  },
+  {
+   "t": 5468,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"line"
+   }
+  },
+  {
+   "t": 5500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_items\":"
+   }
+  },
+  {
+   "t": 5547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " [{\"description"
+   }
+  },
+  {
+   "t": 5593,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 5640,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "S-O"
+   }
+  },
+  {
+   "t": 5687,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "valtine"
+   }
+  },
+  {
+   "t": 5734,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\", \""
+   }
+  },
+  {
+   "t": 5781,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "quantity\":"
+   }
+  },
+  {
+   "t": 5828,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 5875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".0"
+   }
+  },
+  {
+   "t": 5922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 5968,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "unit_price"
+   }
+  },
+  {
+   "t": 6015,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 6062,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "20"
+   }
+  },
+  {
+   "t": 6109,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "00"
+   }
+  },
+  {
+   "t": 6156,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0."
+   }
+  },
+  {
+   "t": 6203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 6250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"amount"
+   }
+  },
+  {
+   "t": 6297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 6343,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "20"
+   }
+  },
+  {
+   "t": 6390,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "00"
+   }
+  },
+  {
+   "t": 6437,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0."
+   }
+  },
+  {
+   "t": 6484,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0}],"
+   }
+  },
+  {
+   "t": 6531,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"subtotal"
+   }
+  },
+  {
+   "t": 6562,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 6625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "20"
+   }
+  },
+  {
+   "t": 6656,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "00"
+   }
+  },
+  {
+   "t": 6703,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0."
+   }
+  },
+  {
+   "t": 6750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 6812,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"tax"
+   }
+  },
+  {
+   "t": 6859,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 6906,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "18"
+   }
+  },
+  {
+   "t": 6953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "18"
+   }
+  },
+  {
+   "t": 7000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "1"
+   }
+  },
+  {
+   "t": 7031,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".0"
+   }
+  },
+  {
+   "t": 7078,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 7140,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "service_charge"
+   }
+  },
+  {
+   "t": 7172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": null"
+   }
+  },
+  {
+   "t": 7218,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 7312,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "discount\":"
+   }
+  },
+  {
+   "t": 7328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " null,"
+   }
+  },
+  {
+   "t": 7359,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"total"
+   }
+  },
+  {
+   "t": 7406,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 7453,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "18"
+   }
+  },
+  {
+   "t": 7500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "18"
+   }
+  },
+  {
+   "t": 7547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "1."
+   }
+  },
+  {
+   "t": 7593,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 7640,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"payment"
+   }
+  },
+  {
+   "t": 7687,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_method\":"
+   }
+  },
+  {
+   "t": 7718,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"cash"
+   }
+  },
+  {
+   "t": 7781,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\"}"
+   }
+  },
+  {
+   "t": 7781,
+   "event": "model.completed",
+   "data": {
+    "model_key": "small-ft-r1",
+    "output": {
+     "vendor_name": null,
+     "document_date": null,
+     "document_number": null,
+     "currency": "IDR",
+     "line_items": [
+      {
+       "description": "S-Ovaltine",
+       "quantity": 1.0,
+       "unit_price": 20000.0,
+       "amount": 20000.0
+      }
+     ],
+     "subtotal": 20000.0,
+     "tax": 18181.0,
+     "service_charge": null,
+     "discount": null,
+     "total": 18181.0,
+     "payment_method": "cash"
+    },
+    "schema_valid": true,
+    "ttft_ms": 4821.90310000442,
+    "latency_ms": 7684.904600027949,
+    "input_tokens": 2081,
+    "output_tokens": 126,
+    "cost_usd": 0.0017056218820617587,
+    "cold_start": false
+   }
+  },
+  {
+   "t": 11968,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 11968,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "vendor"
+   }
+  },
+  {
+   "t": 11984,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_name"
+   }
+  },
+  {
+   "t": 11984,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 12000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 12015,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "document"
+   }
+  },
+  {
+   "t": 12015,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_date"
+   }
+  },
+  {
+   "t": 12031,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12031,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 12062,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 12062,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "document"
+   }
+  },
+  {
+   "t": 12109,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_number"
+   }
+  },
+  {
+   "t": 12109,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 12125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 12140,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "currency"
+   }
+  },
+  {
+   "t": 12140,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 12156,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "ID"
+   }
+  },
+  {
+   "t": 12156,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "R"
+   }
+  },
+  {
+   "t": 12172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 12172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "line"
+   }
+  },
+  {
+   "t": 12172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_items"
+   }
+  },
+  {
+   "t": 12172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":["
+   }
+  },
+  {
+   "t": 12187,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 12187,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "description"
+   }
+  },
+  {
+   "t": 12187,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 12187,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "S"
+   }
+  },
+  {
+   "t": 12203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "-O"
+   }
+  },
+  {
+   "t": 12203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "valt"
+   }
+  },
+  {
+   "t": 12203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "ine"
+   }
+  },
+  {
+   "t": 12203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 12203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "quantity"
+   }
+  },
+  {
+   "t": 12203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "1"
+   }
+  },
+  {
+   "t": 12203,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 12218,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "unit"
+   }
+  },
+  {
+   "t": 12218,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_price"
+   }
+  },
+  {
+   "t": 12218,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12218,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "200"
+   }
+  },
+  {
+   "t": 12218,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "00"
+   }
+  },
+  {
+   "t": 12218,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 12218,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "amount"
+   }
+  },
+  {
+   "t": 12218,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12234,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "200"
+   }
+  },
+  {
+   "t": 12234,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "00"
+   }
+  },
+  {
+   "t": 12250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "}"
+   }
+  },
+  {
+   "t": 12250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "],\""
+   }
+  },
+  {
+   "t": 12250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "subtotal"
+   }
+  },
+  {
+   "t": 12250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "200"
+   }
+  },
+  {
+   "t": 12250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "00"
+   }
+  },
+  {
+   "t": 12297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 12297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "tax"
+   }
+  },
+  {
+   "t": 12297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "181"
+   }
+  },
+  {
+   "t": 12297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "8"
+   }
+  },
+  {
+   "t": 12297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 12297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "service"
+   }
+  },
+  {
+   "t": 12297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_charge"
+   }
+  },
+  {
+   "t": 12297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 12312,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 12312,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "discount"
+   }
+  },
+  {
+   "t": 12312,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12312,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 12312,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 12312,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "total"
+   }
+  },
+  {
+   "t": 12328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 12328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "200"
+   }
+  },
+  {
+   "t": 12328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "00"
+   }
+  },
+  {
+   "t": 12328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 12359,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "payment"
+   }
+  },
+  {
+   "t": 12359,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_method"
+   }
+  },
+  {
+   "t": 12406,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 12406,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "cash"
+   }
+  },
+  {
+   "t": 12406,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\"}"
+   }
+  },
+  {
+   "t": 12453,
+   "event": "model.completed",
+   "data": {
+    "model_key": "openai",
+    "output": {
+     "vendor_name": null,
+     "document_date": null,
+     "document_number": null,
+     "currency": "IDR",
+     "line_items": [
+      {
+       "description": "S-Ovaltine",
+       "quantity": 1.0,
+       "unit_price": 20000.0,
+       "amount": 20000.0
+      }
+     ],
+     "subtotal": 20000.0,
+     "tax": 1818.0,
+     "service_charge": null,
+     "discount": null,
+     "total": 20000.0,
+     "payment_method": "cash"
+    },
+    "schema_valid": true,
+    "ttft_ms": 11822.631900024135,
+    "latency_ms": 12304.232000024058,
+    "input_tokens": 1882,
+    "output_tokens": 1110,
+    "cost_usd": 0.0007432,
+    "cold_start": false
+   }
+  },
+  {
+   "t": 12562,
+   "event": "run.completed",
+   "data": {
+    "run_id": "77560a2d4f7045fe8dfaeb357b44ea8b"
+   }
+  }
+ ]
+}

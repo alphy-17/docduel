@@ -111,10 +111,10 @@ def test_client_for_refuses_missing_key_and_undeployed(monkeypatch) -> None:
 
 
 def test_config_has_small_model_left_and_openai_right() -> None:
-    """Phase 6: the real small model replaces the placeholder in the left panel."""
+    """Phase 9: the headline fine-tuned model (best on dev) fills the left panel."""
     models = load_models()
     left, right = duel_keys()
-    assert (left, right) == ("small-base", "openai")
+    assert (left, right) == ("small-ft-r1", "openai")
     assert models[left].provider == "vllm" and not models[left].is_placeholder
     assert models[left].gpu == "L4" and models[right].reasoning_effort == "medium"
 

@@ -208,3 +208,21 @@ export interface CorrectionSaved {
   verified: number
   total: number
 }
+
+export interface ReplayEntry {
+  id: string
+  title: string
+  sample: string
+  task: Task
+}
+
+export interface ReplayIndex {
+  models: Record<string, { model_id: string }>
+  replays: ReplayEntry[]
+}
+
+export interface Replay extends ReplayEntry {
+  recorded_at: string
+  document: DocumentOut
+  events: { t: number; event: string; data: unknown }[]
+}

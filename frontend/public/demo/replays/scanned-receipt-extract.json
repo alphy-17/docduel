@@ -1,0 +1,3012 @@
+{
+ "id": "scanned-receipt-extract",
+ "title": "Scanned receipt",
+ "sample": "scanned-receipt.pdf",
+ "task": "extract",
+ "recorded_at": "2026-09-29T07:16:52+00:00",
+ "document": {
+  "document_id": "e8a050e241a14f80881ed88fdabe0cda",
+  "kind": "pdf_scan",
+  "pages": 1,
+  "text_preview": "NORTHSIDE BAKERY\n68 Station Rd\nHobart TAS: 7000\nABN 22 87. 404 606 911\nReceipt No. A63129.\n2025-12-30 13:40\nErgonomic. office chair\n:2 x @.511:43\n4,022.86\nBusiness cards (500):\n10 x. @ 112.16\nEvent photography (2 hrs)\n1,121.60\n10 .x @. 614.22\n6,142: 20\nScrews assorted (box) ..\n.1.x @ 24.23\n24.23\nPower drill 18V\n1 x @ 177.99\n177.99\nSubtotal\n.. GST included (10%)\nTOTAL AUD\n8,488.88\n.771.72 .\n8,488.88\nTHANK YOU - PLEASE COME AGAIN",
+  "ocr_ms": 21,
+  "is_test_document": false,
+  "already_ingested": true,
+  "can_describe": true
+ },
+ "events": [
+  {
+   "t": 16,
+   "event": "run.started",
+   "data": {
+    "run_id": "7d2bee81c6e64e958bb982c45806a6fa",
+    "task": "extract",
+    "model_keys": [
+     "small-ft-r1",
+     "openai"
+    ],
+    "placeholders": [],
+    "prompt_version": "extract_v1"
+   }
+  },
+  {
+   "t": 1063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 1094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "vendor_name"
+   }
+  },
+  {
+   "t": 1141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 1188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Northside"
+   }
+  },
+  {
+   "t": 1235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " Bakery\","
+   }
+  },
+  {
+   "t": 1282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"document"
+   }
+  },
+  {
+   "t": 1328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_date\":"
+   }
+  },
+  {
+   "t": 1375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"2"
+   }
+  },
+  {
+   "t": 1407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "02"
+   }
+  },
+  {
+   "t": 1469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "5-"
+   }
+  },
+  {
+   "t": 1516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "12"
+   }
+  },
+  {
+   "t": 1563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "-3"
+   }
+  },
+  {
+   "t": 1610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0\","
+   }
+  },
+  {
+   "t": 1657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"document"
+   }
+  },
+  {
+   "t": 1703,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_number\":"
+   }
+  },
+  {
+   "t": 1750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"A"
+   }
+  },
+  {
+   "t": 1782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "63"
+   }
+  },
+  {
+   "t": 1844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "12"
+   }
+  },
+  {
+   "t": 1875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "9\","
+   }
+  },
+  {
+   "t": 1938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"currency"
+   }
+  },
+  {
+   "t": 1985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 2032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "AUD\","
+   }
+  },
+  {
+   "t": 2078,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"line"
+   }
+  },
+  {
+   "t": 2125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_items\":"
+   }
+  },
+  {
+   "t": 2172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " [{\"description"
+   }
+  },
+  {
+   "t": 2219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 2266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Erg"
+   }
+  },
+  {
+   "t": 2297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "onomic office"
+   }
+  },
+  {
+   "t": 2344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " chair\","
+   }
+  },
+  {
+   "t": 2407,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"quantity"
+   }
+  },
+  {
+   "t": 2453,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 2485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "2."
+   }
+  },
+  {
+   "t": 2532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 2578,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"unit"
+   }
+  },
+  {
+   "t": 2641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_price\":"
+   }
+  },
+  {
+   "t": 2688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 5"
+   }
+  },
+  {
+   "t": 2719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "11"
+   }
+  },
+  {
+   "t": 2766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".4"
+   }
+  },
+  {
+   "t": 2813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "3,"
+   }
+  },
+  {
+   "t": 2860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"amount"
+   }
+  },
+  {
+   "t": 2907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 2953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "10"
+   }
+  },
+  {
+   "t": 3000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "22"
+   }
+  },
+  {
+   "t": 3047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".8"
+   }
+  },
+  {
+   "t": 3094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "6},"
+   }
+  },
+  {
+   "t": 3141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " {\"description"
+   }
+  },
+  {
+   "t": 3188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": \""
+   }
+  },
+  {
+   "t": 3235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "Business cards"
+   }
+  },
+  {
+   "t": 3282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " (5"
+   }
+  },
+  {
+   "t": 3328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "00"
+   }
+  },
+  {
+   "t": 3375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ")\", \""
+   }
+  },
+  {
+   "t": 3422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "quantity\":"
+   }
+  },
+  {
+   "t": 3469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 3516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0."
+   }
+  },
+  {
+   "t": 3563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 3594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"unit"
+   }
+  },
+  {
+   "t": 3641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_price\":"
+   }
+  },
+  {
+   "t": 3688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 3750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "12"
+   }
+  },
+  {
+   "t": 3797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".1"
+   }
+  },
+  {
+   "t": 3844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "6,"
+   }
+  },
+  {
+   "t": 3891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"amount"
+   }
+  },
+  {
+   "t": 3938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 3985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "11"
+   }
+  },
+  {
+   "t": 4016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "21"
+   }
+  },
+  {
+   "t": 4063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".6"
+   }
+  },
+  {
+   "t": 4110,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "}, {\""
+   }
+  },
+  {
+   "t": 4157,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "description\":"
+   }
+  },
+  {
+   "t": 4219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Event"
+   }
+  },
+  {
+   "t": 4250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " photography ("
+   }
+  },
+  {
+   "t": 4297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "2 hrs"
+   }
+  },
+  {
+   "t": 4360,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ")\", \""
+   }
+  },
+  {
+   "t": 4391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "quantity\":"
+   }
+  },
+  {
+   "t": 4438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 4485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0."
+   }
+  },
+  {
+   "t": 4532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 4578,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"unit"
+   }
+  },
+  {
+   "t": 4625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_price\":"
+   }
+  },
+  {
+   "t": 4672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 6"
+   }
+  },
+  {
+   "t": 4719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "14"
+   }
+  },
+  {
+   "t": 4766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".2"
+   }
+  },
+  {
+   "t": 4813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "2,"
+   }
+  },
+  {
+   "t": 4860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"amount"
+   }
+  },
+  {
+   "t": 4907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 4953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "61"
+   }
+  },
+  {
+   "t": 5000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "42"
+   }
+  },
+  {
+   "t": 5047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".2"
+   }
+  },
+  {
+   "t": 5094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "}, {\""
+   }
+  },
+  {
+   "t": 5141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "description\":"
+   }
+  },
+  {
+   "t": 5188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"S"
+   }
+  },
+  {
+   "t": 5235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "crews"
+   }
+  },
+  {
+   "t": 5282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " assorted ("
+   }
+  },
+  {
+   "t": 5328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "box)\","
+   }
+  },
+  {
+   "t": 5375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"quantity"
+   }
+  },
+  {
+   "t": 5422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 5469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "1."
+   }
+  },
+  {
+   "t": 5516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 5563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"unit"
+   }
+  },
+  {
+   "t": 5610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_price\":"
+   }
+  },
+  {
+   "t": 5657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 2"
+   }
+  },
+  {
+   "t": 5703,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "4."
+   }
+  },
+  {
+   "t": 5750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "23"
+   }
+  },
+  {
+   "t": 5797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 5844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "amount\":"
+   }
+  },
+  {
+   "t": 5875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 2"
+   }
+  },
+  {
+   "t": 5922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "4."
+   }
+  },
+  {
+   "t": 5985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "23"
+   }
+  },
+  {
+   "t": 6032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "}, {\""
+   }
+  },
+  {
+   "t": 6078,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "description\":"
+   }
+  },
+  {
+   "t": 6125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"Power"
+   }
+  },
+  {
+   "t": 6172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " drill "
+   }
+  },
+  {
+   "t": 6219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "18"
+   }
+  },
+  {
+   "t": 6266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "V\","
+   }
+  },
+  {
+   "t": 6297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"quantity"
+   }
+  },
+  {
+   "t": 6344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 6391,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "1."
+   }
+  },
+  {
+   "t": 6438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "0,"
+   }
+  },
+  {
+   "t": 6500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"unit"
+   }
+  },
+  {
+   "t": 6547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_price\":"
+   }
+  },
+  {
+   "t": 6578,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 1"
+   }
+  },
+  {
+   "t": 6641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "77"
+   }
+  },
+  {
+   "t": 6688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".9"
+   }
+  },
+  {
+   "t": 6719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "9,"
+   }
+  },
+  {
+   "t": 6782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"amount"
+   }
+  },
+  {
+   "t": 6813,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": "
+   }
+  },
+  {
+   "t": 6860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "17"
+   }
+  },
+  {
+   "t": 6907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "7."
+   }
+  },
+  {
+   "t": 6953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "99"
+   }
+  },
+  {
+   "t": 7000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "}], \""
+   }
+  },
+  {
+   "t": 7047,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "subtotal\":"
+   }
+  },
+  {
+   "t": 7094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 8"
+   }
+  },
+  {
+   "t": 7141,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "48"
+   }
+  },
+  {
+   "t": 7188,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "8."
+   }
+  },
+  {
+   "t": 7235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "88"
+   }
+  },
+  {
+   "t": 7282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 7328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "tax\":"
+   }
+  },
+  {
+   "t": 7375,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 7"
+   }
+  },
+  {
+   "t": 7422,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "71"
+   }
+  },
+  {
+   "t": 7469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ".7"
+   }
+  },
+  {
+   "t": 7516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "2,"
+   }
+  },
+  {
+   "t": 7563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"service"
+   }
+  },
+  {
+   "t": 7610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "_charge\":"
+   }
+  },
+  {
+   "t": 7657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " null,"
+   }
+  },
+  {
+   "t": 7703,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " \"discount"
+   }
+  },
+  {
+   "t": 7750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": null"
+   }
+  },
+  {
+   "t": 7797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 7828,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "total\":"
+   }
+  },
+  {
+   "t": 7891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": " 8"
+   }
+  },
+  {
+   "t": 7922,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "48"
+   }
+  },
+  {
+   "t": 7985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "8."
+   }
+  },
+  {
+   "t": 8032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "88"
+   }
+  },
+  {
+   "t": 8078,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": ", \""
+   }
+  },
+  {
+   "t": 8125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "payment_method"
+   }
+  },
+  {
+   "t": 8172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "\": null"
+   }
+  },
+  {
+   "t": 8219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "small-ft-r1",
+    "text": "}"
+   }
+  },
+  {
+   "t": 8219,
+   "event": "model.completed",
+   "data": {
+    "model_key": "small-ft-r1",
+    "output": {
+     "vendor_name": "Northside Bakery",
+     "document_date": "2025-12-30",
+     "document_number": "A63129",
+     "currency": "AUD",
+     "line_items": [
+      {
+       "description": "Ergonomic office chair",
+       "quantity": 2.0,
+       "unit_price": 511.43,
+       "amount": 1022.86
+      },
+      {
+       "description": "Business cards (500)",
+       "quantity": 10.0,
+       "unit_price": 112.16,
+       "amount": 1121.6
+      },
+      {
+       "description": "Event photography (2 hrs)",
+       "quantity": 10.0,
+       "unit_price": 614.22,
+       "amount": 6142.2
+      },
+      {
+       "description": "Screws assorted (box)",
+       "quantity": 1.0,
+       "unit_price": 24.23,
+       "amount": 24.23
+      },
+      {
+       "description": "Power drill 18V",
+       "quantity": 1.0,
+       "unit_price": 177.99,
+       "amount": 177.99
+      }
+     ],
+     "subtotal": 8488.88,
+     "tax": 771.72,
+     "service_charge": null,
+     "discount": null,
+     "total": 8488.88,
+     "payment_method": null
+    },
+    "schema_valid": true,
+    "ttft_ms": 1038.8776999898255,
+    "latency_ms": 8203.53719999548,
+    "input_tokens": 2260,
+    "output_tokens": 309,
+    "cost_usd": 0.0018207295063323301,
+    "cold_start": false
+   }
+  },
+  {
+   "t": 10563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 10563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "vendor"
+   }
+  },
+  {
+   "t": 10578,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_name"
+   }
+  },
+  {
+   "t": 10578,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 10641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "N"
+   }
+  },
+  {
+   "t": 10641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "ORTH"
+   }
+  },
+  {
+   "t": 10641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "SIDE"
+   }
+  },
+  {
+   "t": 10641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " B"
+   }
+  },
+  {
+   "t": 10657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "AK"
+   }
+  },
+  {
+   "t": 10657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "ERY"
+   }
+  },
+  {
+   "t": 10657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 10657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "document"
+   }
+  },
+  {
+   "t": 10672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_date"
+   }
+  },
+  {
+   "t": 10672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 10672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "202"
+   }
+  },
+  {
+   "t": 10672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "5"
+   }
+  },
+  {
+   "t": 10719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "-"
+   }
+  },
+  {
+   "t": 10719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "12"
+   }
+  },
+  {
+   "t": 10719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "-"
+   }
+  },
+  {
+   "t": 10719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "30"
+   }
+  },
+  {
+   "t": 10719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 10719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "document"
+   }
+  },
+  {
+   "t": 10735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_number"
+   }
+  },
+  {
+   "t": 10735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 10735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "A"
+   }
+  },
+  {
+   "t": 10735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "631"
+   }
+  },
+  {
+   "t": 10750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "29"
+   }
+  },
+  {
+   "t": 10750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 10750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "currency"
+   }
+  },
+  {
+   "t": 10750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 10766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "AUD"
+   }
+  },
+  {
+   "t": 10766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 10782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "line"
+   }
+  },
+  {
+   "t": 10782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_items"
+   }
+  },
+  {
+   "t": 10797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":["
+   }
+  },
+  {
+   "t": 10797,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "{\""
+   }
+  },
+  {
+   "t": 10844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "description"
+   }
+  },
+  {
+   "t": 10844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 10844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Er"
+   }
+  },
+  {
+   "t": 10844,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "g"
+   }
+  },
+  {
+   "t": 10860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "onomic"
+   }
+  },
+  {
+   "t": 10860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " office"
+   }
+  },
+  {
+   "t": 10860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " chair"
+   }
+  },
+  {
+   "t": 10860,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 10875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "quantity"
+   }
+  },
+  {
+   "t": 10875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 10875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "2"
+   }
+  },
+  {
+   "t": 10875,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 10891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "unit"
+   }
+  },
+  {
+   "t": 10891,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_price"
+   }
+  },
+  {
+   "t": 10907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 10907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "511"
+   }
+  },
+  {
+   "t": 10907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 10907,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "43"
+   }
+  },
+  {
+   "t": 10938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 10938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "amount"
+   }
+  },
+  {
+   "t": 10938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 10938,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "102"
+   }
+  },
+  {
+   "t": 10953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "2"
+   }
+  },
+  {
+   "t": 10953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 10953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "86"
+   }
+  },
+  {
+   "t": 10953,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "},{\""
+   }
+  },
+  {
+   "t": 10969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "description"
+   }
+  },
+  {
+   "t": 10969,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 10985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Business"
+   }
+  },
+  {
+   "t": 10985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " cards"
+   }
+  },
+  {
+   "t": 10985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " ("
+   }
+  },
+  {
+   "t": 10985,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "500"
+   }
+  },
+  {
+   "t": 11000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ")"
+   }
+  },
+  {
+   "t": 11000,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 11016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "quantity"
+   }
+  },
+  {
+   "t": 11016,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "10"
+   }
+  },
+  {
+   "t": 11032,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "unit"
+   }
+  },
+  {
+   "t": 11063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_price"
+   }
+  },
+  {
+   "t": 11063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "112"
+   }
+  },
+  {
+   "t": 11063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11063,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "16"
+   }
+  },
+  {
+   "t": 11078,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11078,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "amount"
+   }
+  },
+  {
+   "t": 11078,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11078,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "112"
+   }
+  },
+  {
+   "t": 11094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "1"
+   }
+  },
+  {
+   "t": 11094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "6"
+   }
+  },
+  {
+   "t": 11094,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "},{\""
+   }
+  },
+  {
+   "t": 11125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "description"
+   }
+  },
+  {
+   "t": 11125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 11125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Event"
+   }
+  },
+  {
+   "t": 11125,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " photography"
+   }
+  },
+  {
+   "t": 11172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " ("
+   }
+  },
+  {
+   "t": 11172,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "2"
+   }
+  },
+  {
+   "t": 11219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " hrs"
+   }
+  },
+  {
+   "t": 11219,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ")"
+   }
+  },
+  {
+   "t": 11235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 11235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "quantity"
+   }
+  },
+  {
+   "t": 11235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11235,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "10"
+   }
+  },
+  {
+   "t": 11250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11250,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "unit"
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_price"
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "614"
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "22"
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "amount"
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "614"
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "2"
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "2"
+   }
+  },
+  {
+   "t": 11266,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "},{\""
+   }
+  },
+  {
+   "t": 11282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "description"
+   }
+  },
+  {
+   "t": 11282,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 11297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "S"
+   }
+  },
+  {
+   "t": 11297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "cre"
+   }
+  },
+  {
+   "t": 11297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "ws"
+   }
+  },
+  {
+   "t": 11297,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " assorted"
+   }
+  },
+  {
+   "t": 11328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " ("
+   }
+  },
+  {
+   "t": 11328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "box"
+   }
+  },
+  {
+   "t": 11328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ")"
+   }
+  },
+  {
+   "t": 11328,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 11344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "quantity"
+   }
+  },
+  {
+   "t": 11344,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "1"
+   }
+  },
+  {
+   "t": 11438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "unit"
+   }
+  },
+  {
+   "t": 11438,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_price"
+   }
+  },
+  {
+   "t": 11453,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11453,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "24"
+   }
+  },
+  {
+   "t": 11453,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11453,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "23"
+   }
+  },
+  {
+   "t": 11453,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11453,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "amount"
+   }
+  },
+  {
+   "t": 11469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "24"
+   }
+  },
+  {
+   "t": 11469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "23"
+   }
+  },
+  {
+   "t": 11469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "},{\""
+   }
+  },
+  {
+   "t": 11469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "description"
+   }
+  },
+  {
+   "t": 11469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":\""
+   }
+  },
+  {
+   "t": 11469,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "Power"
+   }
+  },
+  {
+   "t": 11485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " drill"
+   }
+  },
+  {
+   "t": 11485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": " "
+   }
+  },
+  {
+   "t": 11485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "18"
+   }
+  },
+  {
+   "t": 11485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "V"
+   }
+  },
+  {
+   "t": 11485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\",\""
+   }
+  },
+  {
+   "t": 11485,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "quantity"
+   }
+  },
+  {
+   "t": 11500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "1"
+   }
+  },
+  {
+   "t": 11500,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "unit"
+   }
+  },
+  {
+   "t": 11516,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_price"
+   }
+  },
+  {
+   "t": 11532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "177"
+   }
+  },
+  {
+   "t": 11532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11532,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "99"
+   }
+  },
+  {
+   "t": 11547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11547,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "amount"
+   }
+  },
+  {
+   "t": 11563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "177"
+   }
+  },
+  {
+   "t": 11563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11563,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "99"
+   }
+  },
+  {
+   "t": 11578,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "}"
+   }
+  },
+  {
+   "t": 11578,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "],\""
+   }
+  },
+  {
+   "t": 11578,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "subtotal"
+   }
+  },
+  {
+   "t": 11578,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "848"
+   }
+  },
+  {
+   "t": 11594,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "8"
+   }
+  },
+  {
+   "t": 11610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11610,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "88"
+   }
+  },
+  {
+   "t": 11625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11625,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "tax"
+   }
+  },
+  {
+   "t": 11641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "771"
+   }
+  },
+  {
+   "t": 11641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11641,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "72"
+   }
+  },
+  {
+   "t": 11657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11657,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "service"
+   }
+  },
+  {
+   "t": 11672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_charge"
+   }
+  },
+  {
+   "t": 11672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 11672,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "discount"
+   }
+  },
+  {
+   "t": 11688,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11703,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 11703,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "total"
+   }
+  },
+  {
+   "t": 11719,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "848"
+   }
+  },
+  {
+   "t": 11735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "8"
+   }
+  },
+  {
+   "t": 11735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "."
+   }
+  },
+  {
+   "t": 11735,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "88"
+   }
+  },
+  {
+   "t": 11750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": ",\""
+   }
+  },
+  {
+   "t": 11750,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "payment"
+   }
+  },
+  {
+   "t": 11766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "_method"
+   }
+  },
+  {
+   "t": 11766,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "\":"
+   }
+  },
+  {
+   "t": 11782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "null"
+   }
+  },
+  {
+   "t": 11782,
+   "event": "model.delta",
+   "data": {
+    "model_key": "openai",
+    "text": "}"
+   }
+  },
+  {
+   "t": 11828,
+   "event": "model.completed",
+   "data": {
+    "model_key": "openai",
+    "output": {
+     "vendor_name": "NORTHSIDE BAKERY",
+     "document_date": "2025-12-30",
+     "document_number": "A63129",
+     "currency": "AUD",
+     "line_items": [
+      {
+       "description": "Ergonomic office chair",
+       "quantity": 2.0,
+       "unit_price": 511.43,
+       "amount": 1022.86
+      },
+      {
+       "description": "Business cards (500)",
+       "quantity": 10.0,
+       "unit_price": 112.16,
+       "amount": 1121.6
+      },
+      {
+       "description": "Event photography (2 hrs)",
+       "quantity": 10.0,
+       "unit_price": 614.22,
+       "amount": 6142.2
+      },
+      {
+       "description": "Screws assorted (box)",
+       "quantity": 1.0,
+       "unit_price": 24.23,
+       "amount": 24.23
+      },
+      {
+       "description": "Power drill 18V",
+       "quantity": 1.0,
+       "unit_price": 177.99,
+       "amount": 177.99
+      }
+     ],
+     "subtotal": 8488.88,
+     "tax": 771.72,
+     "service_charge": null,
+     "discount": null,
+     "total": 8488.88,
+     "payment_method": null
+    },
+    "schema_valid": true,
+    "ttft_ms": 10550.700400024652,
+    "latency_ms": 11810.992999991868,
+    "input_tokens": 2018,
+    "output_tokens": 1100,
+    "cost_usd": 0.0007518,
+    "cold_start": false
+   }
+  },
+  {
+   "t": 11953,
+   "event": "run.completed",
+   "data": {
+    "run_id": "7d2bee81c6e64e958bb982c45806a6fa"
+   }
+  }
+ ]
+}

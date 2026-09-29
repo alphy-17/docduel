@@ -35,7 +35,7 @@ def setup():
         "sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool
     )
     SQLModel.metadata.create_all(engine)
-    clients = {"small-base": FakeClient(), "openai": FakeClient()}
+    clients = {"small-ft-r1": FakeClient(), "openai": FakeClient()}
 
     def _session():
         with Session(engine) as s:
@@ -95,13 +95,13 @@ def test_full_run_streams_and_stores(setup) -> None:
 
 def test_broken_left_key_right_still_completes(setup) -> None:
     client, clients, ids = setup
-    clients["small-base"] = FakeClient(fail="auth_failed")
+    clients["small-ft-r1"] = FakeClient(fail="auth_failed")
     run_id = client.post("/api/runs", json={"document_id": ids["pdf"], "task": "summarise"}).json()[
         "run_id"
     ]
     events = _events(client.get(f"/api/runs/{run_id}/stream").text)
     by_model = {(n, d.get("model_key")) for n, d in events}
-    assert ("model.error", "small-base") in by_model
+    assert ("model.error", "small-ft-r1") in by_model
     assert ("model.completed", "openai") in by_model
 
 
@@ -161,7 +161,7 @@ def test_describe_sends_the_image_to_both_models(setup) -> None:
             yield Delta("A red square.")
             yield Finished("A red square.", 900, 0, 5, 0, 5.0, 9.0)
 
-    clients["small-base"], clients["openai"] = PlainClient(), PlainClient()
+    clients["small-ft-r1"], clients["openai"] = PlainClient(), PlainClient()
     image_store.put(ids["photo"], b"\xff\xd8fakejpeg")
     run_id = client.post(
         "/api/runs", json={"document_id": ids["photo"], "task": "describe"}
@@ -205,7 +205,7 @@ def test_test_document_gets_ground_truth_scores(setup, monkeypatch) -> None:
     entry = {"id": "cord_test_9999", "task": "extract", "label": LABEL}
     monkeypatch.setattr(runs_route, "frozen_entry", lambda sha: entry if sha == "a" else None)
     clients["openai"] = FixedClient(json.dumps(LABEL))
-    clients["small-base"] = FixedClient(json.dumps(LABEL | {"total": 6.0, "line_items": []}))
+    clients["small-ft-r1"] = FixedClient(json.dumps(LABEL | {"total": 6.0, "line_items": []}))
     run_id = client.post("/api/runs", json={"document_id": ids["pdf"], "task": "extract"}).json()[
         "run_id"
     ]
@@ -213,7 +213,7 @@ def test_test_document_gets_ground_truth_scores(setup, monkeypatch) -> None:
         events = dict(_events(client.get(f"/api/runs/{run_id}/stream").text))
         score = events["score.completed"]
         assert score["mode"] == "ground_truth" and score["test_document_id"] == "cord_test_9999"
-        right, left = score["results"]["openai"], score["results"]["small-base"]
+        right, left = score["results"]["openai"], score["results"]["small-ft-r1"]
         assert right["perfect"] and right["correct_items"] == [0]
         assert right["fields"] == {"currency": True, "total": True}
         assert left["fields"]["total"] is False and left["expected"]["total"] == 5.0

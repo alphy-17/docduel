@@ -6,6 +6,10 @@ DocDuel puts both models on the same document at the same moment and measures th
 
 **Live site: [docduel.vercel.app](https://docduel.vercel.app)**
 
+![DocDuel in 34 seconds: a recorded duel, accuracy, the improvement loop and cost](docs/demo/docduel_demo.gif)
+
+<sub>Made with code: `video/` renders it with Remotion from real screenshots, and every number in it comes from `reports/`.</sub>
+
 - **Duel:** pick a sample and watch both models extract the fields side by side, with time, tokens and cost for each. The public site plays recordings of real runs, so it works instantly and costs nothing. Live mode (your own files) needs an access code because it runs the paid models.
 - **Benchmark:** the frozen test set results with confidence ranges, accuracy by field, where each model failed, and how the small model improved over two training rounds.
 

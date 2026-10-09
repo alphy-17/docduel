@@ -1,0 +1,25 @@
+{
+  "name": "docduel-video",
+  "version": "1.0.0",
+  "description": "DocDuel promo video (Remotion)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render:landscape": "remotion render src/index.ts landscape out/docduel_landscape.mp4",
+    "render:vertical": "remotion render src/index.ts vertical out/docduel_vertical.mp4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/lora": "^5.3.0",
+    "@fontsource/poppins": "^5.3.0",
+    "@remotion/cli": "^4.0.534",
+    "@remotion/effects": "^4.0.534",
+    "@remotion/transitions": "^4.0.534",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.534"
+  },
+  "private": true
+}

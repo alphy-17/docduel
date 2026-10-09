@@ -38,3 +38,7 @@ Thumbs.db
 
 # Local design reference photos (Unsplash, not committed)
 frontend/backgrounds/
+
+# Promo video renders and the secret-scan history copy (never committed)
+video/out/
+*.bundle

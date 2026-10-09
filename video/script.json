@@ -1,0 +1,113 @@
+{
+ "_note": "Narration for the promo. 'caption' is shown on screen, 'say' is what the voice reads (numbers spelled out, Qwen spelled Kwen), 'pause' is the gap in seconds after the line. Every number here is checked against reports/ by make_data.py.",
+ "lines": [
+  {
+   "id": "hook",
+   "caption": "Can a tiny AI model I trained beat OpenAI at reading invoices?",
+   "say": "Can a tiny AI model I trained beat OpenAI at reading invoices?",
+   "pause": 0.22
+  },
+  {
+   "id": "built",
+   "caption": "I built DocDuel to find out.",
+   "say": "I built DocDuel to find out.",
+   "pause": 0.26
+  },
+  {
+   "id": "race",
+   "caption": "Same document, same prompt, head to head.",
+   "say": "Same document, same prompt, head to head.",
+   "pause": 0.26
+  },
+  {
+   "id": "data",
+   "caption": "First, the data: 800 real receipts, 500 generated invoices, and a locked test set.",
+   "say": "First, the data. Eight hundred real receipts, five hundred generated invoices, and a locked test set.",
+   "pause": 0.11
+  },
+  {
+   "id": "never",
+   "caption": "The model never sees it.",
+   "say": "The model never sees it.",
+   "pause": 0.26
+  },
+  {
+   "id": "train",
+   "caption": "Next, training.",
+   "say": "Next, training.",
+   "pause": 0.08
+  },
+  {
+   "id": "qwen",
+   "caption": "I fine-tuned Qwen, a small open model, on a rented GPU.",
+   "say": "I fine-tuned Kwen, a small open model, on a rented GPU.",
+   "pause": 0.11
+  },
+  {
+   "id": "forty",
+   "caption": "39 minutes. About $1.32.",
+   "say": "Thirty-nine minutes. About a dollar thirty.",
+   "pause": 0.26
+  },
+  {
+   "id": "result",
+   "caption": "The result?",
+   "say": "The result?",
+   "pause": 0.19
+  },
+  {
+   "id": "acc",
+   "caption": "97.5% of OpenAI's accuracy.",
+   "say": "Ninety-seven and a half percent of OpenAI's accuracy.",
+   "pause": 0.3
+  },
+  {
+   "id": "layout",
+   "caption": "Then a new layout tripped it up. So I fixed 40 invoices by hand, and retrained.",
+   "say": "Then a new layout tripped it up. So I fixed forty invoices by hand, and retrained.",
+   "pause": 0.11
+  },
+  {
+   "id": "perfect",
+   "caption": "On the hardest documents, perfect scores jumped from 10% to 70%.",
+   "say": "On the hardest documents, perfect scores jumped from ten to seventy percent.",
+   "pause": 0.3
+  },
+  {
+   "id": "cheaper",
+   "caption": "But is it cheaper?",
+   "say": "But is it cheaper?",
+   "pause": 0.15
+  },
+  {
+   "id": "one",
+   "caption": "One at a time? No.",
+   "say": "One at a time? No.",
+   "pause": 0.15
+  },
+  {
+   "id": "sixteen",
+   "caption": "16 at once? It beats OpenAI on cost.",
+   "say": "Sixteen at once? It beats OpenAI on cost.",
+   "pause": 0.3
+  },
+  {
+   "id": "live",
+   "caption": "And it's live: React on Vercel, the API on Azure, the model on Modal.",
+   "say": "And it's live. React on Vercel, the API on Azure, the model on Modal.",
+   "pause": 0.26
+  },
+  {
+   "id": "name",
+   "caption": "DocDuel.",
+   "say": "DocDuel.",
+   "pause": 0.19
+  },
+  {
+   "id": "try",
+   "caption": "Try it, and check every number.",
+   "say": "Try it, and check every number.",
+   "pause": 0.0
+  }
+ ]
+}

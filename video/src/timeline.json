@@ -1,0 +1,713 @@
+{
+ "total": 60.1,
+ "clips": [
+  {
+   "id": "hook",
+   "caption": "Can a tiny AI model I trained beat OpenAI at reading invoices?",
+   "start": 0.5,
+   "dur": 4.458,
+   "offset": 0,
+   "file": 4.493,
+   "words": [
+    {
+     "w": "Can",
+     "t": 0
+    },
+    {
+     "w": "a",
+     "t": 0.244
+    },
+    {
+     "w": "tiny",
+     "t": 0.325
+    },
+    {
+     "w": "AI",
+     "t": 0.697
+    },
+    {
+     "w": "model",
+     "t": 1.022
+    },
+    {
+     "w": "I",
+     "t": 1.335
+    },
+    {
+     "w": "trained",
+     "t": 1.44
+    },
+    {
+     "w": "beat",
+     "t": 1.892
+    },
+    {
+     "w": "OpenAI",
+     "t": 2.148
+    },
+    {
+     "w": "at",
+     "t": 2.752
+    },
+    {
+     "w": "reading",
+     "t": 2.902
+    },
+    {
+     "w": "invoices?",
+     "t": 3.262
+    }
+   ]
+  },
+  {
+   "id": "built",
+   "caption": "I built DocDuel to find out.",
+   "start": 5.178,
+   "dur": 2.09,
+   "offset": 0,
+   "file": 2.116,
+   "words": [
+    {
+     "w": "I",
+     "t": 0
+    },
+    {
+     "w": "built",
+     "t": 0.186
+    },
+    {
+     "w": "DocDuel",
+     "t": 0.464
+    },
+    {
+     "w": "to",
+     "t": 0.975
+    },
+    {
+     "w": "find",
+     "t": 1.103
+    },
+    {
+     "w": "out.",
+     "t": 1.382
+    }
+   ]
+  },
+  {
+   "id": "race",
+   "caption": "Same document, same prompt, head to head.",
+   "start": 7.528,
+   "dur": 2.926,
+   "offset": 0,
+   "file": 2.952,
+   "words": [
+    {
+     "w": "Same",
+     "t": 0
+    },
+    {
+     "w": "document,",
+     "t": 0.337
+    },
+    {
+     "w": "same",
+     "t": 0.94
+    },
+    {
+     "w": "prompt,",
+     "t": 1.219
+    },
+    {
+     "w": "head",
+     "t": 1.649
+    },
+    {
+     "w": "to",
+     "t": 1.858
+    },
+    {
+     "w": "head.",
+     "t": 1.985
+    }
+   ]
+  },
+  {
+   "id": "data",
+   "caption": "First, the data: 800 real receipts, 500 generated invoices, and a locked test set.",
+   "start": 10.714,
+   "dur": 6.641,
+   "offset": 0,
+   "file": 6.687,
+   "words": [
+    {
+     "w": "First,",
+     "t": 0
+    },
+    {
+     "w": "the",
+     "t": 0.499
+    },
+    {
+     "w": "data:",
+     "t": 0.662
+    },
+    {
+     "w": "800",
+     "t": 1.498
+    },
+    {
+     "w": "real",
+     "t": 1.753
+    },
+    {
+     "w": "receipts,",
+     "t": 2.101
+    },
+    {
+     "w": "500",
+     "t": 2.38
+    },
+    {
+     "w": "generated",
+     "t": 3.042
+    },
+    {
+     "w": "invoices,",
+     "t": 3.634
+    },
+    {
+     "w": "and",
+     "t": 4.18
+    },
+    {
+     "w": "a",
+     "t": 4.18
+    },
+    {
+     "w": "locked",
+     "t": 4.783
+    },
+    {
+     "w": "test",
+     "t": 5.062
+    },
+    {
+     "w": "set.",
+     "t": 5.375
+    }
+   ]
+  },
+  {
+   "id": "never",
+   "caption": "The model never sees it.",
+   "start": 17.465,
+   "dur": 1.672,
+   "offset": 0,
+   "file": 1.698,
+   "words": [
+    {
+     "w": "The",
+     "t": 0
+    },
+    {
+     "w": "model",
+     "t": 0.186
+    },
+    {
+     "w": "never",
+     "t": 0.488
+    },
+    {
+     "w": "sees",
+     "t": 0.708
+    },
+    {
+     "w": "it.",
+     "t": 0.998
+    }
+   ]
+  },
+  {
+   "id": "train",
+   "caption": "Next, training.",
+   "start": 19.397,
+   "dur": 1.161,
+   "offset": 0,
+   "file": 1.202,
+   "words": [
+    {
+     "w": "Next,",
+     "t": 0
+    },
+    {
+     "w": "training.",
+     "t": 0.383
+    }
+   ]
+  },
+  {
+   "id": "qwen",
+   "caption": "I fine-tuned Qwen, a small open model, on a rented GPU.",
+   "start": 20.638,
+   "dur": 4.365,
+   "offset": 0,
+   "file": 4.415,
+   "words": [
+    {
+     "w": "I",
+     "t": 0
+    },
+    {
+     "w": "fine-tuned",
+     "t": 0.209
+    },
+    {
+     "w": "Qwen,",
+     "t": 0.859
+    },
+    {
+     "w": "a",
+     "t": 1.242
+    },
+    {
+     "w": "small",
+     "t": 1.347
+    },
+    {
+     "w": "open",
+     "t": 1.718
+    },
+    {
+     "w": "model,",
+     "t": 2.067
+    },
+    {
+     "w": "on",
+     "t": 2.601
+    },
+    {
+     "w": "a",
+     "t": 2.763
+    },
+    {
+     "w": "rented",
+     "t": 2.856
+    },
+    {
+     "w": "GPU.",
+     "t": 3.228
+    }
+   ]
+  },
+  {
+   "id": "forty",
+   "caption": "39 minutes. About $1.32.",
+   "start": 25.113,
+   "dur": 2.694,
+   "offset": 0,
+   "file": 2.743,
+   "words": [
+    {
+     "w": "39",
+     "t": 0
+    },
+    {
+     "w": "minutes.",
+     "t": 0
+    },
+    {
+     "w": "About",
+     "t": 1.265
+    },
+    {
+     "w": "$1.32.",
+     "t": 1.649
+    }
+   ]
+  },
+  {
+   "id": "result",
+   "caption": "The result?",
+   "start": 28.067,
+   "dur": 0.836,
+   "offset": 0,
+   "file": 0.862,
+   "words": [
+    {
+     "w": "The",
+     "t": 0
+    },
+    {
+     "w": "result?",
+     "t": 0.197
+    }
+   ]
+  },
+  {
+   "id": "acc",
+   "caption": "97.5% of OpenAI's accuracy.",
+   "start": 29.093,
+   "dur": 3.669,
+   "offset": 0,
+   "file": 3.709,
+   "words": [
+    {
+     "w": "97.5%",
+     "t": 0
+    },
+    {
+     "w": "of",
+     "t": 0
+    },
+    {
+     "w": "OpenAI's",
+     "t": 0.824
+    },
+    {
+     "w": "accuracy.",
+     "t": 1.695
+    }
+   ]
+  },
+  {
+   "id": "layout",
+   "caption": "Then a new layout tripped it up. So I fixed 40 invoices by hand, and retrained.",
+   "start": 33.062,
+   "dur": 5.666,
+   "offset": 0,
+   "file": 5.695,
+   "words": [
+    {
+     "w": "Then",
+     "t": 0
+    },
+    {
+     "w": "a",
+     "t": 0.279
+    },
+    {
+     "w": "new",
+     "t": 0.372
+    },
+    {
+     "w": "layout",
+     "t": 0.569
+    },
+    {
+     "w": "tripped",
+     "t": 0.94
+    },
+    {
+     "w": "it",
+     "t": 1.254
+    },
+    {
+     "w": "up.",
+     "t": 1.393
+    },
+    {
+     "w": "So",
+     "t": 1.834
+    },
+    {
+     "w": "I",
+     "t": 2.02
+    },
+    {
+     "w": "fixed",
+     "t": 2.125
+    },
+    {
+     "w": "40",
+     "t": 2.426
+    },
+    {
+     "w": "invoices",
+     "t": 2.426
+    },
+    {
+     "w": "by",
+     "t": 2.821
+    },
+    {
+     "w": "hand,",
+     "t": 3.425
+    },
+    {
+     "w": "and",
+     "t": 3.634
+    },
+    {
+     "w": "retrained.",
+     "t": 4.226
+    }
+   ]
+  },
+  {
+   "id": "perfect",
+   "caption": "On the hardest documents, perfect scores jumped from 10% to 70%.",
+   "start": 38.838,
+   "dur": 4.598,
+   "offset": 0,
+   "file": 4.624,
+   "words": [
+    {
+     "w": "On",
+     "t": 0
+    },
+    {
+     "w": "the",
+     "t": 0.197
+    },
+    {
+     "w": "hardest",
+     "t": 0.313
+    },
+    {
+     "w": "documents,",
+     "t": 0.673
+    },
+    {
+     "w": "perfect",
+     "t": 1.265
+    },
+    {
+     "w": "scores",
+     "t": 1.695
+    },
+    {
+     "w": "jumped",
+     "t": 2.415
+    },
+    {
+     "w": "from",
+     "t": 2.902
+    },
+    {
+     "w": "10%",
+     "t": 3.042
+    },
+    {
+     "w": "to",
+     "t": 3.042
+    },
+    {
+     "w": "70%.",
+     "t": 3.425
+    }
+   ]
+  },
+  {
+   "id": "cheaper",
+   "caption": "But is it cheaper?",
+   "start": 43.736,
+   "dur": 1.022,
+   "offset": 0,
+   "file": 1.071,
+   "words": [
+    {
+     "w": "But",
+     "t": 0
+    },
+    {
+     "w": "is",
+     "t": 0.209
+    },
+    {
+     "w": "it",
+     "t": 0.348
+    },
+    {
+     "w": "cheaper?",
+     "t": 0.453
+    }
+   ]
+  },
+  {
+   "id": "one",
+   "caption": "One at a time? No.",
+   "start": 44.908,
+   "dur": 1.672,
+   "offset": 0,
+   "file": 1.698,
+   "words": [
+    {
+     "w": "One",
+     "t": 0
+    },
+    {
+     "w": "at",
+     "t": 0.221
+    },
+    {
+     "w": "a",
+     "t": 0.337
+    },
+    {
+     "w": "time?",
+     "t": 0.418
+    },
+    {
+     "w": "No.",
+     "t": 1.231
+    }
+   ]
+  },
+  {
+   "id": "sixteen",
+   "caption": "16 at once? It beats OpenAI on cost.",
+   "start": 46.73,
+   "dur": 2.972,
+   "offset": 0,
+   "file": 3.004,
+   "words": [
+    {
+     "w": "16",
+     "t": 0
+    },
+    {
+     "w": "at",
+     "t": 0
+    },
+    {
+     "w": "once?",
+     "t": 0
+    },
+    {
+     "w": "It",
+     "t": 0.615
+    },
+    {
+     "w": "beats",
+     "t": 1.161
+    },
+    {
+     "w": "OpenAI",
+     "t": 1.324
+    },
+    {
+     "w": "on",
+     "t": 1.614
+    },
+    {
+     "w": "cost.",
+     "t": 2.218
+    }
+   ]
+  },
+  {
+   "id": "live",
+   "caption": "And it's live: React on Vercel, the API on Azure, the model on Modal.",
+   "start": 50.002,
+   "dur": 5.294,
+   "offset": 0,
+   "file": 5.329,
+   "words": [
+    {
+     "w": "And",
+     "t": 0
+    },
+    {
+     "w": "it's",
+     "t": 0.221
+    },
+    {
+     "w": "live:",
+     "t": 0.395
+    },
+    {
+     "w": "React",
+     "t": 1.115
+    },
+    {
+     "w": "on",
+     "t": 1.521
+    },
+    {
+     "w": "Vercel,",
+     "t": 1.672
+    },
+    {
+     "w": "the",
+     "t": 2.31
+    },
+    {
+     "w": "API",
+     "t": 2.485
+    },
+    {
+     "w": "on",
+     "t": 2.961
+    },
+    {
+     "w": "Azure,",
+     "t": 3.111
+    },
+    {
+     "w": "the",
+     "t": 3.715
+    },
+    {
+     "w": "model",
+     "t": 3.878
+    },
+    {
+     "w": "on",
+     "t": 4.203
+    },
+    {
+     "w": "Modal.",
+     "t": 4.342
+    }
+   ]
+  },
+  {
+   "id": "name",
+   "caption": "DocDuel.",
+   "start": 55.556,
+   "dur": 1.254,
+   "offset": 0,
+   "file": 1.28,
+   "words": [
+    {
+     "w": "DocDuel.",
+     "t": 0
+    }
+   ]
+  },
+  {
+   "id": "try",
+   "caption": "Try it, and check every number.",
+   "start": 57.0,
+   "dur": 1.811,
+   "offset": 0,
+   "file": 1.855,
+   "words": [
+    {
+     "w": "Try",
+     "t": 0
+    },
+    {
+     "w": "it,",
+     "t": 0.325
+    },
+    {
+     "w": "and",
+     "t": 0.476
+    },
+    {
+     "w": "check",
+     "t": 0.639
+    },
+    {
+     "w": "every",
+     "t": 0.917
+    },
+    {
+     "w": "number.",
+     "t": 1.161
+    }
+   ]
+  }
+ ]
+}

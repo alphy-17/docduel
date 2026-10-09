@@ -6,7 +6,9 @@ DocDuel puts both models on the same document at the same moment and measures th
 
 **Live site: [docduel.vercel.app](https://docduel.vercel.app)**
 
-![DocDuel in 34 seconds: a recorded duel, accuracy, the improvement loop and cost](docs/demo/docduel_demo.gif)
+
+https://github.com/user-attachments/assets/33254ad1-651f-4344-9b73-7641d3cc1a6b
+
 
 <sub>Made with code: `video/` renders it with Remotion from real screenshots, and every number in it comes from `reports/`.</sub>
 

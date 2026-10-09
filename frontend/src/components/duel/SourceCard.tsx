@@ -450,7 +450,7 @@ function Preview({ file, doc }: { file: File | null; doc: DocumentOut }) {
 
 const INTRO = {
   title: "Same document, two models.",
-  lead: "DocDuel is a test bench for one question: can a small open model, trained on receipts and invoices, read them as well as OpenAI does, for a fraction of the cost?",
+  lead: "DocDuel is a test bench for one question: can a small open model, trained on receipts and invoices, read them as well as OpenAI does? And what does each one cost?",
   steps: [
     "Upload a receipt, invoice, photo or bank CSV.",
     "Both models get the identical prompt at the same moment.",

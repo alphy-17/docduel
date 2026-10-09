@@ -19,6 +19,7 @@ const PAGES = [
   { path: "/benchmark", label: "Benchmark" },
   // The Corrections page is a local tool for the Owner; the public site does not show it.
   ...(DEMO ? [] : [{ path: "/corrections", label: "Corrections" }]),
+  { path: "/about", label: "About" },
 ]
 
 export function TopBar({ path, onNavigate }: { path: string; onNavigate: (to: string) => void }) {

@@ -18,10 +18,14 @@ type Metric = { label: string; value: (c: Completed) => number | null; show: (c:
 const METRICS: Metric[] = [
   { label: "Time", value: (c) => c.latency_ms, show: (c) => seconds(c.latency_ms) },
   { label: "First token", value: (c) => c.ttft_ms, show: (c) => seconds(c.ttft_ms) },
-  { label: "Tokens", value: (c) => c.input_tokens + c.output_tokens, show: (c) => count(c.input_tokens + c.output_tokens) },
+  {
+    label: "Tokens",
+    value: (c) => c.input_tokens + c.output_tokens,
+    show: (c) => count(c.input_tokens + c.output_tokens),
+  },
   { label: "Cost", value: (c) => c.cost_usd, show: (c) => usd(c.cost_usd) },
   {
-    label: "Per 1,000 docs",
+    label: "Per 1,000, one at a time",
     value: (c) => (c.cost_usd == null ? null : c.cost_usd * 1000),
     show: (c) => usd(c.cost_usd == null ? null : c.cost_usd * 1000),
   },
@@ -137,7 +141,9 @@ export function Verdict({
       <h2 className="font-serif text-[19px] font-semibold">Summary</h2>
       <div className="mt-2 flex items-center gap-5">
         {big && <div className="num text-[28px] leading-none whitespace-nowrap">{big}</div>}
-        <p className="text-ink-2" aria-live="polite">{text}</p>
+        <p className="text-ink-2" aria-live="polite">
+          {text}
+        </p>
       </div>
       {lines.length > 0 && (
         <ul className="mt-3 space-y-1">
